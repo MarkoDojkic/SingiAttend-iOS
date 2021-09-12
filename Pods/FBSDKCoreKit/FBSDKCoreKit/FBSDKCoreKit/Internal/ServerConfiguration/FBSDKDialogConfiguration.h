@@ -18,9 +18,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit/FBSDKCopying.h>
-
-@interface FBSDKDialogConfiguration : NSObject <FBSDKCopying, NSSecureCoding>
+NS_SWIFT_NAME(DialogConfiguration)
+@interface FBSDKDialogConfiguration : NSObject <NSCopying, NSObject, NSSecureCoding>
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

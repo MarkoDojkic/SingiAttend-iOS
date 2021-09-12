@@ -19,11 +19,15 @@ Copyright (c) 2014-2022 Alamofire Software Foundation (http://alamofire.org/)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 Copyright (c) 2011-2020 Alamofire Software Foundation (http://alamofire.org/)
 >>>>>>> a444d9c (Pod updates)
+<<<<<<< HEAD
 =======
 ## Alamofire
 
@@ -33,7 +37,12 @@ Copyright (c) 2014-2022 Alamofire Software Foundation (http://alamofire.org/)
 Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 633fcbd (Pod updates)
+>>>>>>> d08807a (Pod updates)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -60,8 +69,11 @@ THE SOFTWARE.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 =======
 ## Bolts
 
@@ -98,10 +110,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a444d9c (Pod updates)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> a444d9c (Pod updates)
+>>>>>>> 633fcbd (Pod updates)
 ## Charts
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
 
@@ -316,6 +333,7 @@ Apache License
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -323,6 +341,8 @@ Apache License
 
 <<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 ## SwiftAlgorithms
 
                                  Apache License
@@ -562,9 +582,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 >>>>>>> a444d9c (Pod updates)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 ## FBSDKCoreKit
 
 Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
@@ -587,6 +610,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## FBSDKCoreKit_Basics
 
 Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
@@ -603,16 +627,26 @@ included in all copies or substantial portions of the software.
 <<<<<<< HEAD
 =======
 ## SwiftSocket
+=======
+## FBSDKCoreKit_Basics
+>>>>>>> 633fcbd (Pod updates)
 
-BSD 3-Clause License
+Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
 
-Copyright (c) 2016, swiftsocket
-All rights reserved.
+You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
+copy, modify, and distribute this software in source code or binary form for use
+in connection with the web services and APIs provided by Facebook.
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+As with any software that integrates with the Facebook platform, your use of
+this software is subject to the Facebook Developer Principles and Policies
+[http://developers.facebook.com/policy/]. This copyright notice shall be
+included in all copies or substantial portions of the software.
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 633fcbd (Pod updates)
 * Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.
 
@@ -636,6 +670,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 =======
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS

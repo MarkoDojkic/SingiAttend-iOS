@@ -10,8 +10,11 @@ OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -fram
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
@@ -23,12 +26,16 @@ HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking
 OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Bolts" -framework "Charts" -framework "CoreGraphics" -framework "FBSDKCoreKit" -framework "MobileCoreServices" -framework "Security" -framework "SwiftSocket" -framework "SystemConfiguration" -weak_framework "Accounts" -weak_framework "AudioToolbox" -weak_framework "CoreGraphics" -weak_framework "CoreLocation" -weak_framework "Foundation" -weak_framework "QuartzCore" -weak_framework "Security" -weak_framework "Social" -weak_framework "UIKit"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 =======
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/FBAEMKit" "${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit" "${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit_Basics"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) FBSDKCOCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FBAEMKit/FBAEMKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -l"c++" -l"stdc++" -l"z" -framework "AFNetworking" -framework "Charts" -framework "FBAEMKit" -framework "FBSDKCoreKit" -framework "FBSDKCoreKit_Basics" -weak_framework "Accelerate" -weak_framework "Accounts" -weak_framework "AdSupport" -weak_framework "AudioToolbox" -weak_framework "CoreGraphics" -weak_framework "Foundation" -weak_framework "QuartzCore" -weak_framework "Security" -weak_framework "Social" -weak_framework "StoreKit" -weak_framework "UIKit"
 >>>>>>> a444d9c (Pod updates)
+<<<<<<< HEAD
 =======
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Charts"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
@@ -43,7 +50,12 @@ OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Algorithms" -fra
 >>>>>>> 2d3161b (Updated project version to 1.8; Updatd pod versions)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 633fcbd (Pod updates)
+>>>>>>> d08807a (Pod updates)
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

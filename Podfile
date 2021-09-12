@@ -6,10 +6,9 @@ target 'SingiAttend' do
   use_frameworks!
 	
   # Pods for SingiAttend
-  pod 'AFNetworking'
-  pod 'FBSDKCoreKit'
-  pod 'SwiftSocket'
-  pod 'Charts'
+  pod 'AFNetworking', '~> 4.0'
+  pod 'FBSDKCoreKit', '~> 11.2'
+  pod 'Charts', '~> 3.6'
   target 'SingiAttendTests' do
     inherit! :search_paths
     # Pods for testing

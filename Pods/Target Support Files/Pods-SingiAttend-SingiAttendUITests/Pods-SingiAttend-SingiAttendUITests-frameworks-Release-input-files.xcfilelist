@@ -15,6 +15,7 @@ ${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
@@ -34,9 +35,22 @@ ${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+=======
+>>>>>>> 633fcbd (Pod updates)
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
+<<<<<<< HEAD
 ${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+=======
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
+>>>>>>> a444d9c (Pod updates)
+>>>>>>> 633fcbd (Pod updates)
+>>>>>>> d08807a (Pod updates)

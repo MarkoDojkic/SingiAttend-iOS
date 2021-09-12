@@ -19,11 +19,19 @@
 #import <Foundation/Foundation.h>
 
 #import "FBSDKServerConfiguration.h"
+#import "FBSDKServerConfigurationProviding.h"
 
 #define FBSDK_SERVER_CONFIGURATION_MANAGER_CACHE_TIMEOUT (60 * 60)
-typedef void(^FBSDKServerConfigurationManagerLoadBlock)(FBSDKServerConfiguration *serverConfiguration, NSError *error);
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(ServerConfigurationManager)
 @interface FBSDKServerConfigurationManager : NSObject
+
+@property (class, readonly) FBSDKServerConfigurationManager *shared;
+
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
   Returns the locally cached configuration.
@@ -31,13 +39,15 @@ typedef void(^FBSDKServerConfigurationManagerLoadBlock)(FBSDKServerConfiguration
  The result will be valid for the appID from FBSDKSettings, but may be expired. A network request will be
  initiated to update the configuration if a valid and unexpired configuration is not available.
  */
-+ (FBSDKServerConfiguration *)cachedServerConfiguration;
+- (FBSDKServerConfiguration *)cachedServerConfiguration;
 
 /**
   Executes the completionBlock with a valid and current configuration when it is available.
 
  This method will use a cached configuration if it is valid and not expired.
  */
-+ (void)loadServerConfigurationWithCompletionBlock:(FBSDKServerConfigurationManagerLoadBlock)completionBlock;
+- (void)loadServerConfigurationWithCompletionBlock:(nullable FBSDKServerConfigurationBlock)completionBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -828,7 +828,7 @@ extension NSScrollView
 
 extension NSUIScreen
 {
-    static var nsuiMain: NSUIScreen? = .main
+    class var nsuiMain: NSUIScreen? { .main }
 }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)

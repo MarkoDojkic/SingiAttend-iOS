@@ -43,8 +43,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 		<key>Charts.xcscheme_^#shared#^_</key>
 =======
 		<key>Bolts.xcscheme</key>
@@ -61,6 +64,9 @@
 		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 =======
 >>>>>>> a444d9c (Pod updates)
 		<key>Charts.xcscheme</key>
@@ -85,6 +91,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
 =======
 =======
@@ -99,16 +108,20 @@
 			<false/>
 		</dict>
 >>>>>>> a444d9c (Pod updates)
+<<<<<<< HEAD
 =======
 		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
 		<key>FBSDKCoreKit.xcscheme</key>
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -129,8 +142,17 @@
 		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 =======
+=======
+>>>>>>> 633fcbd (Pod updates)
 		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
 =======
+=======
+		<key>FBSDKCoreKit_Basics.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+>>>>>>> a444d9c (Pod updates)
 		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme</key>
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
@@ -180,6 +202,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 633fcbd (Pod updates)
 		<key>SwiftSocket.xcscheme</key>
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
@@ -198,13 +223,21 @@
 		</dict>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a444d9c (Pod updates)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+=======
+>>>>>>> a444d9c (Pod updates)
+>>>>>>> 633fcbd (Pod updates)
+>>>>>>> d08807a (Pod updates)
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict/>
