@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6302138D24EAA23F00293AE9 /* ViewControllerRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302138C24EAA23F00293AE9 /* ViewControllerRegistration.swift */; };
+		6333923A2506223B0098141E /* SingleCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633392392506223B0098141E /* SingleCourseCell.swift */; };
+		634F297C24E6D93900778023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F297B24E6D93900778023 /* AppDelegate.swift */; };
+		634F297E24E6D93900778023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F297D24E6D93900778023 /* ViewController.swift */; };
+		634F298124E6D93900778023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634F297F24E6D93900778023 /* Main.storyboard */; };
+		634F298424E6D93900778023 /* SingiAttend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634F298224E6D93900778023 /* SingiAttend.xcdatamodeld */; };
+		634F298624E6D93D00778023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634F298524E6D93D00778023 /* Assets.xcassets */; };
+		634F298924E6D93D00778023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634F298724E6D93D00778023 /* LaunchScreen.storyboard */; };
+		634F299424E6D93D00778023 /* SingiAttendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F299324E6D93D00778023 /* SingiAttendTests.swift */; };
+		634F299F24E6D93D00778023 /* SingiAttendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F299E24E6D93D00778023 /* SingiAttendUITests.swift */; };
+		63E0B3D024EBFFFA0064AE14 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E0B3CF24EBFFFA0064AE14 /* SweetAlert.swift */; };
+		6C855602E422AC46FEFD0ECD /* Pods_SingiAttend_SingiAttendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C9E34AD2D375D319C08798 /* Pods_SingiAttend_SingiAttendUITests.framework */; };
+		CC5CCB13CD990A24C95390D5 /* Pods_SingiAttend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2127DA06315B59A7D78981A6 /* Pods_SingiAttend.framework */; };
+		E6E4A57F6653AE59CABE20CB /* Pods_SingiAttendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3969A6CC40679070D2219DC /* Pods_SingiAttendTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		634F299024E6D93D00778023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 634F297024E6D93900778023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 634F297724E6D93900778023;
+			remoteInfo = SingiAttend;
+		};
+		634F299B24E6D93D00778023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 634F297024E6D93900778023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 634F297724E6D93900778023;
+			remoteInfo = SingiAttend;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2127DA06315B59A7D78981A6 /* Pods_SingiAttend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingiAttend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3062B8A4C173315AB27332F3 /* Pods-SingiAttend-SingiAttendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttend-SingiAttendUITests.debug.xcconfig"; path = "Target Support Files/Pods-SingiAttend-SingiAttendUITests/Pods-SingiAttend-SingiAttendUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50B036E1AD7AF5F2949A3E30 /* Pods-SingiAttendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttendTests.release.xcconfig"; path = "Target Support Files/Pods-SingiAttendTests/Pods-SingiAttendTests.release.xcconfig"; sourceTree = "<group>"; };
+		6302138C24EAA23F00293AE9 /* ViewControllerRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegistration.swift; sourceTree = "<group>"; };
+		631F7B7926C4771700C1D631 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Main.strings; sourceTree = "<group>"; };
+		631F7B7A26C4771D00C1D631 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/Main.strings"; sourceTree = "<group>"; };
+		631F7B7B26C4771F00C1D631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		633392392506223B0098141E /* SingleCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCourseCell.swift; sourceTree = "<group>"; };
+		634F297824E6D93900778023 /* SingiAttend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingiAttend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		634F297B24E6D93900778023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		634F297D24E6D93900778023 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		634F298024E6D93900778023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		634F298324E6D93900778023 /* SingiAttend.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SingiAttend.xcdatamodel; sourceTree = "<group>"; };
+		634F298524E6D93D00778023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		634F298824E6D93D00778023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		634F298A24E6D93D00778023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634F298F24E6D93D00778023 /* SingiAttendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingiAttendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		634F299324E6D93D00778023 /* SingiAttendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingiAttendTests.swift; sourceTree = "<group>"; };
+		634F299524E6D93D00778023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634F299A24E6D93D00778023 /* SingiAttendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingiAttendUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		634F299E24E6D93D00778023 /* SingiAttendUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingiAttendUITests.swift; sourceTree = "<group>"; };
+		634F29A024E6D93D00778023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6375921D24E8216A002E5A38 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		63C9E73E26E4DD52005F8307 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		63C9E74026E4DD56005F8307 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		63E0B3CF24EBFFFA0064AE14 /* SweetAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
+		8D1E9BBA797F3C3BD399B019 /* Pods-SingiAttend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttend.debug.xcconfig"; path = "Target Support Files/Pods-SingiAttend/Pods-SingiAttend.debug.xcconfig"; sourceTree = "<group>"; };
+		A0A775491B231431C7A01388 /* Pods-SingiAttend-SingiAttendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttend-SingiAttendUITests.release.xcconfig"; path = "Target Support Files/Pods-SingiAttend-SingiAttendUITests/Pods-SingiAttend-SingiAttendUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B1E499DAB34F19231627CD74 /* Pods-SingiAttend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttend.release.xcconfig"; path = "Target Support Files/Pods-SingiAttend/Pods-SingiAttend.release.xcconfig"; sourceTree = "<group>"; };
+		D3969A6CC40679070D2219DC /* Pods_SingiAttendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingiAttendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C9E34AD2D375D319C08798 /* Pods_SingiAttend_SingiAttendUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingiAttend_SingiAttendUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5512D55774353B3562B5D43 /* Pods-SingiAttendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingiAttendTests.debug.xcconfig"; path = "Target Support Files/Pods-SingiAttendTests/Pods-SingiAttendTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		634F297524E6D93900778023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC5CCB13CD990A24C95390D5 /* Pods_SingiAttend.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F298C24E6D93D00778023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6E4A57F6653AE59CABE20CB /* Pods_SingiAttendTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F299724E6D93D00778023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C855602E422AC46FEFD0ECD /* Pods_SingiAttend_SingiAttendUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		634F296F24E6D93900778023 = {
+			isa = PBXGroup;
+			children = (
+				634F297A24E6D93900778023 /* SingiAttend */,
+				634F299224E6D93D00778023 /* SingiAttendTests */,
+				634F299D24E6D93D00778023 /* SingiAttendUITests */,
+				634F297924E6D93900778023 /* Products */,
+				D0BDCAC6C5F18AA7D5646D3E /* Pods */,
+				C77469FC27FC1AAA16E92326 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		634F297924E6D93900778023 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				634F297824E6D93900778023 /* SingiAttend.app */,
+				634F298F24E6D93D00778023 /* SingiAttendTests.xctest */,
+				634F299A24E6D93D00778023 /* SingiAttendUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		634F297A24E6D93900778023 /* SingiAttend */ = {
+			isa = PBXGroup;
+			children = (
+				634F297B24E6D93900778023 /* AppDelegate.swift */,
+				634F297D24E6D93900778023 /* ViewController.swift */,
+				6302138C24EAA23F00293AE9 /* ViewControllerRegistration.swift */,
+				63E0B3CF24EBFFFA0064AE14 /* SweetAlert.swift */,
+				633392392506223B0098141E /* SingleCourseCell.swift */,
+				634F297F24E6D93900778023 /* Main.storyboard */,
+				634F298524E6D93D00778023 /* Assets.xcassets */,
+				634F298724E6D93D00778023 /* LaunchScreen.storyboard */,
+				634F298A24E6D93D00778023 /* Info.plist */,
+				634F298224E6D93900778023 /* SingiAttend.xcdatamodeld */,
+			);
+			path = SingiAttend;
+			sourceTree = "<group>";
+		};
+		634F299224E6D93D00778023 /* SingiAttendTests */ = {
+			isa = PBXGroup;
+			children = (
+				634F299324E6D93D00778023 /* SingiAttendTests.swift */,
+				634F299524E6D93D00778023 /* Info.plist */,
+			);
+			path = SingiAttendTests;
+			sourceTree = "<group>";
+		};
+		634F299D24E6D93D00778023 /* SingiAttendUITests */ = {
+			isa = PBXGroup;
+			children = (
+				634F299E24E6D93D00778023 /* SingiAttendUITests.swift */,
+				634F29A024E6D93D00778023 /* Info.plist */,
+			);
+			path = SingiAttendUITests;
+			sourceTree = "<group>";
+		};
+		C77469FC27FC1AAA16E92326 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2127DA06315B59A7D78981A6 /* Pods_SingiAttend.framework */,
+				D9C9E34AD2D375D319C08798 /* Pods_SingiAttend_SingiAttendUITests.framework */,
+				D3969A6CC40679070D2219DC /* Pods_SingiAttendTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0BDCAC6C5F18AA7D5646D3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D1E9BBA797F3C3BD399B019 /* Pods-SingiAttend.debug.xcconfig */,
+				B1E499DAB34F19231627CD74 /* Pods-SingiAttend.release.xcconfig */,
+				3062B8A4C173315AB27332F3 /* Pods-SingiAttend-SingiAttendUITests.debug.xcconfig */,
+				A0A775491B231431C7A01388 /* Pods-SingiAttend-SingiAttendUITests.release.xcconfig */,
+				F5512D55774353B3562B5D43 /* Pods-SingiAttendTests.debug.xcconfig */,
+				50B036E1AD7AF5F2949A3E30 /* Pods-SingiAttendTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		634F297724E6D93900778023 /* SingiAttend */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 634F29A324E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttend" */;
+			buildPhases = (
+				B5F8E00E7CEE32500B4C67B6 /* [CP] Check Pods Manifest.lock */,
+				634F297424E6D93900778023 /* Sources */,
+				634F297524E6D93900778023 /* Frameworks */,
+				634F297624E6D93900778023 /* Resources */,
+				C039488AB0143D25293E7EBD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SingiAttend;
+			productName = SingiAttend;
+			productReference = 634F297824E6D93900778023 /* SingiAttend.app */;
+			productType = "com.apple.product-type.application";
+		};
+		634F298E24E6D93D00778023 /* SingiAttendTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 634F29A624E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttendTests" */;
+			buildPhases = (
+				8B5B88EADCC5E2C19191B74B /* [CP] Check Pods Manifest.lock */,
+				634F298B24E6D93D00778023 /* Sources */,
+				634F298C24E6D93D00778023 /* Frameworks */,
+				634F298D24E6D93D00778023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				634F299124E6D93D00778023 /* PBXTargetDependency */,
+			);
+			name = SingiAttendTests;
+			productName = SingiAttendTests;
+			productReference = 634F298F24E6D93D00778023 /* SingiAttendTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		634F299924E6D93D00778023 /* SingiAttendUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 634F29A924E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttendUITests" */;
+			buildPhases = (
+				FA816095C34EC7E989071D63 /* [CP] Check Pods Manifest.lock */,
+				634F299624E6D93D00778023 /* Sources */,
+				634F299724E6D93D00778023 /* Frameworks */,
+				634F299824E6D93D00778023 /* Resources */,
+				226EEBEC42AB136C0E2FDB0E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				634F299C24E6D93D00778023 /* PBXTargetDependency */,
+			);
+			name = SingiAttendUITests;
+			productName = SingiAttendUITests;
+			productReference = 634F299A24E6D93D00778023 /* SingiAttendUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		634F297024E6D93900778023 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = "Марко Дојкић";
+				TargetAttributes = {
+					634F297724E6D93900778023 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1250;
+					};
+					634F298E24E6D93D00778023 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1250;
+						TestTargetID = 634F297724E6D93900778023;
+					};
+					634F299924E6D93D00778023 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1250;
+						TestTargetID = 634F297724E6D93900778023;
+					};
+				};
+			};
+			buildConfigurationList = 634F297324E6D93900778023 /* Build configuration list for PBXProject "SingiAttend" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				sr,
+				"sr-Latn",
+			);
+			mainGroup = 634F296F24E6D93900778023;
+			productRefGroup = 634F297924E6D93900778023 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				634F297724E6D93900778023 /* SingiAttend */,
+				634F298E24E6D93D00778023 /* SingiAttendTests */,
+				634F299924E6D93D00778023 /* SingiAttendUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		634F297624E6D93900778023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634F298924E6D93D00778023 /* LaunchScreen.storyboard in Resources */,
+				634F298624E6D93D00778023 /* Assets.xcassets in Resources */,
+				634F298124E6D93900778023 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F298D24E6D93D00778023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F299824E6D93D00778023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		226EEBEC42AB136C0E2FDB0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SingiAttend-SingiAttendUITests/Pods-SingiAttend-SingiAttendUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SingiAttend-SingiAttendUITests/Pods-SingiAttend-SingiAttendUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SingiAttend-SingiAttendUITests/Pods-SingiAttend-SingiAttendUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B5B88EADCC5E2C19191B74B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SingiAttendTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F8E00E7CEE32500B4C67B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SingiAttend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C039488AB0143D25293E7EBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SingiAttend/Pods-SingiAttend-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SingiAttend/Pods-SingiAttend-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SingiAttend/Pods-SingiAttend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA816095C34EC7E989071D63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SingiAttend-SingiAttendUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		634F297424E6D93900778023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6333923A2506223B0098141E /* SingleCourseCell.swift in Sources */,
+				634F297E24E6D93900778023 /* ViewController.swift in Sources */,
+				63E0B3D024EBFFFA0064AE14 /* SweetAlert.swift in Sources */,
+				634F297C24E6D93900778023 /* AppDelegate.swift in Sources */,
+				6302138D24EAA23F00293AE9 /* ViewControllerRegistration.swift in Sources */,
+				634F298424E6D93900778023 /* SingiAttend.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F298B24E6D93D00778023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634F299424E6D93D00778023 /* SingiAttendTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634F299624E6D93D00778023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634F299F24E6D93D00778023 /* SingiAttendUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		634F299124E6D93D00778023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 634F297724E6D93900778023 /* SingiAttend */;
+			targetProxy = 634F299024E6D93D00778023 /* PBXContainerItemProxy */;
+		};
+		634F299C24E6D93D00778023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 634F297724E6D93900778023 /* SingiAttend */;
+			targetProxy = 634F299B24E6D93D00778023 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		634F297F24E6D93900778023 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				634F298024E6D93900778023 /* Base */,
+				631F7B7926C4771700C1D631 /* sr */,
+				631F7B7A26C4771D00C1D631 /* sr-Latn */,
+				631F7B7B26C4771F00C1D631 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		634F298724E6D93D00778023 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				634F298824E6D93D00778023 /* Base */,
+				6375921D24E8216A002E5A38 /* sr */,
+				63C9E73E26E4DD52005F8307 /* en */,
+				63C9E74026E4DD56005F8307 /* sr-Latn */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		634F29A124E6D93D00778023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		634F29A224E6D93D00778023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		634F29A424E6D93D00778023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D1E9BBA797F3C3BD399B019 /* Pods-SingiAttend.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.4;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SingiAttend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(SRCROOT)/Pods",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.markodojkic.SingiAttend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		634F29A524E6D93D00778023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1E499DAB34F19231627CD74 /* Pods-SingiAttend.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.4;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SingiAttend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(SRCROOT)/Pods",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.markodojkic.SingiAttend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		634F29A724E6D93D00778023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5512D55774353B3562B5D43 /* Pods-SingiAttendTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8K4W85H3Y;
+				INFOPLIST_FILE = SingiAttendTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pr.markodojkic.SingiAttendTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SingiAttend.app/SingiAttend";
+			};
+			name = Debug;
+		};
+		634F29A824E6D93D00778023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50B036E1AD7AF5F2949A3E30 /* Pods-SingiAttendTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8K4W85H3Y;
+				INFOPLIST_FILE = SingiAttendTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pr.markodojkic.SingiAttendTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SingiAttend.app/SingiAttend";
+			};
+			name = Release;
+		};
+		634F29AA24E6D93D00778023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3062B8A4C173315AB27332F3 /* Pods-SingiAttend-SingiAttendUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8K4W85H3Y;
+				INFOPLIST_FILE = SingiAttendUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pr.markodojkic.SingiAttendUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SingiAttend;
+			};
+			name = Debug;
+		};
+		634F29AB24E6D93D00778023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0A775491B231431C7A01388 /* Pods-SingiAttend-SingiAttendUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8K4W85H3Y;
+				INFOPLIST_FILE = SingiAttendUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pr.markodojkic.SingiAttendUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SingiAttend;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		634F297324E6D93900778023 /* Build configuration list for PBXProject "SingiAttend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				634F29A124E6D93D00778023 /* Debug */,
+				634F29A224E6D93D00778023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		634F29A324E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				634F29A424E6D93D00778023 /* Debug */,
+				634F29A524E6D93D00778023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		634F29A624E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttendTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				634F29A724E6D93D00778023 /* Debug */,
+				634F29A824E6D93D00778023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		634F29A924E6D93D00778023 /* Build configuration list for PBXNativeTarget "SingiAttendUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				634F29AA24E6D93D00778023 /* Debug */,
+				634F29AB24E6D93D00778023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		634F298224E6D93900778023 /* SingiAttend.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				634F298324E6D93900778023 /* SingiAttend.xcdatamodel */,
+			);
+			currentVersion = 634F298324E6D93900778023 /* SingiAttend.xcdatamodel */;
+			path = SingiAttend.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 634F297024E6D93900778023 /* Project object */;
+}
