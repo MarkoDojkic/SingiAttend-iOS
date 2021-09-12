@@ -117,7 +117,7 @@ open class SweetAlert: UIViewController {
         var buttonRect:[CGRect] = []
         for button in buttons {
             let string = button.title(for: UIControl.State())! as NSString
-            buttonRect.append(string.boundingRect(with: CGSize(width: width, height:0.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font:button.titleLabel!.font], context:nil))
+            buttonRect.append(string.boundingRect(with: CGSize(width: width, height:0.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font:button.titleLabel!.font!], context:nil))
         }
         
         var totalWidth: CGFloat = 0.0
@@ -239,7 +239,11 @@ open class SweetAlert: UIViewController {
     open func showAlert(_ title: String, subTitle: String?, style: AlertStyle,buttonTitle: String,buttonColor: UIColor,otherButtonTitle:
         String?, otherButtonColor: UIColor?,action: ((_ isOtherButton: Bool) -> Void)? = nil) {
         userAction = action
-        let window: UIWindow = UIApplication.shared.keyWindow!
+        let window: UIWindow = (UIApplication.shared.connectedScenes
+                                    .filter({$0.activationState == .foregroundActive})
+                                    .compactMap({$0 as? UIWindowScene})
+                                    .first?.windows
+                                    .filter({$0.isKeyWindow}).first)!
         window.addSubview(view)
         window.bringSubviewToFront(view)
         view.frame = window.bounds

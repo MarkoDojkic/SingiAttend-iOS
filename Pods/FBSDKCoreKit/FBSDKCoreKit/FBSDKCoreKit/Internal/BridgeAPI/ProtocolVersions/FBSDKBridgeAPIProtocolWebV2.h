@@ -16,10 +16,20 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import <UIKit/UIKit.h>
 
 #import "FBSDKBridgeAPIProtocol.h"
 
-@interface FBSDKBridgeAPIProtocolWebV2 : NSObject <FBSDKBridgeAPIProtocol>
+NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(BridgeAPIProtocolWebV2)
+@interface FBSDKBridgeAPIProtocolWebV2 : NSObject <FBSDKBridgeAPIProtocol>
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif

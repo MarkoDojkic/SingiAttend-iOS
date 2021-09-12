@@ -21,7 +21,7 @@ extension CGSize
 
 extension CGRect
 {
-    var orientation: Orientation { return size.orientation }
+    var orientation: Orientation { size.orientation }
 }
 
 // MARK: - UIKit

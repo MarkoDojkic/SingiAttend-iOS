@@ -18,9 +18,12 @@
 
 #import "FBSDKGraphRequestBody.h"
 
+#import "FBSDKConstants.h"
+#import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKCrypto.h"
 #import "FBSDKGraphRequestDataAttachment.h"
 #import "FBSDKLogger.h"
+#import "FBSDKLogger+Internal.h"
 #import "FBSDKSettings.h"
 
 #define kNewline @"\r\n"
@@ -36,8 +39,9 @@
 {
   if ((self = [super init])) {
     _stringBoundary = [FBSDKCrypto randomString:32];
-    _data = [[NSMutableData alloc] init];
+    _data = [NSMutableData new];
     _json = [NSMutableDictionary dictionary];
+    _requiresMultipartDataFormat = NO;
   }
 
   return self;
@@ -45,10 +49,10 @@
 
 - (NSString *)mimeContentType
 {
-  if (_json) {
-    return @"application/json";
-  } else {
+  if (self.requiresMultipartDataFormat) {
     return [NSString stringWithFormat:@"multipart/form-data; boundary=%@", _stringBoundary];
+  } else {
+    return @"application/json";
   }
 }
 
@@ -71,7 +75,7 @@
     [self appendUTF8:value];
   }];
   if (key && value) {
-    _json[key] = value;
+    [FBSDKTypeUtility dictionary:_json setObject:value forKey:key];
   }
   [logger appendFormat:@"\n    %@:\t%@", key, (NSString *)value];
 }
@@ -84,7 +88,7 @@
   [self _appendWithKey:key filename:key contentType:@"image/jpeg" contentBlock:^{
     [self->_data appendData:data];
   }];
-  _json = nil;
+  self.requiresMultipartDataFormat = YES;
   [logger appendFormat:@"\n    %@:\t<Image - %lu kB>", key, (unsigned long)(data.length / 1024)];
 }
 
@@ -95,7 +99,7 @@
   [self _appendWithKey:key filename:key contentType:@"content/unknown" contentBlock:^{
     [self->_data appendData:data];
   }];
-  _json = nil;
+  self.requiresMultipartDataFormat = YES;
   [logger appendFormat:@"\n    %@:\t<Data - %lu kB>", key, (unsigned long)(data.length / 1024)];
 }
 
@@ -109,37 +113,38 @@
   [self _appendWithKey:key filename:filename contentType:contentType contentBlock:^{
     [self->_data appendData:data];
   }];
-  _json = nil;
+  self.requiresMultipartDataFormat = YES;
   [logger appendFormat:@"\n    %@:\t<Data - %lu kB>", key, (unsigned long)(data.length / 1024)];
 }
 
 - (NSData *)data
 {
-  if (_json) {
+  if (self.requiresMultipartDataFormat) {
+    return [_data copy];
+  } else {
     NSData *jsonData;
     if (_json.allKeys.count > 0) {
-      jsonData = [NSJSONSerialization dataWithJSONObject:_json options:0 error:nil];
+      jsonData = [FBSDKTypeUtility dataWithJSONObject:_json options:0 error:nil];
     } else {
       jsonData = [NSData data];
     }
 
     return jsonData;
   }
-  return [_data copy];
 }
 
 - (void)_appendWithKey:(NSString *)key
               filename:(NSString *)filename
            contentType:(NSString *)contentType
-          contentBlock:(void(^)(void))contentBlock
+          contentBlock:(FBSDKCodeBlock)contentBlock
 {
-  NSMutableArray *disposition = [[NSMutableArray alloc] init];
-  [disposition addObject:@"Content-Disposition: form-data"];
+  NSMutableArray *disposition = [NSMutableArray new];
+  [FBSDKTypeUtility array:disposition addObject:@"Content-Disposition: form-data"];
   if (key) {
-    [disposition addObject:[[NSString alloc] initWithFormat:@"name=\"%@\"", key]];
+    [FBSDKTypeUtility array:disposition addObject:[[NSString alloc] initWithFormat:@"name=\"%@\"", key]];
   }
   if (filename) {
-    [disposition addObject:[[NSString alloc] initWithFormat:@"filename=\"%@\"", filename]];
+    [FBSDKTypeUtility array:disposition addObject:[[NSString alloc] initWithFormat:@"filename=\"%@\"", filename]];
   }
   [self appendUTF8:[[NSString alloc] initWithFormat:@"%@%@", [disposition componentsJoinedByString:@"; "], kNewline]];
   if (contentType) {
@@ -150,6 +155,15 @@
     contentBlock();
   }
   [self appendUTF8:[[NSString alloc] initWithFormat:@"%@--%@%@", kNewline, _stringBoundary, kNewline]];
+}
+
+- (NSData *)compressedData
+{
+  if (!self.data.length || ![[self mimeContentType] isEqualToString:@"application/json"]) {
+    return nil;
+  }
+
+  return [FBSDKBasicUtility gzip:self.data];
 }
 
 @end
