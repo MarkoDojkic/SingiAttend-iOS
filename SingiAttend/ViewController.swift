@@ -49,7 +49,8 @@ extension NSRegularExpression {
 }
 
 public func communicateWithServer(_ message:String, _ sleep_time:Int) -> String {
-    let socket = TCPClient(address: "192.168.8.105", port: 21682)
+    return "error 404"
+    /*let socket = TCPClient(address: "192.168.8.105", port: 21682)
     switch socket.connect(timeout: 1){
     case .success:
         switch socket.send(string: message){
@@ -77,11 +78,10 @@ public func communicateWithServer(_ message:String, _ sleep_time:Int) -> String 
     case .failure(let error): print(error)
     }
     
-    return "error 300"
+    return "error 300"*/
 }
 
 import UIKit
-import SwiftSocket
 import Charts
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

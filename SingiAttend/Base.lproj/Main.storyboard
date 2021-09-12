@@ -58,7 +58,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleCourseCell" rowHeight="80" id="tPM-eF-DH7" customClass="SingleCourseCell" customModule="SingiAttend">
-                                        <rect key="frame" x="0.0" y="24" width="371" height="80"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="371" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" tableViewCell="tPM-eF-DH7" id="0yh-X2-aNC">
                                             <rect key="frame" x="0.0" y="0.0" width="371" height="80"/>
@@ -253,39 +253,6 @@ Jasna Petrovic
                     <rect key="frame" x="0.0" y="0.0" width="400" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index_number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e37-3I-mWA" userLabel="indexLogin_text">
-                            <rect key="frame" x="20" y="36" width="136" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="136" id="qic-PV-APs"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="X2E-o6-IRA" userLabel="indexLogin_txt" propertyAccessControl="none">
-                            <rect key="frame" x="164" y="36" width="230" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                    <integer key="value" value="11"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="checkIndex:" destination="BYZ-38-t0r" eventType="editingChanged" id="s7A-6v-fef"/>
-                            </connections>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Nb-dAy" userLabel="passLogin_text">
-                            <rect key="frame" x="20" y="96" width="137" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="15" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Kng-vZ-xLw" userLabel="passLogin_txt" propertyAccessControl="none">
-                            <rect key="frame" x="165" y="96" width="229" height="34"/>
-                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-E3-XIj" userLabel="tlogin_btn">
                             <rect key="frame" x="9" y="142" width="382" height="46"/>
                             <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
@@ -311,6 +278,39 @@ Jasna Petrovic
                                 <action selector="onRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H6j-Y5-IoL"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index_number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e37-3I-mWA" userLabel="indexLogin_text">
+                            <rect key="frame" x="6" y="25" width="136" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="136" id="qic-PV-APs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="X2E-o6-IRA" userLabel="indexLogin_txt" propertyAccessControl="none">
+                            <rect key="frame" x="150" y="25" width="230" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                    <integer key="value" value="11"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="checkIndex:" destination="BYZ-38-t0r" eventType="editingChanged" id="s7A-6v-fef"/>
+                            </connections>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Nb-dAy" userLabel="passLogin_text">
+                            <rect key="frame" x="6" y="85" width="137" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="15" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Kng-vZ-xLw" userLabel="passLogin_txt" propertyAccessControl="none">
+                            <rect key="frame" x="151" y="85" width="229" height="34"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="JzZ-i0-yw4"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -325,16 +325,16 @@ Jasna Petrovic
                         <constraint firstItem="Jyc-E3-XIj" firstAttribute="trailing" secondItem="2xX-de-aE6" secondAttribute="trailing" id="R2c-vO-srl"/>
                         <constraint firstItem="JzZ-i0-yw4" firstAttribute="bottom" secondItem="2xX-de-aE6" secondAttribute="bottom" constant="9" id="W5o-sr-y9Z"/>
                         <constraint firstItem="dDm-Nb-dAy" firstAttribute="top" secondItem="e37-3I-mWA" secondAttribute="bottom" constant="26" id="Yfy-2u-5KM"/>
-                        <constraint firstItem="JzZ-i0-yw4" firstAttribute="trailing" secondItem="X2E-o6-IRA" secondAttribute="trailing" constant="6" id="Z7O-xS-xit"/>
-                        <constraint firstItem="e37-3I-mWA" firstAttribute="leading" secondItem="RVH-ic-nom" secondAttribute="leadingMargin" id="aAb-N7-fdC"/>
+                        <constraint firstItem="JzZ-i0-yw4" firstAttribute="trailing" secondItem="X2E-o6-IRA" secondAttribute="trailing" constant="20" id="Z7O-xS-xit"/>
+                        <constraint firstItem="e37-3I-mWA" firstAttribute="leading" secondItem="RVH-ic-nom" secondAttribute="leadingMargin" constant="-14" id="aAb-N7-fdC"/>
                         <constraint firstItem="X2E-o6-IRA" firstAttribute="trailing" secondItem="Kng-vZ-xLw" secondAttribute="trailing" id="bVj-Ut-pKA"/>
-                        <constraint firstItem="Jyc-E3-XIj" firstAttribute="top" secondItem="dDm-Nb-dAy" secondAttribute="bottom" constant="12" id="bd9-Dv-QIo"/>
+                        <constraint firstItem="Jyc-E3-XIj" firstAttribute="top" secondItem="dDm-Nb-dAy" secondAttribute="bottom" constant="23" id="bd9-Dv-QIo"/>
                         <constraint firstItem="dDm-Nb-dAy" firstAttribute="bottom" secondItem="Kng-vZ-xLw" secondAttribute="bottom" id="eyZ-16-bJx"/>
                         <constraint firstItem="e37-3I-mWA" firstAttribute="top" secondItem="X2E-o6-IRA" secondAttribute="top" id="kGV-fR-bHb"/>
                         <constraint firstItem="X2E-o6-IRA" firstAttribute="leading" secondItem="e37-3I-mWA" secondAttribute="trailing" constant="8" symbolic="YES" id="nin-Lh-aFh"/>
                         <constraint firstItem="2xX-de-aE6" firstAttribute="top" secondItem="Jyc-E3-XIj" secondAttribute="bottom" constant="7" id="ohb-De-B2E"/>
                         <constraint firstItem="Jyc-E3-XIj" firstAttribute="centerX" secondItem="RVH-ic-nom" secondAttribute="centerX" id="u5Y-eT-3Nm"/>
-                        <constraint firstItem="e37-3I-mWA" firstAttribute="top" secondItem="RVH-ic-nom" secondAttribute="top" constant="36" id="u6f-Ww-NL8"/>
+                        <constraint firstItem="e37-3I-mWA" firstAttribute="top" secondItem="RVH-ic-nom" secondAttribute="top" constant="25" id="u6f-Ww-NL8"/>
                         <constraint firstItem="Kng-vZ-xLw" firstAttribute="leading" secondItem="dDm-Nb-dAy" secondAttribute="trailing" constant="8" symbolic="YES" id="vJh-Q6-GZi"/>
                     </constraints>
                 </view>
@@ -370,7 +370,7 @@ Jasna Petrovic
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="w7k-60-cqT" userLabel="nameSurname_txt">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="w7k-60-cqT" userLabel="nameSurname_txt">
                                 <rect key="frame" x="9" y="70" width="415" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="FjV-Af-CHW"/>
@@ -384,7 +384,7 @@ Jasna Petrovic
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FVd-6Z-uiX" userLabel="indexReg_txt">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FVd-6Z-uiX" userLabel="indexReg_txt">
                                 <rect key="frame" x="9" y="138" width="415" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="gij-2g-jkT"/>
@@ -406,7 +406,7 @@ Jasna Petrovic
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9PS-Ws-I8D" userLabel="singimail_txt">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9PS-Ws-I8D" userLabel="singimail_txt">
                                 <rect key="frame" x="9" y="206" width="415" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="OUy-D3-lA1"/>
@@ -426,7 +426,7 @@ Jasna Petrovic
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FhK-Yc-cSs" userLabel="passReg_txt">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FhK-Yc-cSs" userLabel="passReg_txt">
                                 <rect key="frame" x="9" y="280" width="415" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="htg-ay-RKw"/>
@@ -494,7 +494,7 @@ Jasna Petrovic
                                     <action selector="register:" destination="04x-aV-KfD" eventType="touchUpInside" id="AYa-rC-Bfr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="copyright" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMg-vv-yGJ" userLabel="copyright_text">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="copyright" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMg-vv-yGJ" userLabel="copyright_text">
                                 <rect key="frame" x="16" y="787" width="406" height="39"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>

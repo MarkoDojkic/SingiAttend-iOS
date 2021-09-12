@@ -1,53 +1,55 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Bolts (1.9.1):
-    - Bolts/AppLinks (= 1.9.1)
-    - Bolts/Tasks (= 1.9.1)
-  - Bolts/AppLinks (1.9.1):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.1)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
-  - FBSDKCoreKit (4.44.1):
-    - Bolts (~> 1.9)
-  - SwiftSocket (2.0.2)
+  - FBAEMKit (11.2.0):
+    - FBAEMKit/AEM (= 11.2.0)
+  - FBAEMKit/AEM (11.2.0):
+    - FBSDKCoreKit_Basics (~> 11.2.0)
+  - FBSDKCoreKit (11.2.0):
+    - FBSDKCoreKit/Core (= 11.2.0)
+  - FBSDKCoreKit/Core (11.2.0):
+    - FBAEMKit (~> 11.2.0)
+    - FBSDKCoreKit_Basics (~> 11.2.0)
+  - FBSDKCoreKit_Basics (11.2.0):
+    - FBSDKCoreKit_Basics/Basics (= 11.2.0)
+  - FBSDKCoreKit_Basics/Basics (11.2.0)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Charts
-  - FBSDKCoreKit
-  - SwiftSocket
+  - AFNetworking (~> 4.0)
+  - Charts (~> 3.6)
+  - FBSDKCoreKit (~> 11.2)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - Bolts
     - Charts
+    - FBAEMKit
     - FBSDKCoreKit
-    - SwiftSocket
+    - FBSDKCoreKit_Basics
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
-  FBSDKCoreKit: a823ae35bdb60ebb8d7a7e51abe7c5d87d2bfced
-  SwiftSocket: 6f4c9c63fbc5c1d61188936bb3c599fd546f40ae
+  FBAEMKit: 7abd022abf6ea7789aa95c527bacc23f966a857c
+  FBSDKCoreKit: 28a11d82d74ff44f7af3dc035bffd611bd3d8e7d
+  FBSDKCoreKit_Basics: 69e0acab6b97b7b8cae9d452407050e78795c34d
 
-PODFILE CHECKSUM: 226bfc0ad4bc6d54872899496f4f1c5fbaa19c60
+PODFILE CHECKSUM: 736f3896eefbc6e63b70815184a8dce6c25400da
 
 COCOAPODS: 1.11.0

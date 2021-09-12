@@ -15,21 +15,20 @@ import UIKit
 public typealias NSUIColor = UIColor
 private func fetchLabelColor() -> UIColor
 {
-    /*if #available(iOS 13, tvOS 13, *)
+    if #available(iOS 13, tvOS 13, *)
     {
         return .label
     }
     else
     {
         return .black
-    }*/
-    return .black
+    }
 }
 private let labelColor: UIColor = fetchLabelColor()
 
 extension UIColor
 {
-    static var labelOrBlack: UIColor { return labelColor }
+    static var labelOrBlack: UIColor { labelColor }
 }
 #endif
 

@@ -236,5 +236,5 @@ extension NSScrollView
 
 extension NSUIScreen
 {
-    static var nsuiMain: NSUIScreen? = .main
+    class var nsuiMain: NSUIScreen? { .main }
 }
