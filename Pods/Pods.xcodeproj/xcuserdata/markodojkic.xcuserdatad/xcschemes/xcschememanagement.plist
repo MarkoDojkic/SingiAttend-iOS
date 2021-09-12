@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+<<<<<<< HEAD
+		<key>Alamofire-Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Alamofire.xcscheme</key>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+		<key>Alamofire.xcscheme_^#shared#^_</key>
+=======
+		<key>AFNetworking.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
+=======
+		<key>Alamofire.xcscheme</key>
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+=======
+		<key>Alamofire.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+=======
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+		<key>DGCharts-DGCharts.xcscheme</key>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+		<key>Charts.xcscheme_^#shared#^_</key>
+=======
+		<key>Bolts.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+		<key>DGCharts.xcscheme</key>
+=======
+<<<<<<< HEAD
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a444d9c (Pod updates)
+		<key>Charts.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+=======
+		<key>Charts.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+=======
+		<key>Charts.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme</key>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
+=======
+=======
+		<key>FBAEMKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit-FacebookSDKStrings.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+>>>>>>> a444d9c (Pod updates)
+=======
+		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
+=======
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+		<key>FBSDKCoreKit.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
+=======
+=======
+		<key>FBSDKCoreKit_Basics.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+>>>>>>> a444d9c (Pod updates)
+=======
+>>>>>>> 82f2d53 (Updated index logic)
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+=======
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+=======
+		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
+=======
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+		<key>Pods-SingiAttend.xcscheme</key>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
+=======
+		<key>Pods-SingiAttend.xcscheme</key>
+=======
+		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+=======
+		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
+=======
+		<key>Pods-SingiAttend.xcscheme</key>
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+		<key>Pods-SingiAttendTests.xcscheme</key>
+=======
+<<<<<<< HEAD
+		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
+=======
+		<key>Pods-SingiAttendTests.xcscheme</key>
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<key>SwiftSocket.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+=======
+		<key>SwiftAlgorithms.xcscheme</key>
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+=======
+		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+=======
+		<key>SwiftSocket.xcscheme</key>
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a444d9c (Pod updates)
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+=======
+>>>>>>> e716a0e (Initial commit - transfer from other project)
+>>>>>>> ccd5019 (Initial commit - transfer from other project)
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
+</dict>
+</plist>

@@ -1,0 +1,11 @@
+Target dependency graph (5 targets)
+AFNetworking in Pods, no dependencies
+Charts in Pods, no dependencies
+Pods-SingiAttend in Pods, depends on:
+AFNetworking in Pods (explicit)
+Charts in Pods (explicit)
+Pods-SingiAttend-SingiAttendUITests in Pods, depends on:
+AFNetworking in Pods (explicit)
+Charts in Pods (explicit)
+Pods-SingiAttendTests in Pods, depends on:
+Pods-SingiAttend in Pods (explicit)
