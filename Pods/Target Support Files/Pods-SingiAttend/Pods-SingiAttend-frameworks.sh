@@ -222,6 +222,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -248,19 +249,32 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
+=======
+>>>>>>> 633fcbd (Pod updates)
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework"
+<<<<<<< HEAD
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+=======
+  install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework"
+>>>>>>> a444d9c (Pod updates)
+>>>>>>> 633fcbd (Pod updates)
+>>>>>>> d08807a (Pod updates)
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

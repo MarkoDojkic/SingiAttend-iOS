@@ -24,18 +24,27 @@ extension CGRect
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 633fcbd (Pod updates)
     var orientation: Orientation { size.orientation }
 =======
     var orientation: Orientation { return size.orientation }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     var orientation: Orientation { size.orientation }
 >>>>>>> a444d9c (Pod updates)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    var orientation: Orientation { size.orientation }
+>>>>>>> a444d9c (Pod updates)
+>>>>>>> 633fcbd (Pod updates)
 }
 
 // MARK: - UIKit
