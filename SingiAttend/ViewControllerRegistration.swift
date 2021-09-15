@@ -31,8 +31,16 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     let localStorage = UserDefaults.standard
     var faculties = [""]
-    var courses = [[""]]
-    var f_courses = [""]
+    var courses: Array<[String:Int]> = []
+    var f_courses: [String:Int] = [:]
+    struct Student:Codable {
+        var name_surname: String
+        var index: String
+        var password_hash: String
+        var email: String
+        var studyId: Int
+        var year: String
+    }
     
     override func viewDidLoad() {
         titleReg_text.text = "title_reg".localized()
@@ -53,7 +61,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         courses_pv.delegate = self
     }
     
-    @IBAction func register(_ sender: UIButton) {
+    @IBAction func onRegister(_ sender: UIButton) {
         
         if(nameSurname_txt.text!.isEmpty || nameSurname_txt.text!.count < 2) {
             nameSurname_txt.backgroundColor = UIColor.red
@@ -107,22 +115,33 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             courses_pv.backgroundColor = UIColor.green
         }
         
-        
-        let cData = nameSurname_txt.text! + "*" + indexReg_txt.text! + "*" + singimail_txt.text! + "*" + passReg_txt.text! + "*" + f_temp.text! + "*" + c_temp.text!
-        print(cData)
-        let response = communicateWithServer(cData, 20)
-        
-        if(response == "APPROVED\n"){
-            _ = SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
-                if isOtherButton == true {
-                    self.performSegue(withIdentifier: "toMain", sender: sender)
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .prettyPrinted
+                
+        do {
+            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: Int(c_temp.text!)!, year: String(Int.random(in: Int(c_temp.text!) == 16 ? 1...5 : 1...4))))
+            register(jsonData, completionHandler: {
+                response in
+                if let statusCode = response {
+                    DispatchQueue.main.async { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
+                        if(statusCode == 200){
+                            _ = SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
+                                if isOtherButton == true {
+                                    self.performSegue(withIdentifier: "toMain", sender: sender)
+                                }
+                            }
+                        }
+                        else if(statusCode == 500){
+                            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                        }
+                        else {
+                            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                        }
+                    }
                 }
-            }
-        }
-        else if(response == "DENIED\n"){
-            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
-        }
-        else {
+            })
+        } catch {
+            print("Error while encoding student data")
             _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
         }
     }
@@ -145,7 +164,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func populate_engish(_ sender: Any) {
         faculties = ["f_bb".localized(),"f_th".localized(),"f_ic".localized(),"f_ts".localized(),"f_su".localized()]
-        courses = [["be_eng".localized(),"ang_eng".localized()],["theh_eng".localized()],["it_eng".localized()],["sde_eng".localized()],["esd_eng".localized()]]
+        courses = [["be_eng".localized():10,"ang_eng".localized():11],["theh_eng".localized():12],["it_eng".localized():13],["sde_eng".localized():14],["esd_eng".localized():15]]
         eng_btn.layer.borderWidth = 2.0
         eng_btn.layer.borderColor = UIColor.green.cgColor
         srb_btn.layer.borderWidth = 0.0
@@ -155,7 +174,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func populate_serbian(_ sender: Any) {
         faculties = ["f_bb".localized(),"f_th".localized(),"f_ic".localized(),"f_ts".localized(),"f_ps".localized(),"f_su".localized()]
-        courses = [["be_srb".localized(),"ang_srb".localized()],["theh_srb".localized()],["cs_srb".localized(),"it_srb".localized()],["sde_srb".localized()],["pes_srb".localized(),"ms_srb".localized()],["esd_srb".localized()]]
+        courses = [["be_srb".localized():1,"ang_srb".localized():2],["theh_srb".localized():3],["cs_srb".localized():4,"it_srb".localized():5],["sde_srb".localized():6],["pes_srb".localized():7,"ms_srb".localized():8],["esd_srb".localized():9, "f_srb".localized():16]]
         srb_btn.layer.borderWidth = 2.0
         srb_btn.layer.borderColor = UIColor.green.cgColor
         eng_btn.layer.borderWidth = 0.0
@@ -174,7 +193,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 0 { return faculties[row].isEmpty ? faculties[0] : faculties[row] }
-        else { return f_courses[row] }
+        else { return f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
@@ -184,7 +203,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             courses_pv.reloadAllComponents()
         }
         else if pickerView.tag == 1 {
-            c_temp.text? = f_courses[row]
+            c_temp.text? = String(f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].value)
         }
     }
     
@@ -199,9 +218,28 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         else {
             pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
             pickerLabel.textAlignment = NSTextAlignment.center
-            pickerLabel.text = f_courses[row]
+            pickerLabel.text = f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key
         }
         
         return pickerLabel
+    }
+    
+    func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
+        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/insert/student")!)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error took place while sending registration data: \(error)")
+                completionHandler(400)
+            }
+            
+            if let response = response {
+                completionHandler((response as! HTTPURLResponse).statusCode)
+            }
+        }.resume()
     }
 }

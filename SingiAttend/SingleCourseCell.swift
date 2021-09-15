@@ -12,17 +12,54 @@ class SingleCourseCell : UITableViewCell {
     
     @IBOutlet weak var class_text: UILabel!
     @IBOutlet weak var cconfirm_btn: UIButton!
+    var url: String!
         
     @IBAction func recordAttendance(_ sender: UIButton) {
-        print(communicateWithServer("RECORDATTENDANCE," + UserDefaults.standard.string(forKey: "loggedInAs")! + ":\(sender.tag)", 2))
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialiasation code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        //Configure the view for selected state
+        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!)
+        request.httpMethod = "GET"
+        request.setValue("text/plain", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error took place while recording attendance: \(error)")
+                DispatchQueue.main.async {
+                    _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceClientError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                }
+                return;
+            }
+            
+            if let response = response {
+                if ((response as! HTTPURLResponse).statusCode != 200){
+                    print("Server error with code \((response as! HTTPURLResponse).statusCode)")
+                    DispatchQueue.main.async {
+                        _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceServerError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    }
+                    return;
+                }
+            }
+            
+            if let data = data {
+                DispatchQueue.main.async {
+                    if(String(data: data, encoding: .utf8)!.split(separator: "*")[0] == "0"){
+                        self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized() +  String(data: data, encoding: .utf8)!.split(separator: "*")[1]
+                        self.cconfirm_btn.isHidden = true
+                    }
+                    else if(String(data: data, encoding: .utf8)!.split(separator: "*")[0] == "1"){
+                        self.class_text.text! += "\n" + "newlyRecordedAttendance".localized() +  String(data: data, encoding: .utf8)!.split(separator: "*")[1]
+                        self.cconfirm_btn.isHidden = true
+                    }
+                    else {
+                        _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceUnknownError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    }
+                }
+            }
+        }.resume()
+        
+        /*
+        print("recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)
+        print(String(url.split(separator: "/", maxSplits: 2, omittingEmptySubsequences: true)[1]))
+        
+        UserDefaults.standard.set(true, forKey: String(url.split(separator: "/", maxSplits: 2, omittingEmptySubsequences: true)[1]))*/
+        //print(communicateWithServer("RECORDATTENDANCE," + UserDefaults.standard.string(forKey: "loggedInAs")! + ":\(sender.tag)", 2))
     }
 }

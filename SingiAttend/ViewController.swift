@@ -48,39 +48,6 @@ extension NSRegularExpression {
     }
 }
 
-public func communicateWithServer(_ message:String, _ sleep_time:Int) -> String {
-    return "error 404"
-    /*let socket = TCPClient(address: "192.168.8.105", port: 21682)
-    switch socket.connect(timeout: 1){
-    case .success:
-        switch socket.send(string: message){
-        case .success:
-            sleep(UInt32(sleep_time))
-            guard let sData = socket.read(1024*100) else {
-                _ = SweetAlert().showAlert("serverTitleError".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
-                switch socket.send(string: "END"){
-                case .success: print("successfuly disconnected from server without response")
-                case .failure(let error):
-                    print(error)
-                }
-                return "error 404"
-            }
-            if let response = String(bytes: sData, encoding: .utf8) {
-                switch socket.send(string: "END"){
-                case .success: print("successfuly disconnected from server")
-                case .failure(let error):
-                    print(error)
-                }
-                return response
-            }
-        case .failure(let error): print(error)
-        }
-    case .failure(let error): print(error)
-    }
-    
-    return "error 300"*/
-}
-
 import UIKit
 import Charts
 
@@ -107,8 +74,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var attendances_prognosis_text: UILabel!
     @IBOutlet weak var attendanceLeft_btn: UIButton!
     @IBOutlet weak var attendanceRight_btn: UIButton!
-    var attendend = PieChartDataEntry(value: 0)
-    var notAttended = PieChartDataEntry(value: 0)
+    @IBOutlet weak var serverInacitve_text: UILabel!
+    var attendendL = PieChartDataEntry(value: 0)
+    var notAttendedL = PieChartDataEntry(value: 0)
+    var attendendP = PieChartDataEntry(value: 0)
+    var notAttendedP = PieChartDataEntry(value: 0)
     var currentAttendanceLecture = 0
     var updateTimer: Timer!
     
@@ -146,7 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             attendances_prognosis_text.isHidden = true
             
         }
-        else{
+        else {
             overlay.isHidden = true
             loginPopup.isHidden = true
             loggedInAs_text.isHidden = false
@@ -203,29 +173,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func onLogin(_ sender: UIButton) {
-        let cData = "CHECKLOGIN," + indexLogin_txt.text! + "?" + passLogin_txt.text!
-        let response = communicateWithServer(cData,2)
-        print(response)
-        if(response == "VALID\n"){
-            _ = SweetAlert().showAlert("loginTitleSuccess".localized(), subTitle: "", style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
-                if isOtherButton == true {
-                    self.localStorage.set(true, forKey:"isLoggedIn")
-                    self.localStorage.set(self.indexLogin_txt.text!, forKey: "loggedInAs")
-                    self.startDataStreaming(0)
-                    self.overlay.isHidden = true
-                    self.loginPopup.isHidden = true
-                    self.loggedInAs_text.isHidden = false
-                    self.logout_btn.isHidden = false
-                    self.courses_tv.isHidden = false
+        login((indexLogin_txt.text?.replacingOccurrences(of: "/", with: ""))!, (passLogin_txt.text?.data(using: .utf8))!, completionHandler: {
+            response in
+            if let message = response {
+                DispatchQueue.main.async { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
+                    if(message == "VALID"){
+                        _ = SweetAlert().showAlert("loginTitleSuccess".localized(), subTitle: "", style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
+                            if isOtherButton == true {
+                                self.localStorage.set(true, forKey:"isLoggedIn")
+                                self.localStorage.set(self.indexLogin_txt.text!, forKey: "loggedInAs")
+                                self.startDataStreaming(0)
+                                self.overlay.isHidden = true
+                                self.loginPopup.isHidden = true
+                                self.loggedInAs_text.isHidden = false
+                                self.logout_btn.isHidden = false
+                                self.courses_tv.isHidden = false
+                            }
+                        }
+                    }
+                    else if(message == "INVALID"){
+                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    }
+                    else if(message == "UNKNOWN"){
+                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageUnknown".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    }
+                    else {
+                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    }
                 }
             }
-        }
-        else if(response == "INVALID\n"){
-            _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
-        }
-        else {
-            _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
-        }
+        })
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
@@ -250,61 +227,142 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func startDataStreaming(_ type: Int){
         if(type == 0){
-            let cData = "GETUSERINFO," + localStorage.string(forKey: "loggedInAs")!
-            let response = communicateWithServer(cData,2)
-            loggedInAs_text.text = response + "(" + localStorage.string(forKey: "loggedInAs")! + ")"
-            loggedInAs_text.adjustsFontSizeToFitWidth = true;
-            self.startDataStreaming(1)
+            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            request.httpMethod = "GET"
+            request.setValue("text/plain", forHTTPHeaderField: "Accept")
+            
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error took place while getting student name data: \(error)")
+                    DispatchQueue.main.async {
+                        self.loggedInAs_text.text = "(" + self.localStorage.string(forKey: "loggedInAs")! + ")";
+                        self.serverInacitve_text.text = "serverInactive".localized();
+                    }
+                    return;
+                }
+                
+                if let response = response {
+                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    if ((response as! HTTPURLResponse).statusCode != 200){
+                        DispatchQueue.main.async {
+                            self.loggedInAs_text.text = "-SERVER ERROR- (" + self.localStorage.string(forKey: "loggedInAs")! + ")"
+                            self.loggedInAs_text.adjustsFontSizeToFitWidth = true;
+                        }
+                        return;
+                    }
+                }
+                
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.loggedInAs_text.text = String(data: data, encoding: .utf8)! + " (" + self.localStorage.string(forKey: "loggedInAs")! + ")"
+                        self.loggedInAs_text.adjustsFontSizeToFitWidth = true;
+                        self.startDataStreaming(1);
+                    }
+                }
+            }.resume()
         }
         else if(type == 1){
-            let cData = "GETCOURSEDATA," + localStorage.string(forKey: "loggedInAs")!
-            let coursesData_json = try! JSONSerialization.jsonObject(with: communicateWithServer(cData,2).data(using: String.Encoding.utf8)!, options: []) as? [[String:Any]]
+            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
             
-            courses.removeAll()
-            
-            for course in coursesData_json!{
-                var newCourseData = [String]()
-                
-                if(Locale.current.languageCode == "sr"){
-                    newCourseData.append((course["predmet"] as! String))
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error took place while getting student course data: \(error)")
+                    DispatchQueue.main.async {
+                        self.serverInacitve_text.text = "serverInactive".localized();
+                    }
+                    return;
                 }
-                else{ newCourseData.append((course["predmet_eng"] as! String)) }
                 
-                newCourseData.append((course["nameSurnameT"] as! String))
-                newCourseData.append((course["nameSurnameA"] as? String ?? ""))
-                newCourseData.append((course["begin_time"] as! String))
-                newCourseData.append((course["end_time"] as! String))
-                newCourseData.append((course["course_id"] as! String))
+                if let response = response {
+                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    if ((response as! HTTPURLResponse).statusCode != 200){
+                        print("Server error with code \((response as! HTTPURLResponse).statusCode)")
+                        return;
+                    }
+                }
                 
-                courses.append(newCourseData)
-            }
-            
-            courses_tv.reloadData()
+                if let data = data {
+                    DispatchQueue.main.async {
+                        let coursesData_json = try! JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+                        
+                        self.courses.removeAll()
+                        
+                        for course in coursesData_json!{
+                            var newCourseData = [String]()
+                            
+                            if(Locale.current.languageCode == "sr"){
+                                newCourseData.append((course["subject"] as! String))
+                            }
+                            else{ newCourseData.append((course["subjectEnglish"] as! String)) }
+                            
+                            newCourseData.append((course["nameSurname"] as! String))
+                            newCourseData.append((course["beginTime"] as! String))
+                            newCourseData.append((course["endTime"] as! String))
+                            newCourseData.append(String(course["subjectId"] as! Int))
+                            
+                            self.courses.append(newCourseData)
+                        }
+                        
+                        self.courses_tv.reloadData()
+                    }
+                }
+            }.resume()
         }
         else if(type == 2){
-            let cData = "GETATTENDANCESDATA," + localStorage.string(forKey: "loggedInAs")!
-            let attendanceData_json = try! JSONSerialization.jsonObject(with: communicateWithServer(cData,2).data(using: String.Encoding.utf8)!, options: []) as? [[String:Any]]
+            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
             
-            attendances.removeAll()
-            
-            for course in attendanceData_json!{
-                var newAttendanceData = [String]()
-                
-                if(Locale.current.languageCode == "sr"){
-                    newAttendanceData.append((course["predmet"] as! String))
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error took place while getting student attendance data: \(error)")
+                    DispatchQueue.main.async {
+                        self.serverInacitve_text.text = "serverInactive".localized();
+                    }
+                    return;
                 }
-                else{ newAttendanceData.append((course["predmet_eng"] as! String)) }
                 
-                newAttendanceData.append((course["nameSurnameT"] as! String))
-                newAttendanceData.append((course["nameSurnameA"] as? String ?? ""))
-                newAttendanceData.append((course["attendedLectures"] as! String))
-                newAttendanceData.append((course["totalLectures"] as! String))
-                newAttendanceData.append((course["isLectureEnded"] as! String))
+                if let response = response {
+                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    if ((response as! HTTPURLResponse).statusCode != 200){
+                        print("Server error with code \((response as! HTTPURLResponse).statusCode)")
+                        return;
+                    }
+                }
                 
-                attendances.append(newAttendanceData)
-            }
-            
-            updatePieChart()
+                if let data = data {
+                    DispatchQueue.main.async {
+                        let attendanceData_json = try! JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+                        
+                        self.attendances.removeAll()
+                        
+                        for course in attendanceData_json!{
+                            var newAttendanceData = [String]()
+                            
+                            if(Locale.current.languageCode == "sr"){
+                                newAttendanceData.append(((course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String))
+                            }
+                            else{
+                                newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["titleEnglish"] as! String)
+                            }
+                            
+                            newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameT"] as! String)
+                            newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameA"] as? String ?? "")
+                            newAttendanceData.append(String((course["attendedLectures"] as! Int)))
+                            newAttendanceData.append(String((course["totalLectures"] as! Int)))
+                            newAttendanceData.append(String((course["attendedPractices"] as! Int)))
+                            newAttendanceData.append(String((course["totalPractices"] as! Int)))
+                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["isInactive"] as! Int))
+                            
+                            self.attendances.append(newAttendanceData)
+                        }
+                        
+                        self.updatePieChart()
+                    }
+                }
+            }.resume()
         }
     }
     
@@ -323,23 +381,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fatalError("The dequeued cell is not an instance of SingleCourseCell.")
         }
         
-        cell.class_text.text = courses[indexPath.row][0]
+        cell.class_text.text = courses[indexPath.row][0].split(separator: "-")[0]
             + "\n" + courses[indexPath.row][1]
-            + ( courses[indexPath.row][2].isEmpty ? "" : ("\n" + courses[indexPath.row][2]) )
-            + "\n" + courses[indexPath.row][3] + " - " + courses[indexPath.row][4] + ")"
-        cell.cconfirm_btn.tag = Int(courses[indexPath.row][5])!
-        
+            + "\n(" + courses[indexPath.row][2] + " - "
+            + courses[indexPath.row][3] + ")"
+        cell.url = String(courses[indexPath.row][4]) + "/" + String(courses[indexPath.row][0].contains("вежбе") || courses[indexPath.row][0].contains("practice"))
+        cell.cconfirm_btn.isHidden = false
         return cell
     }
     
     @objc func reloadTable(){
         self.startDataStreaming(1)
         self.startDataStreaming(2)
-        print("***Courses reloaded***")
     }
     
     func updatePieChart(){
-        
         if(self.attendances_pcv.isHidden && !attendances.isEmpty){
             self.attendances_pcv.isHidden = false
             self.attendanceLeft_btn.isHidden = false
@@ -348,38 +404,67 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.attendances_prognosis_text.isHidden = false
         }
         
-        let percentage = Double(attendances[currentAttendanceLecture][3])! / Double(attendances[currentAttendanceLecture][4])! * 100.0
-        attendances_pcv.centerText = String(percentage) + "% \n" + attendances[currentAttendanceLecture][3] + "/" + attendances[currentAttendanceLecture][4]
+        let percentage = Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! / Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! * 100.0
+        attendances_pcv.centerText = String(round(percentage)) + "% \n" + attendances[currentAttendanceLecture][3] + "/" + attendances[currentAttendanceLecture][4] + "\n" + attendances[currentAttendanceLecture][5] + "/" + attendances[currentAttendanceLecture][6]
 
         attendances_pcv.legend.enabled = false
         attendances_pcv.isUserInteractionEnabled = false
-        attendend.value = Double(attendances[currentAttendanceLecture][3])!
-        attendend.label = nil
+        attendendL.value = Double(attendances[currentAttendanceLecture][3])!
+        attendendL.label = nil
         
-        notAttended.value = Double(attendances[currentAttendanceLecture][4])! - Double(attendances[currentAttendanceLecture][3])!
-        notAttended.label = nil
+        notAttendedL.value = Double(attendances[currentAttendanceLecture][4])! - Double(attendances[currentAttendanceLecture][3])!
+        notAttendedL.label = nil
         
-        let chartDataSet = PieChartDataSet(entries: [attendend,notAttended], label: nil)
-        chartDataSet.colors = [UIColor.green,UIColor.red]
+        attendendP.value = Double(attendances[currentAttendanceLecture][5])!
+        attendendP.label = nil
+        
+        notAttendedP.value = Double(attendances[currentAttendanceLecture][6])! - Double(attendances[currentAttendanceLecture][5])!
+        notAttendedP.label = nil
+        
+        let chartDataSet = PieChartDataSet(entries: [attendendL,notAttendedL,attendendP,notAttendedP], label: nil)
+        chartDataSet.colors = [UIColor.green,UIColor.red,UIColor.cyan,UIColor.magenta]
         chartDataSet.drawValuesEnabled = false
         attendances_pcv.data = PieChartData(dataSet: chartDataSet)
         
         attendances_class_text.text = attendances[currentAttendanceLecture][0]
             + "\n" + attendances[currentAttendanceLecture][1]
             + ( attendances[currentAttendanceLecture][2].isEmpty ? "" : ("\n(" + attendances[currentAttendanceLecture][2] + ")") )
-        
         if(Locale.current.languageCode == "sr"){
-            attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3])!/Double(attendances[currentAttendanceLecture][4])!)) + "/10"
-            if(attendances[currentAttendanceLecture][5] == "1"){
+            attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            if(attendances[currentAttendanceLecture][7] == "1"){
                 attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (КРАЈ НАСТАВЕ)"
             }
             
         }
         else {
-            attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3])!/Double(attendances[currentAttendanceLecture][4])!)) + "/10"
-            if(attendances[currentAttendanceLecture][5] == "1"){
+            attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            if(attendances[currentAttendanceLecture][7] == "1"){
                 attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (LECTURES ARE OVER)"
             }
         }
+    }
+    
+    func login(_ index: String, _ data:Data, completionHandler: @escaping (String?) -> Void) {
+        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/checkPassword/student/" + index)!)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.setValue("text/plain", forHTTPHeaderField: "Accept")
+        request.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error took place while sending login data: \(error)")
+                completionHandler("400")
+            }
+            
+            if let response = response {
+                if ((response as! HTTPURLResponse).statusCode != 200){ completionHandler("500")
+                }
+            }
+            
+            if let data = data {
+                completionHandler(String(data: data, encoding: .utf8))
+            }
+        }.resume()
     }
 }
