@@ -26,6 +26,7 @@
 "regMessageFailed" = "Nalog Vam nije odobren. Proverite podatke i probajte ponovo.";
 "loginTitleFailed" = "Neuspešno logovanje.";
 "loginMessageFailed" = "Proverite Vaš broj indeksa i lozinku";
+"loginMessageUnknown" = "Ne postoji student sa unetim brojem indeksa";
 "ok" = "U redu";
 "logout" = "Izlogujte se";
 "confirmLogout" = "Potvrda zahteva za izlogovanjem";
@@ -54,3 +55,11 @@
 "cs_srb" = "Računarske nauke";
 "pes_srb" = "Fizičko vaspitanje i sport";
 "ms_srb" = "Menadžment u sportu";
+"f_srb" = "Farmacija";
+"recordAttendanceFailed" = "Došlo je do greške";
+"recordAttendanceClientError" = "Proverite Vašu internet vezu";
+"recordAttendanceServerError" = "Nije moguće kontaktirati server\n Proverite sa profesorom/asistentom i pokušajte ponovo";
+"alreadyRecordedAttendance" = "Već je zabeleženo prisustvo u: ";
+"newlyRecordedAttendance" = "Uspešno zabeleženo\nprisustvo u: ";
+"recordAttendanceUnknownError" = "Datoteka za evidenciju prisustva nije pronađena na serveru\nProverite sa profesorom/asistentom";
+"serverInactive" = "Server nije aktivan";
