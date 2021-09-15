@@ -26,6 +26,7 @@
 "regMessageFailed" = "You\'re account has not been approved. Check form data and try again.";
 "loginTitleFailed" = "Login failed.";
 "loginMessageFailed" = "Check your index number and password";
+"loginMessageUnknown" = "There is no student registered with the index number entered";
 "ok" = "Fine";
 "logout" = "Logout";
 "confirmLogout" = "Logout confirmation";
@@ -54,3 +55,11 @@
 "cs_srb" = "Computer science";
 "pes_srb" = "Physical education and sports";
 "ms_srb" = "Management in sports";  
+"f_srb" = "Pharmacy";
+"recordAttendanceFailed" = "Error occurred";
+"recordAttendanceClientError" = "Please check your internet connection";
+"recordAttendanceServerError" = "Could not contact server\nPlease check with your teacher/assistant and try again";
+"alreadyRecordedAttendance" = "Attendance already recorded at: ";
+"newlyRecordedAttendance" = "Successfully recorded at: ";
+"recordAttendanceUnknownError" = "Attendance recording file not found on server\nCheck with your teacher/assistant";
+"serverInactive" = "Server not active";
