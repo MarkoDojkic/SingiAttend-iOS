@@ -15,6 +15,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var nameSurname_txt: UITextField!
     @IBOutlet weak var indexReg_text: UILabel!
     @IBOutlet weak var indexReg_txt: UITextField!
+    @IBOutlet weak var indexYear_pv: UIPickerView!
     @IBOutlet weak var singimail_text: UILabel!
     @IBOutlet weak var singimail_txt: UITextField!
     @IBOutlet weak var passReg_text: UILabel!
@@ -26,13 +27,14 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var courses_pv: UIPickerView!
     @IBOutlet weak var eng_btn: UIButton!
     @IBOutlet weak var srb_btn: UIButton!
-    @IBOutlet weak var f_temp: UILabel!
-    @IBOutlet weak var c_temp: UILabel!
     
     let localStorage = UserDefaults.standard
     var faculties = [""]
     var courses: Array<[String:Int]> = []
     var f_courses: [String:Int] = [:]
+    let i_years = Array(2000...9999)
+    var selectedCourse: String = ""
+    var indexYear: Int = -1
     struct Student:Codable {
         var name_surname: String
         var index: String
@@ -49,6 +51,8 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         nameSurname_txt.placeholder = "hint_namesurname".localized()
         indexReg_text.text = "br_indexa".localized()
         indexReg_txt.placeholder = "hint_index".localized()
+        indexYear_pv.delegate = self;
+        indexYear_pv.dataSource = self;
         singimail_text.text = "singimail".localized()
         singimail_txt.placeholder = "hint_singimail".localized()
         passReg_text.text = "password".localized()
@@ -58,7 +62,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         faculties_pv.delegate = self
         faculties_pv.dataSource = self
         courses_pv.delegate = self
-        courses_pv.delegate = self
+        courses_pv.dataSource = self
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
@@ -71,7 +75,15 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             nameSurname_txt.backgroundColor = UIColor.green
         }
         
-        if(indexReg_txt.text!.isEmpty || indexReg_txt.text!.count != 11) {
+        if(indexYear == -1){
+            indexYear_pv.backgroundColor = UIColor.red
+            return
+        }
+        else {
+            indexYear_pv.backgroundColor = UIColor.green
+        }
+        
+        if(indexReg_txt.text!.isEmpty || indexReg_txt.text!.count != 6) {
             indexReg_txt.backgroundColor = UIColor.red
             return
         }
@@ -99,19 +111,13 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             passReg_txt.backgroundColor = UIColor.green
         }
         
-        if(f_temp.text! == "faculty_temp") {
+        if(selectedCourse.isEmpty) {
             faculties_pv.backgroundColor = UIColor.red
-            return
-        }
-        else {
-            faculties_pv.backgroundColor = UIColor.green
-        }
-
-        if(c_temp.text! == "course_temp") {
             courses_pv.backgroundColor = UIColor.red
             return
         }
         else {
+            faculties_pv.backgroundColor = UIColor.green
             courses_pv.backgroundColor = UIColor.green
         }
         
@@ -119,7 +125,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         jsonEncoder.outputFormatting = .prettyPrinted
                 
         do {
-            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: Int(c_temp.text!)!, year: String(Int.random(in: Int(c_temp.text!) == 16 ? 1...5 : 1...4))))
+            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: Int(selectedCourse)!, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
             register(jsonData, completionHandler: {
                 response in
                 if let statusCode = response {
@@ -145,13 +151,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
         }
     }
-    
-    @IBAction func checkIndex(_ sender: Any) {
-        if(indexReg_txt.text!.count == 5 && indexReg_txt.text?.last != "/"){
-            indexReg_txt.text!.insert("/", at: indexReg_txt.text!.index(before: indexReg_txt.text!.endIndex))
-        }
-    }
-    
+        
     @IBAction func checkSingimail(_ sender: Any) {
         do {
             let regex = try NSRegularExpression(pattern: "^[a-z]+\\.[a-z]+\\.[0-9]{2,3}@$", options: NSRegularExpression.Options.caseInsensitive)
@@ -188,22 +188,28 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 0 { return faculties.count }
-        else { return f_courses.count }
+        else if pickerView.tag == 1 { return f_courses.count }
+        else if pickerView.tag == 2 { return i_years.count }
+        else { return 0 }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 0 { return faculties[row].isEmpty ? faculties[0] : faculties[row] }
-        else { return f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key }
+        else if pickerView.tag == 1 { return f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key }
+        else if pickerView.tag == 2 { return String(i_years[row])}
+        else { return "" }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         if pickerView.tag == 0 {
-            f_temp.text? = faculties[row]
             f_courses = courses[row]
             courses_pv.reloadAllComponents()
         }
         else if pickerView.tag == 1 {
-            c_temp.text? = String(f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].value)
+            selectedCourse = String(f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].value)
+        }
+        else if pickerView.tag == 2 {
+            indexYear = i_years[row]
         }
     }
     
@@ -215,10 +221,15 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             pickerLabel.textAlignment = NSTextAlignment.center
             pickerLabel.text = faculties[row]
         }
-        else {
+        else if pickerView.tag == 1 {
             pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
             pickerLabel.textAlignment = NSTextAlignment.center
             pickerLabel.text = f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key
+        }
+        else if pickerView.tag == 2 {
+            pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            pickerLabel.text = String(i_years[row])
         }
         
         return pickerLabel
