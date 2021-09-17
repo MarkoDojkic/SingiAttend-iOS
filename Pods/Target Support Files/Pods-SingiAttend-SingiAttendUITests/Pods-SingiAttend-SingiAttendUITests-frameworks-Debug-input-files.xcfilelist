@@ -16,6 +16,9 @@ ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0494372 (Updated index logic)
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
@@ -28,6 +31,7 @@ ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
 =======
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 >>>>>>> 82f2d53 (Updated index logic)
+<<<<<<< HEAD
 =======
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
@@ -53,4 +57,9 @@ ${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
 >>>>>>> a444d9c (Pod updates)
 >>>>>>> 633fcbd (Pod updates)
+<<<<<<< HEAD
 >>>>>>> d08807a (Pod updates)
+=======
+=======
+>>>>>>> 0494372 (Updated index logic)
+>>>>>>> 7a06b05 (Updated index logic)

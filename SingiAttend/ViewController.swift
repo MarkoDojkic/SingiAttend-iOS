@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         copyright_text.text = "copyright".localized()
         logout_btn.setTitle("logout".localized(), for: UIControl.State.normal)
         indexLogin_text.text = "br_indexa".localized()
-        indexLogin_txt.placeholder = "hint_index".localized()
+        indexLogin_txt.placeholder = "hint_index_login".localized()
         passLogin_text.text = "password".localized()
         passLogin_txt.placeholder = "hint_pass".localized()
         register_btn.setTitle("register".localized(), for: UIControl.State.normal)

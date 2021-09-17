@@ -252,13 +252,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 =======
 >>>>>>> 633fcbd (Pod updates)
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
+<<<<<<< HEAD
   install_framework "${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework"
 <<<<<<< HEAD
@@ -273,8 +271,16 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework"
 >>>>>>> a444d9c (Pod updates)
+<<<<<<< HEAD
 >>>>>>> 633fcbd (Pod updates)
+<<<<<<< HEAD
 >>>>>>> d08807a (Pod updates)
+=======
+=======
+=======
+>>>>>>> 82f2d53 (Updated index logic)
+>>>>>>> 0494372 (Updated index logic)
+>>>>>>> 7a06b05 (Updated index logic)
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
