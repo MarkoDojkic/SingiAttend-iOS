@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "212"
             endingLineNumber = "212"
-            landmarkName = "pickerView(_:viewForRow:forComponent:reusing:)"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
