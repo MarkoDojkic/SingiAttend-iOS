@@ -112,14 +112,14 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                             <action selector="attendance_goLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIC-T6-m7J"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
                                         <rect key="frame" x="111" y="0.0" width="153" height="271"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Yv-kIb" userLabel="attendances_pcv" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="-5" y="-5" width="158" height="158"/>
+                                                <rect key="frame" x="-5" y="-5" width="165" height="164"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-cB-6Dp" userLabel="overlay_img">
-                                                        <rect key="frame" x="-108" y="-303" width="454" height="934"/>
+                                                        <rect key="frame" x="-108" y="-303" width="461" height="940"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" systemColor="lightTextColor"/>
                                                         <accessibility key="accessibilityConfiguration" label="overlay">
@@ -129,41 +129,42 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-ts-zl7" userLabel="attendancesClass_text">
-                                                <rect key="frame" x="-16" y="130" width="184" height="111"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-ts-zl7" userLabel="attendancesClass_text">
+                                                <rect key="frame" x="-5" y="136" width="165" height="105"/>
                                                 <string key="text">Engleski jezik 1 
+--------------
+--------------
 Jasna Petrovic 
 (-ASISTENT-)</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n0-BH-SVv" userLabel="attendancesP_text">
-                                                <rect key="frame" x="-5" y="224" width="165" height="47"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n0-BH-SVv" userLabel="attendancesP_text">
+                                                <rect key="frame" x="-5" y="230" width="165" height="47"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="KhU-EZ-Krr"/>
                                                     <constraint firstAttribute="width" constant="165" id="ckf-B2-FCF"/>
                                                 </constraints>
                                                 <string key="text">Prognoza bodova za prisustvo: 7/10
 (-KRAJ NASTAVE-)</string>
-                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="centerX" secondItem="hVl-lD-DEX" secondAttribute="centerX" id="1WV-hU-9OV"/>
                                             <constraint firstItem="8fQ-ts-zl7" firstAttribute="top" secondItem="kHP-Yv-kIb" secondAttribute="bottom" constant="-23" id="6b3-n5-N3r"/>
-                                            <constraint firstAttribute="trailing" secondItem="kHP-Yv-kIb" secondAttribute="trailing" id="EcV-Zg-dPW"/>
-                                            <constraint firstAttribute="bottom" secondItem="4n0-BH-SVv" secondAttribute="bottom" id="Hq3-Nu-eb9"/>
+                                            <constraint firstAttribute="bottom" secondItem="4n0-BH-SVv" secondAttribute="bottom" constant="-6" id="L4T-tj-Ng8"/>
                                             <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="4n0-BH-SVv" secondAttribute="leading" id="Okx-dC-NOf"/>
-                                            <constraint firstAttribute="trailing" secondItem="4n0-BH-SVv" secondAttribute="trailing" constant="-7" id="SC1-wM-bnR"/>
+                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="leading" secondItem="4n0-BH-SVv" secondAttribute="leading" id="Q0j-XS-1g6"/>
                                             <constraint firstItem="4n0-BH-SVv" firstAttribute="top" secondItem="kHP-Yv-kIb" secondAttribute="bottom" constant="71" id="Uu6-xy-Xy1"/>
-                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-16" id="gO9-Mp-RPX"/>
-                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-5" id="hlT-Oh-Qqi"/>
-                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="top" secondItem="hVl-lD-DEX" secondAttribute="top" constant="-5" id="lpY-KR-fqE"/>
-                                            <constraint firstAttribute="bottom" secondItem="8fQ-ts-zl7" secondAttribute="bottom" constant="30" id="m6i-Db-exq"/>
+                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="trailing" secondItem="4n0-BH-SVv" secondAttribute="trailing" id="V7h-wz-weF"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="top" secondItem="hVl-lD-DEX" secondAttribute="top" constant="-5" id="XUm-pW-msz"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="trailing" secondItem="8fQ-ts-zl7" secondAttribute="trailing" id="Zzy-fN-hv7"/>
+                                            <constraint firstAttribute="bottom" secondItem="8fQ-ts-zl7" secondAttribute="bottom" constant="30" id="qbT-kc-K9j"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-5" id="sNk-a8-tc8"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-p7-l1Y" userLabel="attendanceRight_btn">
@@ -384,6 +385,15 @@ Jasna Petrovic
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
+                            <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwq-Xa-5Ah" userLabel="indexYear_pv">
+                                <rect key="frame" x="0.0" y="138" width="156" height="34"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEZ-Q5-jEW">
+                                <rect key="frame" x="152" y="138" width="9" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index_no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPl-uZ-5nf" userLabel="indexReg_text">
                                 <rect key="frame" x="9" y="101" width="419" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -391,7 +401,7 @@ Jasna Petrovic
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FVd-6Z-uiX" userLabel="indexReg_txt">
-                                <rect key="frame" x="9" y="138" width="415" height="34"/>
+                                <rect key="frame" x="162" y="138" width="262" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="gij-2g-jkT"/>
                                 </constraints>
@@ -458,34 +468,6 @@ Jasna Petrovic
                             <pickerView tag="1" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xD4-17-RzA" userLabel="courses_pv">
                                 <rect key="frame" x="9" y="419" width="413" height="60"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="faculty_temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzi-UO-beP">
-                                <rect key="frame" x="16" y="846" width="58" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="QL5-fh-FjK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="course_temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gC-8l-suI">
-                                <rect key="frame" x="385" y="852" width="43" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="gzn-Sb-kST"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-Hu-ULX" userLabel="english_btn">
-                                <rect key="frame" x="16" y="501" width="200" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="3pW-az-RZz"/>
-                                </constraints>
-                                <state key="normal" title="english" image="us"/>
-                                <connections>
-                                    <action selector="populate_engish:" destination="04x-aV-KfD" eventType="touchUpInside" id="kzn-lp-ayW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6Y-un-How" userLabel="register_btn">
                                 <rect key="frame" x="7" y="680" width="415" height="71"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
@@ -519,24 +501,34 @@ Jasna Petrovic
                                     <action selector="populate_serbian:" destination="04x-aV-KfD" eventType="touchUpInside" id="fUu-Rd-Wbe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-Hu-ULX" userLabel="english_btn">
+                                <rect key="frame" x="14" y="500" width="200" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3pW-az-RZz"/>
+                                </constraints>
+                                <state key="normal" title="english" image="us"/>
+                                <connections>
+                                    <action selector="populate_engish:" destination="04x-aV-KfD" eventType="touchUpInside" id="kzn-lp-ayW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1j0-iF-rzq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="czH-rJ-evA" secondAttribute="trailing" id="0HQ-UT-fB5"/>
+                            <constraint firstItem="Lwq-Xa-5Ah" firstAttribute="leading" secondItem="3ZZ-0u-0RE" secondAttribute="leading" id="2aH-jR-IjN"/>
                             <constraint firstItem="tEf-07-9Ch" firstAttribute="leading" secondItem="3ZZ-0u-0RE" secondAttribute="leadingMargin" id="4a8-aL-1YU"/>
-                            <constraint firstItem="mzi-UO-beP" firstAttribute="baseline" secondItem="3gC-8l-suI" secondAttribute="baseline" id="5Zh-TA-U4F"/>
-                            <constraint firstItem="cdc-Hu-ULX" firstAttribute="leading" secondItem="iMg-vv-yGJ" secondAttribute="leading" id="5uV-l8-GLx"/>
+                            <constraint firstItem="cdc-Hu-ULX" firstAttribute="leading" secondItem="iMg-vv-yGJ" secondAttribute="leading" constant="-2" id="5uV-l8-GLx"/>
                             <constraint firstItem="jkV-KQ-ydR" firstAttribute="leading" secondItem="xD4-17-RzA" secondAttribute="leading" id="7Ef-Gq-J5u"/>
                             <constraint firstItem="FhK-Yc-cSs" firstAttribute="top" secondItem="n8O-Mo-hCb" secondAttribute="bottom" constant="2" id="7cS-aX-n2u"/>
                             <constraint firstItem="n8O-Mo-hCb" firstAttribute="leading" secondItem="FhK-Yc-cSs" secondAttribute="leading" id="7hW-P0-ad6"/>
                             <constraint firstItem="tEf-07-9Ch" firstAttribute="top" secondItem="1j0-iF-rzq" secondAttribute="top" id="7lK-iT-8BY"/>
-                            <constraint firstItem="O4A-Zf-q17" firstAttribute="leading" secondItem="cdc-Hu-ULX" secondAttribute="leading" id="8o0-iH-Bh4"/>
+                            <constraint firstItem="O4A-Zf-q17" firstAttribute="leading" secondItem="cdc-Hu-ULX" secondAttribute="leading" constant="2" id="8o0-iH-Bh4"/>
                             <constraint firstItem="xD4-17-RzA" firstAttribute="trailing" secondItem="abx-NR-zdP" secondAttribute="trailing" id="9An-wg-zki"/>
+                            <constraint firstItem="AEZ-Q5-jEW" firstAttribute="bottom" secondItem="FVd-6Z-uiX" secondAttribute="bottom" id="9FH-ZF-SiU"/>
                             <constraint firstItem="yPl-uZ-5nf" firstAttribute="top" secondItem="czH-rJ-evA" secondAttribute="bottom" constant="31" id="9Wa-VC-5kY"/>
                             <constraint firstItem="FVd-6Z-uiX" firstAttribute="top" secondItem="w7k-60-cqT" secondAttribute="bottom" constant="34" id="BbR-Wl-S7h"/>
-                            <constraint firstItem="yPl-uZ-5nf" firstAttribute="leading" secondItem="FVd-6Z-uiX" secondAttribute="leading" id="CIw-g3-E8Q"/>
-                            <constraint firstItem="iMg-vv-yGJ" firstAttribute="leading" secondItem="mzi-UO-beP" secondAttribute="leading" id="CtE-Bk-GSa"/>
+                            <constraint firstItem="yPl-uZ-5nf" firstAttribute="leading" secondItem="FVd-6Z-uiX" secondAttribute="leading" constant="-153" id="CIw-g3-E8Q"/>
                             <constraint firstItem="9PS-Ws-I8D" firstAttribute="leading" secondItem="n8O-Mo-hCb" secondAttribute="leading" id="DFY-T1-YFP"/>
                             <constraint firstItem="O4A-Zf-q17" firstAttribute="top" secondItem="FhK-Yc-cSs" secondAttribute="bottom" constant="4" id="DXO-59-Elu"/>
                             <constraint firstItem="w7k-60-cqT" firstAttribute="trailing" secondItem="FVd-6Z-uiX" secondAttribute="trailing" id="EMW-j8-Kb9"/>
@@ -545,9 +537,9 @@ Jasna Petrovic
                             <constraint firstItem="R6Y-un-How" firstAttribute="trailing" secondItem="iMg-vv-yGJ" secondAttribute="trailing" id="Ghe-ZW-sg3"/>
                             <constraint firstItem="czH-rJ-evA" firstAttribute="leading" secondItem="1j0-iF-rzq" secondAttribute="leading" constant="9" id="JI6-3g-sGu"/>
                             <constraint firstItem="abx-NR-zdP" firstAttribute="trailing" secondItem="R6Y-un-How" secondAttribute="trailing" id="JY7-D8-cEf"/>
-                            <constraint firstItem="mzi-UO-beP" firstAttribute="top" secondItem="iMg-vv-yGJ" secondAttribute="bottom" constant="20" id="Jxn-cJ-n4L"/>
                             <constraint firstItem="abx-NR-zdP" firstAttribute="top" secondItem="xD4-17-RzA" secondAttribute="bottom" constant="21" id="PFv-23-esu"/>
-                            <constraint firstItem="cdc-Hu-ULX" firstAttribute="top" secondItem="xD4-17-RzA" secondAttribute="bottom" constant="22" id="PgS-vX-4n8"/>
+                            <constraint firstItem="cdc-Hu-ULX" firstAttribute="top" secondItem="xD4-17-RzA" secondAttribute="bottom" constant="21" id="PgS-vX-4n8"/>
+                            <constraint firstItem="Lwq-Xa-5Ah" firstAttribute="bottom" secondItem="AEZ-Q5-jEW" secondAttribute="bottom" id="QCz-Iq-ttk"/>
                             <constraint firstItem="iMg-vv-yGJ" firstAttribute="top" secondItem="R6Y-un-How" secondAttribute="bottom" constant="36" id="UAG-EJ-m2c"/>
                             <constraint firstItem="O4A-Zf-q17" firstAttribute="centerX" secondItem="jkV-KQ-ydR" secondAttribute="centerX" id="UcN-G8-qYZ"/>
                             <constraint firstItem="jkV-KQ-ydR" firstAttribute="trailing" secondItem="xD4-17-RzA" secondAttribute="trailing" id="VsF-qG-8a1"/>
@@ -556,42 +548,44 @@ Jasna Petrovic
                             <constraint firstItem="w7k-60-cqT" firstAttribute="leading" secondItem="yPl-uZ-5nf" secondAttribute="leading" id="arc-t3-2j7"/>
                             <constraint firstItem="9PS-Ws-I8D" firstAttribute="trailing" secondItem="FhK-Yc-cSs" secondAttribute="trailing" id="azW-Oa-H7F"/>
                             <constraint firstItem="FhK-Yc-cSs" firstAttribute="leading" secondItem="jkV-KQ-ydR" secondAttribute="leading" id="b4K-dx-tyO"/>
-                            <constraint firstItem="n8O-Mo-hCb" firstAttribute="trailing" secondItem="3gC-8l-suI" secondAttribute="trailing" id="bJo-XD-i8w"/>
-                            <constraint firstItem="FVd-6Z-uiX" firstAttribute="leading" secondItem="T9o-9N-Yrd" secondAttribute="leading" id="cFT-Vl-AHU"/>
-                            <constraint firstItem="abx-NR-zdP" firstAttribute="leading" secondItem="cdc-Hu-ULX" secondAttribute="trailing" constant="6" id="dRD-yz-oS2"/>
+                            <constraint firstItem="FVd-6Z-uiX" firstAttribute="leading" secondItem="T9o-9N-Yrd" secondAttribute="leading" constant="153" id="cFT-Vl-AHU"/>
+                            <constraint firstItem="1j0-iF-rzq" firstAttribute="bottom" secondItem="iMg-vv-yGJ" secondAttribute="bottom" constant="12" id="ceO-bG-wL8"/>
+                            <constraint firstItem="abx-NR-zdP" firstAttribute="leading" secondItem="cdc-Hu-ULX" secondAttribute="trailing" constant="8" id="dRD-yz-oS2"/>
                             <constraint firstItem="R6Y-un-How" firstAttribute="leading" secondItem="1j0-iF-rzq" secondAttribute="leading" constant="7" id="ewE-UX-TKv"/>
-                            <constraint firstItem="mzi-UO-beP" firstAttribute="top" secondItem="1j0-iF-rzq" secondAttribute="bottom" constant="8" symbolic="YES" id="hdx-7R-Tpd"/>
+                            <constraint firstItem="FVd-6Z-uiX" firstAttribute="leading" secondItem="Lwq-Xa-5Ah" secondAttribute="trailing" constant="6" id="g0q-QR-yQW"/>
                             <constraint firstItem="tEf-07-9Ch" firstAttribute="centerX" secondItem="R6Y-un-How" secondAttribute="centerX" id="kVv-aF-QqA"/>
                             <constraint firstItem="czH-rJ-evA" firstAttribute="leading" secondItem="w7k-60-cqT" secondAttribute="leading" id="krJ-ZN-YIx"/>
                             <constraint firstItem="xD4-17-RzA" firstAttribute="top" secondItem="jkV-KQ-ydR" secondAttribute="bottom" id="m7w-cy-UQE"/>
-                            <constraint firstAttribute="bottom" secondItem="mzi-UO-beP" secondAttribute="bottom" id="mO0-m9-eMk"/>
                             <constraint firstItem="FhK-Yc-cSs" firstAttribute="top" secondItem="9PS-Ws-I8D" secondAttribute="bottom" constant="40" id="nZ3-ME-pGn"/>
                             <constraint firstItem="FhK-Yc-cSs" firstAttribute="centerX" secondItem="O4A-Zf-q17" secondAttribute="centerX" id="o7O-rd-PwW"/>
-                            <constraint firstItem="R6Y-un-How" firstAttribute="top" secondItem="cdc-Hu-ULX" secondAttribute="bottom" constant="49" id="p6g-tJ-xwf"/>
+                            <constraint firstItem="R6Y-un-How" firstAttribute="top" secondItem="cdc-Hu-ULX" secondAttribute="bottom" constant="17" id="p6g-tJ-xwf"/>
                             <constraint firstItem="jkV-KQ-ydR" firstAttribute="top" secondItem="O4A-Zf-q17" secondAttribute="bottom" id="p9E-xh-eKb"/>
                             <constraint firstItem="czH-rJ-evA" firstAttribute="trailing" secondItem="yPl-uZ-5nf" secondAttribute="trailing" id="pX7-80-lj7"/>
                             <constraint firstItem="T9o-9N-Yrd" firstAttribute="top" secondItem="yPl-uZ-5nf" secondAttribute="bottom" constant="31" id="pdO-ol-1OS"/>
                             <constraint firstItem="n8O-Mo-hCb" firstAttribute="top" secondItem="T9o-9N-Yrd" secondAttribute="bottom" constant="25" id="qWR-rh-uGG"/>
                             <constraint firstItem="FVd-6Z-uiX" firstAttribute="trailing" secondItem="9PS-Ws-I8D" secondAttribute="trailing" id="sCM-YV-cqY"/>
+                            <constraint firstItem="FVd-6Z-uiX" firstAttribute="leading" secondItem="AEZ-Q5-jEW" secondAttribute="trailing" constant="1" id="tPf-Nz-prx"/>
                             <constraint firstItem="w7k-60-cqT" firstAttribute="top" secondItem="czH-rJ-evA" secondAttribute="bottom" id="to1-qu-DMD"/>
                             <constraint firstItem="T9o-9N-Yrd" firstAttribute="trailing" secondItem="n8O-Mo-hCb" secondAttribute="trailing" id="tof-Nc-j0g"/>
+                            <constraint firstItem="AEZ-Q5-jEW" firstAttribute="leading" secondItem="1j0-iF-rzq" secondAttribute="leading" constant="152" id="vrE-jq-XV5"/>
                             <constraint firstItem="czH-rJ-evA" firstAttribute="top" secondItem="tEf-07-9Ch" secondAttribute="bottom" constant="1" id="wIC-SI-suf"/>
                             <constraint firstItem="tEf-07-9Ch" firstAttribute="trailing" secondItem="3ZZ-0u-0RE" secondAttribute="trailingMargin" id="xfS-VF-4hf"/>
                             <constraint firstItem="n8O-Mo-hCb" firstAttribute="centerX" secondItem="iMg-vv-yGJ" secondAttribute="centerX" id="yKa-c6-4QU"/>
+                            <constraint firstItem="AEZ-Q5-jEW" firstAttribute="top" secondItem="FVd-6Z-uiX" secondAttribute="top" id="yUh-nO-fw4"/>
+                            <constraint firstItem="Lwq-Xa-5Ah" firstAttribute="top" secondItem="AEZ-Q5-jEW" secondAttribute="top" id="yfj-WZ-cdP"/>
                             <constraint firstItem="R6Y-un-How" firstAttribute="top" secondItem="abx-NR-zdP" secondAttribute="bottom" constant="50" id="zyD-eE-E9G"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Ix-DF-7Bx"/>
                     <connections>
-                        <outlet property="c_temp" destination="3gC-8l-suI" id="vl1-Hx-LH6"/>
                         <outlet property="copyright_text" destination="iMg-vv-yGJ" id="k8v-Cg-3p1"/>
                         <outlet property="courses_pv" destination="xD4-17-RzA" id="nzx-FG-Zq9"/>
                         <outlet property="eng_btn" destination="cdc-Hu-ULX" id="4bx-h4-XPy"/>
-                        <outlet property="f_temp" destination="mzi-UO-beP" id="Y1o-dA-oSy"/>
                         <outlet property="faculties_pv" destination="jkV-KQ-ydR" id="Yu4-qX-zu6"/>
                         <outlet property="facultyS_text" destination="O4A-Zf-q17" id="ZM3-Im-gyy"/>
                         <outlet property="indexReg_text" destination="yPl-uZ-5nf" id="FsG-H1-2gE"/>
                         <outlet property="indexReg_txt" destination="FVd-6Z-uiX" id="6gb-my-lgI"/>
+                        <outlet property="indexYear_pv" destination="Lwq-Xa-5Ah" id="4aq-eO-uAA"/>
                         <outlet property="nameSurname_text" destination="czH-rJ-evA" id="hPK-0K-M3n"/>
                         <outlet property="nameSurname_txt" destination="w7k-60-cqT" id="yU2-dt-Id0"/>
                         <outlet property="passReg_text" destination="n8O-Mo-hCb" id="Myj-5q-WTN"/>
