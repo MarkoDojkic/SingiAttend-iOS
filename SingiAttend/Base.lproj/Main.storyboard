@@ -112,14 +112,14 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                             <action selector="attendance_goLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIC-T6-m7J"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
                                         <rect key="frame" x="111" y="0.0" width="153" height="271"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Yv-kIb" userLabel="attendances_pcv" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="-5" y="-5" width="158" height="158"/>
+                                                <rect key="frame" x="-5" y="-5" width="165" height="164"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-cB-6Dp" userLabel="overlay_img">
-                                                        <rect key="frame" x="-108" y="-303" width="454" height="934"/>
+                                                        <rect key="frame" x="-108" y="-303" width="461" height="940"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" systemColor="lightTextColor"/>
                                                         <accessibility key="accessibilityConfiguration" label="overlay">
@@ -129,41 +129,42 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-ts-zl7" userLabel="attendancesClass_text">
-                                                <rect key="frame" x="-16" y="130" width="184" height="111"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-ts-zl7" userLabel="attendancesClass_text">
+                                                <rect key="frame" x="-5" y="136" width="165" height="105"/>
                                                 <string key="text">Engleski jezik 1 
+--------------
+--------------
 Jasna Petrovic 
 (-ASISTENT-)</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n0-BH-SVv" userLabel="attendancesP_text">
-                                                <rect key="frame" x="-5" y="224" width="165" height="47"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n0-BH-SVv" userLabel="attendancesP_text">
+                                                <rect key="frame" x="-5" y="230" width="165" height="47"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="KhU-EZ-Krr"/>
                                                     <constraint firstAttribute="width" constant="165" id="ckf-B2-FCF"/>
                                                 </constraints>
                                                 <string key="text">Prognoza bodova za prisustvo: 7/10
 (-KRAJ NASTAVE-)</string>
-                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="centerX" secondItem="hVl-lD-DEX" secondAttribute="centerX" id="1WV-hU-9OV"/>
                                             <constraint firstItem="8fQ-ts-zl7" firstAttribute="top" secondItem="kHP-Yv-kIb" secondAttribute="bottom" constant="-23" id="6b3-n5-N3r"/>
-                                            <constraint firstAttribute="trailing" secondItem="kHP-Yv-kIb" secondAttribute="trailing" id="EcV-Zg-dPW"/>
-                                            <constraint firstAttribute="bottom" secondItem="4n0-BH-SVv" secondAttribute="bottom" id="Hq3-Nu-eb9"/>
+                                            <constraint firstAttribute="bottom" secondItem="4n0-BH-SVv" secondAttribute="bottom" constant="-6" id="L4T-tj-Ng8"/>
                                             <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="4n0-BH-SVv" secondAttribute="leading" id="Okx-dC-NOf"/>
-                                            <constraint firstAttribute="trailing" secondItem="4n0-BH-SVv" secondAttribute="trailing" constant="-7" id="SC1-wM-bnR"/>
+                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="leading" secondItem="4n0-BH-SVv" secondAttribute="leading" id="Q0j-XS-1g6"/>
                                             <constraint firstItem="4n0-BH-SVv" firstAttribute="top" secondItem="kHP-Yv-kIb" secondAttribute="bottom" constant="71" id="Uu6-xy-Xy1"/>
-                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-16" id="gO9-Mp-RPX"/>
-                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-5" id="hlT-Oh-Qqi"/>
-                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="top" secondItem="hVl-lD-DEX" secondAttribute="top" constant="-5" id="lpY-KR-fqE"/>
-                                            <constraint firstAttribute="bottom" secondItem="8fQ-ts-zl7" secondAttribute="bottom" constant="30" id="m6i-Db-exq"/>
+                                            <constraint firstItem="8fQ-ts-zl7" firstAttribute="trailing" secondItem="4n0-BH-SVv" secondAttribute="trailing" id="V7h-wz-weF"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="top" secondItem="hVl-lD-DEX" secondAttribute="top" constant="-5" id="XUm-pW-msz"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="trailing" secondItem="8fQ-ts-zl7" secondAttribute="trailing" id="Zzy-fN-hv7"/>
+                                            <constraint firstAttribute="bottom" secondItem="8fQ-ts-zl7" secondAttribute="bottom" constant="30" id="qbT-kc-K9j"/>
+                                            <constraint firstItem="kHP-Yv-kIb" firstAttribute="leading" secondItem="hVl-lD-DEX" secondAttribute="leading" constant="-5" id="sNk-a8-tc8"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-p7-l1Y" userLabel="attendanceRight_btn">

@@ -236,7 +236,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/insert/student")!)
+        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/insert/student")!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("application/json", forHTTPHeaderField: "Accept")

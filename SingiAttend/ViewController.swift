@@ -227,7 +227,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func startDataStreaming(_ type: Int){
         if(type == 0){
-            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("text/plain", forHTTPHeaderField: "Accept")
             
@@ -262,7 +262,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 1){
-            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
@@ -311,7 +311,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 2){
-            var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
@@ -404,6 +404,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.attendances_prognosis_text.isHidden = false
         }
         
+        if(currentAttendanceLecture == attendances.count - 1){
+            self.attendanceRight_btn.alpha = 0
+            self.attendanceRight_btn.isUserInteractionEnabled = false
+        }
+        
         let percentage = Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! / Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! * 100.0
         attendances_pcv.centerText = String(round(percentage)) + "% \n" + attendances[currentAttendanceLecture][3] + "/" + attendances[currentAttendanceLecture][4] + "\n" + attendances[currentAttendanceLecture][5] + "/" + attendances[currentAttendanceLecture][6]
 
@@ -434,7 +439,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if(attendances[currentAttendanceLecture][7] == "1"){
                 attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (КРАЈ НАСТАВЕ)"
             }
-            
         }
         else {
             attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
@@ -445,7 +449,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func login(_ index: String, _ data:Data, completionHandler: @escaping (String?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/checkPassword/student/" + index)!)
+        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/checkPassword/student/" + index)!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
