@@ -15,7 +15,7 @@ class SingleCourseCell : UITableViewCell {
     var url: String!
         
     @IBAction func recordAttendance(_ sender: UIButton) {
-        var request = URLRequest(url: URL(string: "http://127.0.0.1:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!)
+        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!)
         request.httpMethod = "GET"
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
         
@@ -54,12 +54,5 @@ class SingleCourseCell : UITableViewCell {
                 }
             }
         }.resume()
-        
-        /*
-        print("recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)
-        print(String(url.split(separator: "/", maxSplits: 2, omittingEmptySubsequences: true)[1]))
-        
-        UserDefaults.standard.set(true, forKey: String(url.split(separator: "/", maxSplits: 2, omittingEmptySubsequences: true)[1]))*/
-        //print(communicateWithServer("RECORDATTENDANCE," + UserDefaults.standard.string(forKey: "loggedInAs")! + ":\(sender.tag)", 2))
     }
 }
