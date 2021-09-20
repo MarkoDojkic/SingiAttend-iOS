@@ -1,1 +1,1 @@
-
+This project is iPhone app for student attendance. It is to be used along with SingiAttend project.
