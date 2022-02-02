@@ -227,7 +227,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func startDataStreaming(_ type: Int){
         if(type == 0){
-            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("text/plain", forHTTPHeaderField: "Accept")
             
@@ -262,7 +262,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 1){
-            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
@@ -300,7 +300,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             newCourseData.append((course["nameSurname"] as! String))
                             newCourseData.append((course["beginTime"] as! String))
                             newCourseData.append((course["endTime"] as! String))
-                            newCourseData.append(String(course["subjectId"] as! Int))
+                            newCourseData.append(String(course["subjectId"] as! String))
                             
                             self.courses.append(newCourseData)
                         }
@@ -311,7 +311,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 2){
-            var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
@@ -338,27 +338,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         
                         self.attendances.removeAll()
                         
+                        //TODO: FIX THIS AND _CLASS on update, also
+                        //check dates on update to use same format as before!
+                        
                         for course in attendanceData_json!{
                             var newAttendanceData = [String]()
                             
                             if(Locale.current.languageCode == "sr"){
-                                newAttendanceData.append(((course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String))
+                                newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String)
                             }
                             else{
                                 newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["titleEnglish"] as! String)
                             }
-                            
                             newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameT"] as! String)
                             newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameA"] as? String ?? "")
                             newAttendanceData.append(String((course["attendedLectures"] as! Int)))
                             newAttendanceData.append(String((course["totalLectures"] as! Int)))
                             newAttendanceData.append(String((course["attendedPractices"] as! Int)))
                             newAttendanceData.append(String((course["totalPractices"] as! Int)))
-                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["isInactive"] as! Int))
-                            
+                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["inactive"] as! Int))
                             self.attendances.append(newAttendanceData)
                         }
-                        
+                        print(self.attendances)
                         self.updatePieChart()
                     }
                 }
@@ -409,7 +410,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.attendanceRight_btn.isUserInteractionEnabled = false
         }
         
-        let percentage = Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! / Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! * 100.0
+        var percentage = 0.0;
+        
+        if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
+            percentage = Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! / Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! * 100.0
+        }
         attendances_pcv.centerText = String(round(percentage)) + "% \n" + attendances[currentAttendanceLecture][3] + "/" + attendances[currentAttendanceLecture][4] + "\n" + attendances[currentAttendanceLecture][5] + "/" + attendances[currentAttendanceLecture][6]
 
         attendances_pcv.legend.enabled = false
@@ -435,13 +440,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             + "\n" + attendances[currentAttendanceLecture][1]
             + ( attendances[currentAttendanceLecture][2].isEmpty ? "" : ("\n(" + attendances[currentAttendanceLecture][2] + ")") )
         if(Locale.current.languageCode == "sr"){
-            attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
+                attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            } else { attendances_prognosis_text.text = "Прогноза бодова за присуство: 0/10" }
             if(attendances[currentAttendanceLecture][7] == "1"){
                 attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (КРАЈ НАСТАВЕ)"
             }
         }
         else {
-            attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
+                attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+            } else { attendances_prognosis_text.text = "Forecast points for attendance: 0/10" }
             if(attendances[currentAttendanceLecture][7] == "1"){
                 attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (LECTURES ARE OVER)"
             }
@@ -449,7 +458,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func login(_ index: String, _ data:Data, completionHandler: @escaping (String?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/checkPassword/student/" + index)!)
+        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/checkPassword/student/" + index)!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
