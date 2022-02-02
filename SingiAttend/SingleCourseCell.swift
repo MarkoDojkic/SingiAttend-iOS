@@ -13,9 +13,10 @@ class SingleCourseCell : UITableViewCell {
     @IBOutlet weak var class_text: UILabel!
     @IBOutlet weak var cconfirm_btn: UIButton!
     var url: String!
-        
+            
     @IBAction func recordAttendance(_ sender: UIButton) {
-        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!)
+        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!);
+        
         request.httpMethod = "GET"
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
         
@@ -40,11 +41,11 @@ class SingleCourseCell : UITableViewCell {
             
             if let data = data {
                 DispatchQueue.main.async {
-                    if(String(data: data, encoding: .utf8)!.split(separator: "*")[0] == "0"){
-                        self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized() +  String(data: data, encoding: .utf8)!.split(separator: "*")[1]
+                    if(String(data: data, encoding: .utf8)! == "ALERADY RECORDED ATTENDANCE"){
+                        self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized()
                         self.cconfirm_btn.isHidden = true
                     }
-                    else if(String(data: data, encoding: .utf8)!.split(separator: "*")[0] == "1"){
+                    else if(String(data: data, encoding: .utf8)! == "SUCCESSFULLY RECORDED ATTENDANCE"){
                         self.class_text.text! += "\n" + "newlyRecordedAttendance".localized() +  String(data: data, encoding: .utf8)!.split(separator: "*")[1]
                         self.cconfirm_btn.isHidden = true
                     }

@@ -40,7 +40,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         var index: String
         var password_hash: String
         var email: String
-        var studyId: Int
+        var studyId: String
         var year: String
     }
     
@@ -123,9 +123,31 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = .prettyPrinted
+        
+        var sCourseId:String;
+        
+        switch selectedCourse {
+            case "1": sCourseId = "61b612d3e1534b76962f2564"; break;
+            case "2": sCourseId = "61b612d3e1534b76962f256b"; break;
+            case "3": sCourseId = "61b612d3e1534b76962f2563"; break;
+            case "4": sCourseId = "61b612d3e1534b76962f256e"; break;
+            case "5": sCourseId = "61b612d3e1534b76962f2566"; break;
+            case "6": sCourseId = "61b612d3e1534b76962f2569"; break;
+            case "7": sCourseId = "61b612d3e1534b76962f2571"; break;
+            case "8": sCourseId = "61b612d3e1534b76962f256a"; break;
+            case "9": sCourseId = "61b612d3e1534b76962f2565"; break;
+            case "10": sCourseId = "61b612d3e1534b76962f2568"; break;
+            case "11": sCourseId = "61b612d3e1534b76962f256d"; break;
+            case "12": sCourseId = "61b612d3e1534b76962f2572"; break;
+            case "13": sCourseId = "61b612d3e1534b76962f256c"; break;
+            case "14": sCourseId = "61b612d3e1534b76962f256f"; break;
+            case "15": sCourseId = "61b612d3e1534b76962f2570"; break;
+            case "16": sCourseId = "61c7328fe22ce55efb31ac02"; break;
+            default: sCourseId = "";
+        }
                 
         do {
-            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: Int(selectedCourse)!, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
+            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: sCourseId, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
             register(jsonData, completionHandler: {
                 response in
                 if let statusCode = response {
@@ -236,11 +258,12 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://192.168.8.102:62812/api/insert/student")!)
+        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/insert/student")!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021"))", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
