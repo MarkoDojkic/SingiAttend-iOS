@@ -41,7 +41,7 @@ class SingleCourseCell : UITableViewCell {
             
             if let data = data {
                 DispatchQueue.main.async {
-                    if(String(data: data, encoding: .utf8)! == "ALERADY RECORDED ATTENDANCE"){
+                    if(String(data: data, encoding: .utf8)! == "ALREADY RECORDED ATTENDANCE"){
                         self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized()
                         self.cconfirm_btn.isHidden = true
                     }
