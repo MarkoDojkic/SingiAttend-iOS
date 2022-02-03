@@ -227,9 +227,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func startDataStreaming(_ type: Int){
         if(type == 0){
-            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/getStudentName/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("text/plain", forHTTPHeaderField: "Accept")
+            request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
             
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
@@ -262,9 +263,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 1){
-            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/getCourseData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
             
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
@@ -311,9 +313,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }.resume()
         }
         else if(type == 2){
-            var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
+            var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/getAttendanceData/" + localStorage.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: ""))!)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
             
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
@@ -338,9 +341,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         
                         self.attendances.removeAll()
                         
-                        //TODO: FIX THIS AND _CLASS on update, also
-                        //check dates on update to use same format as before!
-                        
                         for course in attendanceData_json!{
                             var newAttendanceData = [String]()
                             
@@ -356,10 +356,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             newAttendanceData.append(String((course["totalLectures"] as! Int)))
                             newAttendanceData.append(String((course["attendedPractices"] as! Int)))
                             newAttendanceData.append(String((course["totalPractices"] as! Int)))
-                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["inactive"] as! Int))
+                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["isInactive"] as! String))
+                            
                             self.attendances.append(newAttendanceData)
                         }
-                        print(self.attendances)
+                        
                         self.updatePieChart()
                     }
                 }
@@ -458,11 +459,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func login(_ index: String, _ data:Data, completionHandler: @escaping (String?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/checkPassword/student/" + index)!)
+        var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/checkPassword/student/" + index)!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
         request.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

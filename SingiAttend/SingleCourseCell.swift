@@ -15,10 +15,11 @@ class SingleCourseCell : UITableViewCell {
     var url: String!
             
     @IBAction func recordAttendance(_ sender: UIButton) {
-        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!);
+        var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!);
         
         request.httpMethod = "GET"
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
+        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -41,7 +42,7 @@ class SingleCourseCell : UITableViewCell {
             
             if let data = data {
                 DispatchQueue.main.async {
-                    if(String(data: data, encoding: .utf8)! == "ALERADY RECORDED ATTENDANCE"){
+                    if(String(data: data, encoding: .utf8)! == "ALREADY RECORDED ATTENDANCE"){
                         self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized()
                         self.cconfirm_btn.isHidden = true
                     }
