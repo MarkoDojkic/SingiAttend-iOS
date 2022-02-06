@@ -258,12 +258,12 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/insert/student")!)
+        var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/insert/student")!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021"))", forHTTPHeaderField: "Authorization")
+        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
