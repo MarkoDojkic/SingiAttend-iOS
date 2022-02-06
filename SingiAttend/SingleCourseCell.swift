@@ -15,10 +15,11 @@ class SingleCourseCell : UITableViewCell {
     var url: String!
             
     @IBAction func recordAttendance(_ sender: UIButton) {
-        var request = URLRequest(url: URL(string: "http://192.168.0.196:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!);
+        var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/recordAttendance/" + UserDefaults.standard.string(forKey: "loggedInAs")!.replacingOccurrences(of: "/", with: "") + "/" + url!)!);
         
         request.httpMethod = "GET"
         request.setValue("text/plain", forHTTPHeaderField: "Accept")
+        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
