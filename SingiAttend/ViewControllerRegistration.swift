@@ -32,7 +32,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     var faculties = [""]
     var courses: Array<[String:Int]> = []
     var f_courses: [String:Int] = [:]
-    let i_years = Array(2000...9999)
+    let i_years = Array(2000...2999)
     var selectedCourse: String = ""
     var indexYear: Int = -1
     struct Student:Codable {
@@ -258,12 +258,12 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
-        var request = URLRequest(url: URL(string: "http://192.168.8.105:62812/api/insert/student")!)
+        var request = URLRequest(url: URL(string: Bundle.main.infoDictionary!["ServerURL"]! as! String + "/api/insert/student")!)
         request.httpMethod = "POST"
         request.httpBody = data
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Basic \(String(format: "%@:%@", "singiattend-admin","singiattend-server2021").data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
+        request.setValue("Basic \(String(format: "%@:%@", Bundle.main.infoDictionary!["ServerUsername"]! as! String, Bundle.main.infoDictionary!["ServerPassword"]! as! String).data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
