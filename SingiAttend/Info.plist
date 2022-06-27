@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ServerURL</key>
-	<string>http://192.168.0.102:62812</string>
+	<string>http://192.168.8.102:62812</string>
 	<key>ServerUsername</key>
 	<string>singiattend-admin</string>
 	<key>ServerPassword</key>
