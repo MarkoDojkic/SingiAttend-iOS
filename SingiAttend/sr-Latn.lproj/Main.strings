@@ -20,7 +20,7 @@
 "noFingerprintCapability" = "NIJE DETEKTOVAN SENZOR OTISKA PRSTA";
 "regTitleSuccess" = "Uspešna registracija";
 "regMessageSuccess" = "Uspešno ste se registrovali.\nSada se možete prijaviti sa svojim akreditivima.";
-"loginTitleSuccess" = "Uspešno ste se ulogovali";
+"loginTitleSuccess" = "Uspešno logovanje";
 "regTitleFailed" = "Neuspešna registracija";
 "regMessageFailed" = "Podaci za registraciju su nevažeći, možda korisnik već postoji.\nProverite podatke i pokušajte ponovo.";
 "loginTitleFailed" = "Neuspešno logovanje.";
