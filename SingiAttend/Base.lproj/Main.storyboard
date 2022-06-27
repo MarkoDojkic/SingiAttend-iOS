@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,19 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="main_title" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aad-Av-hAk" userLabel="title_main_text">
-                                <rect key="frame" x="25" y="0.0" width="379" height="36"/>
+                                <rect key="frame" x="25" y="44" width="379" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Cv7-8J-jnB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ime_prezime (broj_indeksa)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEh-Go-ZDz" userLabel="logged_in_as_text">
-                                <rect key="frame" x="15" y="31" width="297" height="55"/>
+                                <rect key="frame" x="15" y="75" width="297" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="dSS-5N-0ir"/>
                                 </constraints>
@@ -38,11 +39,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhU-up-Lpe" userLabel="tlogout_btn">
-                                <rect key="frame" x="320" y="44" width="76" height="29"/>
+                                <rect key="frame" x="320" y="88" width="76" height="29"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VhU-up-Lpe" secondAttribute="height" multiplier="76:29" id="B1q-Rh-dv2"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="logout_btn">
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -51,14 +53,14 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="100" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="diS-Rq-S3E" userLabel="courses_tv">
-                                <rect key="frame" x="29" y="94.000000000000028" width="367" height="425.66666666666674"/>
+                                <rect key="frame" x="29" y="138.00000000000003" width="367" height="425.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="diS-Rq-S3E" secondAttribute="height" multiplier="87:52" constant="-345.07692307692309" id="aNi-KU-NPC"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleCourseCell" rowHeight="80" id="tPM-eF-DH7" customClass="SingleCourseCell" customModule="SingiAttend">
-                                        <rect key="frame" x="0.0" y="25" width="367" height="80"/>
+                                        <rect key="frame" x="0.0" y="45" width="367" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" tableViewCell="tPM-eF-DH7" id="0yh-X2-aNC">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="80"/>
@@ -103,23 +105,23 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                 <sections/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="65" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0o-Nh-8kj" userLabel="attendances_hv">
-                                <rect key="frame" x="25" y="530" width="375" height="271"/>
+                                <rect key="frame" x="25" y="574" width="375" height="261"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uS8-qG-AjI" userLabel="attendanceLeft_btn">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="271"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="261"/>
                                         <state key="normal" image="arrow"/>
                                         <connections>
                                             <action selector="attendance_goLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIC-T6-m7J"/>
                                         </connections>
                                     </button>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
-                                        <rect key="frame" x="111" y="0.0" width="153" height="271"/>
+                                        <rect key="frame" x="111" y="0.0" width="153" height="261"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Yv-kIb" userLabel="attendances_pcv" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="-5" y="-5" width="165" height="164"/>
+                                                <rect key="frame" x="-5" y="-5" width="165" height="154"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-cB-6Dp" userLabel="overlay_img">
-                                                        <rect key="frame" x="-108" y="-303" width="461" height="940"/>
+                                                        <rect key="frame" x="-108" y="-303" width="461" height="930"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" systemColor="lightTextColor"/>
                                                         <accessibility key="accessibilityConfiguration" label="overlay">
@@ -130,7 +132,7 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-ts-zl7" userLabel="attendancesClass_text">
-                                                <rect key="frame" x="-5" y="136" width="165" height="105"/>
+                                                <rect key="frame" x="-5" y="126" width="165" height="105"/>
                                                 <string key="text">Engleski jezik 1 
 --------------
 --------------
@@ -141,7 +143,7 @@ Jasna Petrovic
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n0-BH-SVv" userLabel="attendancesP_text">
-                                                <rect key="frame" x="-5" y="230" width="165" height="47"/>
+                                                <rect key="frame" x="-5" y="220" width="165" height="47"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="KhU-EZ-Krr"/>
                                                     <constraint firstAttribute="width" constant="165" id="ckf-B2-FCF"/>
@@ -168,7 +170,7 @@ Jasna Petrovic
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-p7-l1Y" userLabel="attendanceRight_btn">
-                                        <rect key="frame" x="329" y="0.0" width="46" height="271"/>
+                                        <rect key="frame" x="329" y="0.0" width="46" height="261"/>
                                         <state key="normal" image="arrow_r"/>
                                         <connections>
                                             <action selector="attendance_goRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U07-sz-iXE"/>
@@ -177,7 +179,7 @@ Jasna Petrovic
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx6-my-h8M" userLabel="copyright_text">
-                                <rect key="frame" x="29" y="803" width="367" height="35"/>
+                                <rect key="frame" x="29" y="837" width="367" height="35"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -188,8 +190,8 @@ Jasna Petrovic
                                 <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-server_inactive-" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-7V-Hwb" userLabel="server_inactive_text">
-                                <rect key="frame" x="324" y="65" width="84" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-7V-Hwb" userLabel="server_inactive_text">
+                                <rect key="frame" x="324" y="109" width="84" height="35"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -357,19 +359,19 @@ Jasna Petrovic
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reg_title" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-07-9Ch" userLabel="title_reg_text">
-                                <rect key="frame" x="20" y="0.0" width="388" height="36"/>
+                                <rect key="frame" x="20" y="44" width="388" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="KcM-PE-aha"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name_surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czH-rJ-evA" userLabel="nameSurname_text">
-                                <rect key="frame" x="9" y="37" width="419" height="33"/>
+                                <rect key="frame" x="9" y="81" width="419" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="XVs-cD-RlN"/>
                                 </constraints>
@@ -386,16 +388,16 @@ Jasna Petrovic
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwq-Xa-5Ah" userLabel="indexYear_pv">
-                                <rect key="frame" x="0.0" y="138" width="156" height="34"/>
+                                <rect key="frame" x="0.0" y="182" width="156" height="34"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEZ-Q5-jEW">
-                                <rect key="frame" x="152" y="138" width="9" height="34"/>
+                                <rect key="frame" x="152" y="182" width="9" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index_no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPl-uZ-5nf" userLabel="indexReg_text">
-                                <rect key="frame" x="9" y="101" width="419" height="37"/>
+                                <rect key="frame" x="9" y="145" width="419" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -414,7 +416,7 @@ Jasna Petrovic
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singimail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9o-9N-Yrd" userLabel="singimail_text">
-                                <rect key="frame" x="9" y="169" width="419" height="44"/>
+                                <rect key="frame" x="9" y="213" width="419" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -431,7 +433,7 @@ Jasna Petrovic
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8O-Mo-hCb" userLabel="passReg_text">
-                                <rect key="frame" x="9" y="238" width="419" height="40"/>
+                                <rect key="frame" x="9" y="282" width="419" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="UsV-Nv-abl"/>
                                 </constraints>
@@ -499,7 +501,7 @@ Jasna Petrovic
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-Hu-ULX" userLabel="english_btn">
-                                <rect key="frame" x="14" y="500" width="200" height="163"/>
+                                <rect key="frame" x="14" y="534" width="200" height="163"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="3pW-az-RZz"/>
                                 </constraints>

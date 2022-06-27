@@ -258,6 +258,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.loggedInAs_text.text = String(data: data, encoding: .utf8)! + " (" + self.localStorage.string(forKey: "loggedInAs")! + ")"
                         self.loggedInAs_text.adjustsFontSizeToFitWidth = true;
                         self.startDataStreaming(1);
+                        self.startDataStreaming(2);
                     }
                 }
             }.resume()
@@ -299,9 +300,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             }
                             else{ newCourseData.append((course["subjectEnglish"] as! String)) }
                             
+                            let dateFormatter = DateFormatter()
+                            
+                            dateFormatter.locale = Locale(identifier: "en")
+                            
+                            dateFormatter.dateFormat = "E MM dd HH:mm:ss 'CEST' yyyy"
+                            
+                            let beginDate = dateFormatter.date(from: (course["beginTime"] as! String))
+                            let endDate = dateFormatter.date(from: (course["endTime"] as! String))
+                            
+                            dateFormatter.locale = NSLocale.current
+                            
+                            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+                            
                             newCourseData.append((course["nameSurname"] as! String))
-                            newCourseData.append((course["beginTime"] as! String))
-                            newCourseData.append((course["endTime"] as! String))
+                            newCourseData.append(dateFormatter.string(from: beginDate!))
+                            newCourseData.append(dateFormatter.string(from: endDate!))
                             newCourseData.append(String(course["subjectId"] as! String))
                             
                             self.courses.append(newCourseData)
@@ -382,10 +396,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fatalError("The dequeued cell is not an instance of SingleCourseCell.")
         }
         
-        cell.class_text.text = courses[indexPath.row][0].split(separator: "-")[0]
-            + "\n" + courses[indexPath.row][1]
-            + "\n(" + courses[indexPath.row][2] + " - "
-            + courses[indexPath.row][3] + ")"
+        cell.class_text.text = courses[indexPath.row][0].split(separator: "-")[0] + ""
+        cell.class_text.text! += "\n" + courses[indexPath.row][1]
+        cell.class_text.text! += "\n(" + courses[indexPath.row][2] + " - "
+        cell.class_text.text! += courses[indexPath.row][3] + ")"
         cell.url = String(courses[indexPath.row][4]) + "/" + String(courses[indexPath.row][0].contains("вежбе") || courses[indexPath.row][0].contains("practice"))
         cell.cconfirm_btn.isHidden = false
         return cell
