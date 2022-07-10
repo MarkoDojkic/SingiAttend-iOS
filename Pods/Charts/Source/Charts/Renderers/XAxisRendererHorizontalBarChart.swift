@@ -19,8 +19,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public init(viewPortHandler: ViewPortHandler, axis: XAxis, transformer: Transformer?, chart: BarChartView)
     {
         super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: transformer)
@@ -30,13 +33,19 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc public init(viewPortHandler: ViewPortHandler, axis: XAxis, transformer: Transformer?, chart: BarChartView)
     {
         super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: transformer)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         self.chart = chart
     }
@@ -48,8 +57,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if let transformer = self.transformer,
             viewPortHandler.contentWidth > 10,
             !viewPortHandler.isFullyZoomedOutY
@@ -84,6 +96,9 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if let transformer = self.transformer,
             viewPortHandler.contentWidth > 10,
@@ -97,8 +112,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             min = inverted ? Double(p2.y) : Double(p1.y)
             max = inverted ? Double(p1.y) : Double(p2.y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         computeAxisValues(min: min, max: max)
@@ -109,8 +127,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let longest = axis.getLongestLabel() as NSString
         
         let labelSize = longest.size(withAttributes: [.font: axis.labelFont])
@@ -130,6 +151,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
        
         let longest = xAxis.getLongestLabel() as NSString
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let longest = axis.getLongestLabel() as NSString
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -138,20 +160,28 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 
 <<<<<<< HEAD
 =======
+=======
+=======
+        let longest = axis.getLongestLabel() as NSString
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let labelSize = longest.size(withAttributes: [NSAttributedString.Key.font: xAxis.labelFont])
-        
-        let labelWidth = floor(labelSize.width + xAxis.xOffset * 3.5)
-        let labelHeight = labelSize.height
-        let labelRotatedSize = CGSize(width: labelSize.width, height: labelHeight).rotatedBy(degrees: xAxis.labelRotationAngle)
+        let labelSize = longest.size(withAttributes: [.font: axis.labelFont])
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         xAxis.labelWidth = labelWidth
         xAxis.labelHeight = labelHeight
         xAxis.labelRotatedWidth = round(labelRotatedSize.width + xAxis.xOffset * 3.5)
         xAxis.labelRotatedHeight = round(labelRotatedSize.height)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let labelWidth = floor(labelSize.width + axis.xOffset * 3.5)
         let labelHeight = labelSize.height
@@ -162,8 +192,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         axis.labelRotatedWidth = round(labelRotatedSize.width + axis.xOffset * 3.5)
         axis.labelRotatedHeight = round(labelRotatedSize.height)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     open override func renderAxisLabels(context: CGContext)
@@ -172,8 +205,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             axis.isEnabled,
             axis.isDrawLabelsEnabled,
             chart?.data != nil
@@ -198,11 +234,15 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 =======
             let xAxis = self.axis as? XAxis
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             axis.isEnabled,
             axis.isDrawLabelsEnabled,
             chart?.data != nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
             else { return }
         
         let xoffset = axis.xOffset
@@ -221,42 +261,46 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             drawLabels(context: context, pos: viewPortHandler.contentLeft + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
         
-        if !xAxis.isEnabled || !xAxis.isDrawLabelsEnabled || chart?.data === nil
-        {
-            return
-        }
-        
-        let xoffset = xAxis.xOffset
-        
-        if xAxis.labelPosition == .top
-        {
+        let xoffset = axis.xOffset
+
+        switch axis.labelPosition {
+        case .top:
             drawLabels(context: context, pos: viewPortHandler.contentRight + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
-        }
-        else if xAxis.labelPosition == .topInside
-        {
+
+        case .topInside:
             drawLabels(context: context, pos: viewPortHandler.contentRight - xoffset, anchor: CGPoint(x: 1.0, y: 0.5))
-        }
-        else if xAxis.labelPosition == .bottom
-        {
+
+        case .bottom:
             drawLabels(context: context, pos: viewPortHandler.contentLeft - xoffset, anchor: CGPoint(x: 1.0, y: 0.5))
-        }
-        else if xAxis.labelPosition == .bottomInside
-        {
+
+        case .bottomInside:
             drawLabels(context: context, pos: viewPortHandler.contentLeft + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         else
         { // BOTH SIDED
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
         case .bothSided:
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             drawLabels(context: context, pos: viewPortHandler.contentRight + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
             drawLabels(context: context, pos: viewPortHandler.contentLeft - xoffset, anchor: CGPoint(x: 1.0, y: 0.5))
         }
@@ -268,8 +312,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let transformer = self.transformer else { return }
         
         let labelFont = axis.labelFont
@@ -305,6 +352,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             let transformer = self.transformer
             else { return }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         guard let transformer = self.transformer else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -331,36 +379,37 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             {
 <<<<<<< HEAD
 =======
+=======
+=======
+        guard let transformer = self.transformer else { return }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let labelFont = xAxis.labelFont
-        let labelTextColor = xAxis.labelTextColor
-        let labelRotationAngleRadians = xAxis.labelRotationAngle.DEG2RAD
+        let labelFont = axis.labelFont
+        let labelTextColor = axis.labelTextColor
+        let labelRotationAngleRadians = axis.labelRotationAngle.DEG2RAD
         
-        let centeringEnabled = xAxis.isCenterAxisLabelsEnabled
+        let centeringEnabled = axis.isCenterAxisLabelsEnabled
         
         // pre allocate to save performance (dont allocate in loop)
-        var position = CGPoint(x: 0.0, y: 0.0)
+        var position = CGPoint.zero
         
-        for i in stride(from: 0, to: xAxis.entryCount, by: 1)
+        for i in 0..<axis.entryCount
         {
             // only fill x values
-            
             position.x = 0.0
-            
-            if centeringEnabled
-            {
-                position.y = CGFloat(xAxis.centeredEntries[i])
-            }
-            else
-            {
-                position.y = CGFloat(xAxis.entries[i])
-            }
-            
+            position.y = centeringEnabled ? CGFloat(axis.centeredEntries[i]) : CGFloat(axis.entries[i])
+
             transformer.pointValueToPixel(&position)
             
-            if viewPortHandler.isInBoundsY(position.y)
+            if viewPortHandler.isInBoundsY(position.y),
+                let label = axis.valueFormatter?.stringForValue(axis.entries[i], axis: axis)
             {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis)
                 {
                     drawLabel(
@@ -374,6 +423,9 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                 }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 drawLabel(context: context,
                           formattedLabel: label,
@@ -383,8 +435,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                           anchor: anchor,
                           angleRadians: labelRotationAngleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
     }
@@ -401,10 +456,15 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.drawText(formattedLabel,
                          at: CGPoint(x: x, y: y),
                          anchor: anchor,
@@ -412,8 +472,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                          attributes: attributes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         ChartUtils.drawText(
             context: context,
@@ -424,10 +487,15 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             angleRadians: angleRadians)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override var gridClippingRect: CGRect
@@ -436,18 +504,27 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let dy = self.axis.gridLineWidth
 =======
         let dy = self.axis?.gridLineWidth ?? 0.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let dy = self.axis.gridLineWidth
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let dy = self.axis.gridLineWidth
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         contentRect.origin.y -= dy / 2.0
         contentRect.size.height += dy
         return contentRect
@@ -455,8 +532,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     open override func drawGridLine(context: CGContext, x: CGFloat, y: CGFloat)
     {
@@ -481,6 +561,9 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
     open override func drawGridLine(context: CGContext, x: CGFloat, y: CGFloat)
@@ -492,8 +575,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: y))
         context.strokePath()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func renderAxisLine(context: CGContext)
@@ -501,10 +587,15 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard
             axis.isEnabled,
             axis.isDrawAxisLineEnabled
@@ -512,8 +603,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.saveGState()
         defer { context.restoreGState() }
 
@@ -531,6 +625,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         }
         
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
         context.saveGState()
@@ -547,15 +642,27 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             context.setLineDash(phase: axis.axisLineDashPhase, lengths: axis.axisLineDashLengths)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.saveGState()
-        
-        context.setStrokeColor(xAxis.axisLineColor.cgColor)
-        context.setLineWidth(xAxis.axisLineWidth)
-        if xAxis.axisLineDashLengths != nil
+        defer { context.restoreGState() }
+
+        context.setStrokeColor(axis.axisLineColor.cgColor)
+        context.setLineWidth(axis.axisLineWidth)
+        if axis.axisLineDashLengths != nil
         {
+<<<<<<< HEAD
             context.setLineDash(phase: xAxis.axisLineDashPhase, lengths: xAxis.axisLineDashLengths)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.setLineDash(phase: axis.axisLineDashPhase, lengths: axis.axisLineDashLengths)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         else
         {
@@ -565,8 +672,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if axis.labelPosition == .top ||
             axis.labelPosition == .topInside ||
             axis.labelPosition == .bothSided
@@ -576,13 +686,19 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             xAxis.labelPosition == .bothSided
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if axis.labelPosition == .top ||
             axis.labelPosition == .topInside ||
             axis.labelPosition == .bothSided
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             context.beginPath()
             context.move(to: CGPoint(x: viewPortHandler.contentRight, y: viewPortHandler.contentTop))
@@ -593,8 +709,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if axis.labelPosition == .bottom ||
             axis.labelPosition == .bottomInside ||
             axis.labelPosition == .bothSided
@@ -604,13 +723,19 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             xAxis.labelPosition == .bothSided
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if axis.labelPosition == .bottom ||
             axis.labelPosition == .bottomInside ||
             axis.labelPosition == .bothSided
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             context.beginPath()
             context.move(to: CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop))
@@ -620,17 +745,25 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func renderLimitLines(context: CGContext)
@@ -638,8 +771,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let transformer = self.transformer else { return }
         
         let limitLines = axis.limitLines
@@ -658,6 +794,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             let transformer = self.transformer
             else { return }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         guard let transformer = self.transformer else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -674,21 +811,27 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         {
 <<<<<<< HEAD
 =======
+=======
+=======
+        guard let transformer = self.transformer else { return }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let limitLines = xAxis.limitLines
+        let limitLines = axis.limitLines
         
-        if limitLines.count == 0
-        {
-            return
-        }
-        
+        guard !limitLines.isEmpty else { return }
+
         let trans = transformer.valueToPixelMatrix
         
-        var position = CGPoint(x: 0.0, y: 0.0)
+        var position = CGPoint.zero
         
-        for i in 0 ..< limitLines.count
+        for l in limitLines where l.isEnabled
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let l = limitLines[i]
             
             if !l.isEnabled
@@ -698,10 +841,15 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.saveGState()
             defer { context.restoreGState() }
             
@@ -737,8 +885,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if l.drawLabelEnabled, !label.isEmpty
             {
                 let labelLineHeight = l.valueFont.lineHeight
@@ -779,6 +930,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 =======
             if l.drawLabelEnabled && label.count > 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if l.drawLabelEnabled, !label.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -823,54 +975,55 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                                  attributes: [.font: l.valueFont, .foregroundColor: l.valueTextColor])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            if l.drawLabelEnabled, !label.isEmpty
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 let labelLineHeight = l.valueFont.lineHeight
                 
-                let xOffset: CGFloat = 4.0 + l.xOffset
-                let yOffset: CGFloat = l.lineWidth + labelLineHeight + l.yOffset
-                
-                if l.labelPosition == .topRight
+                let xOffset = 4.0 + l.xOffset
+                let yOffset = l.lineWidth + labelLineHeight + l.yOffset
+
+                let align: TextAlignment
+                let point: CGPoint
+
+                switch l.labelPosition
                 {
-                    ChartUtils.drawText(context: context,
-                        text: label,
-                        point: CGPoint(
-                            x: viewPortHandler.contentRight - xOffset,
-                            y: position.y - yOffset),
-                        align: .right,
-                        attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
+                case .rightTop:
+                    align = .right
+                    point = CGPoint(x: viewPortHandler.contentRight - xOffset,
+                                    y: position.y - yOffset)
+
+                case .rightBottom:
+                    align = .right
+                    point = CGPoint(x: viewPortHandler.contentRight - xOffset,
+                                    y: position.y + yOffset - labelLineHeight)
+
+                case .leftTop:
+                    align = .left
+                    point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
+                                    y: position.y - yOffset)
+
+                case .leftBottom:
+                    align = .left
+                    point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
+                                    y: position.y + yOffset - labelLineHeight)
                 }
-                else if l.labelPosition == .bottomRight
-                {
-                    ChartUtils.drawText(context: context,
-                        text: label,
-                        point: CGPoint(
-                            x: viewPortHandler.contentRight - xOffset,
-                            y: position.y + yOffset - labelLineHeight),
-                        align: .right,
-                        attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
-                }
-                else if l.labelPosition == .topLeft
-                {
-                    ChartUtils.drawText(context: context,
-                        text: label,
-                        point: CGPoint(
-                            x: viewPortHandler.contentLeft + xOffset,
-                            y: position.y - yOffset),
-                        align: .left,
-                        attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
-                }
-                else
-                {
-                    ChartUtils.drawText(context: context,
-                        text: label,
-                        point: CGPoint(
-                            x: viewPortHandler.contentLeft + xOffset,
-                            y: position.y + yOffset - labelLineHeight),
-                        align: .left,
-                        attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
-                }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+                context.drawText(label,
+                                 at: point,
+                                 align: align,
+                                 attributes: [.font: l.valueFont, .foregroundColor: l.valueTextColor])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
     }

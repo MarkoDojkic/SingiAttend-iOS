@@ -98,7 +98,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         logout_btn.layer.cornerRadius = 10
         self.view.addSubview(loginPopup);
         loginPopup.center = self.view.center
-        loginPopup.backgroundColor = UIColor.lightGray
         loginPopup.layer.cornerRadius = 18
         courses_tv.dataSource = self
         courses_tv.rowHeight = 80
@@ -137,8 +136,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 attendanceRight_btn.alpha = 0
                 attendanceRight_btn.isUserInteractionEnabled = false
             }
+            
+            let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+            view.addGestureRecognizer(tapGesture)
         }
     }
+    
+    
     
     @IBAction func checkIndex(_ sender: Any) {
         if(indexLogin_txt.text!.count == 5 && indexLogin_txt.text?.last != "/"){
@@ -295,7 +299,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         for course in coursesData_json!{
                             var newCourseData = [String]()
                             
-                            if(Locale.current.languageCode == "sr"){
+                            if(Locale.current.language.languageCode!.identifier == "sr"){
                                 newCourseData.append((course["subject"] as! String))
                             }
                             else{ newCourseData.append((course["subjectEnglish"] as! String)) }
@@ -357,7 +361,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         
                         for course in attendanceData_json!{
                             var newAttendanceData = [String]()
-                            if(Locale.current.languageCode == "sr"){
+                            if(Locale.current.language.languageCode!.identifier == "sr"){
                                 newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String)
                             }
                             else{
@@ -445,7 +449,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         notAttendedP.value = Double(attendances[currentAttendanceLecture][6])! - Double(attendances[currentAttendanceLecture][5])!
         notAttendedP.label = nil
         
-        let chartDataSet = PieChartDataSet(entries: [attendendL,notAttendedL,attendendP,notAttendedP], label: nil)
+        let chartDataSet = PieChartDataSet(entries: [attendendL,notAttendedL,attendendP,notAttendedP], label: "")
         chartDataSet.colors = [UIColor.green,UIColor.red,UIColor.cyan,UIColor.magenta]
         chartDataSet.drawValuesEnabled = false
         attendances_pcv.data = PieChartData(dataSet: chartDataSet)
@@ -453,7 +457,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         attendances_class_text.text = attendances[currentAttendanceLecture][0]
             + "\n" + attendances[currentAttendanceLecture][1]
             + ( attendances[currentAttendanceLecture][2].isEmpty ? "" : ("\n(" + attendances[currentAttendanceLecture][2] + ")") )
-        if(Locale.current.languageCode == "sr"){
+        if(Locale.current.language.languageCode!.identifier == "sr"){
             if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
                 attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
             } else { attendances_prognosis_text.text = "Прогноза бодова за присуство: 0/10" }

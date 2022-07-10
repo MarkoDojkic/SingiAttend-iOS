@@ -21,18 +21,27 @@ open class PieHighlighter: PieRadarHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let set = chart?.data?[0],
 =======
             let set = chart?.data?.dataSets[0],
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             let set = chart?.data?[0],
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let set = chart?.data?[0],
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let entry = set.entryForIndex(index)
             else { return nil }
                 

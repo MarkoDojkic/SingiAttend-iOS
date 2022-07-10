@@ -40,10 +40,15 @@ open class AnimatedViewPortJob: ViewPortJob
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.xOrigin = xOrigin
         self.yOrigin = yOrigin
         self._duration = duration
@@ -51,14 +56,20 @@ open class AnimatedViewPortJob: ViewPortJob
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.init(viewPortHandler: viewPortHandler,
             xValue: xValue,
             yValue: yValue,
@@ -67,8 +78,11 @@ open class AnimatedViewPortJob: ViewPortJob
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         self.xOrigin = xOrigin
@@ -77,10 +91,15 @@ open class AnimatedViewPortJob: ViewPortJob
         self._easing = easing
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     deinit

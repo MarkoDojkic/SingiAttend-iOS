@@ -15,18 +15,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChartDataSetProtocol
 =======
 open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, IScatterChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     
     @objc(ScatterShape)
@@ -56,18 +65,27 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// This will search for an available ShapeRenderer and set this renderer for the DataSet
 =======
     /// This will search for an available IShapeRenderer and set this renderer for the DataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /// This will search for an available ShapeRenderer and set this renderer for the DataSet
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    /// This will search for an available ShapeRenderer and set this renderer for the DataSet
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func setScatterShape(_ shape: Shape)
     {
         self.shapeRenderer = ScatterChartDataSet.renderer(forShape: shape)
@@ -79,8 +97,11 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open var shapeRenderer: ShapeRenderer? = SquareShapeRenderer()
     
     @objc open class func renderer(forShape shape: Shape) -> ShapeRenderer
@@ -90,13 +111,19 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
     @objc open class func renderer(forShape shape: Shape) -> IShapeRenderer
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     open var shapeRenderer: ShapeRenderer? = SquareShapeRenderer()
     
     @objc open class func renderer(forShape shape: Shape) -> ShapeRenderer
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         switch shape
         {

@@ -19,8 +19,11 @@ open class AnimatedMoveViewJob: AnimatedViewPortJob
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard
             let viewPortHandler = viewPortHandler,
@@ -30,10 +33,15 @@ open class AnimatedMoveViewJob: AnimatedViewPortJob
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var pt = CGPoint(
             x: xOrigin + (CGFloat(xValue) - xOrigin) * phase,
             y: yOrigin + (CGFloat(yValue) - yOrigin) * phase

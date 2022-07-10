@@ -64,8 +64,11 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         renderer = RadarChartRenderer(chart: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
         
         _yAxisRenderer = YAxisRendererRadarChart(viewPortHandler: viewPortHandler, axis: _yAxis, chart: self)
@@ -79,6 +82,9 @@ open class RadarChartView: PieRadarChartViewBase
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         renderer = RadarChartRenderer(chart: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
         
@@ -86,8 +92,11 @@ open class RadarChartView: PieRadarChartViewBase
         _xAxisRenderer = XAxisRendererRadarChart(viewPortHandler: viewPortHandler, axis: xAxis, chart: self)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.highlighter = RadarHighlighter(chart: self)
     }
 
@@ -98,8 +107,11 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let data = data else { return }
         
         _yAxis.calculate(min: data.getYMin(axis: .left), max: data.getYMax(axis: .left))
@@ -111,14 +123,20 @@ open class RadarChartView: PieRadarChartViewBase
         _xAxis.calculate(min: 0.0, max: Double(data.maxEntryCountSet?.entryCount ?? 0))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard let data = data else { return }
         
         _yAxis.calculate(min: data.getYMin(axis: .left), max: data.getYMax(axis: .left))
         xAxis.calculate(min: 0.0, max: Double(data.maxEntryCountSet?.entryCount ?? 0))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func notifyDataSetChanged()
@@ -129,8 +147,11 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _xAxisRenderer?.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
         
         if let data = data,
@@ -140,6 +161,7 @@ open class RadarChartView: PieRadarChartViewBase
 =======
         _xAxisRenderer?.computeAxis(min: _xAxis._axisMinimum, max: _xAxis._axisMaximum, inverted: false)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         _xAxisRenderer?.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -154,14 +176,25 @@ open class RadarChartView: PieRadarChartViewBase
             legendRenderer.computeLegend(data: data)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        _xAxisRenderer?.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        if let data = _data,
-            let legend = _legend,
+        if let data = data,
             !legend.isLegendCustom
         {
+<<<<<<< HEAD
             legendRenderer?.computeLegend(data: data)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            legendRenderer.computeLegend(data: data)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         calculateOffsets()
@@ -181,8 +214,11 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if xAxis.isEnabled
         {
             _xAxisRenderer.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
@@ -192,13 +228,19 @@ open class RadarChartView: PieRadarChartViewBase
             _xAxisRenderer.computeAxis(min: _xAxis._axisMinimum, max: _xAxis._axisMaximum, inverted: false)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if xAxis.isEnabled
         {
             _xAxisRenderer.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         _xAxisRenderer?.renderAxisLabels(context: context)
@@ -220,18 +262,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             renderer.drawHighlighted(context: context, indices: highlighted)
 =======
             renderer.drawHighlighted(context: context, indices: _indicesToHighlight)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             renderer.drawHighlighted(context: context, indices: highlighted)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            renderer.drawHighlighted(context: context, indices: highlighted)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         if _yAxis.isEnabled && !_yAxis.isDrawLimitLinesBehindDataEnabled
@@ -248,18 +299,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         drawDescription(in: context)
 =======
         drawDescription(context: context)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         drawDescription(in: context)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        drawDescription(in: context)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         drawMarkers(context: context)
     }
@@ -270,18 +330,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let content = viewPortHandler.contentRect
 =======
         let content = _viewPortHandler.contentRect
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let content = viewPortHandler.contentRect
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let content = viewPortHandler.contentRect
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return min(content.width / 2.0, content.height / 2.0)
                 / CGFloat(_yAxis.axisRange)
     }
@@ -292,18 +361,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return 360.0 / CGFloat(data?.maxEntryCountSet?.entryCount ?? 0)
 =======
         return 360.0 / CGFloat(_data?.maxEntryCountSet?.entryCount ?? 0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return 360.0 / CGFloat(data?.maxEntryCountSet?.entryCount ?? 0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return 360.0 / CGFloat(data?.maxEntryCountSet?.entryCount ?? 0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     open override func indexForAngle(_ angle: CGFloat) -> Int
@@ -316,8 +394,11 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let max = data?.maxEntryCountSet?.entryCount ?? 0
         return (0..<max).firstIndex {
             sliceAngle * CGFloat($0 + 1) - sliceAngle / 2.0 > a
@@ -329,14 +410,20 @@ open class RadarChartView: PieRadarChartViewBase
         } ?? max
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let max = data?.maxEntryCountSet?.entryCount ?? 0
         return (0..<max).firstIndex {
             sliceAngle * CGFloat($0 + 1) - sliceAngle / 2.0 > a
         } ?? 0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// The object that represents all y-labels of the RadarChart.
@@ -364,18 +451,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return legend.font.pointSize * 4.0
 =======
         return _legend.font.pointSize * 4.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return legend.font.pointSize * 4.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return legend.font.pointSize * 4.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     internal override var requiredBaseOffset: CGFloat
@@ -383,18 +479,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return xAxis.isEnabled && xAxis.isDrawLabelsEnabled ? xAxis.labelRotatedWidth : 10.0
 =======
         return _xAxis.isEnabled && _xAxis.isDrawLabelsEnabled ? _xAxis.labelRotatedWidth : 10.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return xAxis.isEnabled && xAxis.isDrawLabelsEnabled ? xAxis.labelRotatedWidth : 10.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return xAxis.isEnabled && xAxis.isDrawLabelsEnabled ? xAxis.labelRotatedWidth : 10.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     open override var radius: CGFloat
@@ -402,18 +507,27 @@ open class RadarChartView: PieRadarChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let content = viewPortHandler.contentRect
 =======
         let content = _viewPortHandler.contentRect
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let content = viewPortHandler.contentRect
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let content = viewPortHandler.contentRect
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return min(content.width / 2.0, content.height / 2.0)
     }
 

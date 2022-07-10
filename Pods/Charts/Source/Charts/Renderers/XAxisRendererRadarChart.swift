@@ -19,8 +19,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public init(viewPortHandler: ViewPortHandler, axis: XAxis, chart: RadarChartView)
     {
         super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: nil)
@@ -30,13 +33,19 @@ open class XAxisRendererRadarChart: XAxisRenderer
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: nil)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc public init(viewPortHandler: ViewPortHandler, axis: XAxis, chart: RadarChartView)
     {
         super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: nil)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         self.chart = chart
     }
@@ -46,18 +55,26 @@ open class XAxisRendererRadarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard
             let chart = chart,
             axis.isEnabled,
             axis.isDrawLabelsEnabled
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
 
         let labelFont = axis.labelFont
@@ -79,6 +96,9 @@ open class XAxisRendererRadarChart: XAxisRenderer
         let labelRotationAngleRadians = xAxis.labelRotationAngle.RAD2DEG
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             else { return }
 
@@ -86,8 +106,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
         let labelTextColor = axis.labelTextColor
         let labelRotationAngleRadians = axis.labelRotationAngle.RAD2DEG
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let drawLabelAnchor = CGPoint(x: 0.5, y: 0.25)
         
         let sliceangle = chart.sliceAngle
@@ -100,8 +123,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in 0..<(chart.data?.maxEntryCountSet?.entryCount ?? 0)
         {
             let label = axis.valueFormatter?.stringForValue(Double(i), axis: axis) ?? ""
@@ -116,6 +142,7 @@ open class XAxisRendererRadarChart: XAxisRenderer
 =======
         for i in stride(from: 0, to: chart.data?.maxEntryCountSet?.entryCount ?? 0, by: 1)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for i in 0..<(chart.data?.maxEntryCountSet?.entryCount ?? 0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -136,21 +163,31 @@ open class XAxisRendererRadarChart: XAxisRenderer
                       attributes: [.font: labelFont, .foregroundColor: labelTextColor],
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for i in 0..<(chart.data?.maxEntryCountSet?.entryCount ?? 0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            
-            let label = xAxis.valueFormatter?.stringForValue(Double(i), axis: xAxis) ?? ""
-            
+            let label = axis.valueFormatter?.stringForValue(Double(i), axis: axis) ?? ""
             let angle = (sliceangle * CGFloat(i) + chart.rotationAngle).truncatingRemainder(dividingBy: 360.0)
-            
-            let p = center.moving(distance: CGFloat(chart.yRange) * factor + xAxis.labelRotatedWidth / 2.0, atAngle: angle)
-            
+            let p = center.moving(distance: CGFloat(chart.yRange) * factor + axis.labelRotatedWidth / 2.0, atAngle: angle)
+
             drawLabel(context: context,
                       formattedLabel: label,
                       x: p.x,
+<<<<<<< HEAD
                       y: p.y - xAxis.labelRotatedHeight / 2.0,
                       attributes: [NSAttributedString.Key.font: labelFont, NSAttributedString.Key.foregroundColor: labelTextColor],
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                      y: p.y - axis.labelRotatedHeight / 2.0,
+                      attributes: [.font: labelFont, .foregroundColor: labelTextColor],
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                       anchor: drawLabelAnchor,
                       angleRadians: labelRotationAngleRadians)
         }
@@ -168,10 +205,15 @@ open class XAxisRendererRadarChart: XAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.drawText(formattedLabel,
                          at: CGPoint(x: x, y: y),
                          anchor: anchor,
@@ -179,8 +221,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
                          attributes: attributes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         ChartUtils.drawText(
             context: context,
@@ -191,10 +236,15 @@ open class XAxisRendererRadarChart: XAxisRenderer
             angleRadians: angleRadians)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func renderLimitLines(context: CGContext)

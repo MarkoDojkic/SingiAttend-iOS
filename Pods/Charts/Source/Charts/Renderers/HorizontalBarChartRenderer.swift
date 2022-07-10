@@ -15,8 +15,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 #if !os(OSX)
     import UIKit
 #endif
@@ -31,14 +34,20 @@ import Cocoa
 #endif
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 #if !os(OSX)
     import UIKit
 #endif
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 open class HorizontalBarChartRenderer: BarChartRenderer
 {
@@ -63,8 +72,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if _buffers.count != barData.count
             {
                 while _buffers.count < barData.count
@@ -75,6 +87,7 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 =======
             if _buffers.count != barData.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if _buffers.count != barData.count
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -90,14 +103,26 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                 while _buffers.count > barData.count
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            if _buffers.count != barData.count
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                while _buffers.count < barData.dataSetCount
+                while _buffers.count < barData.count
                 {
                     _buffers.append(Buffer())
                 }
+<<<<<<< HEAD
                 while _buffers.count > barData.dataSetCount
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                while _buffers.count > barData.count
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                     _buffers.removeLast()
                 }
@@ -106,8 +131,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in barData.indices
             {
                 let set = barData[i] as! BarChartDataSetProtocol
@@ -117,13 +145,19 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                 let set = barData.dataSets[i] as! IBarChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             for i in barData.indices
             {
                 let set = barData[i] as! BarChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let size = set.entryCount * (set.isStacked ? set.stackSize : 1)
                 if _buffers[i].rects.count != size
                 {
@@ -140,18 +174,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int)
 =======
     private func prepareBuffer(dataSet: IBarChartDataSet, index: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let
             dataProvider = dataProvider,
@@ -218,18 +261,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 for k in vals!.indices
 =======
                 for k in 0 ..< vals!.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 for k in vals!.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                for k in vals!.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                     let value = vals![k]
                     
@@ -282,18 +334,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int)
 =======
     open override func drawDataSet(context: CGContext, dataSet: IBarChartDataSet, index: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     open override func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    open override func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -362,18 +423,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for j in buffer.rects.indices
 =======
         for j in stride(from: 0, to: buffer.rects.count, by: 1)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         for j in buffer.rects.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        for j in buffer.rects.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             let barRect = buffer.rects[j]
             
@@ -454,8 +524,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             let textAlign = TextAlignment.left
 =======
@@ -465,12 +538,18 @@ open class HorizontalBarChartRenderer: BarChartRenderer
             let textAlign = NSTextAlignment.left
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             let textAlign = TextAlignment.left
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             let valueOffsetPlus: CGFloat = 5.0
             var posOffset: CGFloat
@@ -480,8 +559,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for dataSetIndex in barData.indices
             {
                 guard let
@@ -494,6 +576,7 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 =======
             for dataSetIndex in 0 ..< barData.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             for dataSetIndex in barData.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -510,14 +593,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            for dataSetIndex in barData.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 guard let
-                    dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
+                    dataSet = barData[dataSetIndex] as? BarChartDataSetProtocol,
                     shouldDrawValues(forDataSet: dataSet)
                     else { continue }
                 
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let angleRadians = dataSet.valueLabelAngle.DEG2RAD
+                
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
                 
                 let valueFont = dataSet.valueFont
@@ -526,18 +622,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let formatter = dataSet.valueFormatter
 =======
                 guard let formatter = dataSet.valueFormatter else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let formatter = dataSet.valueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let formatter = dataSet.valueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 
@@ -584,18 +689,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
 =======
                         let valueTextWidth = valueText.size(withAttributes: [NSAttributedString.Key.font: valueFont]).width
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                         let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         posOffset = (drawValueAboveBar ? valueOffsetPlus : -(valueTextWidth + valueOffsetPlus))
                         negOffset = (drawValueAboveBar ? -(valueTextWidth + valueOffsetPlus) : valueOffsetPlus) - rect.size.width
                         
@@ -618,8 +732,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 color: dataSet.valueTextColorAt(j),
                                 anchor: CGPoint.zero,
                                 angleRadians: angleRadians)
@@ -627,13 +744,19 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                 color: dataSet.valueTextColorAt(j))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                 color: dataSet.valueTextColorAt(j),
                                 anchor: CGPoint.zero,
                                 angleRadians: angleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                         
                         if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -648,8 +771,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             context.drawImage(icon,
                                               atCenter: CGPoint(x: px, y: py),
                                               size: icon.size)
@@ -662,13 +788,19 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                 size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                             context.drawImage(icon,
                                               atCenter: CGPoint(x: px, y: py),
                                               size: icon.size)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                     }
                 }
@@ -735,8 +867,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                     color: dataSet.valueTextColorAt(index),
                                     anchor: CGPoint.zero,
                                     angleRadians: angleRadians)
@@ -744,13 +879,19 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                     color: dataSet.valueTextColorAt(index))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                     color: dataSet.valueTextColorAt(index),
                                     anchor: CGPoint.zero,
                                     angleRadians: angleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             }
                             
                             if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -765,8 +906,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 context.drawImage(icon,
                                                   atCenter: CGPoint(x: px, y: py),
                                                   size: icon.size)
@@ -779,13 +923,19 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                     size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                 context.drawImage(icon,
                                                   atCenter: CGPoint(x: px, y: py),
                                                   size: icon.size)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             }
                         }
                         else
@@ -799,18 +949,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             for k in vals.indices
 =======
                             for k in 0 ..< vals.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                             for k in vals.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                            for k in vals.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             {
                                 let value = vals[k]
                                 var y: Double
@@ -839,18 +998,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             for k in transformed.indices
 =======
                             for k in 0 ..< transformed.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                             for k in transformed.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                            for k in transformed.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             {
                                 let val = vals[k]
                                 let valueText = formatter.stringForValue(
@@ -863,18 +1031,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
 =======
                                 let valueTextWidth = valueText.size(withAttributes: [NSAttributedString.Key.font: valueFont]).width
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                 let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                let valueTextWidth = valueText.size(withAttributes: [.font: valueFont]).width
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 posOffset = (drawValueAboveBar ? valueOffsetPlus : -(valueTextWidth + valueOffsetPlus))
                                 negOffset = (drawValueAboveBar ? -(valueTextWidth + valueOffsetPlus) : valueOffsetPlus)
                                 
@@ -910,10 +1087,15 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                               value: valueText,
                                               xPos: x,
                                               yPos: y + yOffset,
@@ -924,8 +1106,11 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                               angleRadians: angleRadians)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                         value: valueText,
                                         xPos: x,
@@ -935,10 +1120,15 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                         color: dataSet.valueTextColorAt(index))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 }
                                 
                                 if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -946,18 +1136,26 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                     context.drawImage(icon,
                                                       atCenter: CGPoint(x: x + iconsOffset.x,
                                                                       y: y + iconsOffset.y),
                                                       size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                     ChartUtils.drawImage(
                                         context: context,
@@ -967,10 +1165,15 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                                         size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 }
                             }
                         }
@@ -978,18 +1181,27 @@ open class HorizontalBarChartRenderer: BarChartRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         bufferIndex += vals?.count ?? 1
 =======
                         bufferIndex = vals == nil ? (bufferIndex + 1) : (bufferIndex + vals!.count)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                         bufferIndex += vals?.count ?? 1
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        bufferIndex += vals?.count ?? 1
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }

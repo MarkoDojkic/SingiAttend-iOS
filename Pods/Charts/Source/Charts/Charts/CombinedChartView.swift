@@ -19,18 +19,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal var _fillFormatter: FillFormatter!
 =======
     internal var _fillFormatter: IFillFormatter!
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     internal var _fillFormatter: FillFormatter!
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    internal var _fillFormatter: FillFormatter!
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// enum that allows to specify the order in which the different data objects for the combined-chart are drawn
     @objc(CombinedChartDrawOrder)
@@ -57,18 +66,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         renderer = CombinedChartRenderer(chart: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
 =======
         renderer = CombinedChartRenderer(chart: self, animator: _animator, viewPortHandler: _viewPortHandler)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         renderer = CombinedChartRenderer(chart: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        renderer = CombinedChartRenderer(chart: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override var data: ChartData?
@@ -91,18 +109,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var fillFormatter: FillFormatter
 =======
     @objc open var fillFormatter: IFillFormatter
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open var fillFormatter: FillFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open var fillFormatter: FillFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         get
         {
@@ -124,18 +151,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if data === nil
 =======
         if _data === nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if data === nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if data === nil
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             Swift.print("Can't select by touch. No data set.")
             return nil
@@ -165,18 +201,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return data as? CombinedChartData
 =======
             return _data as? CombinedChartData
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             return data as? CombinedChartData
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            return data as? CombinedChartData
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -286,8 +331,11 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in highlighted.indices
         {
             let highlight = highlighted[i]
@@ -302,6 +350,7 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 =======
         for i in 0 ..< _indicesToHighlight.count
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for i in highlighted.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -321,18 +370,30 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
             if entryIndex > Int(Double(set.entryCount) * chartAnimator.phaseX)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for i in highlighted.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            let highlight = _indicesToHighlight[i]
+            let highlight = highlighted[i]
             
             guard 
                 let set = combinedData?.getDataSetByHighlight(highlight),
-                let e = _data?.entryForHighlight(highlight)
+                let e = data?.entry(for: highlight)
                 else { continue }
             
             let entryIndex = set.entryIndex(entry: e)
+<<<<<<< HEAD
             if entryIndex > Int(Double(set.entryCount) * _animator.phaseX)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if entryIndex > Int(Double(set.entryCount) * chartAnimator.phaseX)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 continue
             }
@@ -343,18 +404,27 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if !viewPortHandler.isInBounds(x: pos.x, y: pos.y)
 =======
             if !_viewPortHandler.isInBounds(x: pos.x, y: pos.y)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if !viewPortHandler.isInBounds(x: pos.x, y: pos.y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if !viewPortHandler.isInBounds(x: pos.x, y: pos.y)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 continue
             }

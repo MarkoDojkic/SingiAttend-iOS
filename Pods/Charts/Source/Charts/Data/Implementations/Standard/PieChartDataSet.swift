@@ -15,18 +15,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 =======
 open class PieChartDataSet: ChartDataSet, IPieChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     @objc(PieChartValuePosition)
     public enum ValuePosition: Int
@@ -50,18 +59,27 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(entries: [ChartDataEntry], label: String)
 =======
     public override init(entries: [ChartDataEntry]?, label: String?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public override init(entries: [ChartDataEntry], label: String)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public override init(entries: [ChartDataEntry], label: String)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(entries: entries, label: label)
         initialize()
@@ -90,18 +108,26 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             switch newValue {
             case ..<0.0: _sliceSpace = 0.0
             case 20.0...: _sliceSpace = 20.0
             default: _sliceSpace = newValue
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
 =======
             var space = newValue
@@ -116,11 +142,17 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
             _sliceSpace = space
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 

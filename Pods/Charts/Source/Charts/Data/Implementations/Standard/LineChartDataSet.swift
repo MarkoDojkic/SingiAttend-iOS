@@ -16,18 +16,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
 =======
 open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     @objc(LineChartMode)
     public enum Mode: Int
@@ -53,18 +62,27 @@ open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(entries: [ChartDataEntry], label: String)
 =======
     public override init(entries: [ChartDataEntry]?, label: String?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public override init(entries: [ChartDataEntry], label: String)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public override init(entries: [ChartDataEntry], label: String)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(entries: entries, label: label)
         initialize()
@@ -98,10 +116,15 @@ open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     open var isDrawLineWithGradientEnabled = false
 
@@ -109,16 +132,22 @@ open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The radius of the drawn circles.
     open var circleRadius = CGFloat(8.0)
     
@@ -190,8 +219,11 @@ open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private var _fillFormatter: FillFormatter = DefaultFillFormatter()
     
     /// Sets a custom FillFormatterProtocol to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
@@ -203,14 +235,20 @@ open class LineChartDataSet: LineRadarChartDataSet, LineChartDataSetProtocol
     open var fillFormatter: IFillFormatter?
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     private var _fillFormatter: FillFormatter = DefaultFillFormatter()
     
     /// Sets a custom FillFormatterProtocol to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
     open var fillFormatter: FillFormatter?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         get
         {

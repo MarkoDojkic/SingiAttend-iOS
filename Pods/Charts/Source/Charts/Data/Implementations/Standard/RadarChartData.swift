@@ -32,18 +32,27 @@ open class RadarChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init()
 =======
     public override init()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public required init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public required init()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
     }
@@ -51,8 +60,11 @@ open class RadarChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(dataSets: [ChartDataSetProtocol])
     {
         super.init(dataSets: dataSets)
@@ -69,6 +81,7 @@ open class RadarChartData: ChartData
 =======
     public override init(dataSets: [IChartDataSet]?)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public override init(dataSets: [ChartDataSetProtocol])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -90,14 +103,31 @@ open class RadarChartData: ChartData
         return self[highlight.dataSetIndex].entryForIndex(Int(highlight.x))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    public override init(dataSets: [ChartDataSetProtocol])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(dataSets: dataSets)
     }
-    
-    open override func entryForHighlight(_ highlight: Highlight) -> ChartDataEntry?
+
+    public required init(arrayLiteral elements: ChartDataSetProtocol...)
     {
+<<<<<<< HEAD
         return getDataSetByIndex(highlight.dataSetIndex)?.entryForIndex(Int(highlight.x))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        super.init(dataSets: elements)
+    }
+
+    @objc open override func entry(for highlight: Highlight) -> ChartDataEntry?
+    {
+        return self[highlight.dataSetIndex].entryForIndex(Int(highlight.x))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

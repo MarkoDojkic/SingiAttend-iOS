@@ -92,8 +92,11 @@ open class ChartColorTemplates: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let colorString = colorString.unicodeScalars.dropFirst()
             let length = colorString.count
             var index = colorString.startIndex
@@ -129,10 +132,14 @@ open class ChartColorTemplates: NSObject
             let colorString = colorString.unicodeScalars
             var length = colorString.count
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let colorString = colorString.unicodeScalars.dropFirst()
             let length = colorString.count
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
             var index = colorString.startIndex
             let endIndex = colorString.endIndex
 
@@ -168,41 +175,46 @@ open class ChartColorTemplates: NSObject
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             var index = colorString.startIndex
             let endIndex = colorString.endIndex
-            
-            index = colorString.index(after: index)
-            length = length - 1
-            
-            if length == 3 || length == 6 || length == 8
+
+            guard [3, 6, 8].contains(length) else { return .black }
+
+            var i = length == 8 ? 0 : 1
+            while index < endIndex
             {
-                var i = length == 8 ? 0 : 1
-                while index < endIndex
+                var c = colorString[index]
+                index = colorString.index(after: index)
+
+                var val = (c.value >= 0x61 && c.value <= 0x66) ? (c.value - 0x61 + 10) : c.value - 0x30
+                argb[i] = UInt(val) * 16
+                if length == 3
                 {
-                    var c = colorString[index]
-                    index = colorString.index(after: index)
-                    
-                    var val = (c.value >= 0x61 && c.value <= 0x66) ? (c.value - 0x61 + 10) : c.value - 0x30
-                    argb[i] = UInt(val) * 16
-                    if length == 3
-                    {
-                        argb[i] = argb[i] + UInt(val)
-                    }
-                    else
-                    {
-                        c = colorString[index]
-                        index = colorString.index(after: index)
-                        
-                        val = (c.value >= 0x61 && c.value <= 0x66) ? (c.value - 0x61 + 10) : c.value - 0x30
-                        argb[i] = argb[i] + UInt(val)
-                    }
-                    
-                    i += 1
+                    argb[i] = argb[i] + UInt(val)
                 }
+                else
+                {
+                    c = colorString[index]
+                    index = colorString.index(after: index)
+
+                    val = (c.value >= 0x61 && c.value <= 0x66) ? (c.value - 0x61 + 10) : c.value - 0x30
+                    argb[i] = argb[i] + UInt(val)
+                }
+
+                i += 1
             }
+<<<<<<< HEAD
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return NSUIColor(red: CGFloat(argb[1]) / 255.0, green: CGFloat(argb[2]) / 255.0, blue: CGFloat(argb[3]) / 255.0, alpha: CGFloat(argb[0]) / 255.0)
         }
         else if colorString.hasPrefix("rgba")

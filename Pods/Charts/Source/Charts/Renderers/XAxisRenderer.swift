@@ -15,8 +15,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 @objc(ChartXAxisRenderer)
 open class XAxisRenderer: NSObject, AxisRenderer
@@ -58,6 +61,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
 import Cocoa
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 
@@ -89,24 +93,42 @@ open class XAxisRenderer: NSObject, AxisRenderer
             // zoom / contentrect bounds)
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 @objc(ChartXAxisRenderer)
-open class XAxisRenderer: AxisRendererBase
+open class XAxisRenderer: NSObject, AxisRenderer
 {
-    @objc public init(viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?)
+    @objc public let viewPortHandler: ViewPortHandler
+    @objc public let axis: XAxis
+    @objc public let transformer: Transformer?
+
+    @objc public init(viewPortHandler: ViewPortHandler, axis: XAxis, transformer: Transformer?)
     {
-        super.init(viewPortHandler: viewPortHandler, transformer: transformer, axis: xAxis)
+        self.viewPortHandler = viewPortHandler
+        self.axis = axis
+        self.transformer = transformer
+
+        super.init()
     }
     
-    open override func computeAxis(min: Double, max: Double, inverted: Bool)
+    open func computeAxis(min: Double, max: Double, inverted: Bool)
     {
         var min = min, max = max
         
-        if let transformer = self.transformer
+        if let transformer = self.transformer,
+            viewPortHandler.contentWidth > 10,
+            !viewPortHandler.isFullyZoomedOutX
         {
             // calculate the starting and entry point of the y-labels (depending on
             // zoom / contentrect bounds)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if viewPortHandler.contentWidth > 10 && !viewPortHandler.isFullyZoomedOutX
             {
                 let p1 = transformer.valueForTouchPoint(CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop))
@@ -125,6 +147,9 @@ open class XAxisRenderer: AxisRendererBase
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let p1 = transformer.valueForTouchPoint(CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop))
             let p2 = transformer.valueForTouchPoint(CGPoint(x: viewPortHandler.contentRight, y: viewPortHandler.contentTop))
@@ -132,8 +157,11 @@ open class XAxisRenderer: AxisRendererBase
             min = inverted ? Double(p2.x) : Double(p1.x)
             max = inverted ? Double(p1.x) : Double(p2.x)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         computeAxisValues(min: min, max: max)
@@ -142,8 +170,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open func computeAxisValues(min: Double, max: Double)
     {
         let yMin = min
@@ -250,6 +281,9 @@ open class XAxisRenderer: AxisRendererBase
         super.computeAxisValues(min: min, max: max)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     open func computeAxisValues(min: Double, max: Double)
     {
@@ -352,8 +386,11 @@ open class XAxisRenderer: AxisRendererBase
                 .map { $0 + offset }
         }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         computeSize()
     }
@@ -363,8 +400,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let longest = axis.getLongestLabel()
         
         let labelSize = longest.size(withAttributes: [.font: axis.labelFont])
@@ -412,6 +452,7 @@ open class XAxisRenderer: AxisRendererBase
         
         let labelSize = longest.size(withAttributes: [NSAttributedString.Key.font: xAxis.labelFont])
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let longest = axis.getLongestLabel()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -449,41 +490,48 @@ open class XAxisRenderer: AxisRendererBase
             drawLabels(context: context, pos: viewPortHandler.contentBottom + yOffset, anchor: CGPoint(x: 0.5, y: 0.0))
 <<<<<<< HEAD
 =======
+=======
+=======
+        let longest = axis.getLongestLabel()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
+        let labelSize = longest.size(withAttributes: [.font: axis.labelFont])
+
         let labelWidth = labelSize.width
         let labelHeight = labelSize.height
         
-        let labelRotatedSize = labelSize.rotatedBy(degrees: xAxis.labelRotationAngle)
+        let labelRotatedSize = labelSize.rotatedBy(degrees: axis.labelRotationAngle)
         
-        xAxis.labelWidth = labelWidth
-        xAxis.labelHeight = labelHeight
-        xAxis.labelRotatedWidth = labelRotatedSize.width
-        xAxis.labelRotatedHeight = labelRotatedSize.height
+        axis.labelWidth = labelWidth
+        axis.labelHeight = labelHeight
+        axis.labelRotatedWidth = labelRotatedSize.width
+        axis.labelRotatedHeight = labelRotatedSize.height
     }
     
-    open override func renderAxisLabels(context: CGContext)
+    open func renderAxisLabels(context: CGContext)
     {
-        guard let xAxis = self.axis as? XAxis else { return }
+        guard
+            axis.isEnabled,
+            axis.isDrawLabelsEnabled
+            else { return }
+
+        let yOffset = axis.yOffset
         
-        if !xAxis.isEnabled || !xAxis.isDrawLabelsEnabled
-        {
-            return
-        }
-        
-        let yOffset = xAxis.yOffset
-        
-        if xAxis.labelPosition == .top
-        {
+        switch axis.labelPosition {
+        case .top:
             drawLabels(context: context, pos: viewPortHandler.contentTop - yOffset, anchor: CGPoint(x: 0.5, y: 1.0))
-        }
-        else if xAxis.labelPosition == .topInside
-        {
-            drawLabels(context: context, pos: viewPortHandler.contentTop + yOffset + xAxis.labelRotatedHeight, anchor: CGPoint(x: 0.5, y: 1.0))
-        }
-        else if xAxis.labelPosition == .bottom
-        {
+
+        case .topInside:
+            drawLabels(context: context, pos: viewPortHandler.contentTop + yOffset + axis.labelRotatedHeight, anchor: CGPoint(x: 0.5, y: 1.0))
+
+        case .bottom:
             drawLabels(context: context, pos: viewPortHandler.contentBottom + yOffset, anchor: CGPoint(x: 0.5, y: 0.0))
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         else if xAxis.labelPosition == .bottomInside
         {
@@ -493,6 +541,9 @@ open class XAxisRenderer: AxisRendererBase
         { // BOTH SIDED
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
         case .bottomInside:
@@ -500,8 +551,11 @@ open class XAxisRenderer: AxisRendererBase
 
         case .bothSided:
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             drawLabels(context: context, pos: viewPortHandler.contentTop - yOffset, anchor: CGPoint(x: 0.5, y: 1.0))
             drawLabels(context: context, pos: viewPortHandler.contentBottom + yOffset, anchor: CGPoint(x: 0.5, y: 0.0))
         }
@@ -510,8 +564,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private var axisLineSegmentsBuffer = [CGPoint](repeating: .zero, count: 2)
     
     open func renderAxisLine(context: CGContext)
@@ -532,6 +589,7 @@ open class XAxisRenderer: AxisRendererBase
 =======
     private var _axisLineSegmentsBuffer = [CGPoint](repeating: CGPoint(), count: 2)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private var axisLineSegmentsBuffer = [CGPoint](repeating: .zero, count: 2)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -557,25 +615,36 @@ open class XAxisRenderer: AxisRendererBase
             context.setLineDash(phase: axis.axisLineDashPhase, lengths: axis.axisLineDashLengths)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    private var axisLineSegmentsBuffer = [CGPoint](repeating: .zero, count: 2)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
-    open override func renderAxisLine(context: CGContext)
+    open func renderAxisLine(context: CGContext)
     {
-        guard let xAxis = self.axis as? XAxis else { return }
-        
-        if !xAxis.isEnabled || !xAxis.isDrawAxisLineEnabled
-        {
-            return
-        }
-        
+        guard
+            axis.isEnabled,
+            axis.isDrawAxisLineEnabled
+            else { return }
+
         context.saveGState()
+        defer { context.restoreGState() }
         
-        context.setStrokeColor(xAxis.axisLineColor.cgColor)
-        context.setLineWidth(xAxis.axisLineWidth)
-        if xAxis.axisLineDashLengths != nil
+        context.setStrokeColor(axis.axisLineColor.cgColor)
+        context.setLineWidth(axis.axisLineWidth)
+        if axis.axisLineDashLengths != nil
         {
+<<<<<<< HEAD
             context.setLineDash(phase: xAxis.axisLineDashPhase, lengths: xAxis.axisLineDashLengths)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.setLineDash(phase: axis.axisLineDashPhase, lengths: axis.axisLineDashLengths)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         else
         {
@@ -585,8 +654,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if axis.labelPosition == .top
             || axis.labelPosition == .topInside
             || axis.labelPosition == .bothSided
@@ -613,11 +685,15 @@ open class XAxisRenderer: AxisRendererBase
             || xAxis.labelPosition == .topInside
             || xAxis.labelPosition == .bothSided
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if axis.labelPosition == .top
             || axis.labelPosition == .topInside
             || axis.labelPosition == .bothSided
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         {
             axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
             axisLineSegmentsBuffer[0].y = viewPortHandler.contentTop
@@ -643,28 +719,36 @@ open class XAxisRenderer: AxisRendererBase
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            _axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
-            _axisLineSegmentsBuffer[0].y = viewPortHandler.contentTop
-            _axisLineSegmentsBuffer[1].x = viewPortHandler.contentRight
-            _axisLineSegmentsBuffer[1].y = viewPortHandler.contentTop
-            context.strokeLineSegments(between: _axisLineSegmentsBuffer)
+            axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
+            axisLineSegmentsBuffer[0].y = viewPortHandler.contentTop
+            axisLineSegmentsBuffer[1].x = viewPortHandler.contentRight
+            axisLineSegmentsBuffer[1].y = viewPortHandler.contentTop
+            context.strokeLineSegments(between: axisLineSegmentsBuffer)
         }
         
-        if xAxis.labelPosition == .bottom
-            || xAxis.labelPosition == .bottomInside
-            || xAxis.labelPosition == .bothSided
+        if axis.labelPosition == .bottom
+            || axis.labelPosition == .bottomInside
+            || axis.labelPosition == .bothSided
         {
-            _axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
-            _axisLineSegmentsBuffer[0].y = viewPortHandler.contentBottom
-            _axisLineSegmentsBuffer[1].x = viewPortHandler.contentRight
-            _axisLineSegmentsBuffer[1].y = viewPortHandler.contentBottom
-            context.strokeLineSegments(between: _axisLineSegmentsBuffer)
+            axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
+            axisLineSegmentsBuffer[0].y = viewPortHandler.contentBottom
+            axisLineSegmentsBuffer[1].x = viewPortHandler.contentRight
+            axisLineSegmentsBuffer[1].y = viewPortHandler.contentBottom
+            context.strokeLineSegments(between: axisLineSegmentsBuffer)
         }
+<<<<<<< HEAD
         
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// draws the x-labels on the specified y-position
@@ -673,8 +757,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let transformer = self.transformer else { return }
         
         let paraStyle = ParagraphStyle.default.mutableCopy() as! MutableParagraphStyle
@@ -743,6 +830,7 @@ open class XAxisRenderer: AxisRendererBase
             let transformer = self.transformer
             else { return }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         guard let transformer = self.transformer else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -812,83 +900,80 @@ open class XAxisRenderer: AxisRendererBase
                       angleRadians: labelRotationAngleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        guard let transformer = self.transformer else { return }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let paraStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        let paraStyle = ParagraphStyle.default.mutableCopy() as! MutableParagraphStyle
         paraStyle.alignment = .center
         
-        let labelAttrs: [NSAttributedString.Key : Any] = [
-            .font: xAxis.labelFont,
-            .foregroundColor: xAxis.labelTextColor,
-            .paragraphStyle: paraStyle
-        ]
-        let labelRotationAngleRadians = xAxis.labelRotationAngle.DEG2RAD
-        
-        let centeringEnabled = xAxis.isCenterAxisLabelsEnabled
+        let labelAttrs: [NSAttributedString.Key : Any] = [.font: axis.labelFont,
+                                                         .foregroundColor: axis.labelTextColor,
+                                                         .paragraphStyle: paraStyle]
 
+        let labelRotationAngleRadians = axis.labelRotationAngle.DEG2RAD
+        let isCenteringEnabled = axis.isCenterAxisLabelsEnabled
         let valueToPixelMatrix = transformer.valueToPixelMatrix
+
+        var position = CGPoint.zero
+        var labelMaxSize = CGSize.zero
         
-        var position = CGPoint(x: 0.0, y: 0.0)
-        
-        var labelMaxSize = CGSize()
-        
-        if xAxis.isWordWrapEnabled
+        if axis.isWordWrapEnabled
         {
-            labelMaxSize.width = xAxis.wordWrapWidthPercent * valueToPixelMatrix.a
+            labelMaxSize.width = axis.wordWrapWidthPercent * valueToPixelMatrix.a
         }
         
-        let entries = xAxis.entries
+        let entries = axis.entries
         
-        for i in stride(from: 0, to: entries.count, by: 1)
+        for i in entries.indices
         {
-            if centeringEnabled
-            {
-                position.x = CGFloat(xAxis.centeredEntries[i])
-            }
-            else
-            {
-                position.x = CGFloat(entries[i])
-            }
-            
-            position.y = 0.0
-            position = position.applying(valueToPixelMatrix)
-            
-            if viewPortHandler.isInBoundsX(position.x)
-            {
-                let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis) ?? ""
+            let px = isCenteringEnabled ? CGFloat(axis.centeredEntries[i]) : CGFloat(entries[i])
+            position = CGPoint(x: px, y: 0)
+                .applying(valueToPixelMatrix)
 
-                let labelns = label as NSString
-                
-                if xAxis.isAvoidFirstLastClippingEnabled
+            guard viewPortHandler.isInBoundsX(position.x) else { continue }
+            
+            let label = axis.valueFormatter?.stringForValue(axis.entries[i], axis: axis) ?? ""
+            let labelns = label as NSString
+            
+            if axis.isAvoidFirstLastClippingEnabled
+            {
+                // avoid clipping of the last
+                if i == axis.entryCount - 1 && axis.entryCount > 1
                 {
-                    // avoid clipping of the last
-                    if i == xAxis.entryCount - 1 && xAxis.entryCount > 1
+                    let width = labelns.boundingRect(with: labelMaxSize, options: .usesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
+                    
+                    if width > viewPortHandler.offsetRight * 2.0,
+                        position.x + width > viewPortHandler.chartWidth
                     {
-                        let width = labelns.boundingRect(with: labelMaxSize, options: .usesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
-                        
-                        if width > viewPortHandler.offsetRight * 2.0
-                            && position.x + width > viewPortHandler.chartWidth
-                        {
-                            position.x -= width / 2.0
-                        }
-                    }
-                    else if i == 0
-                    { // avoid clipping of the first
-                        let width = labelns.boundingRect(with: labelMaxSize, options: .usesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
-                        position.x += width / 2.0
+                        position.x -= width / 2.0
                     }
                 }
-                
-                drawLabel(context: context,
-                          formattedLabel: label,
-                          x: position.x,
-                          y: pos,
-                          attributes: labelAttrs,
-                          constrainedToSize: labelMaxSize,
-                          anchor: anchor,
-                          angleRadians: labelRotationAngleRadians)
+                else if i == 0
+                { // avoid clipping of the first
+                    let width = labelns.boundingRect(with: labelMaxSize, options: .usesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
+                    position.x += width / 2.0
+                }
             }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            
+            drawLabel(context: context,
+                      formattedLabel: label,
+                      x: position.x,
+                      y: pos,
+                      attributes: labelAttrs,
+                      constrainedTo: labelMaxSize,
+                      anchor: anchor,
+                      angleRadians: labelRotationAngleRadians)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -901,8 +986,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         constrainedTo size: CGSize,
         anchor: CGPoint,
         angleRadians: CGFloat)
@@ -939,6 +1027,7 @@ open class XAxisRenderer: AxisRendererBase
 =======
         constrainedToSize: CGSize,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         constrainedTo size: CGSize,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -980,45 +1069,52 @@ open class XAxisRenderer: AxisRendererBase
             context.setLineDash(phase: axis.gridLineDashPhase, lengths: axis.gridLineDashLengths)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        constrainedTo size: CGSize,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         anchor: CGPoint,
         angleRadians: CGFloat)
     {
-        ChartUtils.drawMultilineText(
-            context: context,
-            text: formattedLabel,
-            point: CGPoint(x: x, y: y),
-            attributes: attributes,
-            constrainedToSize: constrainedToSize,
-            anchor: anchor,
-            angleRadians: angleRadians)
+        context.drawMultilineText(formattedLabel,
+                                  at: CGPoint(x: x, y: y),
+                                  constrainedTo: size,
+                                  anchor: anchor,
+                                  angleRadians: angleRadians,
+                                  attributes: attributes)
     }
     
-    open override func renderGridLines(context: CGContext)
+    open func renderGridLines(context: CGContext)
     {
         guard
-            let xAxis = self.axis as? XAxis,
-            let transformer = self.transformer
+            let transformer = self.transformer,
+            axis.isEnabled,
+            axis.isDrawGridLinesEnabled
             else { return }
-        
-        if !xAxis.isDrawGridLinesEnabled || !xAxis.isEnabled
-        {
-            return
-        }
         
         context.saveGState()
         defer { context.restoreGState() }
+
         context.clip(to: self.gridClippingRect)
         
-        context.setShouldAntialias(xAxis.gridAntialiasEnabled)
-        context.setStrokeColor(xAxis.gridColor.cgColor)
-        context.setLineWidth(xAxis.gridLineWidth)
-        context.setLineCap(xAxis.gridLineCap)
+        context.setShouldAntialias(axis.gridAntialiasEnabled)
+        context.setStrokeColor(axis.gridColor.cgColor)
+        context.setLineWidth(axis.gridLineWidth)
+        context.setLineCap(axis.gridLineCap)
         
-        if xAxis.gridLineDashLengths != nil
+        if axis.gridLineDashLengths != nil
         {
+<<<<<<< HEAD
             context.setLineDash(phase: xAxis.gridLineDashPhase, lengths: xAxis.gridLineDashLengths)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.setLineDash(phase: axis.gridLineDashPhase, lengths: axis.gridLineDashLengths)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         else
         {
@@ -1030,8 +1126,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var position = CGPoint.zero
         
         let entries = axis.entries
@@ -1043,6 +1142,7 @@ open class XAxisRenderer: AxisRendererBase
 =======
         var position = CGPoint(x: 0.0, y: 0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         var position = CGPoint.zero
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1060,15 +1160,28 @@ open class XAxisRenderer: AxisRendererBase
             position.y = CGFloat(entry)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        var position = CGPoint.zero
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let entries = xAxis.entries
+        let entries = axis.entries
         
-        for i in stride(from: 0, to: entries.count, by: 1)
+        for entry in entries
         {
+<<<<<<< HEAD
             position.x = CGFloat(entries[i])
             position.y = position.x
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            position.x = CGFloat(entry)
+            position.y = CGFloat(entry)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             position = position.applying(valueToPixelMatrix)
             
             drawGridLine(context: context, x: position.x, y: position.y)
@@ -1081,18 +1194,27 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let dx = self.axis.gridLineWidth
 =======
         let dx = self.axis?.gridLineWidth ?? 0.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let dx = self.axis.gridLineWidth
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let dx = self.axis.gridLineWidth
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         contentRect.origin.x -= dx / 2.0
         contentRect.size.width += dx
         return contentRect
@@ -1103,10 +1225,15 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard x >= viewPortHandler.offsetLeft && x <= viewPortHandler.chartWidth else { return }
 
         context.beginPath()
@@ -1115,8 +1242,11 @@ open class XAxisRenderer: AxisRendererBase
         context.strokePath()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open func renderLimitLines(context: CGContext)
@@ -1134,6 +1264,7 @@ open class XAxisRenderer: AxisRendererBase
             context.strokePath()
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
     }
@@ -1149,16 +1280,26 @@ open class XAxisRenderer: AxisRendererBase
             !axis.limitLines.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
-    open override func renderLimitLines(context: CGContext)
+    open func renderLimitLines(context: CGContext)
     {
         guard
-            let xAxis = self.axis as? XAxis,
             let transformer = self.transformer,
+<<<<<<< HEAD
             !xAxis.limitLines.isEmpty
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            !axis.limitLines.isEmpty
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
         
         let trans = transformer.valueToPixelMatrix
@@ -1166,8 +1307,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var position = CGPoint.zero
         
         for l in axis.limitLines where l.isEnabled
@@ -1177,13 +1321,19 @@ open class XAxisRenderer: AxisRendererBase
         for l in xAxis.limitLines where l.isEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var position = CGPoint.zero
         
         for l in axis.limitLines where l.isEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             context.saveGState()
             defer { context.restoreGState() }
@@ -1207,16 +1357,22 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.beginPath()
         context.move(to: CGPoint(x: position.x, y: viewPortHandler.contentTop))
         context.addLine(to: CGPoint(x: position.x, y: viewPortHandler.contentBottom))
@@ -1240,8 +1396,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let label = limitLine.label
         
         // if drawing the limit-value label is enabled
@@ -1250,13 +1409,19 @@ open class XAxisRenderer: AxisRendererBase
         let label = limitLine.label
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let label = limitLine.label
         
         // if drawing the limit-value label is enabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard limitLine.drawLabelEnabled, !label.isEmpty else { return }
 
         let labelLineHeight = limitLine.valueFont.lineHeight
@@ -1265,8 +1430,11 @@ open class XAxisRenderer: AxisRendererBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         let align: TextAlignment
         let point: CGPoint
@@ -1305,6 +1473,7 @@ open class XAxisRenderer: AxisRendererBase
             .foregroundColor : limitLine.valueTextColor
         ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 
@@ -1336,39 +1505,42 @@ open class XAxisRenderer: AxisRendererBase
 
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
-        let (point, align): (CGPoint, NSTextAlignment)
-        switch limitLine.labelPosition {
-        case .topRight:
-            point = CGPoint(
-                x: position.x + xOffset,
-                y: viewPortHandler.contentTop + yOffset
-            )
+        let align: TextAlignment
+        let point: CGPoint
+
+        switch limitLine.labelPosition
+        {
+        case .rightTop:
             align = .left
+            point = CGPoint(x: position.x + xOffset,
+                            y: viewPortHandler.contentTop + yOffset)
 
-        case .bottomRight:
-            point = CGPoint(
-                x: position.x + xOffset,
-                y: viewPortHandler.contentBottom - labelLineHeight - yOffset
-            )
+        case .rightBottom:
             align = .left
+            point = CGPoint(x: position.x + xOffset,
+                            y: viewPortHandler.contentBottom - labelLineHeight - yOffset)
 
-        case .topLeft:
-            point = CGPoint(
-                x: position.x - xOffset,
-                y: viewPortHandler.contentTop + yOffset
-            )
+        case .leftTop:
             align = .right
+            point = CGPoint(x: position.x - xOffset,
+                            y: viewPortHandler.contentTop + yOffset)
 
-        case .bottomLeft:
-            point = CGPoint(
-                x: position.x - xOffset,
-                y: viewPortHandler.contentBottom - labelLineHeight - yOffset
-            )
+        case .leftBottom:
             align = .right
+            point = CGPoint(x: position.x - xOffset,
+                            y: viewPortHandler.contentBottom - labelLineHeight - yOffset)
         }
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         ChartUtils.drawText(
             context: context,
             text: label,
@@ -1378,6 +1550,9 @@ open class XAxisRenderer: AxisRendererBase
         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         context.drawText(label,
                          at: point,
@@ -1385,7 +1560,10 @@ open class XAxisRenderer: AxisRendererBase
                          attributes: [.font: limitLine.valueFont,
                                       .foregroundColor: limitLine.valueTextColor])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

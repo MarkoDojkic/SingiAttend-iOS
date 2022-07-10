@@ -81,18 +81,27 @@ open class YAxis: AxisBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var labelAlignment: TextAlignment = .left
 =======
     @objc open var labelAlignment: NSTextAlignment = .left
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open var labelAlignment: TextAlignment = .left
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open var labelAlignment: TextAlignment = .left
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// the horizontal offset of the y-label
     @objc open var labelXOffset: CGFloat = 0.0
@@ -138,18 +147,27 @@ open class YAxis: AxisBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var size = label.size(withAttributes: [.font: labelFont])
 =======
         var size = label.size(withAttributes: [NSAttributedString.Key.font: labelFont])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         var size = label.size(withAttributes: [.font: labelFont])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        var size = label.size(withAttributes: [.font: labelFont])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         size.width += xOffset * 2.0
         size.height += yOffset * 2.0
         size.width = max(minWidth, min(size.width, maxWidth > 0.0 ? maxWidth : size.width))

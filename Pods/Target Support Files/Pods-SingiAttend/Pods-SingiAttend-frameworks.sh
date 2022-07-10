@@ -209,8 +209,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework"
@@ -223,6 +226,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -247,6 +253,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework"
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
 =======
@@ -280,7 +287,12 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 =======
 >>>>>>> 82f2d53 (Updated index logic)
 >>>>>>> 0494372 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 7a06b05 (Updated index logic)
+=======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+>>>>>>> 5c49006 (Updated code and styling for iOS version 16.4)
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

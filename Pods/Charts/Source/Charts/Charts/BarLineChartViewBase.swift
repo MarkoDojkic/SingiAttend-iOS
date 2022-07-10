@@ -12,8 +12,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import CoreGraphics
 import Foundation
 
@@ -24,6 +27,7 @@ import AppKit
 =======
 import Foundation
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 import CoreGraphics
@@ -32,10 +36,19 @@ import Foundation
 #if canImport(UIKit)
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import CoreGraphics
+import Foundation
 
 #if canImport(UIKit)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     import UIKit
 #endif
 
@@ -43,13 +56,19 @@ import CoreGraphics
 import Cocoa
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 import UIKit
 #elseif canImport(AppKit)
 import AppKit
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 #endif
 
 /// Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
@@ -111,8 +130,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open lazy var leftYAxisRenderer = YAxisRenderer(viewPortHandler: viewPortHandler, axis: leftAxis, transformer: _leftAxisTransformer)
 
     /// The right Y axis renderer. This is a read-write property so you can set your own custom renderer here.
@@ -128,6 +150,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open lazy var leftYAxisRenderer = YAxisRenderer(viewPortHandler: viewPortHandler, axis: leftAxis, transformer: _leftAxisTransformer)
 
@@ -136,8 +161,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     @objc open lazy var rightYAxisRenderer = YAxisRenderer(viewPortHandler: viewPortHandler, axis: rightAxis, transformer: _rightAxisTransformer)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal var _leftAxisTransformer: Transformer!
     internal var _rightAxisTransformer: Transformer!
     
@@ -146,8 +174,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open lazy var xAxisRenderer = XAxisRenderer(viewPortHandler: viewPortHandler, axis: xAxis, transformer: _leftAxisTransformer)
 
 =======
@@ -155,12 +186,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open lazy var xAxisRenderer = XAxisRenderer(viewPortHandler: viewPortHandler, axis: xAxis, transformer: _leftAxisTransformer)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal var _tapGestureRecognizer: NSUITapGestureRecognizer!
     internal var _doubleTapGestureRecognizer: NSUITapGestureRecognizer!
     #if !os(tvOS)
@@ -193,8 +230,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _leftAxisTransformer = Transformer(viewPortHandler: viewPortHandler)
         _rightAxisTransformer = Transformer(viewPortHandler: viewPortHandler)
 
@@ -204,13 +244,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _leftAxisTransformer = Transformer(viewPortHandler: viewPortHandler)
         _rightAxisTransformer = Transformer(viewPortHandler: viewPortHandler)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.highlighter = ChartHighlighter(chart: self)
         
         _tapGestureRecognizer = NSUITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized(_:)))
@@ -231,18 +277,26 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _pinchGestureRecognizer = NSUIPinchGestureRecognizer(target: self, action: #selector(BarLineChartViewBase.pinchGestureRecognized(_:)))
             _pinchGestureRecognizer.delegate = self
             self.addGestureRecognizer(_pinchGestureRecognizer)
             _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _pinchGestureRecognizer = NSUIPinchGestureRecognizer(target: self, action: #selector(BarLineChartViewBase.pinchGestureRecognized(_:)))
         _pinchGestureRecognizer.delegate = self
@@ -250,10 +304,15 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         #endif
     }
     
@@ -313,8 +372,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if xAxis.isEnabled
         {
             xAxisRenderer.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
@@ -324,13 +386,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             xAxisRenderer.computeAxis(min: _xAxis._axisMinimum, max: _xAxis._axisMaximum, inverted: false)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if xAxis.isEnabled
         {
             xAxisRenderer.computeAxis(min: xAxis._axisMinimum, max: xAxis._axisMaximum, inverted: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         xAxisRenderer.renderAxisLine(context: context)
@@ -348,18 +416,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if xAxis.isEnabled && xAxis.isDrawLimitLinesBehindDataEnabled
 =======
         if _xAxis.isEnabled && _xAxis.isDrawLimitLinesBehindDataEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if xAxis.isEnabled && xAxis.isDrawLimitLinesBehindDataEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if xAxis.isEnabled && xAxis.isDrawLimitLinesBehindDataEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             xAxisRenderer.renderLimitLines(context: context)
         }
@@ -378,8 +455,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         // make sure the data cannot be drawn outside the content-rect
         if clipDataToContentEnabled {
@@ -387,6 +467,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         }
 
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -401,12 +482,24 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // make sure the data cannot be drawn outside the content-rect
         if clipDataToContentEnabled {
-            context.clip(to: _viewPortHandler.contentRect)
+            context.clip(to: viewPortHandler.contentRect)
         }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         renderer.drawData(context: context)
         
         // The renderers are responsible for clipping, to account for line-width center etc.
@@ -423,18 +516,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             renderer.drawHighlighted(context: context, indices: highlighted)
 =======
             renderer.drawHighlighted(context: context, indices: _indicesToHighlight)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             renderer.drawHighlighted(context: context, indices: highlighted)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            renderer.drawHighlighted(context: context, indices: highlighted)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         context.restoreGState()
@@ -444,18 +546,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
 =======
         if _xAxis.isEnabled && !_xAxis.isDrawLimitLinesBehindDataEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             xAxisRenderer.renderLimitLines(context: context)
         }
@@ -480,18 +591,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.clip(to: viewPortHandler.contentRect)
 =======
             context.clip(to: _viewPortHandler.contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             context.clip(to: viewPortHandler.contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.clip(to: viewPortHandler.contentRect)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             renderer.drawValues(context: context)
             
@@ -505,8 +625,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         legendRenderer.renderLegend(context: context)
 
         drawDescription(in: context)
@@ -516,13 +639,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         drawDescription(context: context)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         legendRenderer.renderLegend(context: context)
 
         drawDescription(in: context)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         drawMarkers(context: context)
     }
@@ -536,18 +665,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let data = data
 =======
         guard let data = _data
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         guard let data = data
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        guard let data = data
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
         
         data.calcMinMaxY(fromX: self.lowestVisibleX, toX: self.highestVisibleX)
@@ -555,18 +693,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         xAxis.calculate(min: data.xMin, max: data.xMax)
 =======
         _xAxis.calculate(min: data.xMin, max: data.xMax)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         xAxis.calculate(min: data.xMin, max: data.xMax)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        xAxis.calculate(min: data.xMin, max: data.xMax)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         // calculate axis range (min / max) according to provided data
         
@@ -588,18 +735,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: xAxis._axisMinimum, deltaX: CGFloat(xAxis.axisRange), deltaY: CGFloat(rightAxis.axisRange), chartYMin: rightAxis._axisMinimum)
 =======
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: _xAxis._axisMinimum, deltaX: CGFloat(xAxis.axisRange), deltaY: CGFloat(rightAxis.axisRange), chartYMin: rightAxis._axisMinimum)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: xAxis._axisMinimum, deltaX: CGFloat(xAxis.axisRange), deltaY: CGFloat(rightAxis.axisRange), chartYMin: rightAxis._axisMinimum)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        _rightAxisTransformer.prepareMatrixValuePx(chartXMin: xAxis._axisMinimum, deltaX: CGFloat(xAxis.axisRange), deltaY: CGFloat(rightAxis.axisRange), chartYMin: rightAxis._axisMinimum)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _leftAxisTransformer.prepareMatrixValuePx(chartXMin: xAxis._axisMinimum, deltaX: CGFloat(xAxis.axisRange), deltaY: CGFloat(leftAxis.axisRange), chartYMin: leftAxis._axisMinimum)
     }
     
@@ -621,8 +777,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if let data = data
         {
             xAxisRenderer.computeAxis(
@@ -634,6 +793,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
         if let data = _data
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         if let data = data
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -645,24 +805,39 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 
 <<<<<<< HEAD
 =======
+=======
+=======
+        if let data = data
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             xAxisRenderer.computeAxis(
-                min: _xAxis._axisMinimum,
-                max: _xAxis._axisMaximum,
+                min: xAxis._axisMinimum,
+                max: xAxis._axisMaximum,
                 inverted: false)
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if _legend !== nil
             {
                 legendRenderer?.computeLegend(data: data)
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             legendRenderer.computeLegend(data: data)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            legendRenderer.computeLegend(data: data)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         calculateOffsets()
@@ -676,8 +851,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         xAxis.calculate(min: data?.xMin ?? 0.0, max: data?.xMax ?? 0.0)
         
         // calculate axis range (min / max) according to provided data
@@ -691,6 +869,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         rightAxis.calculate(min: _data?.getYMin(axis: .right) ?? 0.0, max: _data?.getYMax(axis: .right) ?? 0.0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         xAxis.calculate(min: data?.xMin ?? 0.0, max: data?.xMax ?? 0.0)
         
@@ -698,8 +879,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         leftAxis.calculate(min: data?.getYMin(axis: .left) ?? 0.0, max: data?.getYMax(axis: .left) ?? 0.0)
         rightAxis.calculate(min: data?.getYMin(axis: .right) ?? 0.0, max: data?.getYMax(axis: .right) ?? 0.0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     internal func calculateLegendOffsets(offsetLeft: inout CGFloat, offsetTop: inout CGFloat, offsetRight: inout CGFloat, offsetBottom: inout CGFloat)
@@ -708,8 +892,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if legend.isEnabled, !legend.drawInside
         {
             switch legend.orientation
@@ -736,6 +923,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
         if _legend !== nil && _legend.isEnabled && !_legend.drawInside
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         if legend.isEnabled, !legend.drawInside
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -767,30 +955,42 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                         offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        if legend.isEnabled, !legend.drawInside
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            switch _legend.orientation
+            switch legend.orientation
             {
             case .vertical:
                 
-                switch _legend.horizontalAlignment
+                switch legend.horizontalAlignment
                 {
                 case .left:
-                    offsetLeft += min(_legend.neededWidth, _viewPortHandler.chartWidth * _legend.maxSizePercent) + _legend.xOffset
+                    offsetLeft += min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
                     
                 case .right:
-                    offsetRight += min(_legend.neededWidth, _viewPortHandler.chartWidth * _legend.maxSizePercent) + _legend.xOffset
+                    offsetRight += min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
                     
                 case .center:
                     
-                    switch _legend.verticalAlignment
+                    switch legend.verticalAlignment
                     {
                     case .top:
-                        offsetTop += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
+                        offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
                         
                     case .bottom:
+<<<<<<< HEAD
                         offsetBottom += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         
                     default:
                         break
@@ -802,8 +1002,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 switch legend.verticalAlignment
                 {
                 case .top:
@@ -814,6 +1017,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
                 switch _legend.verticalAlignment
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 switch legend.verticalAlignment
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -829,14 +1033,26 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                     offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                switch legend.verticalAlignment
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                 case .top:
-                    offsetTop += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
+                    offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
                     
                 case .bottom:
+<<<<<<< HEAD
                     offsetBottom += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     
                 default:
                     break
@@ -898,18 +1114,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             viewPortHandler.restrainViewPort(
 =======
             _viewPortHandler.restrainViewPort(
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             viewPortHandler.restrainViewPort(
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            viewPortHandler.restrainViewPort(
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 offsetLeft: max(self.minOffset, offsetLeft),
                 offsetTop: max(self.minOffset, offsetTop),
                 offsetRight: max(self.minOffset, offsetRight),
@@ -935,18 +1160,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.fill(viewPortHandler.contentRect)
 =======
             context.fill(_viewPortHandler.contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             context.fill(viewPortHandler.contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.fill(viewPortHandler.contentRect)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         if drawBordersEnabled
@@ -956,18 +1190,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.stroke(viewPortHandler.contentRect)
 =======
             context.stroke(_viewPortHandler.contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             context.stroke(viewPortHandler.contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            context.stroke(viewPortHandler.contentRect)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         if drawGridBackgroundEnabled || drawBordersEnabled
@@ -991,18 +1234,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private var _closestDataSetToTouch: ChartDataSetProtocol!
 =======
     private var _closestDataSetToTouch: IChartDataSet!
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     private var _closestDataSetToTouch: ChartDataSetProtocol!
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private var _closestDataSetToTouch: ChartDataSetProtocol!
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private var _panGestureReachedEdge: Bool = false
     private weak var _outerScrollView: NSUIScrollView?
     
@@ -1017,18 +1269,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if data === nil
 =======
         if _data === nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if data === nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if data === nil
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             return
         }
@@ -1057,18 +1318,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if data === nil
 =======
         if _data === nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if data === nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if data === nil
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             return
         }
@@ -1078,8 +1348,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if data !== nil && _doubleTapToZoomEnabled && (data?.entryCount ?? 0) > 0
             {
                 var location = recognizer.location(in: self)
@@ -1098,6 +1371,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
             if _data !== nil && _doubleTapToZoomEnabled && (data?.entryCount ?? 0) > 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if data !== nil && _doubleTapToZoomEnabled && (data?.entryCount ?? 0) > 0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1115,19 +1389,28 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 }
 <<<<<<< HEAD
 =======
+=======
+=======
+            if data !== nil && _doubleTapToZoomEnabled && (data?.entryCount ?? 0) > 0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 var location = recognizer.location(in: self)
-                location.x = location.x - _viewPortHandler.offsetLeft
+                location.x = location.x - viewPortHandler.offsetLeft
                 
                 if isTouchInverted()
                 {
-                    location.y = -(location.y - _viewPortHandler.offsetTop)
+                    location.y = -(location.y - viewPortHandler.offsetTop)
                 }
                 else
                 {
-                    location.y = -(self.bounds.size.height - location.y - _viewPortHandler.offsetBottom)
+                    location.y = -(self.bounds.size.height - location.y - viewPortHandler.offsetBottom)
                 }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                 let scaleX: CGFloat = isScaleXEnabled ? 1.4 : 1.0
                 let scaleY: CGFloat = isScaleYEnabled ? 1.4 : 1.0
@@ -1135,12 +1418,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 self.zoom(scaleX: scaleX, scaleY: scaleY, x: location.x, y: location.y)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 
                 self.zoom(scaleX: isScaleXEnabled ? 1.4 : 1.0, scaleY: isScaleYEnabled ? 1.4 : 1.0, x: location.x, y: location.y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 delegate?.chartScaled?(self, scaleX: scaleX, scaleY: scaleY)
             }
         }
@@ -1156,18 +1445,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if data !== nil &&
 =======
             if _data !== nil &&
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if data !== nil &&
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if data !== nil &&
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 (_pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled)
             {
                 _isScaling = true
@@ -1210,8 +1508,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             var canZoomMoreX = isZoomingOut ? viewPortHandler.canZoomOutMoreX : viewPortHandler.canZoomInMoreX
             var canZoomMoreY = isZoomingOut ? viewPortHandler.canZoomOutMoreY : viewPortHandler.canZoomInMoreY
 =======
@@ -1219,12 +1520,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             var canZoomMoreY = isZoomingOut ? _viewPortHandler.canZoomOutMoreY : _viewPortHandler.canZoomInMoreY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             var canZoomMoreX = isZoomingOut ? viewPortHandler.canZoomOutMoreX : viewPortHandler.canZoomInMoreX
             var canZoomMoreY = isZoomingOut ? viewPortHandler.canZoomOutMoreY : viewPortHandler.canZoomInMoreY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             if _isScaling
             {
@@ -1236,8 +1543,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     location.x = location.x - viewPortHandler.offsetLeft
                     
                     if isTouchInverted()
@@ -1250,6 +1560,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
                     location.x = location.x - _viewPortHandler.offsetLeft
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     location.x = location.x - viewPortHandler.offsetLeft
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1267,16 +1578,28 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                         location.y = -(viewPortHandler.chartHeight - location.y - viewPortHandler.offsetBottom)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                    location.x = location.x - viewPortHandler.offsetLeft
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     
                     if isTouchInverted()
                     {
-                        location.y = -(location.y - _viewPortHandler.offsetTop)
+                        location.y = -(location.y - viewPortHandler.offsetTop)
                     }
                     else
                     {
+<<<<<<< HEAD
                         location.y = -(_viewPortHandler.chartHeight - location.y - _viewPortHandler.offsetBottom)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        location.y = -(viewPortHandler.chartHeight - location.y - viewPortHandler.offsetBottom)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     let scaleX = canZoomMoreX ? recognizer.nsuiScale : 1.0
@@ -1289,8 +1612,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     matrix = viewPortHandler.touchMatrix.concatenating(matrix)
                     
                     viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
@@ -1302,14 +1628,20 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     matrix = viewPortHandler.touchMatrix.concatenating(matrix)
                     
                     viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     if delegate !== nil
                     {
                         delegate?.chartScaled?(self, scaleX: scaleX, scaleY: scaleY)
@@ -1331,18 +1663,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if data === nil || !self.isDragEnabled
 =======
             if _data === nil || !self.isDragEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if data === nil || !self.isDragEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if data === nil || !self.isDragEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             { // If we have no data, we have nothing to pan and no data to highlight
                 return
             }
@@ -1397,24 +1738,35 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 // Prevent the parent scroll view from scrolling
                 _outerScrollView?.nsuiIsScrollEnabled = false
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
         else if recognizer.state == NSUIGestureRecognizerState.changed
@@ -1469,17 +1821,25 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 
                 delegate?.chartViewDidEndPanning?(self)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
             
             if _outerScrollView !== nil
@@ -1490,19 +1850,28 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             delegate?.chartViewDidEndPanning?(self)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             delegate?.chartViewDidEndPanning?(self)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -1525,18 +1894,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let originalMatrix = viewPortHandler.touchMatrix
 =======
         let originalMatrix = _viewPortHandler.touchMatrix
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let originalMatrix = viewPortHandler.touchMatrix
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let originalMatrix = viewPortHandler.touchMatrix
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         var matrix = CGAffineTransform(translationX: translation.x, y: translation.y)
         matrix = originalMatrix.concatenating(matrix)
@@ -1544,18 +1922,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         matrix = viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
 =======
         matrix = _viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         matrix = viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        matrix = viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: true)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if matrix != originalMatrix
         {
@@ -1623,18 +2010,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if data === nil || !isDragEnabled ||
 =======
             if _data === nil || !isDragEnabled ||
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if data === nil || !isDragEnabled ||
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if data === nil || !isDragEnabled ||
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 (self.hasNoDragOffset && self.isFullyZoomedOut && !self.isHighlightPerDragEnabled) ||
                 (!_dragYEnabled && abs(velocity.y) > abs(velocity.x)) ||
                 (!_dragXEnabled && abs(velocity.y) < abs(velocity.x))
@@ -1648,8 +2044,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if gestureRecognizer == _pinchGestureRecognizer
                 {
                     if data === nil || (!_pinchZoomEnabled && !_scaleXEnabled && !_scaleYEnabled)
@@ -1662,6 +2061,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             {
                 if _data === nil || (!_pinchZoomEnabled && !_scaleXEnabled && !_scaleYEnabled)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 if gestureRecognizer == _pinchGestureRecognizer
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1677,12 +2077,26 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                if gestureRecognizer == _pinchGestureRecognizer
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
-                    return false
+                    if data === nil || (!_pinchZoomEnabled && !_scaleXEnabled && !_scaleYEnabled)
+                    {
+                        return false
+                    }
                 }
+<<<<<<< HEAD
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             #endif
         }
         
@@ -1693,18 +2107,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: NSUIGestureRecognizer) -> Bool
 =======
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: NSUIGestureRecognizer) -> Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: NSUIGestureRecognizer) -> Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         if !super.gestureRecognizerShouldBegin(gestureRecognizer)
         {
@@ -1719,18 +2142,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public func gestureRecognizerShouldBegin(gestureRecognizer: NSUIGestureRecognizer) -> Bool
 =======
     public func gestureRecognizerShouldBegin(gestureRecognizer: NSGestureRecognizer) -> Bool
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public func gestureRecognizerShouldBegin(gestureRecognizer: NSUIGestureRecognizer) -> Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public func gestureRecognizerShouldBegin(gestureRecognizer: NSUIGestureRecognizer) -> Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         return nsuiGestureRecognizerShouldBegin(gestureRecognizer)
     }
@@ -1742,10 +2174,15 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if ((gestureRecognizer is NSUIPinchGestureRecognizer && otherGestureRecognizer is NSUIPanGestureRecognizer) ||
                 (gestureRecognizer is NSUIPanGestureRecognizer && otherGestureRecognizer is NSUIPinchGestureRecognizer))
             {
@@ -1753,8 +2190,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if ((gestureRecognizer is NSUIPinchGestureRecognizer && otherGestureRecognizer is NSUIPanGestureRecognizer) ||
             (gestureRecognizer is NSUIPanGestureRecognizer && otherGestureRecognizer is NSUIPinchGestureRecognizer))
@@ -1763,10 +2203,15 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         #endif
         
         if gestureRecognizer is NSUIPanGestureRecognizer,
@@ -1817,8 +2262,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let center = viewPortHandler.contentCenter
         
         let matrix = viewPortHandler.zoomIn(x: center.x, y: -center.y)
@@ -1830,14 +2278,20 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let center = viewPortHandler.contentCenter
         
         let matrix = viewPortHandler.zoomIn(x: center.x, y: -center.y)
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         // Range might have changed, which means that Y-axis labels could have changed in size, affecting Y-axis size. So we need to recalculate offsets.
         calculateOffsets()
@@ -1850,8 +2304,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let center = viewPortHandler.contentCenter
         
         let matrix = viewPortHandler.zoomOut(x: center.x, y: -center.y)
@@ -1863,14 +2320,20 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let center = viewPortHandler.contentCenter
         
         let matrix = viewPortHandler.zoomOut(x: center.x, y: -center.y)
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         // Range might have changed, which means that Y-axis labels could have changed in size, affecting Y-axis size. So we need to recalculate offsets.
         calculateOffsets()
@@ -1883,8 +2346,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let matrix = viewPortHandler.resetZoom()
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 
@@ -1894,13 +2360,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let matrix = viewPortHandler.resetZoom()
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // Range might have changed, which means that Y-axis labels could have changed in size, affecting Y-axis size. So we need to recalculate offsets.
         calculateOffsets()
         setNeedsDisplay()
@@ -1923,8 +2395,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let matrix = viewPortHandler.zoom(scaleX: scaleX, scaleY: scaleY, x: x, y: -y)
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 
@@ -1934,13 +2409,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let matrix = viewPortHandler.zoom(scaleX: scaleX, scaleY: scaleY, x: x, y: -y)
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // Range might have changed, which means that Y-axis labels could have changed in size, affecting Y-axis size. So we need to recalculate offsets.
         calculateOffsets()
         setNeedsDisplay()
@@ -2026,18 +2507,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             xAxisRange: xAxis.axisRange,
 =======
             xAxisRange: _xAxis.axisRange,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             xAxisRange: xAxis.axisRange,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            xAxisRange: xAxis.axisRange,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             scaleX: scaleX,
             scaleY: scaleY,
             xOrigin: viewPortHandler.scaleX,
@@ -2101,8 +2591,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let matrix = viewPortHandler.fitScreen()
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 =======
@@ -2110,12 +2603,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let matrix = viewPortHandler.fitScreen()
         viewPortHandler.refresh(newMatrix: matrix, chart: self, invalidate: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         calculateOffsets()
         setNeedsDisplay()
@@ -2127,8 +2626,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setMinimumScaleX(scaleX)
         viewPortHandler.setMinimumScaleY(scaleY)
 =======
@@ -2136,12 +2638,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.setMinimumScaleY(scaleY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         viewPortHandler.setMinimumScaleX(scaleX)
         viewPortHandler.setMinimumScaleY(scaleY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var visibleXRange: Double
@@ -2159,8 +2667,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let xScale = xAxis.axisRange / maxXRange
         viewPortHandler.setMinimumScaleX(CGFloat(xScale))
 =======
@@ -2168,12 +2679,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.setMinimumScaleX(CGFloat(xScale))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let xScale = xAxis.axisRange / maxXRange
         viewPortHandler.setMinimumScaleX(CGFloat(xScale))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the size of the area (range on the x-axis) that should be minimum visible at once (no further zooming in allowed).
@@ -2186,8 +2703,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let xScale = xAxis.axisRange / minXRange
         viewPortHandler.setMaximumScaleX(CGFloat(xScale))
 =======
@@ -2195,12 +2715,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.setMaximumScaleX(CGFloat(xScale))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let xScale = xAxis.axisRange / minXRange
         viewPortHandler.setMaximumScaleX(CGFloat(xScale))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Limits the maximum and minimum value count that can be visible by pinching and zooming.
@@ -2214,8 +2740,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let minScale = xAxis.axisRange / maxXRange
         let maxScale = xAxis.axisRange / minXRange
         viewPortHandler.setMinMaxScaleX(
@@ -2225,13 +2754,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _viewPortHandler.setMinMaxScaleX(
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let minScale = xAxis.axisRange / maxXRange
         let maxScale = xAxis.axisRange / minXRange
         viewPortHandler.setMinMaxScaleX(
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             minScaleX: CGFloat(minScale),
             maxScaleX: CGFloat(maxScale))
     }
@@ -2247,18 +2782,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setMinimumScaleY(CGFloat(yScale))
 =======
         _viewPortHandler.setMinimumScaleY(CGFloat(yScale))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.setMinimumScaleY(CGFloat(yScale))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.setMinimumScaleY(CGFloat(yScale))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the size of the area (range on the y-axis) that should be minimum visible at once, no further zooming in possible.
@@ -2272,18 +2816,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setMaximumScaleY(CGFloat(yScale))
 =======
         _viewPortHandler.setMaximumScaleY(CGFloat(yScale))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.setMaximumScaleY(CGFloat(yScale))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.setMaximumScaleY(CGFloat(yScale))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Limits the maximum and minimum y range that can be visible by pinching and zooming.
@@ -2299,18 +2852,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setMinMaxScaleY(minScaleY: CGFloat(minScale), maxScaleY: CGFloat(maxScale))
 =======
         _viewPortHandler.setMinMaxScaleY(minScaleY: CGFloat(minScale), maxScaleY: CGFloat(maxScale))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.setMinMaxScaleY(minScaleY: CGFloat(minScale), maxScaleY: CGFloat(maxScale))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.setMinMaxScaleY(minScaleY: CGFloat(minScale), maxScaleY: CGFloat(maxScale))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Moves the left side of the current viewport to the specified x-value.
@@ -2338,18 +2900,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 =======
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let job = MoveViewJob(
             viewPortHandler: viewPortHandler,
@@ -2373,18 +2944,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 =======
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let job = MoveViewJob(
             viewPortHandler: viewPortHandler,
@@ -2419,18 +2999,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 =======
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let job = AnimatedMoveViewJob(
             viewPortHandler: viewPortHandler,
@@ -2498,8 +3087,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
         let xInView = xAxis.axisRange / Double(viewPortHandler.scaleX)
 =======
@@ -2507,12 +3099,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         let xInView = xAxis.axisRange / Double(_viewPortHandler.scaleX)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
         let xInView = xAxis.axisRange / Double(viewPortHandler.scaleX)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let job = MoveViewJob(
             viewPortHandler: viewPortHandler,
@@ -2546,8 +3144,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
         let xInView = xAxis.axisRange / Double(viewPortHandler.scaleX)
 =======
@@ -2555,12 +3156,18 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         let xInView = xAxis.axisRange / Double(_viewPortHandler.scaleX)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let yInView = getAxisRange(axis: axis) / Double(viewPortHandler.scaleY)
         let xInView = xAxis.axisRange / Double(viewPortHandler.scaleX)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let job = AnimatedMoveViewJob(
             viewPortHandler: viewPortHandler,
@@ -2622,18 +3229,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             self.viewPortHandler.restrainViewPort(offsetLeft: left, offsetTop: top, offsetRight: right, offsetBottom: bottom)
 =======
             self._viewPortHandler.restrainViewPort(offsetLeft: left, offsetTop: top, offsetRight: right, offsetBottom: bottom)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             self.viewPortHandler.restrainViewPort(offsetLeft: left, offsetTop: top, offsetRight: right, offsetBottom: bottom)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            self.viewPortHandler.restrainViewPort(offsetLeft: left, offsetTop: top, offsetRight: right, offsetBottom: bottom)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             prepareOffsetMatrix()
             prepareValuePxMatrix()
         }
@@ -2734,18 +3350,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 =======
             _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             #endif
         }
     }
@@ -2765,18 +3390,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 =======
                 _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 #endif
             }
         }
@@ -2797,18 +3431,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 =======
                 _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 #endif
             }
         }
@@ -2891,18 +3534,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return data!.entry(for: h)
 =======
             return _data!.entryForHighlight(h)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             return data!.entry(for: h)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            return data!.entry(for: h)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         return nil
     }
@@ -2911,8 +3563,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func getDataSetByTouchPoint(point pt: CGPoint) -> BarLineScatterCandleBubbleChartDataSetProtocol?
     {
         guard let h = getHighlightByTouchPoint(pt) else {
@@ -2923,6 +3578,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 =======
     @objc open func getDataSetByTouchPoint(point pt: CGPoint) -> IBarLineScatterCandleBubbleChartDataSet?
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open func getDataSetByTouchPoint(point pt: CGPoint) -> BarLineScatterCandleBubbleChartDataSetProtocol?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -2938,15 +3594,26 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         return data?[h.dataSetIndex] as? BarLineScatterCandleBubbleChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc open func getDataSetByTouchPoint(point pt: CGPoint) -> BarLineScatterCandleBubbleChartDataSetProtocol?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        let h = getHighlightByTouchPoint(pt)
-        if h !== nil
-        {
-            return _data?.getDataSetByIndex(h!.dataSetIndex) as? IBarLineScatterCandleBubbleChartDataSet
+        guard let h = getHighlightByTouchPoint(pt) else {
+            return nil
         }
+<<<<<<< HEAD
         return nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+        return data?[h.dataSetIndex] as? BarLineScatterCandleBubbleChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// The current x-scale factor
@@ -2955,8 +3622,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return viewPortHandler.scaleX
 =======
         if _viewPortHandler === nil
@@ -2966,11 +3636,17 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         return _viewPortHandler.scaleX
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return viewPortHandler.scaleX
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return viewPortHandler.scaleX
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// The current y-scale factor
@@ -2979,8 +3655,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return viewPortHandler.scaleY
     }
 
@@ -2998,6 +3677,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     @objc open var isFullyZoomedOut: Bool { return _viewPortHandler.isFullyZoomedOut }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         return viewPortHandler.scaleY
     }
@@ -3005,8 +3687,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     /// if the chart is fully zoomed out, return true
     @objc open var isFullyZoomedOut: Bool { return viewPortHandler.isFullyZoomedOut }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// - Returns: The y-axis object to the corresponding AxisDependency. In the
     /// horizontal bar-chart, LEFT == top, RIGHT == BOTTOM
@@ -3038,18 +3723,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 =======
                 _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    _pinchGestureRecognizer.isEnabled = _pinchZoomEnabled || _scaleXEnabled || _scaleYEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 #endif
             }
         }
@@ -3066,18 +3760,27 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setDragOffsetX(offset)
 =======
         _viewPortHandler.setDragOffsetX(offset)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.setDragOffsetX(offset)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.setDragOffsetX(offset)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Set an offset in dp that allows the user to drag the chart over it's
@@ -3087,8 +3790,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.setDragOffsetY(offset)
     }
 
@@ -3102,6 +3808,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     @objc open var hasNoDragOffset: Bool { return _viewPortHandler.hasNoDragOffset }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         viewPortHandler.setDragOffsetY(offset)
     }
@@ -3109,8 +3818,11 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     /// `true` if both drag offsets (x and y) are zero or smaller.
     @objc open var hasNoDragOffset: Bool { return viewPortHandler.hasNoDragOffset }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     open override var chartYMax: Double
     {

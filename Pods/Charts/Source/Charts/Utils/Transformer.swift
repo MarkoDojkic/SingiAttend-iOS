@@ -20,8 +20,11 @@ open class Transformer: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal var matrixValueToPx = CGAffineTransform.identity
 
     /// matrix for handling the different offsets of the chart
@@ -35,6 +38,7 @@ open class Transformer: NSObject
 =======
     internal var _matrixValueToPx = CGAffineTransform.identity
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     internal var matrixValueToPx = CGAffineTransform.identity
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -53,17 +57,29 @@ open class Transformer: NSObject
         self.viewPortHandler = viewPortHandler
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    internal var matrixValueToPx = CGAffineTransform.identity
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// matrix for handling the different offsets of the chart
-    internal var _matrixOffset = CGAffineTransform.identity
+    internal var matrixOffset = CGAffineTransform.identity
 
-    internal var _viewPortHandler: ViewPortHandler
+    internal var viewPortHandler: ViewPortHandler
 
     @objc public init(viewPortHandler: ViewPortHandler)
     {
+<<<<<<< HEAD
         _viewPortHandler = viewPortHandler
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        self.viewPortHandler = viewPortHandler
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Prepares the matrix that transforms values to pixels. Calculates the scale factors from the charts size and offsets.
@@ -72,8 +88,11 @@ open class Transformer: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var scaleX = (viewPortHandler.contentWidth / deltaX)
         var scaleY = (viewPortHandler.contentHeight / deltaY)
         
@@ -86,10 +105,14 @@ open class Transformer: NSObject
         var scaleX = (_viewPortHandler.contentWidth / deltaX)
         var scaleY = (_viewPortHandler.contentHeight / deltaY)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var scaleX = (viewPortHandler.contentWidth / deltaX)
         var scaleY = (viewPortHandler.contentHeight / deltaY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         
         if .infinity == scaleX
         {
@@ -102,14 +125,23 @@ open class Transformer: NSObject
         if .infinity == scaleY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        if CGFloat.infinity == scaleX
+        if .infinity == scaleX
         {
             scaleX = 0.0
         }
+<<<<<<< HEAD
         if CGFloat.infinity == scaleY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if .infinity == scaleY
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             scaleY = 0.0
         }
@@ -118,8 +150,11 @@ open class Transformer: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         matrixValueToPx = CGAffineTransform.identity
             .scaledBy(x: scaleX, y: -scaleY)
             .translatedBy(x: CGFloat(-chartXMin), y: CGFloat(-chartYMin))
@@ -129,13 +164,19 @@ open class Transformer: NSObject
         _matrixValueToPx = _matrixValueToPx.translatedBy(x: CGFloat(-chartXMin), y: CGFloat(-chartYMin))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         matrixValueToPx = CGAffineTransform.identity
             .scaledBy(x: scaleX, y: -scaleY)
             .translatedBy(x: CGFloat(-chartXMin), y: CGFloat(-chartYMin))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Prepares the matrix that contains all offsets.
@@ -146,8 +187,11 @@ open class Transformer: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             matrixOffset = CGAffineTransform(translationX: viewPortHandler.offsetLeft, y: viewPortHandler.chartHeight - viewPortHandler.offsetBottom)
         }
         else
@@ -163,6 +207,9 @@ open class Transformer: NSObject
             _matrixOffset = _matrixOffset.translatedBy(x: _viewPortHandler.offsetLeft, y: -_viewPortHandler.offsetTop)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             matrixOffset = CGAffineTransform(translationX: viewPortHandler.offsetLeft, y: viewPortHandler.chartHeight - viewPortHandler.offsetBottom)
         }
@@ -171,8 +218,11 @@ open class Transformer: NSObject
             matrixOffset = CGAffineTransform(scaleX: 1.0, y: -1.0)
                 .translatedBy(x: viewPortHandler.offsetLeft, y: -viewPortHandler.offsetTop)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 
@@ -273,8 +323,11 @@ open class Transformer: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             matrixValueToPx.concatenating(viewPortHandler.touchMatrix)
                 .concatenating(matrixOffset
 =======
@@ -282,12 +335,18 @@ open class Transformer: NSObject
                 ).concatenating(_matrixOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             matrixValueToPx.concatenating(viewPortHandler.touchMatrix)
                 .concatenating(matrixOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         )
     }
     

@@ -16,18 +16,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 =======
 open class ChartBaseDataSet: NSObject, IChartDataSet, NSCopying
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     public required override init()
     {
@@ -41,18 +50,27 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public init(label: String)
 =======
     @objc public init(label: String?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc public init(label: String)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc public init(label: String)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
         
@@ -302,8 +320,11 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
     /// Custom formatter that is used instead of the auto-formatter if set
     open lazy var valueFormatter: ValueFormatter = DefaultValueFormatter()
@@ -340,14 +361,20 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
     /// Custom formatter that is used instead of the auto-formatter if set
     open lazy var valueFormatter: ValueFormatter = DefaultValueFormatter()
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Sets/get a single color for value text.
     /// Setting the color clears the colors array and adds a single color.
     /// Getting will return the first color in the array.
@@ -381,21 +408,30 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The rotation angle (in degrees) for value-text labels
     open var valueLabelAngle: CGFloat = CGFloat(0.0)
     
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// The rotation angle (in degrees) for value-text labels
     open var valueLabelAngle: CGFloat = CGFloat(0.0)
     
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The form to draw for this dataset in the legend.
     open var form = Legend.Form.default
     
@@ -487,18 +523,27 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         copy.valueFormatter = valueFormatter
 =======
         copy._valueFormatter = _valueFormatter
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         copy.valueFormatter = valueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        copy.valueFormatter = valueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         copy.valueFont = valueFont
         copy.form = form
         copy.formSize = formSize
@@ -509,18 +554,27 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         copy.drawIconsEnabled = drawIconsEnabled
 =======
         copy.drawValuesEnabled = drawValuesEnabled
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         copy.drawIconsEnabled = drawIconsEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        copy.drawIconsEnabled = drawIconsEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         copy.iconsOffset = iconsOffset
         copy.visible = visible
         

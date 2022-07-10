@@ -6,8 +6,11 @@ ${BUILT_PRODUCTS_DIR}/DGCharts/DGCharts.framework
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework
@@ -32,11 +35,15 @@ ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 >>>>>>> 82f2d53 (Updated index logic)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 =======
@@ -62,4 +69,9 @@ ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
 =======
 =======
 >>>>>>> 0494372 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 7a06b05 (Updated index logic)
+=======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+>>>>>>> 5c49006 (Updated code and styling for iOS version 16.4)

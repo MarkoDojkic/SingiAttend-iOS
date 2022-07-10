@@ -12,12 +12,15 @@ OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -fram
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 =======
 >>>>>>> 633fcbd (Pod updates)
 =======
 >>>>>>> 0494372 (Updated index logic)
+=======
+>>>>>>> cb4bc3c (Updated project version to 1.8; Updatd pod versions)
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
@@ -49,12 +52,16 @@ HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking
 OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Charts"
 >>>>>>> 82f2d53 (Updated index logic)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cb4bc3c (Updated project version to 1.8; Updatd pod versions)
 =======
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Algorithms" -framework "CFNetwork" -framework "Charts"
 >>>>>>> 2d3161b (Updated project version to 1.8; Updatd pod versions)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 <<<<<<< HEAD
@@ -67,7 +74,12 @@ OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Algorithms" -fra
 =======
 =======
 >>>>>>> 0494372 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 7a06b05 (Updated index logic)
+=======
+=======
+>>>>>>> cb4bc3c (Updated project version to 1.8; Updatd pod versions)
+>>>>>>> 111a554 (Updated project version to 1.8; Updatd pod versions)
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

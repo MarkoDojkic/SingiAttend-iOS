@@ -16,18 +16,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, BubbleChartDataSetProtocol
 =======
 open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBubbleChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, BubbleChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, BubbleChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     // MARK: - Data functions and accessors
     
@@ -47,8 +56,11 @@ open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, BubbleCha
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _maxSize = Swift.max(e.size, maxSize)
 =======
         let size = e.size
@@ -59,11 +71,17 @@ open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, BubbleCha
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         _maxSize = Swift.max(e.size, maxSize)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        _maxSize = Swift.max(e.size, maxSize)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     // MARK: - Styling functions and accessors

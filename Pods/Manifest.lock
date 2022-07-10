@@ -14,12 +14,17 @@ DEPENDENCIES:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 =======
 >>>>>>> 633fcbd (Pod updates)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
   - Alamofire (5.6.4)
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
@@ -28,8 +33,11 @@ DEPENDENCIES:
   - SwiftAlgorithms (1.0.0)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -138,20 +146,25 @@ PODFILE CHECKSUM: 55e58b7aaba41c503832177fffb91b210c24c487
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 
 DEPENDENCIES:
-  - AFNetworking (~> 4.0)
-  - Charts (~> 3.6)
+  - Alamofire
+  - Charts
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
+    - Alamofire
     - Charts
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 PODFILE CHECKSUM: 226bfc0ad4bc6d54872899496f4f1c5fbaa19c60
@@ -168,7 +181,13 @@ PODFILE CHECKSUM: 736f3896eefbc6e63b70815184a8dce6c25400da
 =======
 PODFILE CHECKSUM: e5d11f831b408bc6cb5629b1e25f625e08c39d84
 >>>>>>> 82f2d53 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 0494372 (Updated index logic)
+=======
+=======
+PODFILE CHECKSUM: 55e58b7aaba41c503832177fffb91b210c24c487
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 COCOAPODS: 1.11.0
 >>>>>>> ccd5019 (Initial commit - transfer from other project)

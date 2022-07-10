@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ServerURL</key>
-	<string>http://192.168.8.102:62812</string>
-	<key>ServerUsername</key>
-	<string>singiattend-admin</string>
-	<key>ServerPassword</key>
-	<string>singiattend-server2021</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>Serbia</string>
 	<key>CFBundleDisplayName</key>
@@ -28,8 +22,14 @@
 	<string>1.8.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ServerPassword</key>
+	<string>singiattend-server2021</string>
+	<key>ServerURL</key>
+	<string>http://192.168.8.102:62812</string>
+	<key>ServerUsername</key>
+	<string>singiattend-admin</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

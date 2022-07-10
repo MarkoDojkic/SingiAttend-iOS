@@ -15,8 +15,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 #if canImport(UIKit)
     import UIKit
@@ -27,10 +30,15 @@ import Cocoa
 #endif
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 open class YAxisRendererRadarChart: YAxisRenderer
 {
@@ -39,8 +47,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public init(viewPortHandler: ViewPortHandler, axis: YAxis, chart: RadarChartView)
     {
         self.chart = chart
@@ -49,6 +60,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
 =======
     @objc public init(viewPortHandler: ViewPortHandler, yAxis: YAxis?, chart: RadarChartView)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc public init(viewPortHandler: ViewPortHandler, axis: YAxis, chart: RadarChartView)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -61,12 +73,23 @@ open class YAxisRendererRadarChart: YAxisRenderer
         super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: nil)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc public init(viewPortHandler: ViewPortHandler, axis: YAxis, chart: RadarChartView)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        super.init(viewPortHandler: viewPortHandler, yAxis: yAxis, transformer: nil)
-        
         self.chart = chart
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+        super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: nil)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func computeAxisValues(min yMin: Double, max yMax: Double)
@@ -74,8 +97,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let labelCount = axis.labelCount
         let range = abs(yMax - yMin)
         
@@ -92,6 +118,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
             else { return }
         
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
         let labelCount = axis.labelCount
@@ -111,15 +138,30 @@ open class YAxisRendererRadarChart: YAxisRenderer
             axis.centeredEntries = []
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let labelCount = axis.labelCount
         let range = abs(yMax - yMin)
         
-        if labelCount == 0 || range <= 0 || range.isInfinite
+        guard labelCount != 0,
+            range > 0,
+            range.isFinite
+            else
         {
+<<<<<<< HEAD
             axis.entries = [Double]()
             axis.centeredEntries = [Double]()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            axis.entries = []
+            axis.centeredEntries = []
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return
         }
         
@@ -128,8 +170,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var interval = rawInterval.roundedToNextSignificant()
 
 =======
@@ -137,12 +182,18 @@ open class YAxisRendererRadarChart: YAxisRenderer
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var interval = rawInterval.roundedToNextSignificant()
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // If granularity is enabled, then do not allow the interval to go below specified granularity.
         // This is used to avoid repeated values when rounding values for display.
         if axis.isGranularityEnabled
@@ -150,8 +201,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             interval = max(interval, axis.granularity)
         }
         
@@ -165,6 +219,9 @@ open class YAxisRendererRadarChart: YAxisRenderer
         let intervalMagnitude = pow(10.0, floor(log10(interval))).roundedToNextSignficant()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             interval = max(interval, axis.granularity)
         }
@@ -172,8 +229,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
         // Normalize interval
         let intervalMagnitude = pow(10.0, floor(log10(interval))).roundedToNextSignificant()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let intervalSigDigit = Int(interval / intervalMagnitude)
         
         if intervalSigDigit > 5
@@ -192,18 +252,27 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let step = range / Double(labelCount - 1)
 =======
             let step = Double(range) / Double(labelCount - 1)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             let step = range / Double(labelCount - 1)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let step = range / Double(labelCount - 1)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             // Ensure stops contains at least n elements.
             axis.entries.removeAll(keepingCapacity: true)
@@ -211,8 +280,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             let values = stride(from: yMin, to: Double(labelCount) * step + yMin, by: step)
             axis.entries.append(contentsOf: values)
@@ -227,13 +299,19 @@ open class YAxisRendererRadarChart: YAxisRenderer
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             let values = stride(from: yMin, to: Double(labelCount) * step + yMin, by: step)
             axis.entries.append(contentsOf: values)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             n = labelCount
         }
@@ -255,8 +333,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 stride(from: first, through: last, by: interval).forEach { _ in n += 1 }
 =======
                 for _ in stride(from: first, through: last, by: interval)
@@ -265,11 +346,17 @@ open class YAxisRendererRadarChart: YAxisRenderer
                 }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 stride(from: first, through: last, by: interval).forEach { _ in n += 1 }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                stride(from: first, through: last, by: interval).forEach { _ in n += 1 }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
             
             n += 1
@@ -280,8 +367,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             // Fix for IEEE negative zero case (Where value == -0.0, and 0.0 == -0.0)
             let values = stride(from: first, to: Double(n) * interval + first, by: interval).map { $0 == 0.0 ? 0.0 : $0 }
@@ -305,14 +395,20 @@ open class YAxisRendererRadarChart: YAxisRenderer
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             // Fix for IEEE negative zero case (Where value == -0.0, and 0.0 == -0.0)
             let values = stride(from: first, to: Double(n) * interval + first, by: interval).map { $0 == 0.0 ? 0.0 : $0 }
             axis.entries.append(contentsOf: values)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         // set decimals
@@ -330,8 +426,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let offset = (axis.entries[1] - axis.entries[0]) / 2.0
             axis.centeredEntries = axis.entries.map { $0 + offset }
         }
@@ -343,6 +442,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
             axis.centeredEntries.removeAll()
             
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
             let offset = (axis.entries[1] - axis.entries[0]) / 2.0
@@ -358,18 +458,26 @@ open class YAxisRendererRadarChart: YAxisRenderer
         axis._axisMaximum = axis.entries.last!
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let offset = (axis.entries[1] - axis.entries[0]) / 2.0
-            
-            for i in 0 ..< n
-            {
-                axis.centeredEntries.append(axis.entries[i] + offset)
-            }
+            axis.centeredEntries = axis.entries.map { $0 + offset }
         }
         
+<<<<<<< HEAD
         axis._axisMinimum = axis.entries[0]
         axis._axisMaximum = axis.entries[n-1]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        axis._axisMinimum = axis.entries.first!
+        axis._axisMaximum = axis.entries.last!
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         axis.axisRange = abs(axis._axisMaximum - axis._axisMinimum)
     }
     
@@ -378,18 +486,26 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard
             let chart = chart,
             axis.isEnabled,
             axis.isDrawLabelsEnabled
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
 
         let labelFont = axis.labelFont
@@ -409,14 +525,20 @@ open class YAxisRendererRadarChart: YAxisRenderer
         let labelTextColor = yAxis.labelTextColor
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             else { return }
 
         let labelFont = axis.labelFont
         let labelTextColor = axis.labelTextColor
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let center = chart.centerOffsets
         let factor = chart.factor
@@ -424,8 +546,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let labelLineHeight = axis.labelFont.lineHeight
         
         let from = axis.isDrawBottomYLabelEntryEnabled ? 0 : 1
@@ -449,6 +574,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
 =======
         let labelLineHeight = yAxis.labelFont.lineHeight
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let labelLineHeight = axis.labelFont.lineHeight
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -470,40 +596,51 @@ open class YAxisRendererRadarChart: YAxisRenderer
                 align: alignment,
 <<<<<<< HEAD
 =======
+=======
+=======
+        let labelLineHeight = axis.labelFont.lineHeight
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        let from = yAxis.isDrawBottomYLabelEntryEnabled ? 0 : 1
-        let to = yAxis.isDrawTopYLabelEntryEnabled ? yAxis.entryCount : (yAxis.entryCount - 1)
+        let from = axis.isDrawBottomYLabelEntryEnabled ? 0 : 1
+        let to = axis.isDrawTopYLabelEntryEnabled ? axis.entryCount : (axis.entryCount - 1)
 
-        let alignment: NSTextAlignment = yAxis.labelAlignment
-        let xOffset = yAxis.labelXOffset
-        
-        for j in stride(from: from, to: to, by: 1)
-        {
-            let r = CGFloat(yAxis.entries[j] - yAxis._axisMinimum) * factor
-            
+        let alignment = axis.labelAlignment
+        let xOffset = axis.labelXOffset
+
+        let entries = axis.entries[from..<to]
+        entries.indexed().forEach { index, entry in
+            let r = CGFloat(entry - axis._axisMinimum) * factor
             let p = center.moving(distance: r, atAngle: chart.rotationAngle)
-            
-            let label = yAxis.getFormattedLabel(j)
-            
-            ChartUtils.drawText(
-                context: context,
-                text: label,
-                point: CGPoint(x: p.x + xOffset, y: p.y - labelLineHeight),
+            let label = axis.getFormattedLabel(index)
+            context.drawText(
+                label,
+                at: CGPoint(x: p.x + xOffset, y: p.y - labelLineHeight),
                 align: alignment,
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 attributes: [
                     NSAttributedString.Key.font: labelFont,
                     NSAttributedString.Key.foregroundColor: labelTextColor
                 ])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 attributes: [.font: labelFont,
                              .foregroundColor: labelTextColor]
             )
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -513,16 +650,22 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let yAxis = axis as? YAxis,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
             let yAxis = axis as? YAxis,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let chart = chart,
             let data = chart.data
             else { return }
@@ -530,8 +673,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let limitLines = axis.limitLines
         
         guard !limitLines.isEmpty else { return }
@@ -547,6 +693,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
             return
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let limitLines = axis.limitLines
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -562,11 +709,26 @@ open class YAxisRendererRadarChart: YAxisRenderer
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        let limitLines = axis.limitLines
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
+        guard !limitLines.isEmpty else { return }
+
         context.saveGState()
+<<<<<<< HEAD
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        defer { context.restoreGState() }
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let sliceangle = chart.sliceAngle
         
         // calculate the factor that is needed for transforming the value to pixels
@@ -577,8 +739,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for l in limitLines where l.isEnabled
         {
 =======
@@ -593,12 +758,18 @@ open class YAxisRendererRadarChart: YAxisRenderer
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for l in limitLines where l.isEnabled
         {
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.setStrokeColor(l.lineColor.cgColor)
             context.setLineWidth(l.lineWidth)
             if l.lineDashLengths != nil
@@ -617,8 +788,11 @@ open class YAxisRendererRadarChart: YAxisRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in 0 ..< (data.maxEntryCountSet?.entryCount ?? 0)
             {
                 let p = center.moving(
@@ -635,6 +809,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
 =======
             for j in 0 ..< (data.maxEntryCountSet?.entryCount ?? 0)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             for i in 0 ..< (data.maxEntryCountSet?.entryCount ?? 0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -657,26 +832,32 @@ open class YAxisRendererRadarChart: YAxisRenderer
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            for i in 0 ..< (data.maxEntryCountSet?.entryCount ?? 0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                let p = center.moving(distance: r, atAngle: sliceangle * CGFloat(j) + chart.rotationAngle)
-                
-                if j == 0
-                {
-                    context.move(to: CGPoint(x: p.x, y: p.y))
-                }
-                else
-                {
-                    context.addLine(to: CGPoint(x: p.x, y: p.y))
-                }
+                let p = center.moving(
+                    distance: r,
+                    atAngle: sliceangle * CGFloat(i) + chart.rotationAngle
+                )
+
+                i == 0 ? context.move(to: p) : context.addLine(to: p)
             }
             
             context.closePath()
-            
             context.strokePath()
         }
+<<<<<<< HEAD
         
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

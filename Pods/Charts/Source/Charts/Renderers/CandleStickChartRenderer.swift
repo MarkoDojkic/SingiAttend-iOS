@@ -41,18 +41,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for case let set as CandleChartDataSetProtocol in (candleData as ChartData) where set.isVisible
 =======
         for set in candleData.dataSets as! [ICandleChartDataSet] where set.isVisible
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         for case let set as CandleChartDataSetProtocol in (candleData as ChartData) where set.isVisible
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        for case let set as CandleChartDataSetProtocol in (candleData as ChartData) where set.isVisible
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             drawDataSet(context: context, dataSet: set)
         }
@@ -68,18 +77,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawDataSet(context: CGContext, dataSet: CandleChartDataSetProtocol)
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: ICandleChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: CandleChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func drawDataSet(context: CGContext, dataSet: CandleChartDataSetProtocol)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             let dataProvider = dataProvider
@@ -112,18 +130,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let doesContainMultipleDataSets = (dataProvider.candleData?.count ?? 1) > 1
 =======
             let doesContainMultipleDataSets = (dataProvider.candleData?.dataSets.count ?? 1) > 1
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             let doesContainMultipleDataSets = (dataProvider.candleData?.count ?? 1) > 1
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let doesContainMultipleDataSets = (dataProvider.candleData?.count ?? 1) > 1
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             var accessibilityMovementDescription = "neutral"
             var accessibilityRect = CGRect(x: CGFloat(xPos) + 0.5 - barSpace,
                                            y: CGFloat(low * phaseY),
@@ -320,17 +347,25 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let dataSets = candleData.dataSets
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let phaseY = animator.phaseY
             
             var pt = CGPoint()
@@ -338,8 +373,11 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in candleData.indices
             {
                 guard let
@@ -351,14 +389,20 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
                     dataSet = dataSets[i] as? IBarLineScatterCandleBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             for i in candleData.indices
             {
                 guard let
                     dataSet = candleData[i] as? BarLineScatterCandleBubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     shouldDrawValues(forDataSet: dataSet)
                     else { continue }
                 
@@ -367,18 +411,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let formatter = dataSet.valueFormatter
 =======
                 guard let formatter = dataSet.valueFormatter else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let formatter = dataSet.valueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let formatter = dataSet.valueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 let valueToPixelMatrix = trans.valueToPixelMatrix
@@ -388,19 +441,28 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let angleRadians = dataSet.valueLabelAngle.DEG2RAD
                 
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let angleRadians = dataSet.valueLabelAngle.DEG2RAD
                 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
                 
                 let lineHeight = valueFont.lineHeight
@@ -429,10 +491,15 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(formatter.stringForValue(e.high,
                                                                   entry: e,
                                                                   dataSetIndex: i,
@@ -445,8 +512,11 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
                                                       .foregroundColor: dataSet.valueTextColorAt(j)])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawText(
                             context: context,
@@ -462,10 +532,15 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
                             attributes: [NSAttributedString.Key.font: valueFont, NSAttributedString.Key.foregroundColor: dataSet.valueTextColorAt(j)])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -473,18 +548,26 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawImage(icon,
                                           atCenter: CGPoint(x: pt.x + iconsOffset.x,
                                                           y: pt.y + iconsOffset.y),
                                           size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawImage(context: context,
                                              image: icon,
@@ -493,10 +576,15 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
                                              size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -522,18 +610,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let set = candleData[high.dataSetIndex] as? CandleChartDataSetProtocol,
 =======
                 let set = candleData.getDataSetByIndex(high.dataSetIndex) as? ICandleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let set = candleData[high.dataSetIndex] as? CandleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let set = candleData[high.dataSetIndex] as? CandleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 set.isHighlightEnabled
                 else { continue }
             
@@ -578,18 +675,27 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          dataSet: CandleChartDataSetProtocol,
 =======
                                          dataSet: ICandleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                          dataSet: CandleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                         dataSet: CandleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement {
 
         let element = NSUIAccessibilityElement(accessibilityContainer: container)

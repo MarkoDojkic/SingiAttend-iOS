@@ -22,10 +22,15 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _leftAxisTransformer = TransformerHorizontalBarChart(viewPortHandler: viewPortHandler)
         _rightAxisTransformer = TransformerHorizontalBarChart(viewPortHandler: viewPortHandler)
 
@@ -36,8 +41,11 @@ open class HorizontalBarChartView: BarChartView
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _leftAxisTransformer = TransformerHorizontalBarChart(viewPortHandler: _viewPortHandler)
         _rightAxisTransformer = TransformerHorizontalBarChart(viewPortHandler: _viewPortHandler)
@@ -49,10 +57,15 @@ open class HorizontalBarChartView: BarChartView
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.highlighter = HorizontalBarHighlighter(chart: self)
     }
     
@@ -62,16 +75,22 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let legend = _legend,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
             let legend = _legend,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             legend.isEnabled,
             !legend.drawInside
         else { return }
@@ -86,8 +105,11 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 offsetLeft += min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
                 
             case .right:
@@ -99,14 +121,20 @@ open class HorizontalBarChartView: BarChartView
                 offsetRight += min(legend.neededWidth, _viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 offsetLeft += min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
                 
             case .right:
                 offsetRight += min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent) + legend.xOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
             case .center:
                 
@@ -116,8 +144,11 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
                     
                 case .bottom:
@@ -129,14 +160,20 @@ open class HorizontalBarChartView: BarChartView
                     offsetBottom += min(legend.neededHeight, _viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
                     
                 case .bottom:
                     offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     
                 default:
                     break
@@ -150,18 +187,27 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 =======
                 offsetTop += min(legend.neededHeight, _viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                offsetTop += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 // left axis equals the top x-axis in a horizontal chart
                 if leftAxis.isEnabled && leftAxis.isDrawLabelsEnabled
@@ -173,18 +219,27 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 =======
                 offsetBottom += min(legend.neededHeight, _viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                offsetBottom += min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent) + legend.yOffset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                 // right axis equals the bottom x-axis in a horizontal chart
                 if rightAxis.isEnabled && rightAxis.isDrawLabelsEnabled
@@ -223,8 +278,11 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let xlabelwidth = xAxis.labelRotatedWidth
         
         if xAxis.isEnabled
@@ -242,6 +300,7 @@ open class HorizontalBarChartView: BarChartView
 =======
         let xlabelwidth = _xAxis.labelRotatedWidth
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let xlabelwidth = xAxis.labelRotatedWidth
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -264,21 +323,33 @@ open class HorizontalBarChartView: BarChartView
             else if xAxis.labelPosition == .bothSided
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        let xlabelwidth = xAxis.labelRotatedWidth
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        if _xAxis.isEnabled
+        if xAxis.isEnabled
         {
             // offsets for x-labels
-            if _xAxis.labelPosition == .bottom
+            if xAxis.labelPosition == .bottom
             {
                 offsetLeft += xlabelwidth
             }
-            else if _xAxis.labelPosition == .top
+            else if xAxis.labelPosition == .top
             {
                 offsetRight += xlabelwidth
             }
+<<<<<<< HEAD
             else if _xAxis.labelPosition == .bothSided
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            else if xAxis.labelPosition == .bothSided
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 offsetLeft += xlabelwidth
                 offsetRight += xlabelwidth
@@ -293,18 +364,27 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.restrainViewPort(
 =======
         _viewPortHandler.restrainViewPort(
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.restrainViewPort(
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.restrainViewPort(
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             offsetLeft: max(self.minOffset, offsetLeft),
             offsetTop: max(self.minOffset, offsetTop),
             offsetRight: max(self.minOffset, offsetRight),
@@ -319,8 +399,11 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: rightAxis._axisMinimum, deltaX: CGFloat(rightAxis.axisRange), deltaY: CGFloat(xAxis.axisRange), chartYMin: xAxis._axisMinimum)
         _leftAxisTransformer.prepareMatrixValuePx(chartXMin: leftAxis._axisMinimum, deltaX: CGFloat(leftAxis.axisRange), deltaY: CGFloat(xAxis.axisRange), chartYMin: xAxis._axisMinimum)
 =======
@@ -328,12 +411,18 @@ open class HorizontalBarChartView: BarChartView
         _leftAxisTransformer.prepareMatrixValuePx(chartXMin: leftAxis._axisMinimum, deltaX: CGFloat(leftAxis.axisRange), deltaY: CGFloat(_xAxis.axisRange), chartYMin: _xAxis._axisMinimum)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: rightAxis._axisMinimum, deltaX: CGFloat(rightAxis.axisRange), deltaY: CGFloat(xAxis.axisRange), chartYMin: xAxis._axisMinimum)
         _leftAxisTransformer.prepareMatrixValuePx(chartXMin: leftAxis._axisMinimum, deltaX: CGFloat(leftAxis.axisRange), deltaY: CGFloat(xAxis.axisRange), chartYMin: xAxis._axisMinimum)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func getMarkerPosition(highlight: Highlight) -> CGPoint
@@ -347,8 +436,11 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let data = data as? BarChartData,
             let set = data.getDataSetForEntry(e) as? BarChartDataSetProtocol
             else { return .null }
@@ -358,13 +450,19 @@ open class HorizontalBarChartView: BarChartView
             else { return CGRect.null }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let data = data as? BarChartData,
             let set = data.getDataSetForEntry(e) as? BarChartDataSetProtocol
             else { return .null }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let y = e.y
         let x = e.x
@@ -397,18 +495,27 @@ open class HorizontalBarChartView: BarChartView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if data === nil
 =======
         if _data === nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if data === nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if data === nil
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             Swift.print("Can't select by touch. No data set.", terminator: "\n")
             return nil

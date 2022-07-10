@@ -44,10 +44,15 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let sets = scatterData.dataSets as? [ScatterChartDataSet]
         assert(sets != nil, "Datasets for ScatterChartRenderer must conform to IScatterChartDataSet")
         
@@ -57,8 +62,11 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
             .forEach(drawDataSet)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for i in 0 ..< scatterData.dataSetCount
         {
@@ -76,10 +84,15 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     private var _lineSegments = [CGPoint](repeating: CGPoint(), count: 2)
@@ -87,18 +100,27 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawDataSet(context: CGContext, dataSet: ScatterChartDataSetProtocol)
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: IScatterChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: ScatterChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func drawDataSet(context: CGContext, dataSet: ScatterChartDataSetProtocol)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -145,18 +167,27 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             print("There's no ShapeRenderer specified for ScatterDataSet", terminator: "\n")
 =======
             print("There's no IShapeRenderer specified for ScatterDataSet", terminator: "\n")
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             print("There's no ShapeRenderer specified for ScatterDataSet", terminator: "\n")
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            print("There's no ShapeRenderer specified for ScatterDataSet", terminator: "\n")
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -172,8 +203,11 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {            
 =======
         {
@@ -181,11 +215,17 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         {            
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        {            
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let phaseY = animator.phaseY
             
             var pt = CGPoint()
@@ -193,8 +233,11 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in scatterData.indices
             {
                 guard let dataSet = scatterData[i] as? ScatterChartDataSetProtocol,
@@ -208,14 +251,20 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
                     shouldDrawValues(forDataSet: dataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             for i in scatterData.indices
             {
                 guard let dataSet = scatterData[i] as? ScatterChartDataSetProtocol,
                       shouldDrawValues(forDataSet: dataSet)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     else { continue }
                 
                 let valueFont = dataSet.valueFont
@@ -223,19 +272,28 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let formatter = dataSet.valueFormatter
                 
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let formatter = dataSet.valueFormatter
                 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 let valueToPixelMatrix = trans.valueToPixelMatrix
                 
@@ -244,19 +302,28 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let angleRadians = dataSet.valueLabelAngle.DEG2RAD
                 
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let angleRadians = dataSet.valueLabelAngle.DEG2RAD
                 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let shapeSize = dataSet.scatterShapeSize
                 let lineHeight = valueFont.lineHeight
                 
@@ -293,10 +360,15 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(text,
                                          at: CGPoint(x: pt.x,
                                                      y: pt.y - shapeSize - lineHeight),
@@ -306,8 +378,11 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
                                                       .foregroundColor: dataSet.valueTextColorAt(j)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawText(
                             context: context,
@@ -319,10 +394,15 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
                             attributes: [NSAttributedString.Key.font: valueFont, NSAttributedString.Key.foregroundColor: dataSet.valueTextColorAt(j)]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         )
                     }
                     
@@ -331,18 +411,26 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawImage(icon,
                                           atCenter: CGPoint(x: pt.x + iconsOffset.x,
                                                           y: pt.y + iconsOffset.y),
                                           size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawImage(context: context,
                                              image: icon,
@@ -351,10 +439,15 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
                                              size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -381,18 +474,27 @@ open class ScatterChartRenderer: LineScatterCandleRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let set = scatterData[high.dataSetIndex] as? ScatterChartDataSetProtocol,
 =======
                 let set = scatterData.getDataSetByIndex(high.dataSetIndex) as? IScatterChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let set = scatterData[high.dataSetIndex] as? ScatterChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let set = scatterData[high.dataSetIndex] as? ScatterChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 set.isHighlightEnabled
                 else { continue }
             

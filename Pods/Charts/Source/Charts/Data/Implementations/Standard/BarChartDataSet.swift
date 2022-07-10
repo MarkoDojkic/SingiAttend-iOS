@@ -16,18 +16,27 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartDataSetProtocol
 =======
 open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartDataSetProtocol
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     private func initialize()
     {
@@ -46,18 +55,27 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(entries: [ChartDataEntry], label: String)
 =======
     public override init(entries: [ChartDataEntry]?, label: String?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public override init(entries: [ChartDataEntry], label: String)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public override init(entries: [ChartDataEntry], label: String)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(entries: entries, label: label)
         initialize()
@@ -79,8 +97,11 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _entryCountStacks = entries.lazy
             .map(\.stackSize)
             .reduce(into: 0, +=)
@@ -100,13 +121,19 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _entryCountStacks = entries.lazy
             .map(\.stackSize)
             .reduce(into: 0, +=)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// calculates the maximum stacksize that occurs in the Entries array of this DataSet
@@ -115,8 +142,11 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _stackSize = entries.lazy
             .map(\.stackSize)
             .max() ?? 1
@@ -133,13 +163,19 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _stackSize = entries.lazy
             .map(\.stackSize)
             .max() ?? 1
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func calcMinMax(entry e: ChartDataEntry)
@@ -147,8 +183,11 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let e = e as? BarChartDataEntry,
             !e.y.isNaN
             else { return }
@@ -168,10 +207,14 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 =======
         guard let e = e as? BarChartDataEntry
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard let e = e as? BarChartDataEntry,
             !e.y.isNaN
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
             else { return }
         
         if e.yValues == nil
@@ -191,39 +234,30 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
         calcMinMaxX(entry: e)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
         
-        if !e.y.isNaN
+        if e.yValues == nil
         {
-            if e.yValues == nil
-            {
-                if e.y < _yMin
-                {
-                    _yMin = e.y
-                }
-                
-                if e.y > _yMax
-                {
-                    _yMax = e.y
-                }
-            }
-            else
-            {
-                if -e.negativeSum < _yMin
-                {
-                    _yMin = -e.negativeSum
-                }
-                
-                if e.positiveSum > _yMax
-                {
-                    _yMax = e.positiveSum
-                }
-            }
-            
-            calcMinMaxX(entry: e)
+            _yMin = Swift.min(e.y, _yMin)
+            _yMax = Swift.max(e.y, _yMax)
         }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        else
+        {
+            _yMin = Swift.min(-e.negativeSum, _yMin)
+            _yMax = Swift.max(e.positiveSum, _yMax)
+        }
+
+        calcMinMaxX(entry: e)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// The maximum number of bars that can be stacked upon another in this DataSet.
@@ -238,18 +272,27 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return _stackSize > 1
 =======
         return _stackSize > 1 ? true : false
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return _stackSize > 1
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return _stackSize > 1
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// The overall entry count, including counting each stack-value individually

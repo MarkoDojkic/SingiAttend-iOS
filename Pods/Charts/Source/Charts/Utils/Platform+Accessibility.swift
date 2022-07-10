@@ -15,8 +15,11 @@ import Foundation
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import UIKit
 
 internal func accessibilityPostLayoutChangedNotification(withElement element: Any? = nil)
@@ -32,6 +35,9 @@ internal func accessibilityPostLayoutChangedNotification(withElement element: An
     UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: element)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 import UIKit
 
@@ -39,8 +45,11 @@ internal func accessibilityPostLayoutChangedNotification(withElement element: An
 {
     UIAccessibility.post(notification: .layoutChanged, argument: element)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }
 
 internal func accessibilityPostScreenChangedNotification(withElement element: Any? = nil)
@@ -48,18 +57,27 @@ internal func accessibilityPostScreenChangedNotification(withElement element: An
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     UIAccessibility.post(notification: .screenChanged, argument: element)
 =======
     UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: element)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     UIAccessibility.post(notification: .screenChanged, argument: element)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    UIAccessibility.post(notification: .screenChanged, argument: element)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }
 
 /// A simple abstraction over UIAccessibilityElement and NSAccessibilityElement.
@@ -74,18 +92,27 @@ open class NSUIAccessibilityElement: UIAccessibilityElement
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             accessibilityTraits = isHeader ? .header : .none
 =======
             accessibilityTraits = isHeader ? UIAccessibilityTraits.header : UIAccessibilityTraits.none
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             accessibilityTraits = isHeader ? .header : .none
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            accessibilityTraits = isHeader ? .header : .none
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 
@@ -96,18 +123,27 @@ open class NSUIAccessibilityElement: UIAccessibilityElement
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             accessibilityTraits = isSelected ? .selected : .none
 =======
             accessibilityTraits = isSelected ? UIAccessibilityTraits.selected : UIAccessibilityTraits.none
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             accessibilityTraits = isSelected ? .selected : .none
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            accessibilityTraits = isSelected ? .selected : .none
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 
@@ -117,18 +153,27 @@ open class NSUIAccessibilityElement: UIAccessibilityElement
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         containerView = container as? UIView
 =======
         containerView = (container as! UIView)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         containerView = container as? UIView
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        containerView = container as? UIView
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.init(accessibilityContainer: container)
     }
 
@@ -178,19 +223,28 @@ extension NSUIView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return (accessibilityChildren() as? [NSUIAccessibilityElement])?.firstIndex(of: axElement) ?? NSNotFound
 =======
         return (accessibilityChildren() as? [NSUIAccessibilityElement])?
             .firstIndex(of: axElement) ?? NSNotFound
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return (accessibilityChildren() as? [NSUIAccessibilityElement])?.firstIndex(of: axElement) ?? NSNotFound
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return (accessibilityChildren() as? [NSUIAccessibilityElement])?.firstIndex(of: axElement) ?? NSNotFound
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }
 
@@ -200,8 +254,11 @@ extension NSUIView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import AppKit
 
 =======
@@ -211,12 +268,18 @@ import AppKit
 #endif
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 import AppKit
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 internal func accessibilityPostLayoutChangedNotification(withElement element: Any? = nil)
 {

@@ -81,8 +81,11 @@ extension DataApproximator {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         keep[points.startIndex] = true
         keep[points.endIndex - 1] = true
         var currentStoredPoints = 2
@@ -98,6 +101,9 @@ extension DataApproximator {
         let line = LineAlt(start: 0, end: points.count - 1, points: points)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         keep[points.startIndex] = true
         keep[points.endIndex - 1] = true
@@ -106,8 +112,11 @@ extension DataApproximator {
         var queue = [LineAlt]()
         let line = LineAlt(start: points.startIndex, end: points.endIndex - 1, points: points)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         queue.append(line)
         
         repeat {

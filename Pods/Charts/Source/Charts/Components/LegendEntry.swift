@@ -26,8 +26,11 @@ open class LegendEntry: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public init(label: String?)
     {
         self.label = label
@@ -55,6 +58,7 @@ open class LegendEntry: NSObject
                 formLineDashLengths: [CGFloat]?,
                 formColor: NSUIColor?)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc public init(label: String?)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -75,22 +79,31 @@ open class LegendEntry: NSObject
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc public init(label: String?)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         self.label = label
-        self.form = form
-        self.formSize = formSize
-        self.formLineWidth = formLineWidth
-        self.formLineDashPhase = formLineDashPhase
-        self.formLineDashLengths = formLineDashLengths
-        self.formColor = formColor
     }
-    
+
     /// The legend entry text.
     /// A `nil` label will start a group.
     @objc open var label: String?
+<<<<<<< HEAD
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+    /// The color for drawing the label
+    @objc open var labelColor: NSUIColor?
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The form to draw for this entry.
     ///
     /// `None` will avoid drawing a form, and any related space.

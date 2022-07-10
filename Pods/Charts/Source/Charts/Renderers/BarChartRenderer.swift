@@ -15,8 +15,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 #if !os(OSX)
     import UIKit
 #endif
@@ -32,14 +35,20 @@ import Cocoa
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 #if !os(OSX)
     import UIKit
 #endif
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 {
     /// A nested array of elements ordered logically (i.e not in visual/drawing order) for use with VoiceOver
@@ -67,8 +76,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private typealias Buffer = [CGRect]
 =======
     private class Buffer
@@ -77,11 +89,17 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private typealias Buffer = [CGRect]
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private typealias Buffer = [CGRect]
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     @objc open weak var dataProvider: BarChartDataProvider?
     
@@ -100,18 +118,26 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let barData = dataProvider?.barData else { return _buffers.removeAll() }
 
         // Match buffers count to dataset count
         if _buffers.count != barData.count
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             while _buffers.count < barData.count
             {
@@ -136,6 +162,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
         if let barData = dataProvider?.barData
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
         {
@@ -165,39 +192,40 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
     private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            // Matche buffers count to dataset count
-            if _buffers.count != barData.dataSetCount
+            while _buffers.count < barData.count
             {
-                while _buffers.count < barData.dataSetCount
-                {
-                    _buffers.append(Buffer())
-                }
-                while _buffers.count > barData.dataSetCount
-                {
-                    _buffers.removeLast()
-                }
+                _buffers.append(Buffer())
             }
-            
-            for i in stride(from: 0, to: barData.dataSetCount, by: 1)
+            while _buffers.count > barData.count
             {
-                let set = barData.dataSets[i] as! IBarChartDataSet
-                let size = set.entryCount * (set.isStacked ? set.stackSize : 1)
-                if _buffers[i].rects.count != size
-                {
-                    _buffers[i].rects = [CGRect](repeating: CGRect(), count: size)
-                }
+                _buffers.removeLast()
             }
         }
-        else
-        {
-            _buffers.removeAll()
+
+        _buffers = zip(_buffers, barData).map { buffer, set -> Buffer in
+            let set = set as! BarChartDataSetProtocol
+            let size = set.entryCount * (set.isStacked ? set.stackSize : 1)
+            return buffer.count == size
+                ? buffer
+                : Buffer(repeating: .zero, count: size)
         }
     }
     
+<<<<<<< HEAD
     private func prepareBuffer(dataSet: IBarChartDataSet, index: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             let dataProvider = dataProvider,
@@ -207,8 +235,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let barWidthHalf = CGFloat(barData.barWidth / 2.0)
     
 =======
@@ -217,12 +248,18 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
         let buffer = _buffers[index]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let barWidthHalf = CGFloat(barData.barWidth / 2.0)
     
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var bufferIndex = 0
         let containsStacks = dataSet.isStacked
         
@@ -230,8 +267,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let phaseY = CGFloat(animator.phaseY)
 
         for i in (0..<dataSet.entryCount).clamped(to: 0..<Int(ceil(Double(dataSet.entryCount) * animator.phaseX)))
@@ -298,6 +338,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
         var x: Double
         var y: Double
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         let phaseY = CGFloat(animator.phaseY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -367,23 +408,80 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        let phaseY = CGFloat(animator.phaseY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
-        
-        for i in stride(from: 0, to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)), dataSet.entryCount), by: 1)
+        for i in (0..<dataSet.entryCount).clamped(to: 0..<Int(ceil(Double(dataSet.entryCount) * animator.phaseX)))
         {
             guard let e = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
-            
-            let vals = e.yValues
 
-            x = e.x
-            y = e.y
+            let x = CGFloat(e.x)
+            let left = x - barWidthHalf
+            let right = x + barWidthHalf
 
-            if !containsStacks || vals == nil
+            var y = e.y
+
+            if containsStacks, let vals = e.yValues
             {
+                var posY = 0.0
+                var negY = -e.negativeSum
+                var yStart = 0.0
+                
+                // fill the stack
+                for value in vals
+                {
+                    if value == 0.0 && (posY == 0.0 || negY == 0.0)
+                    {
+                        // Take care of the situation of a 0.0 value, which overlaps a non-zero bar
+                        y = value
+                        yStart = y
+                    }
+                    else if value >= 0.0
+                    {
+                        y = posY
+                        yStart = posY + value
+                        posY = yStart
+                    }
+                    else
+                    {
+                        y = negY
+                        yStart = negY + abs(value)
+                        negY += abs(value)
+                    }
+                    
+                    var top = isInverted
+                        ? (y <= yStart ? CGFloat(y) : CGFloat(yStart))
+                        : (y >= yStart ? CGFloat(y) : CGFloat(yStart))
+                    var bottom = isInverted
+                        ? (y >= yStart ? CGFloat(y) : CGFloat(yStart))
+                        : (y <= yStart ? CGFloat(y) : CGFloat(yStart))
+                    
+                    // multiply the height of the rect with the phase
+                    top *= phaseY
+                    bottom *= phaseY
+
+                    let barRect = CGRect(x: left, y: top,
+                                         width: right - left,
+                                         height: bottom - top)
+                    _buffers[index][bufferIndex] = barRect
+                    bufferIndex += 1
+                }
+            }
+            else
+            {
+<<<<<<< HEAD
                 let left = CGFloat(x - barWidthHalf)
                 let right = CGFloat(x + barWidthHalf)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 var top = isInverted
                     ? (y <= 0.0 ? CGFloat(y) : 0)
                     : (y >= 0.0 ? CGFloat(y) : 0)
@@ -472,8 +570,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     top *= phaseY
                 }
                 else
@@ -489,6 +590,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
 =======
                     top *= CGFloat(phaseY)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     top *= phaseY
@@ -507,20 +609,28 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
 <<<<<<< HEAD
 =======
+=======
+=======
+                    top *= phaseY
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
                 else
                 {
-                    bottom *= CGFloat(phaseY)
+                    bottom *= phaseY
                 }
 
-                barRect.origin.x = left
-                barRect.origin.y = top
-                barRect.size.width = right - left
-                barRect.size.height = bottom - top
-                buffer.rects[bufferIndex] = barRect
+                let barRect = CGRect(x: left, y: top,
+                                     width: right - left,
+                                     height: bottom - top)
+                _buffers[index][bufferIndex] = barRect
                 bufferIndex += 1
             }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else
             {
                 var posY = 0.0
@@ -575,10 +685,15 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 
@@ -605,8 +720,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in barData.indices
         {
             guard let set = barData[i] as? BarChartDataSetProtocol else {
@@ -619,6 +737,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
         for i in 0 ..< barData.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for i in barData.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -635,20 +754,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             drawDataSet(context: context, dataSet: set, index: i)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for i in barData.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            guard let set = barData.getDataSetByIndex(i) else { continue }
-            
-            if set.isVisible
-            {
-                if !(set is IBarChartDataSet)
-                {
-                    fatalError("Datasets for BarChartRenderer must conform to IBarChartDataset")
-                }
-                
-                drawDataSet(context: context, dataSet: set as! IBarChartDataSet, index: i)
+            guard let set = barData[i] as? BarChartDataSetProtocol else {
+                fatalError("Datasets for BarChartRenderer must conform to IBarChartDataset")
             }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+            guard set.isVisible else { continue }
+
+            drawDataSet(context: context, dataSet: set, index: i)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
 
         // Merge nested ordered arrays into the single accessibleChartElements.
@@ -660,8 +786,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     @objc open func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int)
 =======
@@ -669,12 +798,18 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
     @objc open func drawDataSet(context: CGContext, dataSet: IBarChartDataSet, index: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     @objc open func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
 
@@ -684,8 +819,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         trans.rectValuesToPixel(&_buffers[index])
         
 =======
@@ -693,12 +831,18 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         trans.rectValuesToPixel(&_buffers[index])
         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let borderWidth = dataSet.barBorderWidth
         let borderColor = dataSet.barBorderColor
         let drawBorder = borderWidth > 0.0
@@ -707,17 +851,23 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         defer { context.restoreGState() }
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
         defer { context.restoreGState() }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
         defer { context.restoreGState() }
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         // draw the bar shadow before the values
         if dataProvider.isDrawBarShadowEnabled
@@ -730,8 +880,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             let range = (0..<dataSet.entryCount).clamped(to: 0..<Int(ceil(Double(dataSet.entryCount) * animator.phaseX)))
             for i in range
@@ -740,13 +893,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             for i in stride(from: 0, to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)), dataSet.entryCount), by: 1)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             let range = (0..<dataSet.entryCount).clamped(to: 0..<Int(ceil(Double(dataSet.entryCount) * animator.phaseX)))
             for i in range
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 guard let e = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
                 
@@ -760,8 +919,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 guard viewPortHandler.isInBoundsLeft(_barShadowRectBuffer.origin.x + _barShadowRectBuffer.size.width) else { continue }
                 
                 guard viewPortHandler.isInBoundsRight(_barShadowRectBuffer.origin.x) else { break }
@@ -777,13 +939,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 guard viewPortHandler.isInBoundsLeft(_barShadowRectBuffer.origin.x + _barShadowRectBuffer.size.width) else { continue }
                 
                 guard viewPortHandler.isInBoundsRight(_barShadowRectBuffer.origin.x) else { break }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 _barShadowRectBuffer.origin.y = viewPortHandler.contentTop
                 _barShadowRectBuffer.size.height = viewPortHandler.contentHeight
@@ -801,8 +969,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for barRect in buffer where viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)
             {
                 guard viewPortHandler.isInBoundsRight(barRect.origin.x) else { break }
@@ -824,14 +995,20 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             for barRect in buffer where viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)
             {
                 guard viewPortHandler.isInBoundsRight(barRect.origin.x) else { break }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 context.setFillColor(dataSet.barShadowColor.cgColor)
                 context.fill(barRect)
             }
@@ -846,18 +1023,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // In case the chart is stacked, we need to accomodate individual bars within accessibilityOrdereredElements
         let isStacked = dataSet.isStacked
         let stackSize = isStacked ? dataSet.stackSize : 1
@@ -865,8 +1051,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for j in buffer.indices
         {
             let barRect = buffer[j]
@@ -877,6 +1066,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
         for j in stride(from: 0, to: buffer.rects.count, by: 1)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for j in buffer.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -888,10 +1078,22 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 
 <<<<<<< HEAD
 =======
+=======
+=======
+        for j in buffer.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            let barRect = buffer.rects[j]
+            let barRect = buffer[j]
+            
+            guard viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width) else { continue }
+            guard viewPortHandler.isInBoundsRight(barRect.origin.x) else { break }
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width))
             {
                 continue
@@ -904,10 +1106,15 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if !isSingleColor
             {
                 // Set the color for the currently drawn value. If the index is out of bounds, reuse colors.
@@ -929,10 +1136,15 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let element = createAccessibleElement(
                     withIndex: j,
                     container: chart,
@@ -942,8 +1154,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 ) { (element) in
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let element = createAccessibleElement(withIndex: j,
                                                       container: chart,
@@ -953,10 +1168,15 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 { (element) in
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     element.accessibilityFrame = barRect
                 }
 
@@ -966,17 +1186,25 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open func prepareBarHighlight(
@@ -1013,17 +1241,25 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let dataSets = barData.dataSets
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let valueOffsetPlus: CGFloat = 4.5
             var posOffset: CGFloat
             var negOffset: CGFloat
@@ -1032,8 +1268,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for dataSetIndex in barData.indices
             {
                 guard
@@ -1046,6 +1285,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
             for dataSetIndex in 0 ..< barData.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             for dataSetIndex in barData.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1062,14 +1302,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            for dataSetIndex in barData.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                guard let
-                    dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
+                guard
+                    let dataSet = barData[dataSetIndex] as? BarChartDataSetProtocol,
                     shouldDrawValues(forDataSet: dataSet)
                     else { continue }
                 
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let angleRadians = dataSet.valueLabelAngle.DEG2RAD
+                
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
                 
                 // calculate the correct offset depending on the draw position of the value
@@ -1089,18 +1342,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let formatter = dataSet.valueFormatter
 =======
                 guard let formatter = dataSet.valueFormatter else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let formatter = dataSet.valueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let formatter = dataSet.valueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 
@@ -1114,8 +1376,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     let range = 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX))
                     for j in range
                     {
@@ -1133,10 +1398,14 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
                     for j in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX))
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     let range = 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX))
                     for j in range
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
                     {
                         guard let e = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
                         
@@ -1148,19 +1417,22 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     {
                         guard let e = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
                         
-                        let rect = buffer.rects[j]
+                        let rect = buffer[j]
                         
                         let x = rect.origin.x + rect.size.width / 2.0
                         
-                        if !viewPortHandler.isInBoundsRight(x)
-                        {
-                            break
-                        }
+                        guard viewPortHandler.isInBoundsRight(x) else { break }
                         
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         if !viewPortHandler.isInBoundsY(rect.origin.y)
                             || !viewPortHandler.isInBoundsLeft(x)
                         {
@@ -1168,13 +1440,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         guard viewPortHandler.isInBoundsY(rect.origin.y),
                             viewPortHandler.isInBoundsLeft(x)
                             else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         
                         let val = e.y
                         
@@ -1196,8 +1474,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 color: dataSet.valueTextColorAt(j),
                                 anchor: CGPoint(x: 0.5, y: 0.5),
                                 angleRadians: angleRadians)
@@ -1205,13 +1486,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 color: dataSet.valueTextColorAt(j))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                 color: dataSet.valueTextColorAt(j),
                                 anchor: CGPoint(x: 0.5, y: 0.5),
                                 angleRadians: angleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                         
                         if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -1227,8 +1514,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             context.drawImage(icon,
                                               atCenter: CGPoint(x: px, y: py),
                                               size: icon.size)
@@ -1244,6 +1534,9 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                             context.drawImage(icon,
                                               atCenter: CGPoint(x: px, y: py),
@@ -1251,8 +1544,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         }
                         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
                 else
@@ -1263,8 +1559,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     let lastIndex = ceil(Double(dataSet.entryCount) * animator.phaseX)
 
                     for index in 0 ..< Int(lastIndex)
@@ -1273,13 +1572,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                     for index in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     let lastIndex = ceil(Double(dataSet.entryCount) * animator.phaseX)
 
                     for index in 0 ..< Int(lastIndex)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     {
                         guard let e = dataSet.entryForIndex(index) as? BarChartDataEntry else { continue }
                         
@@ -1288,18 +1593,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let rect = buffer[bufferIndex]
 =======
                         let rect = buffer.rects[bufferIndex]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                         let rect = buffer[bufferIndex]
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        let rect = buffer[bufferIndex]
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         
                         let x = rect.origin.x + rect.size.width / 2.0
                         
@@ -1307,8 +1621,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         if let values = vals
                         {
                             // draw stack values
@@ -1370,6 +1687,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         }
                         else
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         if let values = vals
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1390,21 +1708,31 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 let y: Double
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                        if let values = vals
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         {
                             // draw stack values
-                            
-                            let vals = vals!
                             var transformed = [CGPoint]()
-                            
+
                             var posY = 0.0
                             var negY = -e.negativeSum
-                            
-                            for k in 0 ..< vals.count
+
+                            for value in values
                             {
+<<<<<<< HEAD
                                 let value = vals[k]
                                 var y: Double
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                let y: Double
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 
                                 if value == 0.0 && (posY == 0.0 || negY == 0.0)
                                 {
@@ -1424,8 +1752,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                                 transformed.append(CGPoint(x: 0.0, y: CGFloat(y * phaseY)))
                             }
@@ -1445,6 +1776,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
                                 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1457,14 +1789,23 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                             {
 <<<<<<< HEAD
 =======
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 transformed.append(CGPoint(x: 0.0, y: CGFloat(y * phaseY)))
                             }
-                            
+
                             trans.pointValuesToPixel(&transformed)
-                            
-                            for k in 0 ..< transformed.count
+
+                            for (value, transformed) in zip(values, transformed)
                             {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
                                 let y = transformed[k].y + (drawBelow ? negOffset : posOffset)
@@ -1481,6 +1822,9 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                 let drawBelow = (value == 0.0 && negY == 0.0 && posY > 0.0) || value < 0.0
                                 let y = transformed.y + (drawBelow ? negOffset : posOffset)
@@ -1491,8 +1835,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                     else { continue }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 if dataSet.isDrawValuesEnabled
                                 {
                                     drawValue(
@@ -1501,18 +1848,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                             value,
 =======
                                             vals[k],
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                             value,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                            value,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                             entry: e,
                                             dataSetIndex: dataSetIndex,
                                             viewPortHandler: viewPortHandler),
@@ -1523,8 +1879,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                         color: dataSet.valueTextColorAt(index),
                                         anchor: CGPoint(x: 0.5, y: 0.5),
                                         angleRadians: angleRadians)
@@ -1583,11 +1942,15 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
                                         color: dataSet.valueTextColorAt(index))
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                         color: dataSet.valueTextColorAt(index),
                                         anchor: CGPoint(x: 0.5, y: 0.5),
                                         angleRadians: angleRadians)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
                                 }
 
                                 if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -1647,23 +2010,70 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         bufferIndex += vals?.count ?? 1
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                 }
-                                
+
                                 if let icon = e.icon, dataSet.isDrawIconsEnabled
                                 {
-                                    ChartUtils.drawImage(
-                                        context: context,
-                                        image: icon,
-                                        x: x + iconsOffset.x,
-                                        y: y + iconsOffset.y,
-                                        size: icon.size)
+                                    context.drawImage(icon,
+                                                      atCenter: CGPoint(x: x + iconsOffset.x,
+                                                                      y: y + iconsOffset.y),
+                                                      size: icon.size)
                                 }
                             }
                         }
+<<<<<<< HEAD
                         
                         bufferIndex = vals == nil ? (bufferIndex + 1) : (bufferIndex + vals!.count)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        else
+                        {
+                            guard viewPortHandler.isInBoundsRight(x) else { break }
+                            guard viewPortHandler.isInBoundsY(rect.origin.y),
+                                viewPortHandler.isInBoundsLeft(x) else { continue }
+
+                            if dataSet.isDrawValuesEnabled
+                            {
+                                drawValue(
+                                    context: context,
+                                    value: formatter.stringForValue(
+                                        e.y,
+                                        entry: e,
+                                        dataSetIndex: dataSetIndex,
+                                        viewPortHandler: viewPortHandler),
+                                    xPos: x,
+                                    yPos: rect.origin.y +
+                                        (e.y >= 0 ? posOffset : negOffset),
+                                    font: valueFont,
+                                    align: .center,
+                                    color: dataSet.valueTextColorAt(index),
+                                    anchor: CGPoint(x: 0.5, y: 0.5),
+                                    angleRadians: angleRadians)
+                            }
+                            
+                            if let icon = e.icon, dataSet.isDrawIconsEnabled
+                            {
+                                var px = x
+                                var py = rect.origin.y +
+                                    (e.y >= 0 ? posOffset : negOffset)
+                                
+                                px += iconsOffset.x
+                                py += iconsOffset.y
+                                
+                                context.drawImage(icon,
+                                                  atCenter: CGPoint(x: px, y: py),
+                                                  size: icon.size)
+                            }
+                        }
+
+                        bufferIndex += vals?.count ?? 1
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -1674,8 +2084,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawValue(context: CGContext, value: String, xPos: CGFloat, yPos: CGFloat, font: NSUIFont, align: TextAlignment, color: NSUIColor, anchor: CGPoint, angleRadians: CGFloat)
     {
         if (angleRadians == 0.0)
@@ -1692,6 +2105,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
     @objc open func drawValue(context: CGContext, value: String, xPos: CGFloat, yPos: CGFloat, font: NSUIFont, align: NSTextAlignment, color: NSUIColor)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open func drawValue(context: CGContext, value: String, xPos: CGFloat, yPos: CGFloat, font: NSUIFont, align: TextAlignment, color: NSUIColor, anchor: CGPoint, angleRadians: CGFloat)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1712,11 +2126,31 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc open func drawValue(context: CGContext, value: String, xPos: CGFloat, yPos: CGFloat, font: NSUIFont, align: TextAlignment, color: NSUIColor, anchor: CGPoint, angleRadians: CGFloat)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        ChartUtils.drawText(context: context, text: value, point: CGPoint(x: xPos, y: yPos), align: align, attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color])
+        if (angleRadians == 0.0)
+        {
+            context.drawText(value, at: CGPoint(x: xPos, y: yPos), align: align, attributes: [.font: font, .foregroundColor: color])
+        }
+        else
+        {
+            // align left to center text with rotation
+            context.drawText(value, at: CGPoint(x: xPos, y: yPos), align: align, anchor: anchor, angleRadians: angleRadians, attributes: [.font: font, .foregroundColor: color])
+        }
     }
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open override func drawExtras(context: CGContext)
     {
@@ -1734,18 +2168,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         defer { context.restoreGState() }
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         defer { context.restoreGState() }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        defer { context.restoreGState() }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var barRect = CGRect()
         
         for high in indices
@@ -1754,18 +2197,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
 =======
                 let set = barData.getDataSetByIndex(high.dataSetIndex) as? IBarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 set.isHighlightEnabled
                 else { continue }
             
@@ -1774,8 +2226,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 guard isInBoundsX(entry: e, dataSet: set) else { continue }
 =======
                 if !isInBoundsX(entry: e, dataSet: set)
@@ -1784,11 +2239,17 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 guard isInBoundsX(entry: e, dataSet: set) else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                guard isInBoundsX(entry: e, dataSet: set) else { continue }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let trans = dataProvider.getTransformer(forAxis: set.axisDependency)
                 
@@ -1831,17 +2292,25 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Sets the drawing position of the highlight object based on the given bar-rect.
@@ -1871,18 +2340,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                           dataSet: BarChartDataSetProtocol,
 =======
                                           dataSet: IBarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                           dataSet: BarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                          dataSet: BarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                           dataSetIndex: Int,
                                           stackSize: Int,
                                           modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement
@@ -1901,8 +2379,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var elementValueText = dataSet.valueFormatter.stringForValue(
             e.y,
             entry: e,
@@ -1916,6 +2397,9 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             viewPortHandler: viewPortHandler) ?? "\(e.y)"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var elementValueText = dataSet.valueFormatter.stringForValue(
             e.y,
@@ -1923,8 +2407,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             dataSetIndex: dataSetIndex,
             viewPortHandler: viewPortHandler)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         if dataSet.isStacked, let vals = e.yValues
         {
@@ -1934,18 +2421,27 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if (!dataSet.stackLabels.isEmpty && labelCount > 0) {
 =======
             if (dataSet.stackLabels.count > 0 && labelCount > 0) {
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if (!dataSet.stackLabels.isEmpty && labelCount > 0) {
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if (!dataSet.stackLabels.isEmpty && labelCount > 0) {
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let labelIndex = idx % labelCount
                 stackLabel = dataSet.stackLabels.indices.contains(labelIndex) ? dataSet.stackLabels[labelIndex] : nil
             } else {
@@ -1957,8 +2453,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             elementValueText = dataSet.valueFormatter.stringForValue(
                 yValue,
@@ -1974,6 +2473,9 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 viewPortHandler: viewPortHandler) ?? "\(e.y)"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             elementValueText = dataSet.valueFormatter.stringForValue(
@@ -1982,8 +2484,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 dataSetIndex: dataSetIndex,
                 viewPortHandler: viewPortHandler)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             if let stackLabel = stackLabel {
                 elementValueText = stackLabel + " \(elementValueText)"

@@ -15,8 +15,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 #if !os(OSX)
     import UIKit
 #endif
@@ -33,6 +36,7 @@ open class PieChartRenderer: NSObject, DataRenderer
 =======
 #if canImport(UIKit)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #if !os(OSX)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -53,17 +57,31 @@ open class PieChartRenderer: NSObject, DataRenderer
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+#if !os(OSX)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     import UIKit
 #endif
 
-#if canImport(Cocoa)
-import Cocoa
-#endif
 
-open class PieChartRenderer: DataRenderer
+open class PieChartRenderer: NSObject, DataRenderer
 {
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public let viewPortHandler: ViewPortHandler
+    
+    public final var accessibleChartElements: [NSUIAccessibilityElement] = []
+
+    public let animator: Animator
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open weak var chart: PieChartView?
 
     @objc public init(chart: PieChartView, animator: Animator, viewPortHandler: ViewPortHandler)
@@ -71,8 +89,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.viewPortHandler = viewPortHandler
         self.animator = animator
         self.chart = chart
@@ -95,10 +116,14 @@ open class PieChartRenderer: DataRenderer
         super.init(animator: animator, viewPortHandler: viewPortHandler)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         self.viewPortHandler = viewPortHandler
         self.animator = animator
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         self.chart = chart
 
         super.init()
@@ -116,18 +141,28 @@ open class PieChartRenderer: DataRenderer
         {
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.chart = chart
+
+        super.init()
     }
-
-    open override func drawData(context: CGContext)
+    
+    open func drawData(context: CGContext)
     {
-        guard let chart = chart else { return }
+        guard let chart = chart, let pieData = chart.data else { return }
 
-        let pieData = chart.data
+        // If we redraw the data, remove and repopulate accessible elements to update label values and frames
+        accessibleChartElements.removeAll()
 
-        if pieData != nil
+        for case let set as PieChartDataSetProtocol in pieData where
+            set.isVisible && set.entryCount > 0
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             // If we redraw the data, remove and repopulate accessible elements to update label values and frames
             accessibleChartElements.removeAll()
 
@@ -138,11 +173,17 @@ open class PieChartRenderer: DataRenderer
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             drawDataSet(context: context, dataSet: set)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            drawDataSet(context: context, dataSet: set)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 
@@ -191,18 +232,27 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func getSliceSpace(dataSet: PieChartDataSetProtocol) -> CGFloat
 =======
     @objc open func getSliceSpace(dataSet: IPieChartDataSet) -> CGFloat
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func getSliceSpace(dataSet: PieChartDataSetProtocol) -> CGFloat
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func getSliceSpace(dataSet: PieChartDataSetProtocol) -> CGFloat
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             dataSet.automaticallyDisableSliceSpacing,
@@ -222,18 +272,27 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawDataSet(context: CGContext, dataSet: PieChartDataSetProtocol)
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: IPieChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: PieChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func drawDataSet(context: CGContext, dataSet: PieChartDataSetProtocol)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let chart = chart else {return }
 
@@ -275,18 +334,27 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let description = chart.chartDescription.text ?? dataSet.label ?? chart.centerText ??  "Pie Chart"
 =======
         let description = chart.chartDescription?.text ?? dataSet.label ?? chart.centerText ??  "Pie Chart"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let description = chart.chartDescription.text ?? dataSet.label ?? chart.centerText ??  "Pie Chart"
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let description = chart.chartDescription.text ?? dataSet.label ?? chart.centerText ??  "Pie Chart"
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         let
         element = NSUIAccessibilityElement(accessibilityContainer: chart)
@@ -434,8 +502,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open func drawValues(context: CGContext)
 =======
@@ -443,12 +514,18 @@ open class PieChartRenderer: DataRenderer
     open override func drawValues(context: CGContext)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     open func drawValues(context: CGContext)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             let chart = chart,
@@ -478,17 +555,25 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let dataSets = data.dataSets
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let yValueSum = (data as! PieChartData).yValueSum
 
         let drawEntryLabels = chart.isDrawEntryLabelsEnabled
@@ -496,17 +581,23 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let sliceTextDrawingThreshold = chart.sliceTextDrawingThreshold
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
         let sliceTextDrawingThreshold = chart.sliceTextDrawingThreshold
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
         let sliceTextDrawingThreshold = chart.sliceTextDrawingThreshold
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         var angle: CGFloat = 0.0
         var xIndex = 0
@@ -517,8 +608,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in data.indices
         {
             guard let dataSet = data[i] as? PieChartDataSetProtocol else { continue }
@@ -530,14 +624,20 @@ open class PieChartRenderer: DataRenderer
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for i in data.indices
         {
             guard let dataSet = data[i] as? PieChartDataSetProtocol else { continue }
             
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let drawValues = dataSet.isDrawValuesEnabled
 
             if !drawValues && !drawEntryLabels && !dataSet.isDrawIconsEnabled
@@ -550,19 +650,28 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let angleRadians = dataSet.valueLabelAngle.DEG2RAD
 
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let angleRadians = dataSet.valueLabelAngle.DEG2RAD
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let xValuePosition = dataSet.xValuePosition
             let yValuePosition = dataSet.yValuePosition
 
@@ -570,8 +679,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let entryLabelFont = dataSet.entryLabelFont
             let lineHeight = valueFont.lineHeight
             
@@ -585,6 +697,9 @@ open class PieChartRenderer: DataRenderer
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let entryLabelFont = dataSet.entryLabelFont
             let lineHeight = valueFont.lineHeight
@@ -592,8 +707,11 @@ open class PieChartRenderer: DataRenderer
             let formatter = dataSet.valueFormatter
             
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for j in 0 ..< dataSet.entryCount
             {
                 guard let e = dataSet.entryForIndex(j) else { continue }
@@ -631,10 +749,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let drawXOutside = sliceAngle > sliceTextDrawingThreshold && drawEntryLabels && xValuePosition == .outsideSlice
                 let drawYOutside = sliceAngle > sliceTextDrawingThreshold && drawValues && yValuePosition == .outsideSlice
@@ -643,8 +766,11 @@ open class PieChartRenderer: DataRenderer
                 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let valueTextColor = dataSet.valueTextColorAt(j)
                 let entryLabelColor = dataSet.entryLabelColor
 =======
@@ -658,12 +784,18 @@ open class PieChartRenderer: DataRenderer
                 let entryLabelColor = dataSet.entryLabelColor ?? chart.entryLabelColor
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let valueTextColor = dataSet.valueTextColorAt(j)
                 let entryLabelColor = dataSet.entryLabelColor
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                 if drawXOutside || drawYOutside
                 {
@@ -676,18 +808,27 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     var align: TextAlignment
 =======
                     var align: NSTextAlignment
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     var align: TextAlignment
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    var align: TextAlignment
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                     var line1Radius: CGFloat
 
@@ -753,10 +894,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(valueText,
                                          at: labelPoint,
                                          align: align,
@@ -766,8 +912,11 @@ open class PieChartRenderer: DataRenderer
                         
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         if j < data.entryCount && pe?.label != nil
                         {
                             context.drawText(pe!.label!,
@@ -799,6 +948,9 @@ open class PieChartRenderer: DataRenderer
                             )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         if j < data.entryCount && pe?.label != nil
                         {
@@ -810,8 +962,11 @@ open class PieChartRenderer: DataRenderer
                                              attributes: [.font: entryLabelFont ?? valueFont,
                                                           .foregroundColor: entryLabelColor ?? valueTextColor])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                     }
                     else if drawXOutside
@@ -821,10 +976,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             context.drawText(pe!.label!,
                                              at: CGPoint(x: labelPoint.x,
                                                          y: labelPoint.y + lineHeight / 2.0),
@@ -834,8 +994,11 @@ open class PieChartRenderer: DataRenderer
                                                           .foregroundColor: entryLabelColor ?? valueTextColor])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                             ChartUtils.drawText(
                                 context: context,
@@ -848,10 +1011,15 @@ open class PieChartRenderer: DataRenderer
                             )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                     }
                     else if drawYOutside
@@ -859,10 +1027,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(valueText,
                                          at: CGPoint(x: labelPoint.x,
                                                      y: labelPoint.y + lineHeight / 2.0),
@@ -872,8 +1045,11 @@ open class PieChartRenderer: DataRenderer
                                                       .foregroundColor: valueTextColor])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawText(
                             context: context,
@@ -884,10 +1060,15 @@ open class PieChartRenderer: DataRenderer
                         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
 
@@ -902,10 +1083,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(valueText,
                                          at: CGPoint(x: x, y: y),
                                          align: .center,
@@ -914,8 +1100,11 @@ open class PieChartRenderer: DataRenderer
                         
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         if j < data.entryCount && pe?.label != nil
                         {
                             context.drawText(pe!.label!,
@@ -946,6 +1135,9 @@ open class PieChartRenderer: DataRenderer
                             )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         if j < data.entryCount && pe?.label != nil
                         {
@@ -956,8 +1148,11 @@ open class PieChartRenderer: DataRenderer
                                              attributes: [.font: entryLabelFont ?? valueFont,
                                                           .foregroundColor: entryLabelColor ?? valueTextColor])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                     }
                     else if drawXInside
@@ -967,10 +1162,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             context.drawText(pe!.label!,
                                              at: CGPoint(x: x, y: y + lineHeight / 2.0),
                                              align: .center,
@@ -979,8 +1179,11 @@ open class PieChartRenderer: DataRenderer
                                                           .foregroundColor: entryLabelColor ?? valueTextColor])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                             ChartUtils.drawText(
                                 context: context,
@@ -993,10 +1196,15 @@ open class PieChartRenderer: DataRenderer
                             )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         }
                     }
                     else if drawYInside
@@ -1004,10 +1212,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawText(valueText,
                                          at: CGPoint(x: x, y: y + lineHeight / 2.0),
                                          align: .center,
@@ -1015,8 +1228,11 @@ open class PieChartRenderer: DataRenderer
                                          attributes: [.font: valueFont, .foregroundColor: valueTextColor])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawText(
                             context: context,
@@ -1027,10 +1243,15 @@ open class PieChartRenderer: DataRenderer
                         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
 
@@ -1044,18 +1265,26 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     
                     context.drawImage(icon,
                                       atCenter: CGPoint(x: x, y: y),
                                       size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
                     ChartUtils.drawImage(context: context,
@@ -1065,10 +1294,15 @@ open class PieChartRenderer: DataRenderer
                                          size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
 
                 xIndex += 1
@@ -1078,8 +1312,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open func drawExtras(context: CGContext)
 =======
@@ -1087,12 +1324,18 @@ open class PieChartRenderer: DataRenderer
     open override func drawExtras(context: CGContext)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     open func drawExtras(context: CGContext)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         drawHole(context: context)
         drawCenterText(context: context)
@@ -1101,10 +1344,15 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open func initBuffers() { }
 
     open func isDrawingValuesAllowed(dataProvider: ChartDataProvider?) -> Bool
@@ -1115,14 +1363,20 @@ open class PieChartRenderer: DataRenderer
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// draws the hole in the center of the chart and the transparent circle / hole
     private func drawHole(context: CGContext)
     {
@@ -1230,8 +1484,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open func drawHighlighted(context: CGContext, indices highlights: [Highlight])
 =======
@@ -1239,12 +1496,18 @@ open class PieChartRenderer: DataRenderer
     open override func drawHighlighted(context: CGContext, indices: [Highlight])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     open func drawHighlighted(context: CGContext, indices highlights: [Highlight])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             let chart = chart,
@@ -1272,8 +1535,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for hightlight in highlights
         {
             // get the index to highlight
@@ -1290,6 +1556,9 @@ open class PieChartRenderer: DataRenderer
             if index >= drawAngles.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for hightlight in highlights
         {
@@ -1300,8 +1569,11 @@ open class PieChartRenderer: DataRenderer
                   set.isHighlightEnabled
             else
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 continue
             }
@@ -1309,8 +1581,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             guard let set = data.getDataSetByIndex(indices[i].dataSetIndex) as? IPieChartDataSet else { continue }
             
@@ -1318,10 +1593,15 @@ open class PieChartRenderer: DataRenderer
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let entryCount = set.entryCount
             var visibleAngleCount = 0
             for j in 0 ..< entryCount
@@ -1483,18 +1763,27 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          dataSet: PieChartDataSetProtocol,
 =======
                                          dataSet: IPieChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                          dataSet: PieChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                         dataSet: PieChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement {
 
         let element = NSUIAccessibilityElement(accessibilityContainer: container)
@@ -1503,8 +1792,11 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let data = container.data as? PieChartData else { return element }
 
         let formatter = dataSet.valueFormatter
@@ -1515,14 +1807,20 @@ open class PieChartRenderer: DataRenderer
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard let data = container.data as? PieChartData else { return element }
 
         let formatter = dataSet.valueFormatter
         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var elementValueText = formatter.stringForValue(
             e.y,
             entry: e,
@@ -1554,22 +1852,33 @@ open class PieChartRenderer: DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     public func createAccessibleHeader(usingChart chart: ChartViewBase, andData data: ChartData, withDefaultDescription defaultDescription: String) -> NSUIAccessibilityElement {
         return AccessibleHeader.create(usingChart: chart, andData: data, withDefaultDescription: defaultDescription)
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }

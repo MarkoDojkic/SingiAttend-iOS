@@ -76,18 +76,27 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         /*_xAxis.axisRange = Double((data?.xVals.count ?? 0) - 1)*/
 =======
         /*_xAxis.axisRange = Double((_data?.xVals.count ?? 0) - 1)*/
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         /*_xAxis.axisRange = Double((data?.xVals.count ?? 0) - 1)*/
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        /*_xAxis.axisRange = Double((data?.xVals.count ?? 0) - 1)*/
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override var maxVisibleCount: Int
@@ -105,18 +114,27 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if let data = data
 =======
         if let data = _data , _legend !== nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if let data = data
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if let data = data
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             legendRenderer.computeLegend(data: data)
         }
@@ -136,8 +154,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if legend.enabled && !legend.drawInside
         {
             let fullLegendWidth = min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent)
@@ -146,6 +167,7 @@ open class PieRadarChartViewBase: ChartViewBase
 =======
         if _legend != nil && _legend.enabled && !_legend.drawInside
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         if legend.enabled && !legend.drawInside
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -159,12 +181,24 @@ open class PieRadarChartViewBase: ChartViewBase
             switch legend.orientation
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        if legend.enabled && !legend.drawInside
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            let fullLegendWidth = min(_legend.neededWidth, _viewPortHandler.chartWidth * _legend.maxSizePercent)
+            let fullLegendWidth = min(legend.neededWidth, viewPortHandler.chartWidth * legend.maxSizePercent)
             
+<<<<<<< HEAD
             switch _legend.orientation
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            switch legend.orientation
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
             case .vertical:
                 
@@ -173,8 +207,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if legend.horizontalAlignment == .left
                     || legend.horizontalAlignment == .right
                 {
@@ -186,14 +223,20 @@ open class PieRadarChartViewBase: ChartViewBase
                     if _legend.verticalAlignment == .center
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 if legend.horizontalAlignment == .left
                     || legend.horizontalAlignment == .right
                 {
                     if legend.verticalAlignment == .center
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     {
                         // this is the space between the legend and the chart
                         let spacing = CGFloat(13.0)
@@ -209,8 +252,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let legendHeight = legend.neededHeight + legend.textHeightMax
                         
                         let c = self.midPoint
@@ -224,6 +270,9 @@ open class PieRadarChartViewBase: ChartViewBase
                         let bottomX = _legend.horizontalAlignment == .right
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         let legendHeight = legend.neededHeight + legend.textHeightMax
                         
@@ -231,8 +280,11 @@ open class PieRadarChartViewBase: ChartViewBase
                         
                         let bottomX = legend.horizontalAlignment == .right
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                             ? self.bounds.width - legendWidth + 15.0
                             : legendWidth - 15.0
                         let bottomY = legendHeight + 15
@@ -260,18 +312,27 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 switch legend.horizontalAlignment
 =======
                 switch _legend.horizontalAlignment
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 switch legend.horizontalAlignment
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                switch legend.horizontalAlignment
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                 case .left:
                     legendLeft = xLegendOffset
@@ -284,8 +345,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     switch legend.verticalAlignment
                     {
                     case .top:
@@ -296,6 +360,7 @@ open class PieRadarChartViewBase: ChartViewBase
 =======
                     switch _legend.verticalAlignment
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     switch legend.verticalAlignment
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -311,14 +376,26 @@ open class PieRadarChartViewBase: ChartViewBase
                         legendBottom = min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                    switch legend.verticalAlignment
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     {
                     case .top:
-                        legendTop = min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent)
+                        legendTop = min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent)
                         
                     case .bottom:
+<<<<<<< HEAD
                         legendBottom = min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        legendBottom = min(legend.neededHeight, viewPortHandler.chartHeight * legend.maxSizePercent)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         
                     default:
                         break
@@ -332,8 +409,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if legend.verticalAlignment == .top
                     || legend.verticalAlignment == .bottom
 =======
@@ -341,12 +421,18 @@ open class PieRadarChartViewBase: ChartViewBase
                     || _legend.verticalAlignment == .bottom
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 if legend.verticalAlignment == .top
                     || legend.verticalAlignment == .bottom
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                     // It's possible that we do not need this offset anymore as it
                     //   is available through the extraOffsets, but changing it can mean
@@ -357,8 +443,11 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         legend.neededHeight + yOffset,
                         viewPortHandler.chartHeight * legend.maxSizePercent)
                 }
@@ -372,6 +461,9 @@ open class PieRadarChartViewBase: ChartViewBase
                 switch _legend.verticalAlignment
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         legend.neededHeight + yOffset,
                         viewPortHandler.chartHeight * legend.maxSizePercent)
@@ -379,8 +471,11 @@ open class PieRadarChartViewBase: ChartViewBase
                 
                 switch legend.verticalAlignment
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                 case .top:
                     
@@ -426,18 +521,27 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler.restrainViewPort(offsetLeft: offsetLeft, offsetTop: offsetTop, offsetRight: offsetRight, offsetBottom: offsetBottom)
 =======
         _viewPortHandler.restrainViewPort(offsetLeft: offsetLeft, offsetTop: offsetTop, offsetRight: offsetRight, offsetBottom: offsetBottom)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         viewPortHandler.restrainViewPort(offsetLeft: offsetLeft, offsetTop: offsetTop, offsetRight: offsetRight, offsetBottom: offsetBottom)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        viewPortHandler.restrainViewPort(offsetLeft: offsetLeft, offsetTop: offsetTop, offsetRight: offsetRight, offsetBottom: offsetBottom)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// - Returns: The angle relative to the chart center for the given point on the chart in degrees.
@@ -550,18 +654,27 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var content = viewPortHandler.contentRect
 =======
         var content = _viewPortHandler.contentRect
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         var content = viewPortHandler.contentRect
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        var content = viewPortHandler.contentRect
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         content.origin.x += extraLeftOffset
         content.origin.y += extraTopOffset
         content.size.width -= extraLeftOffset + extraRightOffset
@@ -889,16 +1002,22 @@ open class PieRadarChartViewBase: ChartViewBase
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var i = 0, count = velocitySamples.count
         while (i < count - 2)
         {

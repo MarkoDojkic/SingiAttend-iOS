@@ -16,8 +16,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class LegendRenderer: NSObject, Renderer
 {
     @objc public let viewPortHandler: ViewPortHandler
@@ -27,14 +30,20 @@ open class LegendRenderer: Renderer
 {
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 open class LegendRenderer: NSObject, Renderer
 {
     @objc public let viewPortHandler: ViewPortHandler
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// the legend object this renderer renders
     @objc open var legend: Legend?
 
@@ -43,8 +52,11 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.viewPortHandler = viewPortHandler
         self.legend = legend
 
@@ -55,14 +67,20 @@ open class LegendRenderer: NSObject, Renderer
         self.legend = legend
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         self.viewPortHandler = viewPortHandler
         self.legend = legend
 
         super.init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Prepares the legend and calculates all needed forms, labels and colors.
@@ -78,8 +96,11 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for dataSet in data
             {                
 =======
@@ -89,12 +110,18 @@ open class LegendRenderer: NSObject, Renderer
                 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             for dataSet in data
             {                
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let clrs: [NSUIColor] = dataSet.colors
                 let entryCount = dataSet.entryCount
                 
@@ -102,8 +129,11 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if dataSet is BarChartDataSetProtocol &&
                     (dataSet as! BarChartDataSetProtocol).isStacked
                 {
@@ -115,14 +145,20 @@ open class LegendRenderer: NSObject, Renderer
                     let bds = dataSet as! IBarChartDataSet
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 if dataSet is BarChartDataSetProtocol &&
                     (dataSet as! BarChartDataSetProtocol).isStacked
                 {
                     let bds = dataSet as! BarChartDataSetProtocol
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     let sLabels = bds.stackLabels
                     let minEntries = min(clrs.count, bds.stackSize)
 
@@ -132,18 +168,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         if !sLabels.isEmpty && minEntries > 0
 =======
                         if (sLabels.count > 0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                         if !sLabels.isEmpty && minEntries > 0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        if !sLabels.isEmpty && minEntries > 0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         {
                             let labelIndex = j % minEntries
                             label = sLabels.indices.contains(labelIndex) ? sLabels[labelIndex] : nil
@@ -156,10 +201,15 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let entry = LegendEntry(label: label)
                         entry.form = dataSet.form
                         entry.formSize = dataSet.formSize
@@ -171,8 +221,11 @@ open class LegendRenderer: NSObject, Renderer
                         entries.append(entry)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         entries.append(
                             LegendEntry(
@@ -187,10 +240,15 @@ open class LegendRenderer: NSObject, Renderer
                         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     if dataSet.label != nil
@@ -199,18 +257,26 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let entry = LegendEntry(label: dataSet.label)
                         entry.form = .none
 
                         entries.append(entry)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
                 else if dataSet is PieChartDataSetProtocol
@@ -242,6 +308,7 @@ open class LegendRenderer: NSObject, Renderer
                             )
                         )
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
                     }
@@ -254,15 +321,23 @@ open class LegendRenderer: NSObject, Renderer
                     {
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
-                else if dataSet is IPieChartDataSet
+                else if dataSet is PieChartDataSetProtocol
                 {
-                    let pds = dataSet as! IPieChartDataSet
+                    let pds = dataSet as! PieChartDataSetProtocol
                     
                     for j in 0..<min(clrs.count, entryCount)
                     {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         entries.append(
                             LegendEntry(
                                 label: (pds.entryForIndex(j) as? PieChartDataEntry)?.label,
@@ -276,6 +351,9 @@ open class LegendRenderer: NSObject, Renderer
                         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         let entry = LegendEntry(label: (pds.entryForIndex(j) as? PieChartDataEntry)?.label)
                         entry.form = dataSet.form
@@ -287,8 +365,11 @@ open class LegendRenderer: NSObject, Renderer
 
                         entries.append(entry)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     if dataSet.label != nil
@@ -297,18 +378,26 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         let entry = LegendEntry(label: dataSet.label)
                         entry.form = .none
 
                         entries.append(entry)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
                 else if dataSet is CandleChartDataSetProtocol &&
@@ -349,6 +438,7 @@ open class LegendRenderer: NSObject, Renderer
                             )
                         )
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
                     }
@@ -358,12 +448,20 @@ open class LegendRenderer: NSObject, Renderer
                 {
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
-                else if dataSet is ICandleChartDataSet &&
-                    (dataSet as! ICandleChartDataSet).decreasingColor != nil
+                else if dataSet is CandleChartDataSetProtocol &&
+                    (dataSet as! CandleChartDataSetProtocol).decreasingColor != nil
                 {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     let candleDataSet = dataSet as! ICandleChartDataSet
                     
                     entries.append(
@@ -391,6 +489,9 @@ open class LegendRenderer: NSObject, Renderer
                     )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     let candleDataSet = dataSet as! CandleChartDataSetProtocol
 
@@ -414,8 +515,11 @@ open class LegendRenderer: NSObject, Renderer
 
                     entries.append(increasingEntry)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
                 else
                 { // all others
@@ -436,10 +540,15 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                         let entry = LegendEntry(label: label)
                         entry.form = dataSet.form
@@ -452,8 +561,11 @@ open class LegendRenderer: NSObject, Renderer
                         entries.append(entry)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         
                         entries.append(
@@ -469,10 +581,15 @@ open class LegendRenderer: NSObject, Renderer
                         )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -610,18 +727,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in entries.indices
 =======
             for i in 0 ..< entries.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             for i in entries.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            for i in entries.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 let e = entries[i]
                 let drawingForm = e.form != .none
@@ -630,18 +756,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 if i < calculatedLabelBreakPoints.endIndex &&
 =======
                 if i < calculatedLabelBreakPoints.count &&
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 if i < calculatedLabelBreakPoints.endIndex &&
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                if i < calculatedLabelBreakPoints.endIndex &&
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     calculatedLabelBreakPoints[i]
                 {
                     posX = originPosX
@@ -653,18 +788,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     lineIndex < calculatedLineSizes.endIndex
 =======
                     lineIndex < calculatedLineSizes.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     lineIndex < calculatedLineSizes.endIndex
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    lineIndex < calculatedLineSizes.endIndex
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 {
                     posX += (direction == .rightToLeft
                         ? calculatedLineSizes[lineIndex].width
@@ -715,18 +859,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         textColor: e.labelColor ?? labelTextColor)
 =======
                         textColor: labelTextColor)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                         textColor: e.labelColor ?? labelTextColor)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        textColor: e.labelColor ?? labelTextColor)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     
                     if direction == .leftToRight
                     {
@@ -771,18 +924,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in entries.indices
 =======
             for i in 0 ..< entries.count
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             for i in entries.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            for i in entries.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 let e = entries[i]
                 let drawingForm = e.form != .none
@@ -835,6 +997,7 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
                         drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: e.labelColor ?? labelTextColor)
@@ -851,6 +1014,8 @@ open class LegendRenderer: NSObject, Renderer
                     else
                     {
                         posY += labelLineHeight + yEntrySpace
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -861,11 +1026,30 @@ open class LegendRenderer: NSObject, Renderer
                         drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: labelTextColor)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: e.labelColor ?? labelTextColor)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: e.labelColor ?? labelTextColor)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+                    }
+                    else
+                    {
+                        posY += labelLineHeight + yEntrySpace
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: e.labelColor ?? labelTextColor)
+=======
+                        drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: labelTextColor)
+>>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+=======
+                        drawLabel(context: context, x: posX, y: posY, label: e.label!, font: labelFont, textColor: e.labelColor ?? labelTextColor)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     // make a step down
@@ -939,18 +1123,27 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if formLineDashLengths != nil && !formLineDashLengths!.isEmpty
 =======
             if formLineDashLengths != nil && formLineDashLengths!.count > 0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if formLineDashLengths != nil && !formLineDashLengths!.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            if formLineDashLengths != nil && !formLineDashLengths!.isEmpty
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 context.setLineDash(phase: formLineDashPhase, lengths: formLineDashLengths!)
             }
@@ -975,17 +1168,26 @@ open class LegendRenderer: NSObject, Renderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         context.drawText(label, at: CGPoint(x: x, y: y), align: .left, attributes: [.font: font, .foregroundColor: textColor])
 =======
         ChartUtils.drawText(context: context, text: label, point: CGPoint(x: x, y: y), align: .left, attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         context.drawText(label, at: CGPoint(x: x, y: y), align: .left, attributes: [.font: font, .foregroundColor: textColor])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        context.drawText(label, at: CGPoint(x: x, y: y), align: .left, attributes: [.font: font, .foregroundColor: textColor])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }
