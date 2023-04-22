@@ -63,6 +63,8 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         faculties_pv.dataSource = self
         courses_pv.delegate = self
         courses_pv.dataSource = self
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
@@ -237,20 +239,17 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
+        pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
+        pickerLabel.textAlignment = NSTextAlignment.center
+        pickerLabel.adjustsFontSizeToFitWidth = true
         
         if pickerView.tag == 0 {
-            pickerLabel.font = UIFont(name: "Ropa Sans", size: 20)
-            pickerLabel.textAlignment = NSTextAlignment.center
             pickerLabel.text = faculties[row]
         }
         else if pickerView.tag == 1 {
-            pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
-            pickerLabel.textAlignment = NSTextAlignment.center
             pickerLabel.text = f_courses[f_courses.index(f_courses.startIndex, offsetBy: row)].key
         }
         else if pickerView.tag == 2 {
-            pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
-            pickerLabel.textAlignment = NSTextAlignment.center
             pickerLabel.text = String(i_years[row])
         }
         
