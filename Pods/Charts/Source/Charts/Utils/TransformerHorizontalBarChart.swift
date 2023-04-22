@@ -23,8 +23,11 @@ open class TransformerHorizontalBarChart: Transformer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             matrixOffset = CGAffineTransform(translationX: viewPortHandler.offsetLeft, y: viewPortHandler.chartHeight - viewPortHandler.offsetBottom)
         }
         else
@@ -42,6 +45,9 @@ open class TransformerHorizontalBarChart: Transformer
                 y: _viewPortHandler.chartHeight - _viewPortHandler.offsetBottom)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             matrixOffset = CGAffineTransform(translationX: viewPortHandler.offsetLeft, y: viewPortHandler.chartHeight - viewPortHandler.offsetBottom)
         }
@@ -51,8 +57,11 @@ open class TransformerHorizontalBarChart: Transformer
                 .translatedBy(x: -(viewPortHandler.chartWidth - viewPortHandler.offsetRight),
                               y: viewPortHandler.chartHeight - viewPortHandler.offsetBottom)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
 }

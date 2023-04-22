@@ -14,8 +14,11 @@ import Foundation
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class ChartData: NSObject, ExpressibleByArrayLiteral
 {
 
@@ -71,6 +74,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
 open class ChartData: NSObject
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 open class ChartData: NSObject, ExpressibleByArrayLiteral
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -131,46 +135,71 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+open class ChartData: NSObject, ExpressibleByArrayLiteral
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
-    internal var _yMax: Double = -Double.greatestFiniteMagnitude
-    internal var _yMin: Double = Double.greatestFiniteMagnitude
-    internal var _xMax: Double = -Double.greatestFiniteMagnitude
-    internal var _xMin: Double = Double.greatestFiniteMagnitude
-    internal var _leftAxisMax: Double = -Double.greatestFiniteMagnitude
-    internal var _leftAxisMin: Double = Double.greatestFiniteMagnitude
-    internal var _rightAxisMax: Double = -Double.greatestFiniteMagnitude
-    internal var _rightAxisMin: Double = Double.greatestFiniteMagnitude
+
+    @objc public internal(set) var xMax = -Double.greatestFiniteMagnitude
+    @objc public internal(set) var xMin = Double.greatestFiniteMagnitude
+    @objc public internal(set) var yMax = -Double.greatestFiniteMagnitude
+    @objc public internal(set) var yMin = Double.greatestFiniteMagnitude
+    var leftAxisMax = -Double.greatestFiniteMagnitude
+    var leftAxisMin = Double.greatestFiniteMagnitude
+    var rightAxisMax = -Double.greatestFiniteMagnitude
+    var rightAxisMin = Double.greatestFiniteMagnitude
+
+    // MARK: - Accessibility
     
-    internal var _dataSets = [IChartDataSet]()
+    /// When the data entry labels are generated identifiers, set this property to prepend a string before each identifier
+    ///
+    /// For example, if a label is "#3", settings this property to "Item" allows it to be spoken as "Item #3"
+    @objc open var accessibilityEntryLabelPrefix: String?
     
-    public override init()
+    /// When the data entry value requires a unit, use this property to append the string representation of the unit to the value
+    ///
+    /// For example, if a value is "44.1", setting this property to "m" allows it to be spoken as "44.1 m"
+    @objc open var accessibilityEntryLabelSuffix: String?
+    
+    /// If the data entry value is a count, set this to true to allow plurals and other grammatical changes
+    /// **default**: false
+    @objc open var accessibilityEntryLabelSuffixIsCount: Bool = false
+    
+    var _dataSets = [Element]()
+    
+    public override required init()
     {
         super.init()
-        
-        _dataSets = [IChartDataSet]()
     }
-    
-    @objc public init(dataSets: [IChartDataSet]?)
+
+    public required init(arrayLiteral elements: Element...)
     {
         super.init()
-        
-        _dataSets = dataSets ?? [IChartDataSet]()
-        
-        self.initialize(dataSets: _dataSets)
+        self.dataSets = elements
+    }
+
+    @objc public init(dataSets: [Element])
+    {
+        super.init()
+        self.dataSets = dataSets
     }
     
-    @objc public convenience init(dataSet: IChartDataSet?)
+    @objc public convenience init(dataSet: Element)
     {
-        self.init(dataSets: dataSet === nil ? nil : [dataSet!])
+        self.init(dataSets: [dataSet])
     }
-    
-    internal func initialize(dataSets: [IChartDataSet])
-    {
-        notifyDataChanged()
-    }
+<<<<<<< HEAD
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Call this method to let the ChartData know that the underlying data has changed.
     /// Calling this performs all necessary recalculations needed when the contained data has changed.
     @objc open func notifyDataChanged()
@@ -183,20 +212,29 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         forEach { $0.calcMinMaxY(fromX: fromX, toX: toX) }
         
 =======
         _dataSets.forEach { $0.calcMinMaxY(fromX: fromX, toX: toX) }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         forEach { $0.calcMinMaxY(fromX: fromX, toX: toX) }
         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // apply the new data
         calcMinMax()
     }
@@ -207,10 +245,15 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         leftAxisMax = -.greatestFiniteMagnitude
         leftAxisMin = .greatestFiniteMagnitude
         rightAxisMax = -.greatestFiniteMagnitude
@@ -224,8 +267,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _yMax = -Double.greatestFiniteMagnitude
         _yMin = Double.greatestFiniteMagnitude
@@ -241,10 +287,15 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // left axis
         let firstLeft = getFirstLeft(dataSets: dataSets)
         
@@ -253,18 +304,26 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             leftAxisMax = firstLeft!.yMax
             leftAxisMin = firstLeft!.yMin
 
             for dataSet in _dataSets where dataSet.axisDependency == .left
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 if dataSet.yMin < leftAxisMin
                 {
@@ -280,6 +339,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             
             for dataSet in _dataSets
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
             {
@@ -287,10 +347,18 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 {
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                if dataSet.axisDependency == .left
+                if dataSet.yMin < leftAxisMin
                 {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     if dataSet.yMin < _leftAxisMin
                     {
                         _leftAxisMin = dataSet.yMin
@@ -302,6 +370,9 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     leftAxisMin = dataSet.yMin
                 }
@@ -310,8 +381,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 {
                     leftAxisMax = dataSet.yMax
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
             }
         }
@@ -324,8 +398,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             rightAxisMax = firstRight!.yMax
             rightAxisMin = firstRight!.yMin
             
@@ -343,10 +420,14 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             _rightAxisMax = firstRight!.yMax
             _rightAxisMin = firstRight!.yMin
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             rightAxisMax = firstRight!.yMax
             rightAxisMin = firstRight!.yMin
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
             
             for dataSet in _dataSets where dataSet.axisDependency == .right
             {
@@ -354,12 +435,18 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 {
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
-            for dataSet in _dataSets
+            for dataSet in _dataSets where dataSet.axisDependency == .right
             {
-                if dataSet.axisDependency == .right
+                if dataSet.yMin < rightAxisMin
                 {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     if dataSet.yMin < _rightAxisMin
                     {
                         _rightAxisMin = dataSet.yMin
@@ -371,6 +458,9 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     rightAxisMin = dataSet.yMin
                 }
@@ -379,8 +469,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 {
                     rightAxisMax = dataSet.yMax
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
             }
         }
@@ -388,8 +481,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// Adjusts the current minimum and maximum values based on the provided Entry object.
     @objc open func calcMinMax(entry e: ChartDataEntry, axis: YAxis.AxisDependency)
@@ -411,6 +507,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -426,12 +523,26 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         {
 <<<<<<< HEAD
 =======
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Adjusts the current minimum and maximum values based on the provided Entry object.
     @objc open func calcMinMax(entry e: ChartDataEntry, axis: YAxis.AxisDependency)
     {
-        if _yMax < e.y
+        xMax = Swift.max(xMax, e.x)
+        xMin = Swift.min(xMin, e.x)
+        yMax = Swift.max(yMax, e.y)
+        yMin = Swift.min(yMin, e.y)
+
+        switch axis
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _yMax = e.y
         }
         
@@ -475,6 +586,9 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         case .left:
             leftAxisMax = Swift.max(leftAxisMax, e.y)
@@ -484,8 +598,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             rightAxisMax = Swift.max(rightAxisMax, e.y)
             rightAxisMin = Swift.min(rightAxisMin, e.y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -493,8 +610,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func calcMinMax(dataSet d: Element)
     {
         xMax = Swift.max(xMax, d.xMax)
@@ -514,6 +634,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     @objc open func calcMinMax(dataSet d: IChartDataSet)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open func calcMinMax(dataSet d: Element)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -527,10 +648,24 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         {
 <<<<<<< HEAD
 =======
+=======
+=======
+    @objc open func calcMinMax(dataSet d: Element)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        if _yMax < d.yMax
+        xMax = Swift.max(xMax, d.xMax)
+        xMin = Swift.min(xMin, d.xMin)
+        yMax = Swift.max(yMax, d.yMax)
+        yMin = Swift.min(yMin, d.yMin)
+
+        switch d.axisDependency
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _yMax = d.yMax
         }
         
@@ -574,6 +709,9 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         case .left:
             leftAxisMax = Swift.max(leftAxisMax, d.yMax)
@@ -583,8 +721,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             rightAxisMax = Swift.max(rightAxisMax, d.yMax)
             rightAxisMin = Swift.min(rightAxisMin, d.yMin)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -592,8 +733,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // exists only for objc compatibility
     @objc open var dataSetCount: Int
     {
@@ -626,6 +770,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             }
         }
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     // exists only for objc compatibility
@@ -659,54 +804,55 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
             {
                 return rightAxisMin
 =======
+=======
+=======
+    // exists only for objc compatibility
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var dataSetCount: Int
     {
-        return _dataSets.count
+        return dataSets.count
     }
-    
-    /// The smallest y-value the data object contains.
-    @objc open var yMin: Double
-    {
-        return _yMin
-    }
-    
-    @nonobjc
-    open func getYMin() -> Double
-    {
-        return _yMin
-    }
-    
+
     @objc open func getYMin(axis: YAxis.AxisDependency) -> Double
     {
-        if axis == .left
+        // TODO: Why does it make sense to return the other axisMin if there is none for the one requested?
+        switch axis
         {
-            if _leftAxisMin == Double.greatestFiniteMagnitude
+        case .left:
+            if leftAxisMin == .greatestFiniteMagnitude
             {
-                return _rightAxisMin
+                return rightAxisMin
             }
             else
             {
-                return _leftAxisMin
+                return leftAxisMin
             }
-        }
-        else
-        {
-            if _rightAxisMin == Double.greatestFiniteMagnitude
+
+        case .right:
+            if rightAxisMin == .greatestFiniteMagnitude
             {
-                return _leftAxisMin
+                return leftAxisMin
             }
             else
             {
+<<<<<<< HEAD
                 return _rightAxisMin
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+                return rightAxisMin
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The greatest y-value the data object contains.
     @objc open var yMax: Double
     {
@@ -721,10 +867,15 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func getYMax(axis: YAxis.AxisDependency) -> Double
     {
         if axis == .left
@@ -732,8 +883,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if leftAxisMax == -.greatestFiniteMagnitude
             {
                 return rightAxisMax
@@ -744,6 +898,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
             if _leftAxisMax == -Double.greatestFiniteMagnitude
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if leftAxisMax == -.greatestFiniteMagnitude
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -759,14 +914,26 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 return leftAxisMax
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            if leftAxisMax == -.greatestFiniteMagnitude
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                return _rightAxisMax
+                return rightAxisMax
             }
             else
             {
+<<<<<<< HEAD
                 return _leftAxisMax
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                return leftAxisMax
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
         else
@@ -774,8 +941,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if rightAxisMax == -.greatestFiniteMagnitude
             {
                 return leftAxisMax
@@ -786,6 +956,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
             if _rightAxisMax == -Double.greatestFiniteMagnitude
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if rightAxisMax == -.greatestFiniteMagnitude
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -801,14 +972,26 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
                 return rightAxisMax
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            if rightAxisMax == -.greatestFiniteMagnitude
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                return _leftAxisMax
+                return leftAxisMax
             }
             else
             {
+<<<<<<< HEAD
                 return _rightAxisMax
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                return rightAxisMax
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             }
         }
     }
@@ -816,8 +999,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// All DataSet objects this ChartData object holds.
     @objc open var dataSets: [Element]
 =======
@@ -836,12 +1022,18 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     @objc open var dataSets: [IChartDataSet]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// All DataSet objects this ChartData object holds.
     @objc open var dataSets: [Element]
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         get
         {
@@ -856,8 +1048,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     /// Retrieve the index of a ChartDataSet with a specific label from the ChartData. Search can be case sensitive or not.
@@ -885,10 +1080,15 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// Get the Entry for a corresponding highlight object
     ///
@@ -898,8 +1098,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func entry(for highlight: Highlight) -> ChartDataEntry?
     {
         guard highlight.dataSetIndex < dataSets.endIndex else { return nil }
@@ -917,14 +1120,20 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open func entry(for highlight: Highlight) -> ChartDataEntry?
     {
         guard highlight.dataSetIndex < dataSets.endIndex else { return nil }
         return self[highlight.dataSetIndex].entryForXValue(highlight.x, closestToY: highlight.y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// **IMPORTANT: This method does calculations at runtime. Use with care in performance critical situations.**
@@ -936,8 +1145,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func dataSet(forLabel label: String, ignorecase: Bool) -> Element?
     {
         guard let index = index(forLabel: label, ignoreCase: ignorecase) else { return nil }
@@ -954,6 +1166,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     @objc open func getDataSetByLabel(_ label: String, ignorecase: Bool) -> IChartDataSet?
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open func dataSet(forLabel label: String, ignorecase: Bool) -> Element?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -970,29 +1183,27 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     }
 <<<<<<< HEAD
 =======
+=======
+=======
+    @objc open func dataSet(forLabel label: String, ignorecase: Bool) -> Element?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        let index = getDataSetIndexByLabel(label, ignorecase: ignorecase)
-        
-        if index < 0 || index >= _dataSets.count
-        {
-            return nil
-        }
-        else
-        {
-            return _dataSets[index]
-        }
+        guard let index = index(forLabel: label, ignoreCase: ignorecase) else { return nil }
+        return self[index]
     }
     
-    @objc open func getDataSetByIndex(_ index: Int) -> IChartDataSet!
+    @objc(dataSetAtIndex:)
+    open func dataSet(at index: Index) -> Element?
     {
-        if index < 0 || index >= _dataSets.count
-        {
-            return nil
-        }
-        
-        return _dataSets[index]
+        guard dataSets.indices.contains(index) else { return nil }
+        return self[index]
     }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     @objc open func addDataSet(_ dataSet: IChartDataSet!)
     {
@@ -1003,11 +1214,17 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Removes the given DataSet from this data object.
     /// Also recalculates all minimum and maximum values.
     ///
@@ -1015,8 +1232,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc @discardableResult open func removeDataSet(_ dataSet: Element) -> Element?
     {
         guard let index = firstIndex(where: { $0 === dataSet }) else { return nil }
@@ -1046,6 +1266,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     @objc @discardableResult open func removeDataSet(_ dataSet: IChartDataSet) -> Bool
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc @discardableResult open func removeDataSet(_ dataSet: Element) -> Element?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1080,59 +1301,45 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         let removed = self[dataSetIndex].removeEntry(entry)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc @discardableResult open func removeDataSet(_ dataSet: Element) -> Element?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        guard let i = _dataSets.firstIndex(where: { $0 === dataSet }) else { return false }
-        return removeDataSetByIndex(i)
+        guard let index = firstIndex(where: { $0 === dataSet }) else { return nil }
+        return remove(at: index)
     }
-    
-    /// Removes the DataSet at the given index in the DataSet array from the data object. 
-    /// Also recalculates all minimum and maximum values. 
-    ///
-    /// - Returns: `true` if a DataSet was removed, `false` ifno DataSet could be removed.
-    @objc @discardableResult open func removeDataSetByIndex(_ index: Int) -> Bool
-    {
-        if index >= _dataSets.count || index < 0
-        {
-            return false
-        }
-        
-        _dataSets.remove(at: index)
-        
-        calcMinMax()
-        
-        return true
-    }
-    
+
     /// Adds an Entry to the DataSet at the specified index. Entries are added to the end of the list.
-    @objc open func addEntry(_ e: ChartDataEntry, dataSetIndex: Int)
+    @objc(addEntry:dataSetIndex:)
+    open func appendEntry(_ e: ChartDataEntry, toDataSet dataSetIndex: Index)
     {
-        if _dataSets.count > dataSetIndex && dataSetIndex >= 0
-        {
-            let set = _dataSets[dataSetIndex]
-            
-            if !set.addEntry(e) { return }
-            
-            calcMinMax(entry: e, axis: set.axisDependency)
+        guard dataSets.indices.contains(dataSetIndex) else {
+            return print("ChartData.addEntry() - Cannot add Entry because dataSetIndex too high or too low.", terminator: "\n")
         }
-        else
-        {
-            print("ChartData.addEntry() - Cannot add Entry because dataSetIndex too high or too low.", terminator: "\n")
-        }
+
+        let set = self[dataSetIndex]
+        if !set.addEntry(e) { return }
+        calcMinMax(entry: e, axis: set.axisDependency)
     }
-    
+
     /// Removes the given Entry object from the DataSet at the specified index.
-    @objc @discardableResult open func removeEntry(_ entry: ChartDataEntry, dataSetIndex: Int) -> Bool
+    @objc @discardableResult open func removeEntry(_ entry: ChartDataEntry, dataSetIndex: Index) -> Bool
     {
-        // entry outofbounds
-        if dataSetIndex >= _dataSets.count
-        {
-            return false
-        }
-        
+        guard dataSets.indices.contains(dataSetIndex) else { return false }
+
         // remove the entry from the dataset
+<<<<<<< HEAD
         let removed = _dataSets[dataSetIndex].removeEntry(entry)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let removed = self[dataSetIndex].removeEntry(entry)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if removed
         {
@@ -1149,8 +1356,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc @discardableResult open func removeEntry(xValue: Double, dataSetIndex: Index) -> Bool
     {
         guard
@@ -1200,6 +1410,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     @objc @discardableResult open func removeEntry(xValue: Double, dataSetIndex: Int) -> Bool
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc @discardableResult open func removeEntry(xValue: Double, dataSetIndex: Index) -> Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1254,58 +1465,65 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         forEach { $0.valueFormatter = formatter }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc @discardableResult open func removeEntry(xValue: Double, dataSetIndex: Index) -> Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        if dataSetIndex >= _dataSets.count
-        {
-            return false
-        }
-        
-        if let entry = _dataSets[dataSetIndex].entryForXValue(xValue, closestToY: Double.nan)
-        {
-            return removeEntry(entry, dataSetIndex: dataSetIndex)
-        }
-        
-        return false
+        guard
+            dataSets.indices.contains(dataSetIndex),
+            let entry = self[dataSetIndex].entryForXValue(xValue, closestToY: .nan)
+            else { return false }
+
+        return removeEntry(entry, dataSetIndex: dataSetIndex)
     }
     
     /// - Returns: The DataSet that contains the provided Entry, or null, if no DataSet contains this entry.
-    @objc open func getDataSetForEntry(_ e: ChartDataEntry) -> IChartDataSet?
+    @objc open func getDataSetForEntry(_ e: ChartDataEntry) -> Element?
     {
-        return _dataSets.first { $0.entryForXValue(e.x, closestToY: e.y) === e }
+        return first { $0.entryForXValue(e.x, closestToY: e.y) === e }
     }
 
     /// - Returns: The index of the provided DataSet in the DataSet array of this data object, or -1 if it does not exist.
-    @objc open func indexOfDataSet(_ dataSet: IChartDataSet) -> Int
+    @objc open func index(of dataSet: Element) -> Index
     {
         // TODO: Return nil instead of -1
-        return _dataSets.firstIndex { $0 === dataSet } ?? -1
+        return firstIndex(where: { $0 === dataSet }) ?? -1
     }
     
     /// - Returns: The first DataSet from the datasets-array that has it's dependency on the left axis. Returns null if no DataSet with left dependency could be found.
-    @objc open func getFirstLeft(dataSets: [IChartDataSet]) -> IChartDataSet?
+    @objc open func getFirstLeft(dataSets: [Element]) -> Element?
     {
-        return dataSets.first { $0.axisDependency == .left }
+        return first { $0.axisDependency == .left }
     }
     
     /// - Returns: The first DataSet from the datasets-array that has it's dependency on the right axis. Returns null if no DataSet with right dependency could be found.
-    @objc open func getFirstRight(dataSets: [IChartDataSet]) -> IChartDataSet?
+    @objc open func getFirstRight(dataSets: [Element]) -> Element?
     {
-        return dataSets.first { $0.axisDependency == .right }
+        return first { $0.axisDependency == .right }
     }
     
     /// - Returns: All colors used across all DataSet objects this object represents.
-    @objc open func getColors() -> [NSUIColor]?
+    @objc open var colors: [NSUIColor]
     {
         // TODO: Don't return nil
-        return _dataSets.flatMap { $0.colors }
+        return reduce(into: []) { $0 += $1.colors }
     }
     
-    /// Sets a custom IValueFormatter for all DataSets this data object contains.
-    @objc open func setValueFormatter(_ formatter: IValueFormatter)
+    /// Sets a custom ValueFormatter for all DataSets this data object contains.
+    @objc open func setValueFormatter(_ formatter: ValueFormatter)
     {
+<<<<<<< HEAD
         dataSets.forEach { $0.valueFormatter = formatter }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        forEach { $0.valueFormatter = formatter }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the color of the value-text (color in which the value-labels are drawn) for all DataSets this data object contains.
@@ -1314,18 +1532,27 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         forEach { $0.valueTextColor = color }
 =======
         dataSets.forEach { $0.valueTextColor = color }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         forEach { $0.valueTextColor = color }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        forEach { $0.valueTextColor = color }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the font for all value-labels for all DataSets this data object contains.
@@ -1334,18 +1561,27 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         forEach { $0.valueFont = font }
 =======
         dataSets.forEach { $0.valueFont = font }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         forEach { $0.valueFont = font }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        forEach { $0.valueFont = font }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Enables / disables drawing values (value-text) for all DataSets this data object contains.
@@ -1354,18 +1590,27 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         forEach { $0.drawValuesEnabled = enabled }
 =======
         dataSets.forEach { $0.drawValuesEnabled = enabled }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         forEach { $0.drawValuesEnabled = enabled }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        forEach { $0.drawValuesEnabled = enabled }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Enables / disables highlighting values for all DataSets this data object contains.
@@ -1373,8 +1618,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var isHighlightEnabled: Bool
     {
         get { return allSatisfy { $0.isHighlightEnabled } }
@@ -1384,6 +1632,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 =======
     @objc open var highlightEnabled: Bool
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open var isHighlightEnabled: Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1393,22 +1642,37 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     }
 <<<<<<< HEAD
 =======
+=======
+=======
+    @objc open var isHighlightEnabled: Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        get { return dataSets.allSatisfy { $0.highlightEnabled } }
-        set { dataSets.forEach { $0.highlightEnabled = newValue } }
+        get { return allSatisfy { $0.isHighlightEnabled } }
+        set { forEach { $0.highlightEnabled = newValue } }
     }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// if true, value highlightning is enabled
     @objc open var isHighlightEnabled: Bool { return highlightEnabled }
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Clears this data object from all DataSets and removes all Entries.
     /// Don't forget to invalidate the chart after this.
     @objc open func clearValues()
@@ -1416,19 +1680,28 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         removeAll(keepingCapacity: false)
 =======
         dataSets.removeAll(keepingCapacity: false)
         notifyDataChanged()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         removeAll(keepingCapacity: false)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        removeAll(keepingCapacity: false)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Checks if this data object contains the specified DataSet. 
@@ -1437,8 +1710,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func contains(dataSet: Element) -> Bool
     {
         return contains { $0 === dataSet }
@@ -1448,13 +1724,19 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
         return dataSets.contains { $0 === dataSet }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open func contains(dataSet: Element) -> Bool
     {
         return contains { $0 === dataSet }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// The total entry count across all DataSet objects this data object contains.
@@ -1463,8 +1745,11 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return reduce(0) { return $0 + $1.entryCount }
     }
 
@@ -1623,6 +1908,7 @@ extension ChartData
 =======
         return _dataSets.reduce(0) { $0 + $1.entryCount }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return reduce(0) { return $0 + $1.entryCount }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1658,22 +1944,46 @@ extension ChartData: MutableCollection
 
 <<<<<<< HEAD
 =======
+=======
+=======
+        return reduce(0) { return $0 + $1.entryCount }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// The DataSet object with the maximum number of entries or null if there are no DataSets.
-    @objc open var maxEntryCountSet: IChartDataSet?
+    @objc open var maxEntryCountSet: Element?
     {
-        return dataSets.max { $0.entryCount < $1.entryCount }
+        return self.max { $0.entryCount < $1.entryCount }
+    }
+}
+
+// MARK: MutableCollection
+extension ChartData: MutableCollection
+{
+    public typealias Index = Int
+    public typealias Element = ChartDataSetProtocol
+
+    public var startIndex: Index
+    {
+        return dataSets.startIndex
     }
 
-    // MARK: - Accessibility
+    public var endIndex: Index
+    {
+        return dataSets.endIndex
+    }
 
-    /// When the data entry labels are generated identifiers, set this property to prepend a string before each identifier
-    ///
-    /// For example, if a label is "#3", settings this property to "Item" allows it to be spoken as "Item #3"
-    @objc open var accessibilityEntryLabelPrefix: String?
+    public func index(after: Index) -> Index
+    {
+        return dataSets.index(after: after)
+    }
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// When the data entry value requires a unit, use this property to append the string representation of the unit to the value
     ///
     /// For example, if a value is "44.1", setting this property to "m" allows it to be spoken as "44.1 m"
@@ -1684,6 +1994,9 @@ extension ChartData: MutableCollection
     @objc open var accessibilityEntryLabelSuffixIsCount: Bool = false
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     public subscript(position: Index) -> Element
     {
@@ -1810,6 +2123,9 @@ extension ChartData
         return self[index]
     }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }

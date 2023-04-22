@@ -27,18 +27,27 @@ open class BarHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
 =======
         if let set = barData.getDataSetByIndex(high.dataSetIndex) as? IBarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             set.isStacked
         {
             return getStackedHighlight(high: high,
@@ -74,18 +83,27 @@ open class BarHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                   set: BarChartDataSetProtocol,
 =======
                                   set: IBarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                   set: BarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                  set: BarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                   xValue: Double,
                                   yValue: Double) -> Highlight?
     {
@@ -105,18 +123,27 @@ open class BarHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             !ranges.isEmpty
 =======
             ranges.count > 0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             !ranges.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            !ranges.isEmpty
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return nil }
 
         let stackIndex = getClosestStackIndex(ranges: ranges, value: yValue)
@@ -143,8 +170,11 @@ open class BarHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if let stackIndex = ranges.firstIndex(where: { $0.contains(value) }) {
             return stackIndex
@@ -157,6 +187,9 @@ open class BarHighlighter: ChartHighlighter
             let length = max(ranges.count - 1, 0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         if let stackIndex = ranges.firstIndex(where: { $0.contains(value) }) {
@@ -164,8 +197,11 @@ open class BarHighlighter: ChartHighlighter
         } else {
             let length = max(ranges.endIndex - 1, 0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return (value > ranges[length].to) ? length : 0
         }
     }

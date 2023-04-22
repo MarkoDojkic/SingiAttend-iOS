@@ -14,8 +14,11 @@ import Foundation
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 /// The default value formatter used for all chart components that needs a default
 @objc(ChartDefaultValueFormatter)
 open class DefaultValueFormatter: NSObject, ValueFormatter
@@ -24,13 +27,19 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 open class DefaultValueFormatter: NSObject, IValueFormatter
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 /// The default value formatter used for all chart components that needs a default
 @objc(ChartDefaultValueFormatter)
 open class DefaultValueFormatter: NSObject, ValueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     public typealias Block = (
         _ value: Double,
@@ -43,8 +52,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var hasAutoDecimals: Bool
     
     @objc open var formatter: NumberFormatter?
@@ -73,6 +85,7 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 =======
     @objc open var hasAutoDecimals: Bool = false
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open var hasAutoDecimals: Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -91,25 +104,29 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         {
 <<<<<<< HEAD
 =======
+=======
+=======
+    @objc open var hasAutoDecimals: Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
-    private var _formatter: NumberFormatter?
     @objc open var formatter: NumberFormatter?
     {
-        get { return _formatter }
-        set
+        willSet
         {
             hasAutoDecimals = false
-            _formatter = newValue
         }
     }
     
-    private var _decimals: Int?
     open var decimals: Int?
     {
-        get { return _decimals }
-        set
+        didSet
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _decimals = newValue
             
             if let digits = newValue
@@ -120,6 +137,9 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             setupDecimals(decimals: decimals)
         }
@@ -133,8 +153,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
             formatter?.maximumFractionDigits = digits
             formatter?.usesGroupingSeparator = true
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -143,8 +166,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         formatter = NumberFormatter()
         formatter?.usesGroupingSeparator = true
         decimals = 1
@@ -159,6 +185,9 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         hasAutoDecimals = true
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         formatter = NumberFormatter()
         formatter?.usesGroupingSeparator = true
@@ -168,8 +197,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         super.init()
         setupDecimals(decimals: decimals)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc public init(formatter: NumberFormatter)
@@ -177,8 +209,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.formatter = formatter
         hasAutoDecimals = false
 
@@ -189,14 +224,20 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         self.formatter = formatter
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         self.formatter = formatter
         hasAutoDecimals = false
 
         super.init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc public init(decimals: Int)
@@ -204,8 +245,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         formatter = NumberFormatter()
         formatter?.usesGroupingSeparator = true
         self.decimals = decimals
@@ -222,6 +266,9 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         hasAutoDecimals = true
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         formatter = NumberFormatter()
         formatter?.usesGroupingSeparator = true
@@ -231,8 +278,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         super.init()
         setupDecimals(decimals: decimals)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc public init(block: @escaping Block)
@@ -240,8 +290,11 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.block = block
         hasAutoDecimals = false
 
@@ -256,6 +309,7 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
         super.init()
         
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
         self.block = block
@@ -275,12 +329,30 @@ open class DefaultValueFormatter: NSObject, ValueFormatter
     @objc public static func with(block: @escaping Block) -> DefaultValueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.block = block
+        hasAutoDecimals = false
+
+        super.init()
     }
+<<<<<<< HEAD
     
     @objc public static func with(block: @escaping Block) -> DefaultValueFormatter?
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+    /// This function is deprecated - Use `init(block:)` instead.
+    // DEC 11, 2017
+    @available(*, deprecated, message: "Use `init(block:)` instead.")
+    @objc public static func with(block: @escaping Block) -> DefaultValueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         return DefaultValueFormatter(block: block)
     }

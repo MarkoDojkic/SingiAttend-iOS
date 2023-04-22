@@ -14,8 +14,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class TriangleShapeRenderer : NSObject, ShapeRenderer
 {
     open func renderShape(
@@ -29,6 +32,9 @@ open class TriangleShapeRenderer : NSObject, IShapeRenderer
         dataSet: IScatterChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 open class TriangleShapeRenderer : NSObject, ShapeRenderer
 {
@@ -36,8 +42,11 @@ open class TriangleShapeRenderer : NSObject, ShapeRenderer
         context: CGContext,
         dataSet: ScatterChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         viewPortHandler: ViewPortHandler,
         point: CGPoint,
         color: NSUIColor)

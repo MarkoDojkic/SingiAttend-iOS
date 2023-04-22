@@ -12,8 +12,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import Algorithms
 import Foundation
 import CoreGraphics
@@ -26,6 +29,9 @@ import CoreGraphics
 open class ChartHighlighter : NSObject, IHighlighter
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 import Algorithms
 import Foundation
@@ -33,8 +39,11 @@ import CoreGraphics
 
 open class ChartHighlighter : NSObject, Highlighter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
     /// instance of the data-provider
     @objc open weak var chart: ChartDataProvider?
@@ -98,8 +107,11 @@ open class ChartHighlighter : NSObject, Highlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for (i, set) in data.indexed() where set.isHighlightEnabled
         {
             // extract all y-values from all DataSets at the given x-value.
@@ -108,6 +120,7 @@ open class ChartHighlighter : NSObject, Highlighter
 =======
         for i in 0 ..< data.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for (i, set) in data.indexed() where set.isHighlightEnabled
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -121,18 +134,24 @@ open class ChartHighlighter : NSObject, Highlighter
             vals.append(contentsOf: buildHighlights(dataSet: set, dataSetIndex: i, xValue: xValue, rounding: .closest))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for (i, set) in data.indexed() where set.isHighlightEnabled
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            guard
-                let dataSet = data.getDataSetByIndex(i),
-                dataSet.isHighlightEnabled      // don't include datasets that cannot be highlighted
-                else { continue }
-            
-
             // extract all y-values from all DataSets at the given x-value.
             // some datasets (i.e bubble charts) make sense to have multiple values for an x-value. We'll have to find a way to handle that later on. It's more complicated now when x-indices are floating point.
+<<<<<<< HEAD
             vals.append(contentsOf: buildHighlights(dataSet: dataSet, dataSetIndex: i, xValue: xValue, rounding: .closest))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            vals.append(contentsOf: buildHighlights(dataSet: set, dataSetIndex: i, xValue: xValue, rounding: .closest))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         return vals
@@ -143,18 +162,27 @@ open class ChartHighlighter : NSObject, Highlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         dataSet set: ChartDataSetProtocol,
 =======
         dataSet set: IChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         dataSet set: ChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        dataSet set: ChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         dataSetIndex: Int,
         xValue: Double,
         rounding: ChartDataSetRounding) -> [Highlight]
@@ -165,18 +193,27 @@ open class ChartHighlighter : NSObject, Highlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if entries.isEmpty, let closest = set.entryForXValue(xValue, closestToY: .nan, rounding: rounding)
 =======
         if entries.count == 0, let closest = set.entryForXValue(xValue, closestToY: .nan, rounding: rounding)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if entries.isEmpty, let closest = set.entryForXValue(xValue, closestToY: .nan, rounding: rounding)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if entries.isEmpty, let closest = set.entryForXValue(xValue, closestToY: .nan, rounding: rounding)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             // Try to find closest x-value and take all entries for that x-value
             entries = set.entriesForXValue(closest.x)

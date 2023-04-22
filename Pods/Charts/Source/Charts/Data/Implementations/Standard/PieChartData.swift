@@ -16,18 +16,27 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init()
 =======
     public override init()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public required init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public required init()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
     }
@@ -35,18 +44,27 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(dataSets: [ChartDataSetProtocol])
 =======
     public override init(dataSets: [IChartDataSet]?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public override init(dataSets: [ChartDataSetProtocol])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public override init(dataSets: [ChartDataSetProtocol])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(dataSets: dataSets)
     }
@@ -54,10 +72,15 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init(arrayLiteral elements: ChartDataSetProtocol...)
     {
         super.init(dataSets: elements)
@@ -86,17 +109,25 @@ open class PieChartData: ChartData
     @objc open override var dataSets: [ChartDataSetProtocol]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// All DataSet objects this ChartData object holds.
     @objc open override var dataSets: [IChartDataSet]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         get
         {
@@ -111,8 +142,11 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open override func dataSet(at index: ChartData.Index) -> ChartData.Element?
     {
@@ -127,10 +161,14 @@ open class PieChartData: ChartData
 
     @objc var dataSet: IPieChartDataSet?
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     open override func dataSet(at index: ChartData.Index) -> ChartData.Element?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
     {
         guard index == 0 else { return nil }
         return self[index]
@@ -140,27 +178,20 @@ open class PieChartData: ChartData
     {
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        get
-        {
-            return dataSets.count > 0 ? dataSets[0] as? IPieChartDataSet : nil
-        }
-        set
-        {
-            if let newValue = newValue
-            {
-                dataSets = [newValue]
-            }
-            else
-            {
-                dataSets = []
-            }
-        }
+        guard index == 0 else { return nil }
+        return self[index]
     }
     
-    open override func getDataSetByIndex(_ index: Int) -> IChartDataSet?
+    open override func dataSet(forLabel label: String, ignorecase: Bool) -> ChartDataSetProtocol?
     {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if index != 0
         {
             return nil
@@ -173,11 +204,17 @@ open class PieChartData: ChartData
         if dataSets.count == 0 || dataSets[0].label == nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         if dataSets.first?.label == nil
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if dataSets.first?.label == nil
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             return nil
         }
@@ -202,18 +239,27 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
 =======
     open override func entryForHighlight(_ highlight: Highlight) -> ChartDataEntry?
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         return dataSet?.entryForIndex(Int(highlight.x))
     }
@@ -221,8 +267,11 @@ open class PieChartData: ChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     open override func addDataSet(_ d: IChartDataSet!)
     {   
@@ -245,10 +294,15 @@ open class PieChartData: ChartData
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The total y-value sum across all DataSet objects the this object represents.
     @objc open var yValueSum: Double
     {

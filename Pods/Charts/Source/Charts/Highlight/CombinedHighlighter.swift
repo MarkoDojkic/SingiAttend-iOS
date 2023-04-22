@@ -12,17 +12,23 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import Algorithms
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 import Algorithms
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 import Algorithms
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import Foundation
 import CoreGraphics
 
@@ -52,8 +58,11 @@ open class CombinedHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for (i, dataObject) in dataObjects.indexed()
         {
 =======
@@ -63,12 +72,18 @@ open class CombinedHighlighter: ChartHighlighter
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for (i, dataObject) in dataObjects.indexed()
         {
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             // in case of BarData, let the BarHighlighter take over
             if barHighlighter != nil && dataObject is BarChartData,
                 let high = barHighlighter?.getHighlight(x: x, y: y)
@@ -81,8 +96,11 @@ open class CombinedHighlighter: ChartHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 for (j, set) in dataObject.indexed() where set.isHighlightEnabled
                 {
                     let highs = buildHighlights(dataSet: set, dataSetIndex: j, xValue: xValue, rounding: .closest)
@@ -96,13 +114,19 @@ open class CombinedHighlighter: ChartHighlighter
                     let highs = buildHighlights(dataSet: dataSet, dataSetIndex: j, xValue: xValue, rounding: .closest)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 for (j, set) in dataObject.indexed() where set.isHighlightEnabled
                 {
                     let highs = buildHighlights(dataSet: set, dataSetIndex: j, xValue: xValue, rounding: .closest)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
                     for high in highs
                     {

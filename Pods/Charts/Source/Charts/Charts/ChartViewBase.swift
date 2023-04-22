@@ -16,8 +16,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 #if !os(OSX)
     import UIKit
 #endif
@@ -33,14 +36,20 @@ import Cocoa
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 #if !os(OSX)
     import UIKit
 #endif
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 @objc
 public protocol ChartViewDelegate
 {
@@ -74,8 +83,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The default IValueFormatter that has been determined by the chart considering the provided minimum and maximum values.
     internal lazy var defaultValueFormatter: ValueFormatter = DefaultValueFormatter(decimals: 0)
 
@@ -123,6 +135,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
     /// The default IValueFormatter that has been determined by the chart considering the provided minimum and maximum values.
@@ -169,37 +182,57 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The default IValueFormatter that has been determined by the chart considering the provided minimum and maximum values.
-    internal var _defaultValueFormatter: IValueFormatter? = DefaultValueFormatter(decimals: 0)
-    
+    internal lazy var defaultValueFormatter: ValueFormatter = DefaultValueFormatter(decimals: 0)
+
     /// object that holds all data that was originally set for the chart, before it was modified or any filtering algorithms had been applied
-    internal var _data: ChartData?
-    
-    /// Flag that indicates if highlighting per tap (touch) is enabled
-    private var _highlightPerTapEnabled = true
-    
+    @objc open var data: ChartData?
+        {
+        didSet
+        {
+            offsetsCalculated = false
+
+            guard let data = data else { return }
+
+            // calculate how many digits are needed
+            setupDefaultFormatter(min: data.yMin, max: data.yMax)
+
+            for set in data where set.valueFormatter is DefaultValueFormatter
+            {
+                set.valueFormatter = defaultValueFormatter
+            }
+
+            // let the chart know there is new data
+            notifyDataSetChanged()
+        }
+    }
+
     /// If set to true, chart continues to scroll after touch up
     @objc open var dragDecelerationEnabled = true
-    
-    /// Deceleration friction coefficient in [0 ; 1] interval, higher values indicate that speed will decrease slowly, for example if it set to 0, it will stop immediately.
-    /// 1 is an invalid value, and will be converted to 0.999 automatically.
-    private var _dragDecelerationFrictionCoef: CGFloat = 0.9
-    
-    /// if true, units are drawn next to the values in the chart
-    internal var _drawUnitInChart = false
-    
+
     /// The object representing the labels on the x-axis
-    internal var _xAxis: XAxis!
+    @objc open internal(set) lazy var xAxis = XAxis()
     
     /// The `Description` object of the chart.
-    /// This should have been called just "description", but
-    @objc open var chartDescription: Description?
-        
+    @objc open lazy var chartDescription = Description()
+
     /// The legend object containing all data associated with the legend
+<<<<<<< HEAD
     internal var _legend: Legend!
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open internal(set) lazy var legend = Legend()
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// delegate to receive chart events
     @objc open weak var delegate: ChartViewDelegate?
     
@@ -216,18 +249,26 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var noDataTextAlignment: TextAlignment = .left
 
     /// The renderer object responsible for rendering / drawing the Legend.
     @objc open lazy var legendRenderer = LegendRenderer(viewPortHandler: viewPortHandler, legend: legend)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// object responsible for rendering the data
     @objc open var renderer: DataRenderer?
@@ -253,6 +294,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 =======
     @objc open var noDataTextAlignment: NSTextAlignment = .left
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 
@@ -275,36 +317,53 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     /// flag that indicates if offsets calculation has already been done or not
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
-    internal var _legendRenderer: LegendRenderer!
-    
     /// object responsible for rendering the data
     @objc open var renderer: DataRenderer?
     
-    @objc open var highlighter: IHighlighter?
-    
-    /// object that manages the bounds and drawing constraints of the chart
-    internal var _viewPortHandler: ViewPortHandler!
-    
-    /// object responsible for animations
-    internal var _animator: Animator!
-    
+    @objc open var highlighter: Highlighter?
+
+    /// The ViewPortHandler of the chart that is responsible for the
+    /// content area of the chart and its offsets and dimensions.
+    @objc open internal(set) lazy var viewPortHandler = ViewPortHandler(width: bounds.size.width, height: bounds.size.height)
+
+    /// The animator responsible for animating chart values.
+    @objc open internal(set) lazy var chartAnimator: Animator = {
+        let animator = Animator()
+        animator.delegate = self
+        return animator
+    }()
+
     /// flag that indicates if offsets calculation has already been done or not
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private var _offsetsCalculated = false
     
     /// array of Highlight objects that reference the highlighted slices in the chart
     internal var _indicesToHighlight = [Highlight]()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     private var offsetsCalculated = false
 
     /// The array of currently highlighted values. This might an empty if nothing is highlighted.
     @objc open internal(set) var highlighted = [Highlight]()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// `true` if drawing the marker is enabled when tapping on values
     /// (use the `marker` property to specify a marker)
@@ -318,8 +377,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var marker: Marker?
 
 =======
@@ -329,12 +391,18 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open var marker: Marker?
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// An extra offset to be appended to the viewport's top
     @objc open var extraTopOffset: CGFloat = 0.0
     
@@ -349,18 +417,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 =======
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func setExtraOffsets(left: CGFloat, top: CGFloat, right: CGFloat, bottom: CGFloat)
     {
         extraLeftOffset = left
@@ -388,8 +465,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         removeObserver(self, forKeyPath: "bounds")
         removeObserver(self, forKeyPath: "frame")
 =======
@@ -397,12 +477,18 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         self.removeObserver(self, forKeyPath: "frame")
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         removeObserver(self, forKeyPath: "bounds")
         removeObserver(self, forKeyPath: "frame")
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     internal func initialize()
@@ -411,8 +497,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             self.backgroundColor = .clear
         #endif
 
@@ -438,6 +527,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         self.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             self.backgroundColor = .clear
         #endif
@@ -445,8 +537,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         addObserver(self, forKeyPath: "bounds", options: .new, context: nil)
         addObserver(self, forKeyPath: "frame", options: .new, context: nil)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     // MARK: - ChartViewBase
@@ -454,8 +549,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Clears the chart from all data (sets it to null) and refreshes it (by calling setNeedsDisplay()).
     @objc open func clear()
     {
@@ -505,6 +603,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         _indicesToHighlight.removeAll()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// Clears the chart from all data (sets it to null) and refreshes it (by calling setNeedsDisplay()).
     @objc open func clear()
@@ -513,8 +614,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         offsetsCalculated = false
         highlighted.removeAll()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         lastHighlighted = nil
     
         setNeedsDisplay()
@@ -526,18 +630,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         data?.clearValues()
 =======
         _data?.clearValues()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         data?.clearValues()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        data?.clearValues()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         setNeedsDisplay()
     }
 
@@ -547,8 +660,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return data?.isEmpty ?? true
 =======
         guard let data = _data else { return true }
@@ -563,11 +679,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return data?.isEmpty ?? true
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return data?.isEmpty ?? true
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Lets the chart know its underlying data has changed and should perform all necessary recalculations.
@@ -596,8 +718,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var reference = 0.0
         
         if let data = data , data.entryCount >= 2
@@ -618,6 +743,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 =======
         var reference = Double(0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         var reference = 0.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -638,34 +764,47 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             let digits = reference.decimalPlaces
 <<<<<<< HEAD
 =======
+=======
+=======
+        var reference = 0.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
-        if let data = _data , data.entryCount >= 2
+        if let data = data , data.entryCount >= 2
         {
-            reference = fabs(max - min)
+            reference = abs(max - min)
         }
         else
         {
-            let absMin = fabs(min)
-            let absMax = fabs(max)
-            reference = absMin > absMax ? absMin : absMax
+            reference = Swift.max(abs(min), abs(max))
         }
         
     
-        if _defaultValueFormatter is DefaultValueFormatter
+        if let formatter = defaultValueFormatter as? DefaultValueFormatter
         {
             // setup the formatter with a new number of digits
             let digits = reference.decimalPlaces
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             (_defaultValueFormatter as? DefaultValueFormatter)?.decimals
              = digits
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             formatter.decimals = digits
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            formatter.decimals = digits
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -674,8 +813,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let context = NSUIGraphicsGetCurrentContext() else { return }
 
         if data === nil && !noDataText.isEmpty
@@ -688,13 +830,19 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         if _data === nil && noDataText.count > 0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard let context = NSUIGraphicsGetCurrentContext() else { return }
 
         if data === nil && !noDataText.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             context.saveGState()
             defer { context.restoreGState() }
@@ -702,18 +850,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let paragraphStyle = MutableParagraphStyle.default.mutableCopy() as! MutableParagraphStyle
 =======
             let paragraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             let paragraphStyle = MutableParagraphStyle.default.mutableCopy() as! MutableParagraphStyle
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let paragraphStyle = MutableParagraphStyle.default.mutableCopy() as! MutableParagraphStyle
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             paragraphStyle.minimumLineHeight = noDataFont.lineHeight
             paragraphStyle.lineBreakMode = .byWordWrapping
             paragraphStyle.alignment = noDataTextAlignment
@@ -721,10 +878,15 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.drawMultilineText(noDataText,
                                       at: CGPoint(x: bounds.width / 2.0, y: bounds.height / 2.0),
                                       constrainedTo: bounds.size,
@@ -736,8 +898,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return
         }
         
@@ -759,6 +924,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                 angleRadians: 0.0)
             
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
             return
@@ -774,15 +940,26 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             offsetsCalculated = true
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return
         }
         
-        if !_offsetsCalculated
+        if !offsetsCalculated
         {
             calculateOffsets()
+<<<<<<< HEAD
             _offsetsCalculated = true
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            offsetsCalculated = true
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -790,8 +967,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal func drawDescription(in context: CGContext)
     {
         let description = chartDescription
@@ -818,6 +998,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 =======
     internal func drawDescription(context: CGContext)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     internal func drawDescription(in context: CGContext)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -836,24 +1017,29 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 
 <<<<<<< HEAD
 =======
+=======
+=======
+    internal func drawDescription(in context: CGContext)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
+        let description = chartDescription
+
         // check if description should be drawn
         guard
-            let description = chartDescription,
             description.isEnabled,
             let descriptionText = description.text,
-            descriptionText.count > 0
+            !descriptionText.isEmpty
             else { return }
         
-        let position = description.position ?? CGPoint(x: bounds.width - _viewPortHandler.offsetRight - description.xOffset,
-                                                       y: bounds.height - _viewPortHandler.offsetBottom - description.yOffset - description.font.lineHeight)
-        
-        var attrs = [NSAttributedString.Key : Any]()
-        
-        attrs[NSAttributedString.Key.font] = description.font
-        attrs[NSAttributedString.Key.foregroundColor] = description.textColor
+        let position = description.position ?? CGPoint(x: bounds.width - viewPortHandler.offsetRight - description.xOffset,
+                                                       y: bounds.height - viewPortHandler.offsetBottom - description.yOffset - description.font.lineHeight)
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         ChartUtils.drawText(
             context: context,
             text: descriptionText,
@@ -862,6 +1048,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             attributes: attrs)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let attrs: [NSAttributedString.Key : Any] = [
             .font: description.font,
@@ -873,8 +1062,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                          align: description.textAlign,
                          attributes: attrs)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     // MARK: - Accessibility
@@ -887,8 +1079,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     /// Set this to false to prevent values from being highlighted by tap gesture.
     /// Values can still be highlighted via drag or programmatically.
@@ -914,6 +1109,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
     /// Set this to false to prevent values from being highlighted by tap gesture.
@@ -922,8 +1120,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     @objc open var highlightPerTapEnabled: Bool = true
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// `true` if values can be highlighted via tap gesture, `false` ifnot.
     @objc open var isHighLightPerTapEnabled: Bool
     {
@@ -938,18 +1139,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return !highlighted.isEmpty
 =======
         return !_indicesToHighlight.isEmpty
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return !highlighted.isEmpty
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return !highlighted.isEmpty
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Highlights the values at the given indices in the given DataSets. Provide
@@ -962,8 +1172,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         highlighted = highs ?? []
 
         lastHighlighted = highlighted.first
@@ -980,13 +1193,19 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         highlighted = highs ?? []
 
         lastHighlighted = highlighted.first
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         // redraw the chart
         setNeedsDisplay()
@@ -1046,18 +1265,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let data = data else
 =======
         guard let data = _data else
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         guard let data = data else
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        guard let data = data else
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             Swift.print("Value not highlighted because data is nil")
             return
@@ -1065,8 +1293,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         if data.indices.contains(dataSetIndex)
         {
@@ -1079,10 +1310,14 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         
         if dataSetIndex < 0 || dataSetIndex >= data.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
         if data.indices.contains(dataSetIndex)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         {
             highlightValue(Highlight(x: x, y: y, dataSetIndex: dataSetIndex, dataIndex: dataIndex), callDelegate: callDelegate)
         }
@@ -1095,14 +1330,23 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             highlightValue(nil, callDelegate: callDelegate)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            highlightValue(nil, callDelegate: callDelegate)
+            highlightValue(Highlight(x: x, y: y, dataSetIndex: dataSetIndex, dataIndex: dataIndex), callDelegate: callDelegate)
         }
         else
         {
+<<<<<<< HEAD
             highlightValue(Highlight(x: x, y: y, dataSetIndex: dataSetIndex, dataIndex: dataIndex), callDelegate: callDelegate)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            highlightValue(nil, callDelegate: callDelegate)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -1122,18 +1366,26 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var high = highlight
         guard
             let h = high,
             let entry = data?.entry(for: h)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else
         {
                 high = nil
@@ -1174,6 +1426,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                 _indicesToHighlight.removeAll(keepingCapacity: false)
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
             else
@@ -1203,27 +1456,40 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else
-            {
-                _indicesToHighlight = [h!]
-            }
-        }
-        
-        if callDelegate, let delegate = delegate
         {
-            if let h = h
-            {
-                // notify the listener
-                delegate.chartValueSelected?(self, entry: entry!, highlight: h)
-            }
-            else
-            {
-                delegate.chartValueNothingSelected?(self)
-            }
+                high = nil
+                highlighted.removeAll(keepingCapacity: false)
+                if callDelegate
+                {
+                    delegate?.chartValueNothingSelected?(self)
+                }
+                setNeedsDisplay()
+                return
         }
+<<<<<<< HEAD
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+        // set the indices to highlight
+       highlighted = [h]
+
+        if callDelegate
+        {
+            // notify the listener
+            delegate?.chartValueSelected?(self, entry: entry, highlight: h)
+        }
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // redraw the chart
         setNeedsDisplay()
     }
@@ -1236,18 +1502,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard data != nil else
 =======
         if _data === nil
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         guard data != nil else
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        guard data != nil else
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             Swift.print("Can't select by touch. No data set.")
             return nil
@@ -1269,8 +1544,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let marker = marker,
             isDrawMarkersEnabled,
             valuesToHighlight()
@@ -1290,11 +1568,15 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             , isDrawMarkersEnabled &&
                 valuesToHighlight()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let marker = marker,
             isDrawMarkersEnabled,
             valuesToHighlight()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
             else { return }
         
         for highlight in highlighted
@@ -1307,30 +1589,40 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             let entryIndex = set.entryIndex(entry: e)
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
         
-        for i in 0 ..< _indicesToHighlight.count
+        for highlight in highlighted
         {
-            let highlight = _indicesToHighlight[i]
-            
-            guard let
-                set = data?.getDataSetByIndex(highlight.dataSetIndex),
-                let e = _data?.entryForHighlight(highlight)
+            guard
+                let set = data?[highlight.dataSetIndex],
+                let e = data?.entry(for: highlight)
                 else { continue }
             
             let entryIndex = set.entryIndex(entry: e)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if entryIndex > Int(Double(set.entryCount) * _animator.phaseX)
             {
                 continue
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             guard entryIndex <= Int(Double(set.entryCount) * chartAnimator.phaseX) else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            guard entryIndex <= Int(Double(set.entryCount) * chartAnimator.phaseX) else { continue }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             let pos = getMarkerPosition(highlight: highlight)
 
@@ -1338,8 +1630,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             guard viewPortHandler.isInBounds(x: pos.x, y: pos.y) else { continue }
 =======
             if !_viewPortHandler.isInBounds(x: pos.x, y: pos.y)
@@ -1348,11 +1643,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             guard viewPortHandler.isInBounds(x: pos.x, y: pos.y) else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            guard viewPortHandler.isInBounds(x: pos.x, y: pos.y) else { continue }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             // callbacks to update the content
             marker.refreshContent(entry: e, highlight: highlight)
@@ -1372,8 +1673,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 =======
     
@@ -1385,11 +1689,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Animates the drawing / rendering of the chart on both x- and y-axis with the specified animation time.
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     ///
@@ -1403,18 +1713,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingX, easingY: easingY)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingX, easingY: easingY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingX, easingY: easingY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingX, easingY: easingY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart on both x- and y-axis with the specified animation time.
@@ -1430,18 +1749,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOptionX: easingOptionX, easingOptionY: easingOptionY)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOptionX: easingOptionX, easingOptionY: easingOptionY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOptionX: easingOptionX, easingOptionY: easingOptionY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOptionX: easingOptionX, easingOptionY: easingOptionY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart on both x- and y-axis with the specified animation time.
@@ -1456,18 +1784,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easing)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easing)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easing)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easing)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart on both x- and y-axis with the specified animation time.
@@ -1482,18 +1819,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart on both x- and y-axis with the specified animation time.
@@ -1507,18 +1853,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the x-axis with the specified animation time.
@@ -1532,18 +1887,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, easing: easing)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, easing: easing)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, easing: easing)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, easing: easing)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the x-axis with the specified animation time.
@@ -1557,18 +1921,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration, easingOption: easingOption)
 =======
         _animator.animate(xAxisDuration: xAxisDuration, easingOption: easingOption)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration, easingOption: easingOption)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration, easingOption: easingOption)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the x-axis with the specified animation time.
@@ -1581,18 +1954,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(xAxisDuration: xAxisDuration)
 =======
         _animator.animate(xAxisDuration: xAxisDuration)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(xAxisDuration: xAxisDuration)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(xAxisDuration: xAxisDuration)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the y-axis with the specified animation time.
@@ -1606,18 +1988,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(yAxisDuration: yAxisDuration, easing: easing)
 =======
         _animator.animate(yAxisDuration: yAxisDuration, easing: easing)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(yAxisDuration: yAxisDuration, easing: easing)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(yAxisDuration: yAxisDuration, easing: easing)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the y-axis with the specified animation time.
@@ -1631,18 +2022,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(yAxisDuration: yAxisDuration, easingOption: easingOption)
 =======
         _animator.animate(yAxisDuration: yAxisDuration, easingOption: easingOption)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(yAxisDuration: yAxisDuration, easingOption: easingOption)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(yAxisDuration: yAxisDuration, easingOption: easingOption)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Animates the drawing / rendering of the chart the y-axis with the specified animation time.
@@ -1655,18 +2055,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartAnimator.animate(yAxisDuration: yAxisDuration)
 =======
         _animator.animate(yAxisDuration: yAxisDuration)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         chartAnimator.animate(yAxisDuration: yAxisDuration)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        chartAnimator.animate(yAxisDuration: yAxisDuration)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     // MARK: - Accessors
@@ -1677,18 +2086,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return data?.yMax ?? 0.0
 =======
         return _data?.yMax ?? 0.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return data?.yMax ?? 0.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return data?.yMax ?? 0.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// The current y-min value across all DataSets
@@ -1697,18 +2115,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return data?.yMin ?? 0.0
 =======
         return _data?.yMin ?? 0.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return data?.yMin ?? 0.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return data?.yMin ?? 0.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open var chartXMax: Double
@@ -1716,18 +2143,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return xAxis._axisMaximum
 =======
         return _xAxis._axisMaximum
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return xAxis._axisMaximum
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return xAxis._axisMaximum
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open var chartXMin: Double
@@ -1735,18 +2171,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return xAxis._axisMinimum
 =======
         return _xAxis._axisMinimum
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return xAxis._axisMinimum
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return xAxis._axisMinimum
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open var xRange: Double
@@ -1754,18 +2199,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return xAxis.axisRange
 =======
         return _xAxis.axisRange
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return xAxis.axisRange
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return xAxis.axisRange
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// - Note: (Equivalent of getCenter() in MPAndroidChart, as center is already a standard in iOS that returns the center point relative to superview, and MPAndroidChart returns relative to self)*
@@ -1775,16 +2229,22 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let bounds = self.bounds
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
         let bounds = self.bounds
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return CGPoint(x: bounds.origin.x + bounds.size.width / 2.0, y: bounds.origin.y + bounds.size.height / 2.0)
     }
     
@@ -1794,8 +2254,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return viewPortHandler.contentCenter
     }
 
@@ -1812,6 +2275,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 =======
         return _viewPortHandler.contentCenter
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return viewPortHandler.contentCenter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1833,39 +2297,32 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         NSUIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque || !transparent, NSUIMainScreen()?.nsuiScale ?? 1.0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        return viewPortHandler.contentCenter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
-    
-    /// The Legend object of the chart. This method can be used to get an instance of the legend in order to customize the automatically generated Legend.
-    @objc open var legend: Legend
-    {
-        return _legend
-    }
-    
-    /// The renderer object responsible for rendering / drawing the Legend.
-    @objc open var legendRenderer: LegendRenderer!
-    {
-        return _legendRenderer
-    }
-    
+
     /// The rectangle that defines the borders of the chart-value surface (into which the actual values are drawn).
     @objc open var contentRect: CGRect
     {
-        return _viewPortHandler.contentRect
+        return viewPortHandler.contentRect
     }
-    
-    /// - Returns: The ViewPortHandler of the chart that is responsible for the
-    /// content area of the chart and its offsets and dimensions.
-    @objc open var viewPortHandler: ViewPortHandler!
-    {
-        return _viewPortHandler
-    }
-    
+
     /// - Returns: The bitmap that represents the chart.
     @objc open func getChartImage(transparent: Bool) -> NSUIImage?
     {
+<<<<<<< HEAD
         NSUIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque || !transparent, NSUIScreen.nsuiMain?.nsuiScale ?? 1.0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        NSUIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque || !transparent, NSUIMainScreen()?.nsuiScale ?? 1.0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         guard let context = NSUIGraphicsGetCurrentContext()
             else { return nil }
@@ -1873,18 +2330,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let rect = CGRect(origin: .zero, size: bounds.size)
 =======
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: bounds.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let rect = CGRect(origin: .zero, size: bounds.size)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let rect = CGRect(origin: .zero, size: bounds.size)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if isOpaque || !transparent
         {
@@ -1960,8 +2426,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if ((bounds.size.width != viewPortHandler.chartWidth ||
                 bounds.size.height != viewPortHandler.chartHeight))
             {
@@ -1974,14 +2443,20 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                 _viewPortHandler.setChartDimens(width: bounds.size.width, height: bounds.size.height)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             if ((bounds.size.width != viewPortHandler.chartWidth ||
                 bounds.size.height != viewPortHandler.chartHeight))
             {
                 viewPortHandler.setChartDimens(width: bounds.size.width, height: bounds.size.height)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 // This may cause the chart view to mutate properties affecting the view port -- lets do this
                 // before we try to run any pending jobs on the view port itself
@@ -2015,18 +2490,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if viewPortHandler.hasChartDimens
 =======
         if _viewPortHandler.hasChartDimens
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if viewPortHandler.hasChartDimens
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        if viewPortHandler.hasChartDimens
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             job.doJob()
         }
@@ -2048,17 +2532,25 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// 
     /// **default**: true
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open var dragDecelerationFrictionCoef: CGFloat
     {
         get
@@ -2070,8 +2562,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _dragDecelerationFrictionCoef = max(0, min(newValue, 0.999))
         }
     }
@@ -2092,14 +2587,20 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             _dragDecelerationFrictionCoef = max(0, min(newValue, 0.999))
         }
     }
     private var _dragDecelerationFrictionCoef: CGFloat = 0.9
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// The maximum distance in screen pixels away from an entry causing it to highlight.
     /// **default**: 500.0
@@ -2111,18 +2612,27 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return .max
 =======
         return Int(INT_MAX)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return .max
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return .max
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     // MARK: - AnimatorDelegate
@@ -2144,8 +2654,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.nsuiTouchesBegan(touches, withEvent: event)
 =======
         if !_interceptTouchEvents
@@ -2154,11 +2667,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         super.nsuiTouchesBegan(touches, withEvent: event)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        super.nsuiTouchesBegan(touches, withEvent: event)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func nsuiTouchesMoved(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
@@ -2166,8 +2685,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.nsuiTouchesMoved(touches, withEvent: event)
 =======
         if !_interceptTouchEvents
@@ -2176,11 +2698,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         super.nsuiTouchesMoved(touches, withEvent: event)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        super.nsuiTouchesMoved(touches, withEvent: event)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func nsuiTouchesEnded(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
@@ -2188,8 +2716,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.nsuiTouchesEnded(touches, withEvent: event)
 =======
         if !_interceptTouchEvents
@@ -2198,11 +2729,17 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         super.nsuiTouchesEnded(touches, withEvent: event)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        super.nsuiTouchesEnded(touches, withEvent: event)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open override func nsuiTouchesCancelled(_ touches: Set<NSUITouch>?, withEvent event: NSUIEvent?)
@@ -2210,8 +2747,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.nsuiTouchesCancelled(touches, withEvent: event)
 =======
         if !_interceptTouchEvents
@@ -2220,10 +2760,16 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         super.nsuiTouchesCancelled(touches, withEvent: event)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        super.nsuiTouchesCancelled(touches, withEvent: event)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

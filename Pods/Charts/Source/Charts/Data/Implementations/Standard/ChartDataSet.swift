@@ -12,17 +12,23 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import Algorithms
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 import Algorithms
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 import Algorithms
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 import Foundation
 
 /// Determines how to round DataSet index values for `ChartDataSet.entryIndex(x, rounding)` when an exact x-value is not found.
@@ -44,8 +50,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         super.init()
     }
@@ -61,6 +70,7 @@ open class ChartDataSet: ChartBaseDataSet
 =======
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -81,19 +91,31 @@ open class ChartDataSet: ChartBaseDataSet
         self.entries = entries 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.init()
     }
     
-    public override convenience init(label: String?)
+    public override convenience init(label: String)
     {
-        self.init(entries: nil, label: label)
+        self.init(entries: [], label: label)
     }
     
-    @objc public init(entries: [ChartDataEntry]?, label: String?)
+    @objc public init(entries: [ChartDataEntry], label: String)
     {
+<<<<<<< HEAD
         self.entries = entries ?? []
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        self.entries = entries 
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         super.init(label: label)
 
@@ -103,18 +125,27 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc public convenience init(entries: [ChartDataEntry])
 =======
     @objc public convenience init(entries: [ChartDataEntry]?)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc public convenience init(entries: [ChartDataEntry])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc public convenience init(entries: [ChartDataEntry])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         self.init(entries: entries, label: "DataSet")
     }
@@ -127,8 +158,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @available(*, unavailable, renamed: "entries")
     @objc
@@ -136,10 +170,15 @@ open class ChartDataSet: ChartBaseDataSet
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc
     open private(set) var entries: [ChartDataEntry]
 
@@ -188,8 +227,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let indexFrom = entryIndex(x: fromX, closestToY: .nan, rounding: .closest)
         var indexTo = entryIndex(x: toX, closestToY: .nan, rounding: .up)
         if indexTo == -1 { indexTo = entryIndex(x: toX, closestToY: .nan, rounding: .closest) }
@@ -202,6 +244,9 @@ open class ChartDataSet: ChartBaseDataSet
         guard !(indexTo < indexFrom) else { return }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let indexFrom = entryIndex(x: fromX, closestToY: .nan, rounding: .closest)
         var indexTo = entryIndex(x: toX, closestToY: .nan, rounding: .up)
@@ -209,8 +254,11 @@ open class ChartDataSet: ChartBaseDataSet
         
         guard indexTo >= indexFrom else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         // only recalculate y
         self[indexFrom...indexTo].forEach(calcMinMaxY)
     }
@@ -220,8 +268,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _xMin = Swift.min(e.x, _xMin)
         _xMax = Swift.max(e.x, _xMax)
 =======
@@ -235,12 +286,18 @@ open class ChartDataSet: ChartBaseDataSet
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _xMin = Swift.min(e.x, _xMin)
         _xMax = Swift.max(e.x, _xMax)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func calcMinMaxY(entry e: ChartDataEntry)
@@ -248,8 +305,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _yMin = Swift.min(e.y, _yMin)
         _yMax = Swift.max(e.y, _yMax)
 =======
@@ -263,12 +323,18 @@ open class ChartDataSet: ChartBaseDataSet
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _yMin = Swift.min(e.y, _yMin)
         _yMax = Swift.max(e.y, _yMax)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Updates the min and max x and y value of this DataSet based on the given Entry.
@@ -285,8 +351,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open override var yMin: Double { return _yMin }
     
     /// The maximum y-value this DataSet holds
@@ -300,6 +369,7 @@ open class ChartDataSet: ChartBaseDataSet
 =======
     open override var yMin: Double { return _yMin }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open override var yMin: Double { return _yMin }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -318,17 +388,29 @@ open class ChartDataSet: ChartBaseDataSet
     @objc open override var xMax: Double { return _xMax }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc open override var yMin: Double { return _yMin }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// The maximum y-value this DataSet holds
-    open override var yMax: Double { return _yMax }
+    @objc open override var yMax: Double { return _yMax }
     
     /// The minimum x-value this DataSet holds
-    open override var xMin: Double { return _xMin }
+    @objc open override var xMin: Double { return _xMin }
     
     /// The maximum x-value this DataSet holds
+<<<<<<< HEAD
     open override var xMax: Double { return _xMax }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open override var xMax: Double { return _xMax }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     /// The number of y-values this DataSet represents
     @available(*, deprecated, message: "Use `count` instead")
@@ -343,18 +425,27 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard indices.contains(i) else {
 =======
         guard i >= startIndex, i < endIndex else {
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         guard indices.contains(i) else {
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        guard indices.contains(i) else {
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             return nil
         }
         return self[i]
@@ -400,10 +491,15 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let match: (ChartDataEntry) -> Bool = { $0.x == xValue }
         var partitioned = self.entries
         _ = partitioned.partition(by: match)
@@ -412,8 +508,11 @@ open class ChartDataSet: ChartBaseDataSet
         return partitioned[i...].prefix(while: match)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var entries = [ChartDataEntry]()
         
@@ -469,10 +568,15 @@ open class ChartDataSet: ChartBaseDataSet
         return entries
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// - Parameters:
@@ -489,10 +593,15 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var closest = partitioningIndex { $0.x >= xValue }
         guard closest < endIndex else { return index(before: endIndex) }
 
@@ -504,8 +613,11 @@ open class ChartDataSet: ChartBaseDataSet
             if closestXValue < xValue && closest < index(before: endIndex)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 formIndex(after: &closest)
             }
@@ -572,6 +684,7 @@ open class ChartDataSet: ChartBaseDataSet
             
             if ad2 < ad1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
             {
@@ -625,49 +738,64 @@ open class ChartDataSet: ChartBaseDataSet
             }
 <<<<<<< HEAD
 =======
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                // [m + 1] is closer to xValue
-                // Search in an higher place
-                low = m + 1
+                formIndex(after: &closest)
             }
-            else if ad1 < ad2
+
+        case .down:
+            // If rounding down, and found x-value is upper than specified x, and we can go lower...
+            if closestXValue > xValue && closest > startIndex
             {
-                // [m] is closer to xValue
-                // Search in a lower place
-                high = m
+                formIndex(before: &closest)
             }
-            else
-            {
-                // We have multiple sequential x-value with same distance
-                
-                if d1 >= 0.0
+
+        case .closest:
+            // The closest value in the beginning of this function
+            // `var closest = partitioningIndex { $0.x >= xValue }`
+            // doesn't guarantee closest rounding method
+            if closest > startIndex {
+                let distanceAfter = abs(self[closest].x - xValue)
+                let distanceBefore = abs(self[index(before: closest)].x - xValue)
+                if distanceBefore < distanceAfter
                 {
-                    // Search in a lower place
-                    high = m
+                    closest = index(before: closest)
                 }
-                else if d1 < 0.0
-                {
-                    // Search in an higher place
-                    low = m + 1
-                }
+                closestXValue = self[closest].x
             }
-            
-            closest = high
         }
-        
-        if closest != -1
+
+        // Search by closest to y-value
+        if !yValue.isNaN
         {
-            let closestXValue = self[closest].x
-            
-            if rounding == .up
+            while closest > startIndex && self[index(before: closest)].x == closestXValue
             {
-                // If rounding up, and found x-value is lower than specified x, and we can go upper...
-                if closestXValue < xValue && closest < endIndex - 1
+                formIndex(before: &closest)
+            }
+
+            var closestYValue = self[closest].y
+            var closestYIndex = closest
+
+            while closest < index(before: endIndex)
+            {
+                formIndex(after: &closest)
+                let value = self[closest]
+
+                if value.x != closestXValue { break }
+                if abs(value.y - yValue) <= abs(closestYValue - yValue)
                 {
-                    closest += 1
+                    closestYValue = yValue
+                    closestYIndex = closest
                 }
             }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else if rounding == .down
             {
                 // If rounding down, and found x-value is upper than specified x, and we can go lower...
@@ -707,12 +835,18 @@ open class ChartDataSet: ChartBaseDataSet
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
             closest = closestYIndex
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         return closest
@@ -724,17 +858,23 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // TODO: Should be returning `nil` to follow Swift convention
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
     // TODO: Should be returning `nil` to follow Swift convention
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
     // TODO: Should be returning `nil` to follow Swift convention
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @available(*, deprecated, message: "Use `firstIndex(of:)` or `lastIndex(of:)`")
     open override func entryIndex(entry e: ChartDataEntry) -> Int
     {
@@ -751,20 +891,29 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // TODO: This should return `Void` to follow Swift convention
     @available(*, deprecated, message: "Use `append(_:)` instead", renamed: "append(_:)")
 =======
     @available(*, deprecated, message: "Use `append(_:)` instead")
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     // TODO: This should return `Void` to follow Swift convention
     @available(*, deprecated, message: "Use `append(_:)` instead", renamed: "append(_:)")
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func addEntry(_ e: ChartDataEntry) -> Bool
     {
         append(e)
@@ -781,8 +930,11 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // TODO: This should return `Void` to follow Swift convention
     open override func addEntryOrdered(_ e: ChartDataEntry) -> Bool
     {
@@ -794,6 +946,7 @@ open class ChartDataSet: ChartBaseDataSet
             calcMinMax(entry: e)
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     // TODO: This should return `Void` to follow Swift convention
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -803,13 +956,20 @@ open class ChartDataSet: ChartBaseDataSet
         {
 <<<<<<< HEAD
 =======
+=======
+=======
+    // TODO: This should return `Void` to follow Swift convention
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func addEntryOrdered(_ e: ChartDataEntry) -> Bool
     {
-        calcMinMax(entry: e)
-        
         if let last = last, last.x > e.x
         {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             var closestIndex = entryIndex(x: e.x, closestToY: e.y, rounding: .up)
             while self[closestIndex].x < e.x
             {
@@ -817,14 +977,20 @@ open class ChartDataSet: ChartBaseDataSet
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             let startIndex = entryIndex(x: e.x, closestToY: e.y, rounding: .up)
             let closestIndex = self[startIndex...].lastIndex { $0.x < e.x }
                 ?? startIndex
             calcMinMax(entry: e)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             entries.insert(e, at: closestIndex)
         }
         else
@@ -841,18 +1007,27 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         remove(entry)
 =======
         return remove(entry)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         remove(entry)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        remove(entry)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     /// Removes an Entry from the DataSet dynamically.
@@ -874,17 +1049,23 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // TODO: This should return the removed entry to follow Swift convention.
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
     // TODO: This should return the removed entry to follow Swift convention.
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
     // TODO: This should return the removed entry to follow Swift convention.
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @available(*, deprecated, message: "Use `func removeFirst() -> ChartDataEntry` instead.")
     open override func removeFirst() -> Bool
     {
@@ -898,17 +1079,23 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // TODO: This should return the removed entry to follow Swift convention.
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
     // TODO: This should return the removed entry to follow Swift convention.
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
     // TODO: This should return the removed entry to follow Swift convention.
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @available(*, deprecated, message: "Use `func removeLast() -> ChartDataEntry` instead.")
     open override func removeLast() -> Bool
     {
@@ -927,18 +1114,27 @@ open class ChartDataSet: ChartBaseDataSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // MARK: - NSCopying
     
     open override func copy(with zone: NSZone? = nil) -> Any
@@ -998,10 +1194,15 @@ extension ChartDataSet: RangeReplaceableCollection {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public func replaceSubrange<C>(_ subrange: Swift.Range<Index>, with newElements: C) where C : Collection, Element == C.Element {
         entries.replaceSubrange(subrange, with: newElements)
         notifyDataSetChanged()
@@ -1009,14 +1210,20 @@ extension ChartDataSet: RangeReplaceableCollection {
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public func append(_ newElement: Element) {
         calcMinMax(entry: newElement)
         entries.append(newElement)

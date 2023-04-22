@@ -17,18 +17,27 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init()
 =======
     public override init()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public required init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public required init()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
     }
@@ -36,8 +45,11 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(dataSets: [ChartDataSetProtocol])
     {
         super.init(dataSets: dataSets)
@@ -56,6 +68,9 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     public override init(dataSets: [ChartDataSetProtocol])
     {
@@ -68,8 +83,11 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
     }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// The width of the bars on the x-axis, in values (not pixels)
     ///
     /// **default**: 0.85
@@ -88,8 +106,11 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard !isEmpty else {
             print("BarData needs to hold at least 2 BarDataSets to allow grouping.", terminator: "\n")
             return
@@ -105,6 +126,9 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard !isEmpty else {
             print("BarData needs to hold at least 2 BarDataSets to allow grouping.", terminator: "\n")
@@ -112,8 +136,11 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
         }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let max = maxEntryCountSet
         let maxEntryCount = max?.entryCount ?? 0
         
@@ -128,18 +155,27 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in 0..<maxEntryCount
 =======
         for i in stride(from: 0, to: maxEntryCount, by: 1)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         for i in 0..<maxEntryCount
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        for i in 0..<maxEntryCount
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             let start = fromX
             fromX += groupSpaceWidthHalf
@@ -147,18 +183,27 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             (_dataSets as! [BarChartDataSetProtocol]).forEach { set in
 =======
             (_dataSets as? [IBarChartDataSet])?.forEach { set in
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             (_dataSets as! [BarChartDataSetProtocol]).forEach { set in
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            (_dataSets as! [BarChartDataSetProtocol]).forEach { set in
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 fromX += barSpaceHalf
                 fromX += barWidthHalf
                 
@@ -187,16 +232,22 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
         
         notifyDataChanged()
@@ -212,8 +263,11 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return Double(count) * (self.barWidth + barSpace) + groupSpace
     }
 =======
@@ -222,10 +276,16 @@ open class BarChartData: BarLineScatterCandleBubbleChartData
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         return Double(count) * (self.barWidth + barSpace) + groupSpace
     }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }

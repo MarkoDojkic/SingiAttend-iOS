@@ -35,10 +35,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         let sets = lineData.dataSets as? [LineChartDataSet]
         assert(sets != nil, "Datasets for LineChartRenderer must conform to ILineChartDataSet")
@@ -49,8 +54,11 @@ open class LineChartRenderer: LineRadarRenderer
             .forEach(drawDataSet)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func drawDataSet(context: CGContext, dataSet: LineChartDataSetProtocol)
@@ -75,13 +83,19 @@ open class LineChartRenderer: LineRadarRenderer
     @objc open func drawDataSet(context: CGContext, dataSet: ILineChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     }
     
     @objc open func drawDataSet(context: CGContext, dataSet: LineChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         if dataSet.entryCount < 1
         {
@@ -121,10 +135,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
     private func drawLine(
         context: CGContext,
@@ -138,8 +157,11 @@ open class LineChartRenderer: LineRadarRenderer
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     @objc open func drawCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
 =======
@@ -147,12 +169,18 @@ open class LineChartRenderer: LineRadarRenderer
     @objc open func drawCubicBezier(context: CGContext, dataSet: ILineChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     
     @objc open func drawCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -230,20 +258,29 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         defer { context.restoreGState() }
 
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         defer { context.restoreGState() }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if dataSet.isDrawFilledEnabled
         {
             // Copy this path because we make changes to it
@@ -254,10 +291,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         if dataSet.isDrawLineWithGradientEnabled
         {
@@ -269,8 +311,11 @@ open class LineChartRenderer: LineRadarRenderer
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func drawHorizontalBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
@@ -287,13 +332,19 @@ open class LineChartRenderer: LineRadarRenderer
     @objc open func drawHorizontalBezier(context: CGContext, dataSet: ILineChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     }
     
     @objc open func drawHorizontalBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -346,17 +397,23 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         defer { context.restoreGState() }
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
         defer { context.restoreGState() }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
         defer { context.restoreGState() }
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if dataSet.isDrawFilledEnabled
         {
@@ -368,10 +425,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         if dataSet.isDrawLineWithGradientEnabled
         {
@@ -383,8 +445,11 @@ open class LineChartRenderer: LineRadarRenderer
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         context.beginPath()
@@ -395,10 +460,15 @@ open class LineChartRenderer: LineRadarRenderer
         context.restoreGState()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     open func drawCubicFill(
@@ -406,18 +476,26 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         dataSet: LineChartDataSetProtocol,
         spline: CGMutablePath,
         matrix: CGAffineTransform,
         bounds: XBounds)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard
             let dataProvider = dataProvider
@@ -433,14 +511,20 @@ open class LineChartRenderer: LineRadarRenderer
             else { return }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     {
         guard
             let dataProvider = dataProvider
         else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         if bounds.range <= 0
         {
@@ -473,18 +557,27 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
 =======
     @objc open func drawLinear(context: CGContext, dataSet: ILineChartDataSet)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func drawLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func drawLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -510,10 +603,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         defer { context.restoreGState() }
 
         // more than 1 color
@@ -521,16 +619,22 @@ open class LineChartRenderer: LineRadarRenderer
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             if _lineSegments.count != pointsPerEntryPair
             {
                 // Allocate once in correct size
@@ -540,8 +644,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for j in _xBounds.dropLast()
             {
                 var e: ChartDataEntry! = dataSet.entryForIndex(j)
@@ -677,6 +784,7 @@ open class LineChartRenderer: LineRadarRenderer
             
             if j < _xBounds.max
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             for j in _xBounds.dropLast()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -808,65 +916,142 @@ open class LineChartRenderer: LineRadarRenderer
     open func drawLinearFill(context: CGContext, dataSet: LineChartDataSetProtocol, trans: Transformer, bounds: XBounds)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            for j in _xBounds.dropLast()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
-                // TODO: remove the check.
-                // With the new XBounds iterator, j is always smaller than _xBounds.max
-                // Keeping this check for a while, if xBounds have no further breaking changes, it should be safe to remove the check
-                e = dataSet.entryForIndex(j + 1)
+                var e: ChartDataEntry! = dataSet.entryForIndex(j)
                 
-                if e == nil { break }
+                if e == nil { continue }
                 
-                if isDrawSteppedEnabled
+                _lineSegments[0].x = CGFloat(e.x)
+                _lineSegments[0].y = CGFloat(e.y * phaseY)
+                
+                if j < _xBounds.max
                 {
-                    _lineSegments[1] = CGPoint(x: CGFloat(e.x), y: _lineSegments[0].y)
-                    _lineSegments[2] = _lineSegments[1]
-                    _lineSegments[3] = CGPoint(x: CGFloat(e.x), y: CGFloat(e.y * phaseY))
+                    // TODO: remove the check.
+                    // With the new XBounds iterator, j is always smaller than _xBounds.max
+                    // Keeping this check for a while, if xBounds have no further breaking changes, it should be safe to remove the check
+                    e = dataSet.entryForIndex(j + 1)
+                    
+                    if e == nil { break }
+                    
+                    if isDrawSteppedEnabled
+                    {
+                        _lineSegments[1] = CGPoint(x: CGFloat(e.x), y: _lineSegments[0].y)
+                        _lineSegments[2] = _lineSegments[1]
+                        _lineSegments[3] = CGPoint(x: CGFloat(e.x), y: CGFloat(e.y * phaseY))
+                    }
+                    else
+                    {
+                        _lineSegments[1] = CGPoint(x: CGFloat(e.x), y: CGFloat(e.y * phaseY))
+                    }
                 }
                 else
                 {
-                    _lineSegments[1] = CGPoint(x: CGFloat(e.x), y: CGFloat(e.y * phaseY))
+                    _lineSegments[1] = _lineSegments[0]
                 }
+
+                _lineSegments = _lineSegments.map { $0.applying(valueToPixelMatrix) }
+
+                if (!viewPortHandler.isInBoundsRight(_lineSegments[0].x))
+                {
+                    break
+                }
+
+                // Determine the start and end coordinates of the line, and make sure they differ.
+                guard
+                    let firstCoordinate = _lineSegments.first,
+                    let lastCoordinate = _lineSegments.last,
+                    firstCoordinate != lastCoordinate else { continue }
+                
+                // make sure the lines don't do shitty things outside bounds
+                if !viewPortHandler.isInBoundsLeft(lastCoordinate.x) ||
+                    !viewPortHandler.isInBoundsTop(max(firstCoordinate.y, lastCoordinate.y)) ||
+                    !viewPortHandler.isInBoundsBottom(min(firstCoordinate.y, lastCoordinate.y))
+                {
+                    continue
+                }
+                
+                // get the color that is set for this line-segment
+                context.setStrokeColor(dataSet.color(atIndex: j).cgColor)
+                context.strokeLineSegments(between: _lineSegments)
             }
-            else
-            {
-                _lineSegments[1] = _lineSegments[0]
+        }
+        else
+        { // only one color per dataset
+            guard dataSet.entryForIndex(_xBounds.min) != nil else {
+                return
             }
 
-            for i in 0..<_lineSegments.count
+            var firstPoint = true
+
+            let path = CGMutablePath()
+            for x in stride(from: _xBounds.min, through: _xBounds.range + _xBounds.min, by: 1)
             {
-                _lineSegments[i] = _lineSegments[i].applying(valueToPixelMatrix)
+                guard let e1 = dataSet.entryForIndex(x == 0 ? 0 : (x - 1)) else { continue }
+                guard let e2 = dataSet.entryForIndex(x) else { continue }
+                
+                let startPoint =
+                    CGPoint(
+                        x: CGFloat(e1.x),
+                        y: CGFloat(e1.y * phaseY))
+                    .applying(valueToPixelMatrix)
+                
+                if firstPoint
+                {
+                    path.move(to: startPoint)
+                    firstPoint = false
+                }
+                else
+                {
+                    path.addLine(to: startPoint)
+                }
+                
+                if isDrawSteppedEnabled
+                {
+                    let steppedPoint =
+                        CGPoint(
+                            x: CGFloat(e2.x),
+                            y: CGFloat(e1.y * phaseY))
+                        .applying(valueToPixelMatrix)
+                    path.addLine(to: steppedPoint)
+                }
+
+                let endPoint =
+                    CGPoint(
+                        x: CGFloat(e2.x),
+                        y: CGFloat(e2.y * phaseY))
+                    .applying(valueToPixelMatrix)
+                path.addLine(to: endPoint)
             }
             
-            if !viewPortHandler.isInBoundsRight(_lineSegments[0].x)
+            if !firstPoint
             {
-                break
+                if dataSet.isDrawLineWithGradientEnabled {
+                    drawGradientLine(context: context, dataSet: dataSet, spline: path, matrix: valueToPixelMatrix)
+                } else {
+                    context.beginPath()
+                    context.addPath(path)
+                    context.setStrokeColor(dataSet.color(atIndex: 0).cgColor)
+                    context.strokePath()
+                }
             }
-            
-            // Determine the start and end coordinates of the line, and make sure they differ.
-            guard
-                let firstCoordinate = _lineSegments.first,
-                let lastCoordinate = _lineSegments.last,
-                firstCoordinate != lastCoordinate else { continue }
-            
-            // make sure the lines don't do shitty things outside bounds
-            if !viewPortHandler.isInBoundsLeft(lastCoordinate.x) ||
-                !viewPortHandler.isInBoundsTop(max(firstCoordinate.y, lastCoordinate.y)) ||
-                !viewPortHandler.isInBoundsBottom(min(firstCoordinate.y, lastCoordinate.y))
-            {
-                continue
-            }
-            
-            // get the color that is set for this line-segment
-            context.setStrokeColor(dataSet.color(atIndex: j).cgColor)
-            context.strokeLineSegments(between: _lineSegments)
         }
-        
-        context.restoreGState()
     }
     
+<<<<<<< HEAD
     open func drawLinearFill(context: CGContext, dataSet: ILineChartDataSet, trans: Transformer, bounds: XBounds)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    open func drawLinearFill(context: CGContext, dataSet: LineChartDataSetProtocol, trans: Transformer, bounds: XBounds)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -890,18 +1075,27 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private func generateFilledPath(dataSet: LineChartDataSetProtocol, fillMin: CGFloat, bounds: XBounds, matrix: CGAffineTransform) -> CGPath
 =======
     private func generateFilledPath(dataSet: ILineChartDataSet, fillMin: CGFloat, bounds: XBounds, matrix: CGAffineTransform) -> CGPath
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     private func generateFilledPath(dataSet: LineChartDataSetProtocol, fillMin: CGFloat, bounds: XBounds, matrix: CGAffineTransform) -> CGPath
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private func generateFilledPath(dataSet: LineChartDataSetProtocol, fillMin: CGFloat, bounds: XBounds, matrix: CGAffineTransform) -> CGPath
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         let phaseY = animator.phaseY
         let isDrawSteppedEnabled = dataSet.mode == .stepped
@@ -951,8 +1145,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         else { return }
 
         if isDrawingValuesAllowed(dataProvider: dataProvider)
@@ -966,14 +1163,20 @@ open class LineChartRenderer: LineRadarRenderer
             
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         else { return }
 
         if isDrawingValuesAllowed(dataProvider: dataProvider)
         {
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let phaseY = animator.phaseY
             
             var pt = CGPoint()
@@ -981,8 +1184,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for i in lineData.indices
             {
                 guard let
@@ -998,6 +1204,7 @@ open class LineChartRenderer: LineRadarRenderer
 =======
             for i in 0 ..< dataSets.count
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             for i in lineData.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -1018,17 +1225,31 @@ open class LineChartRenderer: LineRadarRenderer
                 let angleRadians = dataSet.valueLabelAngle.DEG2RAD
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            for i in lineData.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 guard let
-                    dataSet = dataSets[i] as? ILineChartDataSet,
-                    shouldDrawValues(forDataSet: dataSet)
-                    else { continue }
+                        dataSet = lineData[i] as? LineChartDataSetProtocol,
+                      shouldDrawValues(forDataSet: dataSet)
+                else { continue }
                 
                 let valueFont = dataSet.valueFont
                 
+<<<<<<< HEAD
                 guard let formatter = dataSet.valueFormatter else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let formatter = dataSet.valueFormatter
+                
+                let angleRadians = dataSet.valueLabelAngle.DEG2RAD
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 let valueToPixelMatrix = trans.valueToPixelMatrix
@@ -1066,10 +1287,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     if dataSet.isDrawValuesEnabled
                     {
                         context.drawText(formatter.stringForValue(e.y,
@@ -1084,8 +1310,11 @@ open class LineChartRenderer: LineRadarRenderer
                                                       .foregroundColor: dataSet.valueTextColorAt(j)])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     if dataSet.isDrawValuesEnabled {
                         ChartUtils.drawText(
@@ -1102,10 +1331,15 @@ open class LineChartRenderer: LineRadarRenderer
                             attributes: [NSAttributedString.Key.font: valueFont, NSAttributedString.Key.foregroundColor: dataSet.valueTextColorAt(j)])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                     
                     if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -1113,18 +1347,26 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         context.drawImage(icon,
                                           atCenter: CGPoint(x: pt.x + iconsOffset.x,
                                                             y: pt.y + iconsOffset.y),
                                           size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                         ChartUtils.drawImage(context: context,
                                              image: icon,
@@ -1133,10 +1375,15 @@ open class LineChartRenderer: LineRadarRenderer
                                              size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -1156,8 +1403,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         else { return }
         
         let phaseY = animator.phaseY
@@ -1169,13 +1419,19 @@ open class LineChartRenderer: LineRadarRenderer
         let dataSets = lineData.dataSets
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         else { return }
         
         let phaseY = animator.phaseY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         var pt = CGPoint()
         var rect = CGRect()
@@ -1197,8 +1453,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in lineData.indices
         {
             guard let dataSet = lineData[i] as? LineChartDataSetProtocol else { continue }
@@ -1214,6 +1473,9 @@ open class LineChartRenderer: LineRadarRenderer
             if !dataSet.isVisible || dataSet.entryCount == 0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for i in lineData.indices
         {
@@ -1223,8 +1485,11 @@ open class LineChartRenderer: LineRadarRenderer
             // reduces CPU significantly if not needed
             if !dataSet.isVisible || !dataSet.isDrawCirclesEnabled || dataSet.entryCount == 0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             {
                 continue
             }
@@ -1268,8 +1533,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 
                 // Skip Circles and Accessibility if not enabled,
@@ -1281,10 +1549,15 @@ open class LineChartRenderer: LineRadarRenderer
                 
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 // Accessibility element geometry
                 let scaleFactor: CGFloat = 3
                 let accessibilityRect = CGRect(x: pt.x - (scaleFactor * circleRadius),
@@ -1338,18 +1611,27 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 =======
                      
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                         // The hole rect
                         rect.origin.x = pt.x - circleHoleRadius
                         rect.origin.y = pt.y - circleHoleRadius
@@ -1377,18 +1659,27 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         else { return }
 =======
             else { return }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         else { return }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        else { return }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let chartXMax = dataProvider.chartXMax
         
@@ -1399,8 +1690,11 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             guard let set = lineData[high.dataSetIndex] as? LineChartDataSetProtocol,
                   set.isHighlightEnabled
             else { continue }
@@ -1410,13 +1704,19 @@ open class LineChartRenderer: LineRadarRenderer
                 else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             guard let set = lineData[high.dataSetIndex] as? LineChartDataSetProtocol,
                   set.isHighlightEnabled
             else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             guard let e = set.entryForXValue(high.x, closestToY: high.y) else { continue }
             
@@ -1427,18 +1727,27 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
 =======
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             context.setStrokeColor(set.highlightColor.cgColor)
             context.setLineWidth(set.highlightLineWidth)
             if set.highlightLineDashLengths != nil
@@ -1474,10 +1783,15 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     func drawGradientLine(context: CGContext, dataSet: LineChartDataSetProtocol, spline: CGPath, matrix: CGAffineTransform)
     {
         guard let gradientPositions = dataSet.gradientPositions else
@@ -1537,14 +1851,20 @@ open class LineChartRenderer: LineRadarRenderer
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Creates a nested array of empty subarrays each of which will be populated with NSUIAccessibilityElements.
     /// This is marked internal to support HorizontalBarChartRenderer as well.
     private func accessibilityCreateEmptyOrderedElements() -> [[NSUIAccessibilityElement]]
@@ -1564,18 +1884,26 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          container: LineChartView,
                                          dataSet: LineChartDataSetProtocol,
                                          dataSetIndex: Int,
                                          modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                                           container: LineChartView,
                                           dataSet: ILineChartDataSet,
@@ -1583,10 +1911,15 @@ open class LineChartRenderer: LineRadarRenderer
                                           modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         let element = NSUIAccessibilityElement(accessibilityContainer: container)
         let xAxis = container.xAxis
@@ -1602,18 +1935,26 @@ open class LineChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let elementValueText = dataSet.valueFormatter.stringForValue(e.y,
                                                                      entry: e,
                                                                      dataSetIndex: dataSetIndex,
                                                                      viewPortHandler: viewPortHandler)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let elementValueText = dataSet.valueFormatter?.stringForValue(e.y,
                                                                       entry: e,
@@ -1621,10 +1962,15 @@ open class LineChartRenderer: LineRadarRenderer
                                                                       viewPortHandler: viewPortHandler) ?? "\(e.y)"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         let dataSetCount = dataProvider.lineData?.dataSetCount ?? -1
         let doesContainMultipleDataSets = dataSetCount > 1

@@ -22,18 +22,27 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init()
 =======
     public override init()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public required init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public required init()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
     }
@@ -41,8 +50,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(dataSets: [ChartDataSetProtocol])
     {
         super.init(dataSets: dataSets)
@@ -59,6 +71,9 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
     }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     public override init(dataSets: [ChartDataSetProtocol])
     {
@@ -70,8 +85,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
         super.init(dataSets: elements)
     }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     @objc open var lineData: LineChartData!
     {
@@ -145,18 +163,26 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         yMax = -Double.greatestFiniteMagnitude
         yMin = Double.greatestFiniteMagnitude
         xMax = -Double.greatestFiniteMagnitude
         xMin = Double.greatestFiniteMagnitude
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         leftAxisMax = -Double.greatestFiniteMagnitude
         leftAxisMin = Double.greatestFiniteMagnitude
@@ -174,6 +200,9 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
         _rightAxisMin = Double.greatestFiniteMagnitude
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         
         leftAxisMax = -Double.greatestFiniteMagnitude
@@ -181,8 +210,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
         rightAxisMax = -Double.greatestFiniteMagnitude
         rightAxisMin = Double.greatestFiniteMagnitude
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         let allData = self.allData
         
@@ -193,8 +225,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             _dataSets.append(contentsOf: data)
             
             if data.yMax > yMax
@@ -232,6 +267,7 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
             let sets = data.dataSets
             _dataSets.append(contentsOf: sets)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             _dataSets.append(contentsOf: data)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -273,40 +309,52 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
                         leftAxisMin = set.yMin
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+            _dataSets.append(contentsOf: data)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
-            if data.yMax > _yMax
+            if data.yMax > yMax
             {
-                _yMax = data.yMax
+                yMax = data.yMax
             }
             
-            if data.yMin < _yMin
+            if data.yMin < yMin
             {
-                _yMin = data.yMin
+                yMin = data.yMin
             }
             
-            if data.xMax > _xMax
+            if data.xMax > xMax
             {
-                _xMax = data.xMax
+                xMax = data.xMax
             }
             
-            if data.xMin < _xMin
+            if data.xMin < xMin
             {
-                _xMin = data.xMin
+                xMin = data.xMin
             }
 
-            for dataset in sets
+            for set in data
             {
-                if dataset.axisDependency == .left
+                if set.axisDependency == .left
                 {
-                    if dataset.yMax > _leftAxisMax
+                    if set.yMax > leftAxisMax
                     {
-                        _leftAxisMax = dataset.yMax
+                        leftAxisMax = set.yMax
                     }
-                    if dataset.yMin < _leftAxisMin
+                    if set.yMin < leftAxisMin
                     {
+<<<<<<< HEAD
                         _leftAxisMin = dataset.yMin
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        leftAxisMin = set.yMin
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
                 else
@@ -314,8 +362,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     if set.yMax > rightAxisMax
                     {
                         rightAxisMax = set.yMax
@@ -326,6 +377,7 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 =======
                     if dataset.yMax > _rightAxisMax
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     if set.yMax > rightAxisMax
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -341,14 +393,26 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
                         rightAxisMin = set.yMin
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+                    if set.yMax > rightAxisMax
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     {
-                        _rightAxisMax = dataset.yMax
+                        rightAxisMax = set.yMax
                     }
-                    if dataset.yMin < _rightAxisMin
+                    if set.yMin < rightAxisMin
                     {
+<<<<<<< HEAD
                         _rightAxisMin = dataset.yMin
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                        rightAxisMin = set.yMin
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     }
                 }
             }
@@ -397,8 +461,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func removeDataSet(_ dataSet: ChartDataSetProtocol) -> Element?
     {
         for data in allData
@@ -415,6 +482,7 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 =======
     open override func removeDataSet(_ dataSet: IChartDataSet) -> Bool
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     open override func removeDataSet(_ dataSet: ChartDataSetProtocol) -> Element?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -431,10 +499,27 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
     }
 <<<<<<< HEAD
 =======
+=======
+=======
+    open override func removeDataSet(_ dataSet: ChartDataSetProtocol) -> Element?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        return allData.contains { $0.removeDataSet(dataSet) }
+        for data in allData
+        {
+            if let e = data.removeDataSet(dataSet)
+            {
+                return e
+            }
+        }
+        
+        return nil
     }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     open override func removeDataSetByIndex(_ index: Int) -> Bool
     {
@@ -444,11 +529,17 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open override func removeEntry(_ entry: ChartDataEntry, dataSetIndex: Int) -> Bool
     {
         print("removeEntry(entry, dataSetIndex) not supported for CombinedData", terminator: "\n")
@@ -466,10 +557,15 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _lineData?.notifyDataChanged()
         _barData?.notifyDataChanged()
         _scatterData?.notifyDataChanged()
@@ -478,8 +574,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         if _lineData !== nil
         {
@@ -504,10 +603,15 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         super.notifyDataChanged() // recalculate everything
     }
     
@@ -519,8 +623,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
     {
         // The value of the highlighted entry could be NaN - if we are not interested in highlighting a specific value.
@@ -530,6 +637,7 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 =======
     open override func entryForHighlight(_ highlight: Highlight) -> ChartDataEntry?
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -545,24 +653,26 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
             .first { $0.y == highlight.y || highlight.y.isNaN }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        if highlight.dataIndex >= allData.count
-        {
-            return nil
-        }
-        
-        let data = dataByIndex(highlight.dataIndex)
-        
-        if highlight.dataSetIndex >= data.dataSetCount
-        {
-            return nil
-        }
-        
         // The value of the highlighted entry could be NaN - if we are not interested in highlighting a specific value.
+<<<<<<< HEAD
         let entries = data.getDataSetByIndex(highlight.dataSetIndex).entriesForXValue(highlight.x)
         return entries.first { $0.y == highlight.y || highlight.y.isNaN }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        getDataSetByHighlight(highlight)?
+            .entriesForXValue(highlight.x)
+            .first { $0.y == highlight.y || highlight.y.isNaN }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Get dataset for highlight
@@ -573,8 +683,11 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func getDataSetByHighlight(_ highlight: Highlight) -> ChartDataSetProtocol!
     {
         guard allData.indices.contains(highlight.dataIndex) else
@@ -606,11 +719,15 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
     {  
         if highlight.dataIndex >= allData.count
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open func getDataSetByHighlight(_ highlight: Highlight) -> ChartDataSetProtocol!
     {
         guard allData.indices.contains(highlight.dataIndex) else
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         {
             return nil
         }
@@ -641,19 +758,40 @@ open class CombinedChartData: BarLineScatterCandleBubbleChartData
         fatalError("remove(at:) not supported for CombinedData")
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             return nil
         }
-        
+
         let data = dataByIndex(highlight.dataIndex)
-        
-        if highlight.dataSetIndex >= data.dataSetCount
+
+        guard data.indices.contains(highlight.dataSetIndex) else
         {
             return nil
         }
+<<<<<<< HEAD
         
         return data.dataSets[highlight.dataSetIndex]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+
+        // The value of the highlighted entry could be NaN - if we are not interested in highlighting a specific value.
+        return data[highlight.dataSetIndex]
+    }
+
+    // MARK: Unsupported Collection Methods
+
+    public override func append(_ newElement: ChartData.Element) {
+        fatalError("append(_:) not supported for CombinedData")
+    }
+
+    public override func remove(at i: Int) -> ChartDataSetProtocol {
+        fatalError("remove(at:) not supported for CombinedData")
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

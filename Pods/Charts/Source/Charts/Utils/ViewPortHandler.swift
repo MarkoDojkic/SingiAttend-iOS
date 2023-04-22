@@ -20,8 +20,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open private(set) var touchMatrix = CGAffineTransform.identity
 
     /// this rectangle defines the area in which graph values can be drawn
@@ -64,10 +67,14 @@ open class ViewPortHandler: NSObject
     private var _touchMatrix = CGAffineTransform.identity
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     @objc open private(set) var touchMatrix = CGAffineTransform.identity
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
     /// this rectangle defines the area in which graph values can be drawn
     @objc open private(set) var contentRect = CGRect()
     
@@ -111,44 +118,54 @@ open class ViewPortHandler: NSObject
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// this rectangle defines the area in which graph values can be drawn
-    private var _contentRect = CGRect()
+    @objc open private(set) var contentRect = CGRect()
     
-    private var _chartWidth = CGFloat(0.0)
-    private var _chartHeight = CGFloat(0.0)
-    
+    @objc open private(set) var chartWidth: CGFloat = 0
+    @objc open private(set) var chartHeight: CGFloat = 0
+
     /// minimum scale value on the y-axis
-    private var _minScaleY = CGFloat(1.0)
-    
+    @objc open private(set) var minScaleY: CGFloat = 1.0
+
     /// maximum scale value on the y-axis
-    private var _maxScaleY = CGFloat.greatestFiniteMagnitude
-    
+    @objc open private(set) var maxScaleY = CGFloat.greatestFiniteMagnitude
+
     /// minimum scale value on the x-axis
-    private var _minScaleX = CGFloat(1.0)
-    
+    @objc open private(set) var minScaleX: CGFloat = 1.0
+
     /// maximum scale value on the x-axis
-    private var _maxScaleX = CGFloat.greatestFiniteMagnitude
-    
+    @objc open private(set) var maxScaleX = CGFloat.greatestFiniteMagnitude
+
     /// contains the current scale factor of the x-axis
-    private var _scaleX = CGFloat(1.0)
-    
+    @objc open private(set) var scaleX: CGFloat = 1.0
+
     /// contains the current scale factor of the y-axis
-    private var _scaleY = CGFloat(1.0)
-    
-    /// current translation (drag distance) on the x-axis
-    private var _transX = CGFloat(0.0)
-    
-    /// current translation (drag distance) on the y-axis
-    private var _transY = CGFloat(0.0)
-    
+    @objc open private(set) var scaleY: CGFloat = 1.0
+
+    /// current translation (drag / pan) distance on the x-axis
+    @objc open private(set) var transX: CGFloat = 0
+
+    /// current translation (drag / pan) distance on the y-axis
+    @objc open private(set) var transY: CGFloat = 0
+
     /// offset that allows the chart to be dragged over its bounds on the x-axis
-    private var _transOffsetX = CGFloat(0.0)
-    
+    private var transOffsetX: CGFloat = 0
+
     /// offset that allows the chart to be dragged over its bounds on the x-axis
+<<<<<<< HEAD
     private var _transOffsetY = CGFloat(0.0)
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    private var transOffsetY: CGFloat = 0
+
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Constructor - don't forget calling setChartDimens(...)
     @objc public init(width: CGFloat, height: CGFloat)
     {
@@ -167,8 +184,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         chartHeight = height
         chartWidth = width
 =======
@@ -176,12 +196,18 @@ open class ViewPortHandler: NSObject
         _chartWidth = width
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         chartHeight = height
         chartWidth = width
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         restrainViewPort(offsetLeft: offsetLeft, offsetTop: offsetTop, offsetRight: offsetRight, offsetBottom: offsetBottom)
     }
@@ -191,8 +217,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return chartHeight > 0.0
             && chartWidth > 0.0
 =======
@@ -206,12 +235,18 @@ open class ViewPortHandler: NSObject
         }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         return chartHeight > 0.0
             && chartWidth > 0.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     @objc open func restrainViewPort(offsetLeft: CGFloat, offsetTop: CGFloat, offsetRight: CGFloat, offsetBottom: CGFloat)
@@ -219,18 +254,26 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         contentRect.origin.x = offsetLeft
         contentRect.origin.y = offsetTop
         contentRect.size.width = chartWidth - offsetLeft - offsetRight
         contentRect.size.height = chartHeight - offsetBottom - offsetTop
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         _contentRect.origin.x = offsetLeft
         _contentRect.origin.y = offsetTop
@@ -238,10 +281,15 @@ open class ViewPortHandler: NSObject
         _contentRect.size.height = _chartHeight - offsetBottom - offsetTop
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var offsetLeft: CGFloat
@@ -249,18 +297,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.x
 =======
         return _contentRect.origin.x
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.x
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.x
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var offsetRight: CGFloat
@@ -268,18 +325,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return chartWidth - contentRect.size.width - contentRect.origin.x
 =======
         return _chartWidth - _contentRect.size.width - _contentRect.origin.x
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return chartWidth - contentRect.size.width - contentRect.origin.x
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return chartWidth - contentRect.size.width - contentRect.origin.x
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var offsetTop: CGFloat
@@ -287,18 +353,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.y
 =======
         return _contentRect.origin.y
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.y
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.y
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var offsetBottom: CGFloat
@@ -306,18 +381,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return chartHeight - contentRect.size.height - contentRect.origin.y
 =======
         return _chartHeight - _contentRect.size.height - _contentRect.origin.y
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return chartHeight - contentRect.size.height - contentRect.origin.y
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return chartHeight - contentRect.size.height - contentRect.origin.y
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentTop: CGFloat
@@ -325,18 +409,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.y
 =======
         return _contentRect.origin.y
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.y
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.y
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentLeft: CGFloat
@@ -344,18 +437,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.x
 =======
         return _contentRect.origin.x
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.x
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.x
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentRight: CGFloat
@@ -363,18 +465,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.x + contentRect.size.width
 =======
         return _contentRect.origin.x + _contentRect.size.width
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.x + contentRect.size.width
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.x + contentRect.size.width
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentBottom: CGFloat
@@ -382,18 +493,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.y + contentRect.size.height
 =======
         return _contentRect.origin.y + _contentRect.size.height
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.y + contentRect.size.height
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.y + contentRect.size.height
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentWidth: CGFloat
@@ -401,18 +521,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.size.width
 =======
         return _contentRect.size.width
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.size.width
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.size.width
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open var contentHeight: CGFloat
@@ -420,8 +549,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.size.height
     }
 
@@ -431,6 +563,7 @@ open class ViewPortHandler: NSObject
 =======
         return _contentRect.size.height
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return contentRect.size.height
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -440,16 +573,20 @@ open class ViewPortHandler: NSObject
     {
 <<<<<<< HEAD
 =======
+=======
+=======
+        return contentRect.size.height
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
-    
-    @objc open var contentRect: CGRect
-    {
-        return _contentRect
-    }
-    
+
     @objc open var contentCenter: CGPoint
     {
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return CGPoint(x: _contentRect.origin.x + _contentRect.size.width / 2.0, y: _contentRect.origin.y + _contentRect.size.height / 2.0)
     }
     
@@ -463,11 +600,17 @@ open class ViewPortHandler: NSObject
         return _chartWidth
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return CGPoint(x: contentRect.origin.x + contentRect.size.width / 2.0, y: contentRect.origin.y + contentRect.size.height / 2.0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return CGPoint(x: contentRect.origin.x + contentRect.size.width / 2.0, y: contentRect.origin.y + contentRect.size.height / 2.0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
     // MARK: - Scaling/Panning etc.
@@ -478,18 +621,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return touchMatrix.scaledBy(x: scaleX, y: scaleY)
 =======
         return _touchMatrix.scaledBy(x: scaleX, y: scaleY)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return touchMatrix.scaledBy(x: scaleX, y: scaleY)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return touchMatrix.scaledBy(x: scaleX, y: scaleY)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Zooms around the specified center
@@ -498,8 +650,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return touchMatrix.translatedBy(x: x, y: y)
             .scaledBy(x: scaleX, y: scaleY)
             .translatedBy(x: -x, y: -y)
@@ -510,13 +665,19 @@ open class ViewPortHandler: NSObject
         return matrix
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         return touchMatrix.translatedBy(x: x, y: y)
             .scaledBy(x: scaleX, y: scaleY)
             .translatedBy(x: -x, y: -y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Zooms in by 1.4, x and y are the coordinates (in pixels) of the zoom center.
@@ -543,18 +704,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var matrix = touchMatrix
 =======
         var matrix = _touchMatrix
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         var matrix = touchMatrix
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        var matrix = touchMatrix
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         matrix.a = scaleX
         matrix.d = scaleY
         return matrix
@@ -566,8 +736,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         var matrix = touchMatrix
         matrix.a = 1.0
         matrix.d = 1.0
@@ -583,6 +756,9 @@ open class ViewPortHandler: NSObject
         matrix = matrix.translatedBy(x: -x, y: -y)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         var matrix = touchMatrix
         matrix.a = 1.0
@@ -591,8 +767,11 @@ open class ViewPortHandler: NSObject
             .scaledBy(x: scaleX, y: scaleY)
             .translatedBy(x: -x, y: -y)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return matrix
     }
     
@@ -602,8 +781,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         minScaleX = 1.0
         minScaleY = 1.0
 
@@ -615,14 +797,20 @@ open class ViewPortHandler: NSObject
         return CGAffineTransform.identity
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         minScaleX = 1.0
         minScaleY = 1.0
 
         return .identity
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Translates to the specified point.
@@ -634,18 +822,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 =======
         let matrix = _touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         return matrix
     }
@@ -661,18 +858,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 =======
         let matrix = _touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        let matrix = touchMatrix.concatenating(CGAffineTransform(translationX: -translateX, y: -translateY))
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         refresh(newMatrix: matrix, chart: chart, invalidate: true)
     }
     
@@ -682,8 +888,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         touchMatrix = newMatrix
         
         // make sure scale and translation are within their bounds
@@ -719,6 +928,7 @@ open class ViewPortHandler: NSObject
 =======
         _touchMatrix = newMatrix
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         touchMatrix = newMatrix
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -751,29 +961,43 @@ open class ViewPortHandler: NSObject
         
 <<<<<<< HEAD
 =======
+=======
+=======
+        touchMatrix = newMatrix
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         // make sure scale and translation are within their bounds
-        limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
+        limitTransAndScale(matrix: &touchMatrix, content: contentRect)
         
         chart.setNeedsDisplay()
         
-        return _touchMatrix
+        return touchMatrix
     }
     
     /// limits the maximum scale and X translation of the given matrix
-    private func limitTransAndScale(matrix: inout CGAffineTransform, content: CGRect?)
+    private func limitTransAndScale(matrix: inout CGAffineTransform, content: CGRect)
     {
         // min scale-x is 1
-        _scaleX = min(max(_minScaleX, matrix.a), _maxScaleX)
+        scaleX = min(max(minScaleX, matrix.a), maxScaleX)
         
         // min scale-y is 1
-        _scaleY = min(max(_minScaleY,  matrix.d), _maxScaleY)
+        scaleY = min(max(minScaleY,  matrix.d), maxScaleY)
         
+        let width = content.width
+        let height = content.height
+
+        let maxTransX = -width * (scaleX - 1.0)
+        transX = min(max(matrix.tx, maxTransX - transOffsetX), transOffsetX)
         
-        var width: CGFloat = 0.0
-        var height: CGFloat = 0.0
+        let maxTransY = height * (scaleY - 1.0)
+        transY = max(min(matrix.ty, maxTransY + transOffsetY), -transOffsetY)
         
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         if content != nil
         {
             width = content!.width
@@ -792,14 +1016,20 @@ open class ViewPortHandler: NSObject
         matrix.d = _scaleY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         matrix.tx = transX
         matrix.a = scaleX
         matrix.ty = transY
         matrix.d = scaleY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the minimum scale factor for the x-axis
@@ -808,8 +1038,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         minScaleX = max(xScale, 1)
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 =======
@@ -825,12 +1058,18 @@ open class ViewPortHandler: NSObject
         limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         minScaleX = max(xScale, 1)
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the maximum scale factor for the x-axis
@@ -839,8 +1078,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         maxScaleX = xScale == 0 ? .greatestFiniteMagnitude : xScale
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 =======
@@ -856,12 +1098,18 @@ open class ViewPortHandler: NSObject
         limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         maxScaleX = xScale == 0 ? .greatestFiniteMagnitude : xScale
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the minimum and maximum scale factors for the x-axis
@@ -870,8 +1118,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         self.minScaleX = max(minScaleX, 1)
         self.maxScaleX = maxScaleX == 0 ? .greatestFiniteMagnitude : maxScaleX
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
@@ -894,13 +1145,19 @@ open class ViewPortHandler: NSObject
         limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         self.minScaleX = max(minScaleX, 1)
         self.maxScaleX = maxScaleX == 0 ? .greatestFiniteMagnitude : maxScaleX
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the minimum scale factor for the y-axis
@@ -909,8 +1166,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         minScaleY = max(yScale, 1)
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 =======
@@ -926,12 +1186,18 @@ open class ViewPortHandler: NSObject
         limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         minScaleY = max(yScale, 1)
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Sets the maximum scale factor for the y-axis
@@ -940,8 +1206,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         maxScaleY = yScale == 0 ? .greatestFiniteMagnitude : yScale
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 =======
@@ -957,12 +1226,18 @@ open class ViewPortHandler: NSObject
         limitTransAndScale(matrix: &_touchMatrix, content: _contentRect)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         maxScaleY = yScale == 0 ? .greatestFiniteMagnitude : yScale
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func setMinMaxScaleY(minScaleY: CGFloat, maxScaleY: CGFloat)
@@ -970,18 +1245,26 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         self.minScaleY = max(minScaleY, 1)
         self.maxScaleY = maxScaleY == 0 ? .greatestFiniteMagnitude : maxScaleY
         limitTransAndScale(matrix: &touchMatrix, content: contentRect)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 
 =======
@@ -1010,12 +1293,18 @@ open class ViewPortHandler: NSObject
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     }
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     // MARK: - Boundaries Check
     
     @objc open func isInBoundsX(_ x: CGFloat) -> Bool
@@ -1049,18 +1338,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.x <= x + 1.0
 =======
         return _contentRect.origin.x <= x + 1.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.x <= x + 1.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.x <= x + 1.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func isInBoundsRight(_ x: CGFloat) -> Bool
@@ -1069,18 +1367,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return (contentRect.origin.x + contentRect.size.width) >= x - 1.0
 =======
         return (_contentRect.origin.x + _contentRect.size.width) >= x - 1.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return (contentRect.origin.x + contentRect.size.width) >= x - 1.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return (contentRect.origin.x + contentRect.size.width) >= x - 1.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func isInBoundsTop(_ y: CGFloat) -> Bool
@@ -1088,18 +1395,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return contentRect.origin.y <= y
 =======
         return _contentRect.origin.y <= y
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return contentRect.origin.y <= y
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return contentRect.origin.y <= y
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     @objc open func isInBoundsBottom(_ y: CGFloat) -> Bool
@@ -1108,18 +1424,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return (contentRect.origin.y + contentRect.size.height) >= normalizedY
 =======
         return (_contentRect.origin.y + _contentRect.size.height) >= normalizedY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return (contentRect.origin.y + contentRect.size.height) >= normalizedY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return (contentRect.origin.y + contentRect.size.height) >= normalizedY
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /**
@@ -1171,8 +1496,11 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     /// The current x-scale factor
     @objc open var scaleX: CGFloat
@@ -1224,10 +1552,15 @@ open class ViewPortHandler: NSObject
     
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// if the chart is fully zoomed out, return true
     @objc open var isFullyZoomedOut: Bool
     {
@@ -1240,18 +1573,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return !(scaleY > minScaleY || minScaleY > 1.0)
 =======
         return !(_scaleY > _minScaleY || _minScaleY > 1.0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return !(scaleY > minScaleY || minScaleY > 1.0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return !(scaleY > minScaleY || minScaleY > 1.0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if the chart is fully zoomed out on it's x-axis (horizontal).
@@ -1260,18 +1602,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return !(scaleX > minScaleX || minScaleX > 1.0)
 =======
         return !(_scaleX > _minScaleX || _minScaleX > 1.0)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return !(scaleX > minScaleX || minScaleX > 1.0)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return !(scaleX > minScaleX || minScaleX > 1.0)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Set an offset in pixels that allows the user to drag the chart over it's bounds on the x-axis.
@@ -1280,18 +1631,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         transOffsetX = offset
 =======
         _transOffsetX = offset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         transOffsetX = offset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        transOffsetX = offset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// Set an offset in pixels that allows the user to drag the chart over it's bounds on the y-axis.
@@ -1300,18 +1660,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         transOffsetY = offset
 =======
         _transOffsetY = offset
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         transOffsetY = offset
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        transOffsetY = offset
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if both drag offsets (x and y) are zero or smaller.
@@ -1320,18 +1689,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return transOffsetX <= 0.0 && transOffsetY <= 0.0
 =======
         return _transOffsetX <= 0.0 && _transOffsetY <= 0.0
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return transOffsetX <= 0.0 && transOffsetY <= 0.0
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return transOffsetX <= 0.0 && transOffsetY <= 0.0
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if the chart is not yet fully zoomed out on the x-axis
@@ -1340,18 +1718,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return scaleX > minScaleX
 =======
         return _scaleX > _minScaleX
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return scaleX > minScaleX
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return scaleX > minScaleX
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if the chart is not yet fully zoomed in on the x-axis
@@ -1360,18 +1747,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return scaleX < maxScaleX
 =======
         return _scaleX < _maxScaleX
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return scaleX < maxScaleX
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return scaleX < maxScaleX
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if the chart is not yet fully zoomed out on the y-axis
@@ -1380,18 +1776,27 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return scaleY > minScaleY
 =======
         return _scaleY > _minScaleY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return scaleY > minScaleY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return scaleY > minScaleY
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
     
     /// `true` if the chart is not yet fully zoomed in on the y-axis
@@ -1400,17 +1805,26 @@ open class ViewPortHandler: NSObject
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return scaleY < maxScaleY
 =======
         return _scaleY < _maxScaleY
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return scaleY < maxScaleY
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return scaleY < maxScaleY
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

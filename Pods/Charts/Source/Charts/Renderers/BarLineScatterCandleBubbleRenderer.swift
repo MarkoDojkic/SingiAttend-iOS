@@ -16,8 +16,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 {
     public let viewPortHandler: ViewPortHandler
@@ -49,6 +52,7 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 =======
 open class BarLineScatterCandleBubbleRenderer: DataRenderer
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -85,18 +89,47 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
     internal func isInBoundsX(entry e: ChartDataEntry, dataSet: BarLineScatterCandleBubbleChartDataSetProtocol) -> Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 {
+    public let viewPortHandler: ViewPortHandler
+
+    public final var accessibleChartElements: [NSUIAccessibilityElement] = []
+
+    public let animator: Animator
+
     internal var _xBounds = XBounds() // Reusable XBounds object
     
-    public override init(animator: Animator, viewPortHandler: ViewPortHandler)
+    public init(animator: Animator, viewPortHandler: ViewPortHandler)
     {
-        super.init(animator: animator, viewPortHandler: viewPortHandler)
+        self.viewPortHandler = viewPortHandler
+        self.animator = animator
+
+        super.init()
     }
-    
+
+    open func drawData(context: CGContext) { }
+
+    open func drawValues(context: CGContext) { }
+
+    open func drawExtras(context: CGContext) { }
+
+    open func drawHighlighted(context: CGContext, indices: [Highlight]) { }
+
     /// Checks if the provided entry object is in bounds for drawing considering the current animation phase.
+<<<<<<< HEAD
     internal func isInBoundsX(entry e: ChartDataEntry, dataSet: IBarLineScatterCandleBubbleChartDataSet) -> Bool
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    internal func isInBoundsX(entry e: ChartDataEntry, dataSet: BarLineScatterCandleBubbleChartDataSetProtocol) -> Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         let entryIndex = dataSet.entryIndex(entry: e)
         return Double(entryIndex) < Double(dataSet.entryCount) * animator.phaseX
@@ -108,18 +141,27 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                           dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 =======
                           dataSet: IBarLineScatterCandleBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                           dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                          dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                           animator: Animator?) -> XBounds
     {
         return XBounds(chart: chart, dataSet: dataSet, animator: animator)
@@ -129,18 +171,27 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal func shouldDrawValues(forDataSet set: ChartDataSetProtocol) -> Bool
 =======
     internal func shouldDrawValues(forDataSet set: IChartDataSet) -> Bool
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     internal func shouldDrawValues(forDataSet set: ChartDataSetProtocol) -> Bool
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    internal func shouldDrawValues(forDataSet set: ChartDataSetProtocol) -> Bool
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         return set.isVisible && (set.isDrawValuesEnabled || set.isDrawIconsEnabled)
     }
@@ -148,10 +199,15 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     open func initBuffers() { }
 
     open func isDrawingValuesAllowed(dataProvider: ChartDataProvider?) -> Bool
@@ -162,14 +218,20 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     /// Class representing the bounds of the current viewport in terms of indices in the values array of a DataSet.
     open class XBounds
     {
@@ -191,18 +253,27 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 =======
                     dataSet: IBarLineScatterCandleBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                    dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     animator: Animator?)
         {
             self.set(chart: chart, dataSet: dataSet, animator: animator)
@@ -213,18 +284,27 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                       dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 =======
                       dataSet: IBarLineScatterCandleBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                       dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                      dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                       animator: Animator?)
         {
             let phaseX = Swift.max(0.0, Swift.min(1.0, animator?.phaseX ?? 1.0))
@@ -243,24 +323,35 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     
     public func createAccessibleHeader(usingChart chart: ChartViewBase, andData data: ChartData, withDefaultDescription defaultDescription: String) -> NSUIAccessibilityElement {
         return AccessibleHeader.create(usingChart: chart, andData: data, withDefaultDescription: defaultDescription)
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 }
 
 extension BarLineScatterCandleBubbleRenderer.XBounds: RangeExpression {

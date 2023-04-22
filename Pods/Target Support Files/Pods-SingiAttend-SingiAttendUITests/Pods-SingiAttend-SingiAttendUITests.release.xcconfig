@@ -14,10 +14,13 @@ OTHER_MODULE_VERIFIER_FLAGS = $(inherited) "-F${PODS_CONFIGURATION_BUILD_DIR}/Al
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 =======
 >>>>>>> 0494372 (Updated index logic)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
@@ -34,6 +37,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetwork
 =======
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms"
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift "$(PLATFORM_DIR)/Developer/Library/Frameworks" '@executable_path/Frameworks' '@loader_path/Frameworks'
@@ -54,10 +58,13 @@ OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Algorithms" -fra
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Charts"
 >>>>>>> 82f2d53 (Updated index logic)
 >>>>>>> 0494372 (Updated index logic)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAlgorithms/Algorithms.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift "$(PLATFORM_DIR)/Developer/Library/Frameworks" '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
+<<<<<<< HEAD
 <<<<<<< HEAD
 OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Bolts" -framework "Charts" -framework "CoreGraphics" -framework "FBSDKCoreKit" -framework "MobileCoreServices" -framework "Security" -framework "SwiftSocket" -framework "SystemConfiguration" -weak_framework "Accounts" -weak_framework "AudioToolbox" -weak_framework "CoreGraphics" -weak_framework "CoreLocation" -weak_framework "Foundation" -weak_framework "QuartzCore" -weak_framework "Security" -weak_framework "Social" -weak_framework "UIKit"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
@@ -70,8 +77,17 @@ OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Bolts" -frame
 =======
 OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Charts"
 >>>>>>> 82f2d53 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 0494372 (Updated index logic)
+<<<<<<< HEAD
 >>>>>>> 7a06b05 (Updated index logic)
+=======
+=======
+=======
+OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Algorithms" -framework "CFNetwork" -framework "Charts"
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+>>>>>>> 5c49006 (Updated code and styling for iOS version 16.4)
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

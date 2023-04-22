@@ -17,8 +17,11 @@ import CoreGraphics
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 open class DefaultFillFormatter: NSObject, FillFormatter
 {
     public typealias Block = (
@@ -30,14 +33,20 @@ open class DefaultFillFormatter: NSObject, IFillFormatter
         _ dataSet: ILineChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 open class DefaultFillFormatter: NSObject, FillFormatter
 {
     public typealias Block = (
         _ dataSet: LineChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         _ dataProvider: LineChartDataProvider) -> CGFloat
     
     @objc open var block: Block?
@@ -58,18 +67,27 @@ open class DefaultFillFormatter: NSObject, FillFormatter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         dataSet: LineChartDataSetProtocol,
 =======
         dataSet: ILineChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         dataSet: LineChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        dataSet: LineChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         dataProvider: LineChartDataProvider) -> CGFloat
     {
         guard block == nil else { return block!(dataSet, dataProvider) }

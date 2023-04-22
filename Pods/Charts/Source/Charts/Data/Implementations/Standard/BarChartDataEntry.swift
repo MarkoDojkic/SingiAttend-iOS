@@ -92,8 +92,11 @@ open class BarChartDataEntry: ChartDataEntry
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func sumBelow(stackIndex: Int) -> Double
     {
         guard let yVals = _yVals, yVals.indices.contains(stackIndex) else
@@ -105,6 +108,7 @@ open class BarChartDataEntry: ChartDataEntry
 =======
     @objc open func sumBelow(stackIndex :Int) -> Double
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @objc open func sumBelow(stackIndex: Int) -> Double
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -115,12 +119,21 @@ open class BarChartDataEntry: ChartDataEntry
         }
 <<<<<<< HEAD
 =======
+=======
+=======
+    @objc open func sumBelow(stackIndex: Int) -> Double
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
-        guard let yVals = _yVals else
+        guard let yVals = _yVals, yVals.indices.contains(stackIndex) else
         {
             return 0
         }
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         var remainder: Double = 0.0
         var index = yVals.count - 1
@@ -133,12 +146,18 @@ open class BarChartDataEntry: ChartDataEntry
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
         let remainder = yVals[stackIndex...].reduce(into: 0.0) { $0 += $1 }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return remainder
     }
     
@@ -157,19 +176,28 @@ open class BarChartDataEntry: ChartDataEntry
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     var stackSize: Int { yValues?.count ?? 1}
 
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     var stackSize: Int { yValues?.count ?? 1}
 
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func calcPosNegSum()
     {
         (_negativeSum, _positiveSum) = _yVals?.reduce(into: (0,0)) { (result, y) in
@@ -236,18 +264,27 @@ open class BarChartDataEntry: ChartDataEntry
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             self.y = BarChartDataEntry.calcSum(values: newValue ?? [])
 =======
             self.y = BarChartDataEntry.calcSum(values: newValue)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             self.y = BarChartDataEntry.calcSum(values: newValue ?? [])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            self.y = BarChartDataEntry.calcSum(values: newValue ?? [])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             self._yVals = newValue
             calcPosNegSum()
             calcRanges()
@@ -280,8 +317,11 @@ open class BarChartDataEntry: ChartDataEntry
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     private static func calcSum(values: [Double]) -> Double
     {
         values.reduce(into: 0, +=)
@@ -301,12 +341,18 @@ open class BarChartDataEntry: ChartDataEntry
         return sum
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
     private static func calcSum(values: [Double]) -> Double
     {
         values.reduce(into: 0, +=)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

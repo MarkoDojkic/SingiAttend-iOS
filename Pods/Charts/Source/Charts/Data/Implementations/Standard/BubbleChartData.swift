@@ -17,18 +17,27 @@ open class BubbleChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public required init()
 =======
     public override init()
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public required init()
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    public required init()
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init()
     }
@@ -36,8 +45,11 @@ open class BubbleChartData: BarLineScatterCandleBubbleChartData
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     public override init(dataSets: [ChartDataSetProtocol])
     {
         super.init(dataSets: dataSets)
@@ -55,6 +67,7 @@ open class BubbleChartData: BarLineScatterCandleBubbleChartData
 =======
     public override init(dataSets: [IChartDataSet]?)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public override init(dataSets: [ChartDataSetProtocol])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -77,15 +90,32 @@ open class BubbleChartData: BarLineScatterCandleBubbleChartData
         (_dataSets as? [BubbleChartDataSetProtocol])?.forEach { $0.highlightCircleWidth = width }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+    public override init(dataSets: [ChartDataSetProtocol])
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         super.init(dataSets: dataSets)
     }
-    
+
+    public required init(arrayLiteral elements: ChartDataSetProtocol...)
+    {
+        super.init(dataSets: elements)
+    }
+
     /// Sets the width of the circle that surrounds the bubble when highlighted for all DataSet objects this data object contains
     @objc open func setHighlightCircleWidth(_ width: CGFloat)
     {
+<<<<<<< HEAD
         (_dataSets as? [IBubbleChartDataSet])?.forEach { $0.highlightCircleWidth = width }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        (_dataSets as? [BubbleChartDataSetProtocol])?.forEach { $0.highlightCircleWidth = width }
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

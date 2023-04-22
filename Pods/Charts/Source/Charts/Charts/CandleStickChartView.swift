@@ -22,18 +22,27 @@ open class CandleStickChartView: BarLineChartViewBase, CandleChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         renderer = CandleStickChartRenderer(dataProvider: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
 =======
         renderer = CandleStickChartRenderer(dataProvider: self, animator: _animator, viewPortHandler: _viewPortHandler)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         renderer = CandleStickChartRenderer(dataProvider: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        renderer = CandleStickChartRenderer(dataProvider: self, animator: chartAnimator, viewPortHandler: viewPortHandler)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         
         self.xAxis.spaceMin = 0.5
         self.xAxis.spaceMax = 0.5
@@ -46,17 +55,26 @@ open class CandleStickChartView: BarLineChartViewBase, CandleChartDataProvider
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return data as? CandleChartData
 =======
         return _data as? CandleChartData
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         return data as? CandleChartData
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+        return data as? CandleChartData
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     }
 }

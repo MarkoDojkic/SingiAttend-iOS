@@ -38,8 +38,11 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         guard let chart = chart,
               let radarData = chart.data as? RadarChartData else
         {
@@ -67,10 +70,14 @@ open class RadarChartRenderer: LineRadarRenderer
         
         if radarData != nil
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         guard let chart = chart,
               let radarData = chart.data as? RadarChartData else
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
         {
             return
         }
@@ -88,34 +95,47 @@ open class RadarChartRenderer: LineRadarRenderer
 
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            let mostEntries = radarData?.maxEntryCountSet?.entryCount ?? 0
+            return
+        }
+        
+        let mostEntries = radarData.maxEntryCountSet?.entryCount ?? 0
 
-            // If we redraw the data, remove and repopulate accessible elements to update label values and frames
-            self.accessibleChartElements.removeAll()
+        // If we redraw the data, remove and repopulate accessible elements to update label values and frames
+        self.accessibleChartElements.removeAll()
 
-            // Make the chart header the first element in the accessible elements array
-            if let accessibilityHeaderData = radarData as? RadarChartData {
-                let element = createAccessibleHeader(usingChart: chart,
-                                                     andData: accessibilityHeaderData,
-                                                     withDefaultDescription: "Radar Chart")
-                self.accessibleChartElements.append(element)
-            }
+        // Make the chart header the first element in the accessible elements array
+        let element = createAccessibleHeader(usingChart: chart,
+                                             andData: radarData,
+                                             withDefaultDescription: "Radar Chart")
+        self.accessibleChartElements.append(element)
 
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+<<<<<<< HEAD
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             for set in radarData!.dataSets as! [IRadarChartDataSet] where set.isVisible
             {
                 drawDataSet(context: context, dataSet: set, mostEntries: mostEntries)
             }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for case let set as RadarChartDataSetProtocol in (radarData as ChartData) where set.isVisible
         {
             drawDataSet(context: context, dataSet: set, mostEntries: mostEntries)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         }
     }
     
@@ -128,18 +148,27 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     internal func drawDataSet(context: CGContext, dataSet: RadarChartDataSetProtocol, mostEntries: Int)
 =======
     internal func drawDataSet(context: CGContext, dataSet: IRadarChartDataSet, mostEntries: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     internal func drawDataSet(context: CGContext, dataSet: RadarChartDataSetProtocol, mostEntries: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    internal func drawDataSet(context: CGContext, dataSet: RadarChartDataSetProtocol, mostEntries: Int)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let chart = chart else { return }
         
@@ -286,8 +315,11 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in data.indices
         {
             guard let
@@ -300,6 +332,7 @@ open class RadarChartRenderer: LineRadarRenderer
 =======
         for i in 0 ..< data.dataSetCount
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for i in data.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -316,14 +349,27 @@ open class RadarChartRenderer: LineRadarRenderer
             
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for i in data.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             guard let
-                dataSet = data.getDataSetByIndex(i) as? IRadarChartDataSet,
+                dataSet = data[i] as? RadarChartDataSetProtocol,
                 shouldDrawValues(forDataSet: dataSet)
                 else { continue }
             
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let angleRadians = dataSet.valueLabelAngle.DEG2RAD
+            
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let entryCount = dataSet.entryCount
             
             let iconsOffset = dataSet.iconsOffset
@@ -340,8 +386,11 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let formatter = dataSet.valueFormatter
                 
                 if dataSet.isDrawValuesEnabled
@@ -374,6 +423,9 @@ open class RadarChartRenderer: LineRadarRenderer
                     )
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                 let formatter = dataSet.valueFormatter
                 
@@ -389,8 +441,11 @@ open class RadarChartRenderer: LineRadarRenderer
                                      attributes: [.font: valueFont,
                                                   .foregroundColor: dataSet.valueTextColorAt(j)])
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
                 
                 if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -402,8 +457,11 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     context.drawImage(icon,
                                       atCenter: CGPoint(x: pIcon.x, y: pIcon.y),
                                       size: icon.size)
@@ -415,13 +473,19 @@ open class RadarChartRenderer: LineRadarRenderer
                                          size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     context.drawImage(icon,
                                       atCenter: CGPoint(x: pIcon.x, y: pIcon.y),
                                       size: icon.size)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
             }
         }
@@ -525,18 +589,27 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let set = chart.data?[high.dataSetIndex] as? RadarChartDataSetProtocol,
 =======
                 let set = chart.data?.getDataSetByIndex(high.dataSetIndex) as? IRadarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let set = chart.data?[high.dataSetIndex] as? RadarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let set = chart.data?[high.dataSetIndex] as? RadarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 set.isHighlightEnabled
                 else { continue }
             
@@ -640,18 +713,27 @@ open class RadarChartRenderer: LineRadarRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          dataSet: RadarChartDataSetProtocol,
 =======
                                          dataSet: IRadarChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                          dataSet: RadarChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                         dataSet: RadarChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement {
 
         let element = NSUIAccessibilityElement(accessibilityContainer: container)

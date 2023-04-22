@@ -25,8 +25,11 @@ open class RadarHighlighter: PieRadarHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         func closestToCenter(lhs: Highlight, rhs: Highlight) -> Bool {
             abs(lhs.y - distanceToCenter) < abs(rhs.y - distanceToCenter)
@@ -50,6 +53,9 @@ open class RadarHighlighter: PieRadarHighlighter
         
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
 
         func closestToCenter(lhs: Highlight, rhs: Highlight) -> Bool {
@@ -58,8 +64,11 @@ open class RadarHighlighter: PieRadarHighlighter
 
         let closest = highlights.min(by: closestToCenter(lhs:rhs:))
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         return closest
     }
     
@@ -84,8 +93,11 @@ open class RadarHighlighter: PieRadarHighlighter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for (i, dataSet) in chartData.indexed()
         {
             guard let entry = dataSet.entryForIndex(index) else { continue }
@@ -98,13 +110,19 @@ open class RadarHighlighter: PieRadarHighlighter
                 else { continue }
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         for (i, dataSet) in chartData.indexed()
         {
             guard let entry = dataSet.entryForIndex(index) else { continue }
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             let y = (entry.y - chart.chartYMin)
             

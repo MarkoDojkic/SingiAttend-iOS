@@ -48,20 +48,29 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let sets = bubbleData.dataSets as! [BubbleChartDataSet]
         for case let (i, set) in zip(sets.indices, sets) where set.isVisible
 =======
         for (i, set) in (bubbleData.dataSets as! [IBubbleChartDataSet]).enumerated() where set.isVisible
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let sets = bubbleData.dataSets as! [BubbleChartDataSet]
         for case let (i, set) in zip(sets.indices, sets) where set.isVisible
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
             drawDataSet(context: context, dataSet: set, dataSetIndex: i)
         }
@@ -90,18 +99,27 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     @objc open func drawDataSet(context: CGContext, dataSet: BubbleChartDataSetProtocol, dataSetIndex: Int)
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: IBubbleChartDataSet, dataSetIndex: Int)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     @objc open func drawDataSet(context: CGContext, dataSet: BubbleChartDataSetProtocol, dataSetIndex: Int)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+    @objc open func drawDataSet(context: CGContext, dataSet: BubbleChartDataSetProtocol, dataSetIndex: Int)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -186,19 +204,28 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             isDrawingValuesAllowed(dataProvider: dataProvider)
 =======
             isDrawingValuesAllowed(dataProvider: dataProvider),
             let dataSets = bubbleData.dataSets as? [IBubbleChartDataSet]
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             isDrawingValuesAllowed(dataProvider: dataProvider)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            isDrawingValuesAllowed(dataProvider: dataProvider)
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             else { return }
 
         let phaseX = max(0.0, min(1.0, animator.phaseX))
@@ -209,8 +236,11 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         for i in bubbleData.indices
         {
             guard let dataSet = bubbleData[i] as? BubbleChartDataSetProtocol,
@@ -224,6 +254,7 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 =======
         for i in 0..<dataSets.count
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for i in bubbleData.indices
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
@@ -241,16 +272,28 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
             let formatter = dataSet.valueFormatter
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
+=======
+=======
+        for i in bubbleData.indices
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         {
-            let dataSet = dataSets[i]
+            guard let dataSet = bubbleData[i] as? BubbleChartDataSetProtocol,
+                  shouldDrawValues(forDataSet: dataSet)
+            else
+            {
+                continue
+            }
 
-            guard
-                shouldDrawValues(forDataSet: dataSet),
-                let formatter = dataSet.valueFormatter
-                else { continue }
-
+<<<<<<< HEAD
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+            let formatter = dataSet.valueFormatter
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             let alpha = phaseX == 1 ? phaseY : phaseX
 
             _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
@@ -262,19 +305,28 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
             
             let angleRadians = dataSet.valueLabelAngle.DEG2RAD
 =======
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
             
             let angleRadians = dataSet.valueLabelAngle.DEG2RAD
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
             for j in _xBounds
             {
@@ -308,10 +360,15 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     context.drawText(text,
                                      at: CGPoint(x: pt.x,
                                                     y: pt.y - (0.5 * lineHeight)),
@@ -321,8 +378,11 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                                                   .foregroundColor: valueTextColor])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     ChartUtils.drawText(
                         context: context,
@@ -334,10 +394,15 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                         attributes: [NSAttributedString.Key.font: valueFont, NSAttributedString.Key.foregroundColor: valueTextColor])
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
 
                 if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -345,18 +410,26 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                     context.drawImage(icon,
                                       atCenter: CGPoint(x: pt.x + iconsOffset.x,
                                                       y: pt.y + iconsOffset.y),
                                       size: icon.size)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
                     ChartUtils.drawImage(context: context,
                                          image: icon,
@@ -365,10 +438,15 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                                          size: icon.size)
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 }
             }
         }
@@ -397,18 +475,27 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 let dataSet = bubbleData[high.dataSetIndex] as? BubbleChartDataSetProtocol,
 =======
                 let dataSet = bubbleData.getDataSetByIndex(high.dataSetIndex) as? IBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 let dataSet = bubbleData[high.dataSetIndex] as? BubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                let dataSet = bubbleData[high.dataSetIndex] as? BubbleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                 dataSet.isHighlightEnabled,
                 let entry = dataSet.entryForXValue(high.x, closestToY: high.y) as? BubbleChartDataEntry,
                 isInBoundsX(entry: entry, dataSet: dataSet)
@@ -486,18 +573,27 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          dataSet: BubbleChartDataSetProtocol,
 =======
                                          dataSet: IBubbleChartDataSet,
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                          dataSet: BubbleChartDataSetProtocol,
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+=======
+                                         dataSet: BubbleChartDataSetProtocol,
+>>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
                                          dataSetIndex: Int,
                                          shapeSize: CGFloat,
                                          modifier: (NSUIAccessibilityElement) -> ()) -> NSUIAccessibilityElement
@@ -516,8 +612,11 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
         let elementValueText = dataSet.valueFormatter.stringForValue(e.y,
                                                                       entry: e,
                                                                       dataSetIndex: dataSetIndex,
@@ -529,14 +628,20 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                                                                       viewPortHandler: viewPortHandler) ?? "\(e.y)"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 =======
         let elementValueText = dataSet.valueFormatter.stringForValue(e.y,
                                                                       entry: e,
                                                                       dataSetIndex: dataSetIndex,
                                                                       viewPortHandler: viewPortHandler)
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
 
         let dataSetCount = dataProvider.bubbleData?.dataSetCount ?? -1
         let doesContainMultipleDataSets = dataSetCount > 1
