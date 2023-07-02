@@ -17,10 +17,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 =======
 >>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<key>Alamofire.xcscheme_^#shared#^_</key>
 =======
 		<key>AFNetworking.xcscheme</key>
@@ -33,6 +36,7 @@
 =======
 		<key>Alamofire.xcscheme_^#shared#^_</key>
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 <<<<<<< HEAD
@@ -43,7 +47,12 @@
 		<key>Alamofire.xcscheme</key>
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
 >>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 >>>>>>> 5c49006 (Updated code and styling for iOS version 16.4)
+=======
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> 422d5e9 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -56,10 +65,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
 =======
 >>>>>>> 633fcbd (Pod updates)
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<key>Charts.xcscheme_^#shared#^_</key>
 =======
 		<key>Bolts.xcscheme</key>
@@ -86,11 +98,17 @@
 =======
 		<key>Charts.xcscheme_^#shared#^_</key>
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+<<<<<<< HEAD
 =======
 		<key>Charts.xcscheme</key>
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> 422d5e9 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -105,10 +123,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 633fcbd (Pod updates)
 =======
 >>>>>>> 0494372 (Updated index logic)
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
 =======
 =======
@@ -156,6 +177,7 @@
 =======
 		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 633fcbd (Pod updates)
@@ -163,6 +185,8 @@
 =======
 =======
 		<key>FBSDKCoreKit_Basics.xcscheme</key>
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -182,22 +206,35 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
 =======
 		<key>Pods-SingiAttend.xcscheme</key>
 =======
 		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+<<<<<<< HEAD
 =======
 		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
 =======
 		<key>Pods-SingiAttend.xcscheme</key>
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+>>>>>>> 422d5e9 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		<key>Pods-SingiAttendTests.xcscheme</key>
@@ -213,14 +250,25 @@
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
 =======
 =======
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 <<<<<<< HEAD
 		<key>SwiftSocket.xcscheme</key>
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
 =======
 		<key>SwiftAlgorithms.xcscheme</key>
 >>>>>>> 3fdccef (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 >>>>>>> 32a877c (Updated code and styling for iOS version 16.4)
+<<<<<<< HEAD
 >>>>>>> 5c49006 (Updated code and styling for iOS version 16.4)
+=======
+=======
+=======
+		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> 422d5e9 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 		<dict>
 			<key>isShown</key>
 			<false/>

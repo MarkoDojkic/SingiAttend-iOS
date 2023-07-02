@@ -51,19 +51,31 @@ install_framework()
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+=======
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
     source="$(readlink -f "${source}")"
 =======
     source="$(readlink "${source}")"
 >>>>>>> 3ac0d68 (Initial commit - transfer from other project)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     source="$(readlink -f "${source}")"
 >>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
 =======
 >>>>>>> e716a0e (Initial commit - transfer from other project)
+<<<<<<< HEAD
 >>>>>>> ccd5019 (Initial commit - transfer from other project)
+=======
+=======
+=======
+    source="$(readlink -f "${source}")"
+>>>>>>> c2f68c0 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> b7add12 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
+>>>>>>> 422d5e9 (Added pods to schema build; Fixed typos in translations; Updated application to version 1.9.0)
   fi
 
   if [ -d "${source}/${BCSYMBOLMAP_DIR}" ]; then

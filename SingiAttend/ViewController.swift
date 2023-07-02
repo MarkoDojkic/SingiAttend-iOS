@@ -194,8 +194,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func onLoginWithBiometrics(_ sender: UIButton) {
-        
-        guard let biometricsIndexNumber = self.localStorage.string(forKey: "biomentricsIndexNumber") else {
+                
+        guard let biometricsIndexNumber = self.localStorage.string(forKey: "biometricsIndexNumber") else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "biometricsNoAccountMessage".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
             }
@@ -563,7 +563,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.courses_tv.isHidden = false
                     
                         if(self.saveForBiometrics_switch.isOn){
-                            self.localStorage.set(self.indexLogin_txt.text!, forKey: "biomentricsIndexNumber")
+                            self.localStorage.set(self.indexLogin_txt.text!, forKey: "biometricsIndexNumber")
                         }
                                             
                         if(!isMainButton){
