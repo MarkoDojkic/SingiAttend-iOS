@@ -43,7 +43,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         var studyId: String
         var year: String
     }
-    
+        
     override func viewDidLoad() {
         titleReg_text.text = "title_reg".localized()
         copyright_text.text = "copyright".localized()
@@ -59,6 +59,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         passReg_txt.placeholder = "hint_pass".localized()
         facultyS_text.text = "course".localized()
         register_btn.setTitle("confirmreg".localized(), for: UIControl.State.normal)
+        
         faculties_pv.delegate = self
         faculties_pv.dataSource = self
         courses_pv.delegate = self
@@ -149,30 +150,53 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         }
                 
         do {
-            let jsonData = try jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: sCourseId, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
-            register(jsonData, completionHandler: {
+            let jsonData = try? jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: sCourseId, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
+            register(jsonData!, completionHandler: {
                 response in
                 if let statusCode = response {
-                    DispatchQueue.main.async { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
                         if(statusCode == 200){
-                            _ = SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
-                                if isOtherButton == true {
+                            SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle: "rememberCredentials".localized(), buttonColor: UIColor.green, otherButtonTitle:"ok".localized(), otherButtonColor:UIColor.blue) { [self] (isMainButton) -> Void in
+                                if(isMainButton) {
+                                    do {                                        
+                                        try? KeychainPasswordItem(account: String(self.indexYear) + "/" + self.indexReg_txt.text!).savePassword(self.passReg_txt.text!)
+                                    } catch {
+                                        print("Error occurred while saving credentials: \(error)")
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                            SweetAlert().showAlert("titleCredentialsNotSaved".localized(), subTitle: "messageCredentialsNotSaved".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                                        }
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                        SweetAlert().showAlert("titleCredentialsSaved".localized(), subTitle: "messageCredentialsSaved".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                                        
+                                        self.performSegue(withIdentifier: "toMain", sender: sender)
+                                    }
+                                } else {
                                     self.performSegue(withIdentifier: "toMain", sender: sender)
                                 }
                             }
                         }
                         else if(statusCode == 500){
-                            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                            }
                         }
                         else {
-                            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                            }
                         }
                     }
                 }
             })
         } catch {
-            print("Error while encoding student data")
-            _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+            print("Error occurred while encoding student data: \(error)")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+            }
         }
     }
         
@@ -239,9 +263,10 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        pickerLabel.font = UIFont(name: "Ropa Sans", size: 2)
+        pickerLabel.font = UIFont(name: "Ropa Sans", size: 4)
         pickerLabel.textAlignment = NSTextAlignment.center
         pickerLabel.adjustsFontSizeToFitWidth = true
+        pickerLabel.sizeToFit()
         
         if pickerView.tag == 0 {
             pickerLabel.text = faculties[row]

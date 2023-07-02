@@ -26,8 +26,8 @@ class SingleCourseCell : UITableViewCell {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error took place while recording attendance: \(error)")
-                DispatchQueue.main.async {
-                    _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceClientError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceClientError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
                 }
                 return;
             }
@@ -35,15 +35,15 @@ class SingleCourseCell : UITableViewCell {
             if let response = response {
                 if ((response as! HTTPURLResponse).statusCode != 200){
                     print("Server error with code \((response as! HTTPURLResponse).statusCode)")
-                    DispatchQueue.main.async {
-                        _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceServerError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceServerError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
                     }
                     return;
                 }
             }
             
             if let data = data {
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     if(String(data: data, encoding: .utf8)! == "ALREADY RECORDED ATTENDANCE"){
                         self.class_text.text! += "\n" + "alreadyRecordedAttendance".localized()
                         self.cconfirm_btn.isHidden = true
@@ -53,7 +53,7 @@ class SingleCourseCell : UITableViewCell {
                         self.cconfirm_btn.isHidden = true
                     }
                     else {
-                        _ = SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceUnknownError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                        SweetAlert().showAlert("recordAttendanceFailed".localized(), subTitle: "recordAttendanceUnknownError".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
                     }
                 }
             }
