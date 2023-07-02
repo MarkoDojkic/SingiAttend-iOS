@@ -4,32 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
+		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Charts.xcscheme</key>
+		<key>Charts.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme</key>
+		<key>Pods-SingiAttend-SingiAttendUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SingiAttend.xcscheme</key>
+		<key>Pods-SingiAttend.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SingiAttendTests.xcscheme</key>
+		<key>Pods-SingiAttendTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftAlgorithms.xcscheme</key>
+		<key>SwiftAlgorithms.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
