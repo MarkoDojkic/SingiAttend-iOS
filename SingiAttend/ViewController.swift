@@ -6,6 +6,10 @@
 //  Copyright © 2020. Марко Дојкић. All rights reserved.
 //
 
+import UIKit
+import Charts
+import LocalAuthentication
+
 extension String {
     func localized(bundle: Bundle = .main, tableName: String = "Main") -> String {
         return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
@@ -48,9 +52,6 @@ extension NSRegularExpression {
     }
 }
 
-import UIKit
-import Charts
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var titleMain_text: UILabel!
@@ -64,17 +65,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var passLogin_txt: UITextField!
     @IBOutlet weak var register_btn: UIButton!
     @IBOutlet weak var login_btn: UIButton!
+    @IBOutlet weak var login_biometrics_btn: UIButton!
     @IBOutlet weak var overlay: UIImageView!
     @IBOutlet weak var courses_tv: UITableView!
-    let localStorage = UserDefaults.standard
-    var courses = [[String]]()
-    var attendances = [[String]]()
     @IBOutlet weak var attendances_pcv: PieChartView!
     @IBOutlet weak var attendances_class_text: UILabel!
     @IBOutlet weak var attendances_prognosis_text: UILabel!
     @IBOutlet weak var attendanceLeft_btn: UIButton!
     @IBOutlet weak var attendanceRight_btn: UIButton!
     @IBOutlet weak var serverInacitve_text: UILabel!
+    @IBOutlet weak var saveForBiometrics_text: UILabel!
+    @IBOutlet weak var saveForBiometrics_switch: UISwitch!
+    let context = LAContext()
+    let localStorage = UserDefaults.standard
+    var courses = [[String]]()
+    var attendances = [[String]]()
     var attendendL = PieChartDataEntry(value: 0)
     var notAttendedL = PieChartDataEntry(value: 0)
     var attendendP = PieChartDataEntry(value: 0)
@@ -93,6 +98,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         passLogin_txt.placeholder = "hint_pass".localized()
         register_btn.setTitle("register".localized(), for: UIControl.State.normal)
         login_btn.setTitle("login".localized(), for: UIControl.State.normal)
+        login_biometrics_btn.setTitle("loginUsingBiometricsAuthentication".localized(), for: UIControl.State.normal)
+        saveForBiometrics_text.text = "saveForBiometricsAuthentication".localized()
         login_btn.layer.cornerRadius = 10
         register_btn.layer.cornerRadius = 10
         logout_btn.layer.cornerRadius = 10
@@ -127,8 +134,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             attendances_class_text.isHidden = false
             attendances_prognosis_text.isHidden = false
             startDataStreaming(0)
-            startDataStreaming(1)
-            startDataStreaming(2)
             updateTimer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(reloadTable), userInfo: nil, repeats: true)
             attendanceLeft_btn.alpha = 0
             attendanceLeft_btn.isUserInteractionEnabled = false
@@ -136,10 +141,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 attendanceRight_btn.alpha = 0
                 attendanceRight_btn.isUserInteractionEnabled = false
             }
-            
-            let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-            view.addGestureRecognizer(tapGesture)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
     }
     
     
@@ -152,61 +157,101 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func attendance_goLeft(_ sender: UIButton!) {
         currentAttendanceLecture = currentAttendanceLecture - 1
-        if(currentAttendanceLecture == attendances.count - 2){
+        
+        if(currentAttendanceLecture < attendances.count - 1){
             attendanceRight_btn.alpha = 1
             attendanceRight_btn.isUserInteractionEnabled = true
         }
+        
         if(currentAttendanceLecture == 0){
             sender.alpha = 0
             sender.isUserInteractionEnabled = false
         }
+        
         updatePieChart()
     }
     
     @IBAction func attendance_goRight(_ sender: UIButton!) {
         currentAttendanceLecture = currentAttendanceLecture + 1
-        if(currentAttendanceLecture == 1){
+        
+        if(currentAttendanceLecture > 0){
             attendanceLeft_btn.alpha = 1
             attendanceLeft_btn.isUserInteractionEnabled = true
         }
+        
         if(currentAttendanceLecture == attendances.count - 1){
             sender.alpha = 0
             sender.isUserInteractionEnabled = false
         }
+        
         updatePieChart()
     }
     
     @IBAction func onLogin(_ sender: UIButton) {
-        login((indexLogin_txt.text?.replacingOccurrences(of: "/", with: ""))!, (passLogin_txt.text?.data(using: .utf8))!, completionHandler: {
-            response in
-            if let message = response {
-                DispatchQueue.main.async { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
-                    if(message == "VALID"){
-                        _ = SweetAlert().showAlert("loginTitleSuccess".localized(), subTitle: "", style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in
-                            if isOtherButton == true {
-                                self.localStorage.set(true, forKey:"isLoggedIn")
-                                self.localStorage.set(self.indexLogin_txt.text!, forKey: "loggedInAs")
-                                self.startDataStreaming(0)
-                                self.overlay.isHidden = true
-                                self.loginPopup.isHidden = true
-                                self.loggedInAs_text.isHidden = false
-                                self.logout_btn.isHidden = false
-                                self.courses_tv.isHidden = false
-                            }
-                        }
+        self.localStorage.set(indexLogin_txt.text, forKey: "loggedInAs")
+        
+        login((indexLogin_txt.text?.replacingOccurrences(of: "/", with: ""))!, (passLogin_txt.text?.data(using: .utf8))!, completionHandler: loginCompletionHandler)
+    }
+    
+    @IBAction func onLoginWithBiometrics(_ sender: UIButton) {
+        
+        guard let biometricsIndexNumber = self.localStorage.string(forKey: "biomentricsIndexNumber") else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "biometricsNoAccountMessage".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
+            }
+            
+            return
+        }
+            
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "biometricsNotAvailable".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
+            }
+            
+            return
+        }
+            
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "loginWithBiometricsReason".localized()) { (isSuccessful, errorType) in
+            
+            if isSuccessful {
+                let keychainItem: KeychainPasswordItem = KeychainPasswordItem(account: biometricsIndexNumber)
+                
+                guard let password = try? keychainItem.readPassword() else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "biometricsKeychainReadFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
                     }
-                    else if(message == "INVALID"){
-                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    
+                    return
+                }
+                
+                self.localStorage.set(keychainItem.account, forKey: "loggedInAs")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.login(keychainItem.account.replacingOccurrences(of: "/", with: ""), (password.data(using: .utf8))!, completionHandler: self.loginCompletionHandler)
+                }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    var message: String
+                    
+                    switch errorType {
+                    case LAError.authenticationFailed?:
+                        message = "biometricsAuthenticationFailed".localized()
+                    case LAError.biometryNotAvailable?:
+                        message = "biometricsNotAvailable".localized()
+                    case LAError.biometryNotEnrolled?:
+                        message = "biometricsNotEnrolled".localized()
+                    case LAError.biometryLockout?:
+                        message = "biometricsLockout".localized()
+                    default:
+                        message = "biometricsGenericError".localized()
                     }
-                    else if(message == "UNKNOWN"){
-                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageUnknown".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
-                    }
-                    else {
-                        _ = SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isOtherButton) -> Void in }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: message, style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
                     }
                 }
             }
-        })
+        }
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
@@ -226,7 +271,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         attendanceRight_btn.isHidden = true
         attendances_class_text.isHidden = true
         attendances_prognosis_text.isHidden = true
-        updateTimer.invalidate()
+        ///updateTimer.invalidate(
     }
     
     @objc func startDataStreaming(_ type: Int){
@@ -235,11 +280,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             request.httpMethod = "GET"
             request.setValue("text/plain", forHTTPHeaderField: "Accept")
             request.setValue("Basic \(String(format: "%@:%@", Bundle.main.infoDictionary!["ServerUsername"]! as! String, Bundle.main.infoDictionary!["ServerPassword"]! as! String).data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
-            
+                        
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     print("Error took place while getting student name data: \(error)")
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.loggedInAs_text.text = "(" + self.localStorage.string(forKey: "loggedInAs")! + ")";
                         self.serverInacitve_text.text = "serverInactive".localized();
                     }
@@ -247,9 +292,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let response = response {
-                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.serverInacitve_text.text = ""; }
                     if ((response as! HTTPURLResponse).statusCode != 200){
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.loggedInAs_text.text = "-SERVER ERROR- (" + self.localStorage.string(forKey: "loggedInAs")! + ")"
                             self.loggedInAs_text.adjustsFontSizeToFitWidth = true;
                         }
@@ -258,7 +303,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let data = data {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.loggedInAs_text.text = String(data: data, encoding: .utf8)! + " (" + self.localStorage.string(forKey: "loggedInAs")! + ")"
                         self.loggedInAs_text.adjustsFontSizeToFitWidth = true;
                         self.startDataStreaming(1);
@@ -276,14 +321,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     print("Error took place while getting student course data: \(error)")
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.serverInacitve_text.text = "serverInactive".localized();
                     }
                     return;
                 }
                 
                 if let response = response {
-                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.serverInacitve_text.text = ""; }
                     if ((response as! HTTPURLResponse).statusCode != 200){
                         print("Server error with code \((response as! HTTPURLResponse).statusCode)")
                         return;
@@ -291,7 +336,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let data = data {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         let coursesData_json = try! JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
                         
                         self.courses.removeAll()
@@ -339,14 +384,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     print("Error took place while getting student attendance data: \(error)")
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.serverInacitve_text.text = "serverInactive".localized();
                     }
                     return;
                 }
                 
                 if let response = response {
-                    DispatchQueue.main.async { self.serverInacitve_text.text = ""; }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.serverInacitve_text.text = ""; }
                     if ((response as! HTTPURLResponse).statusCode != 200){
                         print("Server error with code \((response as! HTTPURLResponse).statusCode)")
                         return;
@@ -354,7 +399,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let data = data {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         let attendanceData_json = try! JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
                         
                         self.attendances.removeAll()
@@ -421,6 +466,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.attendanceRight_btn.isHidden = false
             self.attendances_class_text.isHidden = false
             self.attendances_prognosis_text.isHidden = false
+        }
+        
+        if(attendances.isEmpty){
+            return
         }
         
         if(currentAttendanceLecture == attendances.count - 1){
@@ -498,5 +547,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 completionHandler(String(data: data, encoding: .utf8))
             }
         }.resume()
+    }
+    
+    private func loginCompletionHandler(response: String?) -> Void {
+        if let message = response {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
+                if(message == "VALID"){
+                    SweetAlert().showAlert("loginTitleSuccess".localized(), subTitle: "", style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray, otherButtonTitle: "rememberCredentials".localized(), otherButtonColor: UIColor.green) { (isMainButton) -> Void in
+                        self.localStorage.set(true, forKey:"isLoggedIn")
+                        self.startDataStreaming(0)
+                        self.overlay.isHidden = true
+                        self.loginPopup.isHidden = true
+                        self.loggedInAs_text.isHidden = false
+                        self.logout_btn.isHidden = false
+                        self.courses_tv.isHidden = false
+                    
+                        if(self.saveForBiometrics_switch.isOn){
+                            self.localStorage.set(self.indexLogin_txt.text!, forKey: "biomentricsIndexNumber")
+                        }
+                                            
+                        if(!isMainButton){
+                            do {
+                                try KeychainPasswordItem(account: self.indexLogin_txt.text!).savePassword(self.passLogin_txt.text!)
+                            } catch {
+                                print("Error occurred while saving credentials: \(error)")
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    SweetAlert().showAlert("titleCredentialsNotSaved".localized(), subTitle: "messageCredentialsNotSaved".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                                }
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                SweetAlert().showAlert("titleCredentialsSaved".localized(), subTitle: "messageCredentialsSaved".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                            }
+                        }
+                    }
+                }
+                else if(message == "INVALID"){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
+                    }
+                }
+                else if(message == "UNKNOWN"){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "loginMessageUnknown".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
+                    }
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        SweetAlert().showAlert("loginTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.darkGray) { (isMainButton) -> Void in }
+                    }
+                }
+            }
+        }
     }
 }
