@@ -8,11 +8,11 @@
 "singimail" = "Studentska e-mail adresa:";
 "confirmreg" = "Registruj me";
 "login" = "Ulogujte se";
-"hint_index_login" = "2018/123456";
+"hint_index_login" = "2023/123456";
 "hint_index" = "123456";
 "hint_pass" = "************";
 "hint_namesurname" = "Marko Marković";
-"hint_singimail" = "markomarkovic18@singimailrs";
+"hint_singimail" = "marko.markovic.23@singimail.rs";
 "course" = "Izaberite fakultet i smer";
 "cancel" = "Odustani";
 "regTitleSuccess" = "Uspešna registracija";

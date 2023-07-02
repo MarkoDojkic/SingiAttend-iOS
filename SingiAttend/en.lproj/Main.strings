@@ -8,11 +8,11 @@
 "singimail" = "Student's e-mail address:";
 "confirmreg" = "Register";
 "login" = "Login";
-"hint_index_login" = "2018/123456";
+"hint_index_login" = "2023/123456";
 "hint_index" = "123456";
 "hint_pass" = "************";
 "hint_namesurname" = "John Doe";
-"hint_singimail" = "johndoe18@singimailrs";
+"hint_singimail" = "john.doe.18@singimail.rs";
 "course" = "Choose faculty and course";
 "cancel" = "Cancel";
 "regTitleSuccess" = "Registration successful";
