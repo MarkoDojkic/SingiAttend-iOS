@@ -563,7 +563,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.courses_tv.isHidden = false
                     
                         if(self.saveForBiometrics_switch.isOn){
-                            self.localStorage.set(self.indexLogin_txt.text!, forKey: "biomentricsIndexNumber")
+                            self.localStorage.set(self.indexLogin_txt.text!, forKey: "biometricsIndexNumber")
                         }
                                             
                         if(!isMainButton){
