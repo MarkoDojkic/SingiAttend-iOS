@@ -35,7 +35,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID to unlock the notes</string>
+	<string>We use Face ID login student using set saved credentials</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

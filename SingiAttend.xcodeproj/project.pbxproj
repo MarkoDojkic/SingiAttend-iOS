@@ -1024,7 +1024,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				MARKETING_VERSION = 2.0;
+=======
+				MARKETING_VERSION = 1.9;
+>>>>>>> 2f72c16 (Updated marketing version and other small fixes)
 				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 =======
 				MARKETING_VERSION = 1.4;
@@ -1095,7 +1099,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				MARKETING_VERSION = 2.0;
+=======
+				MARKETING_VERSION = 1.9;
+>>>>>>> 2f72c16 (Updated marketing version and other small fixes)
 				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 =======
 				MARKETING_VERSION = 1.4;
