@@ -62,7 +62,7 @@
 "rememberCredentials" = "Сачувај у \"Keychain\"";
 "titleCredentialsNotSaved" = "Неуспешно чување креденцијала";
 "messageCredentialsNotSaved" = "Догодила се грешка приликом чувања података ла логовање у \"Keychain\"";
-"titleCredentialsSaved" = "Успешно чување креденцијала";
+"titleCredentialsSaved" = "Успешно чување\nкреденцијала";
 "messageCredentialsSaved" = "Унети подаци за логовање су успешно сачувани у \"Keychain\"";
 "saveForBiometricsAuthentication" = "Користите овај налог за\nпријављивање помоћу\n биометријске аутентификације";
 "loginUsingBiometricsAuthentication" = "Пријавите се користећи Touch/Face ID";
