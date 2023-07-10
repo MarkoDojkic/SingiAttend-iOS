@@ -17,13 +17,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.9</string>
+	<string>2.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.9.0</string>
+	<string>2.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>ServerURL</key>
-	<string>https://bdb2-109-245-39-206.ngrok-free.app</string>
+	<string>https://bb95256f75d3-10717805177775569279.ngrok-free.app</string>
 	<key>ServerUsername</key>
 	<string>singiattend-admin</string>
 	<key>ServerPassword</key>
@@ -35,7 +35,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID login student using set saved credentials</string>
+	<string>We use Face ID to login student using set saved credentials</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
