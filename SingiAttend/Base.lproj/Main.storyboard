@@ -319,14 +319,14 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="save_biometrics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D3-l6-HX3">
-                            <rect key="frame" x="207" y="89" width="126" height="45"/>
+                            <rect key="frame" x="199" y="84" width="134" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="7"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-E3-XIj" userLabel="tlogin_btn">
-                            <rect key="frame" x="9" y="85" width="217" height="46"/>
+                            <rect key="frame" x="9" y="85" width="179" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -469,7 +469,7 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                     <action selector="populate_serbian:" destination="04x-aV-KfD" eventType="touchUpInside" id="fUu-Rd-Wbe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-Hu-ULX" userLabel="english_btn">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-Hu-ULX" userLabel="english_btn">
                                 <rect key="frame" x="24" y="557" width="163" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Kb9-uj-wYc"/>
