@@ -73,3 +73,5 @@
 "biometricsNotEnrolled" = "Biometrijska autentifikacija nije podešena na ovom uređaju\nPodesite ili Touch ID ili Face ID";
 "biometricsLockout" = "Korišćenje Touch ID-a ili Face ID-a je zaključano na ovom uređaju";
 "biometricsGenericError" = "Došlo je do nepoznate greške pri korišćenju Touch ID-a ili Face ID-a\nProverite svoju biometrijsku konfiguraciju";
+"forecastAttendancePoints" = "Prognoza mogućih dobijenih bodova za pohađanje nastave: ";
+"classOver" = "ŠKOLSKA GODINA JE ZAVRŠENA";

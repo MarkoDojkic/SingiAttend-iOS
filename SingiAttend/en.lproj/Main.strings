@@ -73,3 +73,5 @@
 "biometricsNotEnrolled" = "Biometrics authentication is not set on this device\nPlease setup either Touch ID or Face ID";
 "biometricsLockout" = "Use of Touch ID or Face ID is locked on this device";
 "biometricsGenericError" = "Unknown error with use of Touch ID or Face ID occurred\nPlease check your biometrics configuration";
+"forecastAttendancePoints" = "Forecast of possible obtained points for attending classes: ";
+"classOver" = "THE SCHOOL YEAR IS OVER";
