@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.1</string>
+	<string>2.0.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>ServerURL</key>
@@ -35,7 +35,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID to login student using set saved credentials</string>
+	<string>We use Face ID to login student using previously saved credentials</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
