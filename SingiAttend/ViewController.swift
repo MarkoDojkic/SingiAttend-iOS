@@ -506,21 +506,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         attendances_class_text.text = attendances[currentAttendanceLecture][0]
             + "\n" + attendances[currentAttendanceLecture][1]
             + ( attendances[currentAttendanceLecture][2].isEmpty ? "" : ("\n(" + attendances[currentAttendanceLecture][2] + ")") )
-        if(Locale.current.language.languageCode!.identifier == "sr"){
-            if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
-                attendances_prognosis_text.text = "Прогноза бодова за присуство: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
-            } else { attendances_prognosis_text.text = "Прогноза бодова за присуство: 0/10" }
-            if(attendances[currentAttendanceLecture][7] == "1"){
-                attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (КРАЈ НАСТАВЕ)"
-            }
-        }
-        else {
-            if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
-                attendances_prognosis_text.text = "Forecast points for attendance: " + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
-            } else { attendances_prognosis_text.text = "Forecast points for attendance: 0/10" }
-            if(attendances[currentAttendanceLecture][7] == "1"){
-                attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (LECTURES ARE OVER)"
-            }
+        
+        if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
+            attendances_prognosis_text.text = "forecastAttendancePoints".localized() + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
+        } else { attendances_prognosis_text.text = "forecastAttendancePoints".localized() + "0/10" }
+        if(attendances[currentAttendanceLecture][7] == "1"){
+            attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (" + "classOver".localized() + ")"
         }
     }
     
