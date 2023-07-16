@@ -52,13 +52,13 @@ extension NSRegularExpression {
     }
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
     
     @IBOutlet weak var titleMain_text: UILabel!
     @IBOutlet weak var copyright_text: UILabel!
     @IBOutlet weak var loggedInAs_text: UILabel!
     @IBOutlet weak var logout_btn: UIButton!
-    @IBOutlet var loginPopup: UIView!
+    @IBOutlet weak var loginPopup: UIView!
     @IBOutlet weak var indexLogin_text: UILabel!
     @IBOutlet weak var indexLogin_txt: UITextField!
     @IBOutlet weak var passLogin_text: UILabel!
@@ -76,15 +76,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var serverInacitve_text: UILabel!
     @IBOutlet weak var saveForBiometrics_text: UILabel!
     @IBOutlet weak var saveForBiometrics_switch: UISwitch!
+    
+    struct AttendanceRecord {
+        let title: String
+        let nameTeacher: String
+        let nameAssistant: String
+        let attendedLectures: Double
+        let totalLectures: Double
+        let attendedPractices: Double
+        let totalPractices: Double
+        let isInactive: Bool
+        
+        init(title: String, nameTeacher: String, nameAssistant: String, attendedLectures: Double, totalLectures: Double, attendedPractices: Double, totalPractices: Double, isInactive: Bool) {
+            self.title = title
+            self.nameTeacher = nameTeacher
+            self.nameAssistant = nameAssistant
+            self.attendedLectures = attendedLectures
+            self.totalLectures = totalLectures
+            self.attendedPractices = attendedPractices
+            self.totalPractices = totalPractices
+            self.isInactive = isInactive
+        }
+    }
+    
     let context = LAContext()
     let localStorage = UserDefaults.standard
     var courses = [[String]]()
-    var attendances = [[String]]()
-    var attendendL = PieChartDataEntry(value: 0)
-    var notAttendedL = PieChartDataEntry(value: 0)
-    var attendendP = PieChartDataEntry(value: 0)
-    var notAttendedP = PieChartDataEntry(value: 0)
-    var currentAttendanceLecture = 0
+    var attendances = [AttendanceRecord]()
+    let attendendL = PieChartDataEntry(value: 0)
+    let notAttendedL = PieChartDataEntry(value: 0)
+    let attendendP = PieChartDataEntry(value: 0)
+    let notAttendedP = PieChartDataEntry(value: 0)
+    var currentlySelectedAttendanceIndex = 0
     var updateTimer: Timer!
     
     override func viewDidLoad() {        
@@ -100,14 +123,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         login_btn.setTitle("login".localized(), for: UIControl.State.normal)
         login_biometrics_btn.setTitle("loginUsingBiometricsAuthentication".localized(), for: UIControl.State.normal)
         saveForBiometrics_text.text = "saveForBiometricsAuthentication".localized()
+        
         login_btn.layer.cornerRadius = 10
         register_btn.layer.cornerRadius = 10
         logout_btn.layer.cornerRadius = 10
         self.view.addSubview(loginPopup);
         loginPopup.center = self.view.center
         loginPopup.layer.cornerRadius = 18
+        
         courses_tv.dataSource = self
         courses_tv.rowHeight = 80
+        
+        attendances_pcv.delegate = self
+        attendances_pcv.legend.enabled = true
+        attendances_pcv.legend.orientation = .horizontal
+        attendances_pcv.legend.font = UIFont.italicSystemFont(ofSize: 10)
+        attendances_pcv.legend.form = .circle
+        attendances_pcv.isUserInteractionEnabled = true
+        attendances_pcv.holeColor = NSUIColor.black
+        attendances_pcv.drawEntryLabelsEnabled = false
+        attendances_pcv.holeRadiusPercent = 0.75
+        
+        attendendL.label = "attendendL".localized()
+        notAttendedL.label = "notAttendedL".localized()
+        attendendP.label = "attendendP".localized()
+        notAttendedP.label = "notAttendedP".localized()
         
         if(!localStorage.bool(forKey: "isLoggedIn")){
             overlay.isHidden = false
@@ -128,19 +168,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             loggedInAs_text.isHidden = false
             logout_btn.isHidden = false
             courses_tv.isHidden = false
-            attendances_pcv.isHidden = false
-            attendanceLeft_btn.isHidden = false
-            attendanceRight_btn.isHidden = false
-            attendances_class_text.isHidden = false
-            attendances_prognosis_text.isHidden = false
+            attendances_pcv.isHidden = true
+            attendanceLeft_btn.isHidden = true
+            attendanceRight_btn.isHidden = true
             startDataStreaming(0)
             updateTimer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(reloadTable), userInfo: nil, repeats: true)
-            attendanceLeft_btn.alpha = 0
-            attendanceLeft_btn.isUserInteractionEnabled = false
-            if(currentAttendanceLecture == attendances.count - 1){
-                attendanceRight_btn.alpha = 0
-                attendanceRight_btn.isUserInteractionEnabled = false
-            }
         }
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -156,14 +188,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func attendance_goLeft(_ sender: UIButton!) {
-        currentAttendanceLecture = currentAttendanceLecture - 1
+        currentlySelectedAttendanceIndex = currentlySelectedAttendanceIndex - 1
         
-        if(currentAttendanceLecture < attendances.count - 1){
+        if(currentlySelectedAttendanceIndex < attendances.count - 1){
             attendanceRight_btn.alpha = 1
             attendanceRight_btn.isUserInteractionEnabled = true
         }
         
-        if(currentAttendanceLecture == 0){
+        if(currentlySelectedAttendanceIndex == 0){
             sender.alpha = 0
             sender.isUserInteractionEnabled = false
         }
@@ -172,14 +204,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func attendance_goRight(_ sender: UIButton!) {
-        currentAttendanceLecture = currentAttendanceLecture + 1
+        currentlySelectedAttendanceIndex = currentlySelectedAttendanceIndex + 1
         
-        if(currentAttendanceLecture > 0){
+        if(currentlySelectedAttendanceIndex > 0){
             attendanceLeft_btn.alpha = 1
             attendanceLeft_btn.isUserInteractionEnabled = true
         }
         
-        if(currentAttendanceLecture == attendances.count - 1){
+        if(currentlySelectedAttendanceIndex == attendances.count - 1){
             sender.alpha = 0
             sender.isUserInteractionEnabled = false
         }
@@ -211,7 +243,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
             
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "loginWithBiometricsReason".localized()) { (isSuccessful, errorType) in
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: String(format: "biometricsLoginReason".localized(), biometricsIndexNumber)) { (isSuccessful, errorType) in
             
             if isSuccessful {
                 let keychainItem: KeychainPasswordItem = KeychainPasswordItem(account: biometricsIndexNumber)
@@ -234,16 +266,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     var message: String
                     
                     switch errorType {
-                    case LAError.authenticationFailed?:
-                        message = "biometricsAuthenticationFailed".localized()
-                    case LAError.biometryNotAvailable?:
-                        message = "biometricsNotAvailable".localized()
-                    case LAError.biometryNotEnrolled?:
-                        message = "biometricsNotEnrolled".localized()
-                    case LAError.biometryLockout?:
-                        message = "biometricsLockout".localized()
-                    default:
-                        message = "biometricsGenericError".localized()
+                        case LAError.authenticationFailed?:
+                            message = "biometricsAuthenticationFailed".localized()
+                        case LAError.biometryNotAvailable?:
+                            message = "biometricsNotAvailable".localized()
+                        case LAError.biometryNotEnrolled?:
+                            message = "biometricsNotEnrolled".localized()
+                        case LAError.biometryLockout?:
+                            message = "biometricsLockout".localized()
+                        default:
+                            message = "biometricsGenericError".localized()
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -405,22 +437,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.attendances.removeAll()
                         
                         for course in attendanceData_json!{
-                            var newAttendanceData = [String]()
-                            if(Locale.current.language.languageCode!.identifier == "sr"){
-                                newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String)
-                            }
-                            else{
-                                newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["titleEnglish"] as! String)
-                            }
-                            newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameT"] as! String)
-                            newAttendanceData.append((course["attendanceSubobjectInstance"] as! [String:Any])["nameA"] as? String ?? "")
-                            newAttendanceData.append(String((course["attendedLectures"] as! Int)))
-                            newAttendanceData.append(String((course["totalLectures"] as! Int)))
-                            newAttendanceData.append(String((course["attendedPractices"] as! Int)))
-                            newAttendanceData.append(String((course["totalPractices"] as! Int)))
-                            newAttendanceData.append(String((course["attendanceSubobjectInstance"] as! [String:Any])["isInactive"] as! String))
-                            
-                            self.attendances.append(newAttendanceData)
+                            self.attendances.append(AttendanceRecord.init(title: Locale.current.language.languageCode!.identifier == "sr" ? (course["attendanceSubobjectInstance"] as! [String:Any])["title"] as! String : (course["attendanceSubobjectInstance"] as! [String:Any])["titleEnglish"] as! String, nameTeacher: (course["attendanceSubobjectInstance"] as! [String:Any])["nameT"] as! String, nameAssistant: (course["attendanceSubobjectInstance"] as! [String:Any])["nameA"] as? String ?? "", attendedLectures: (course["attendedLectures"] as! Double), totalLectures: (course["totalLectures"] as! Double), attendedPractices: (course["attendedPractices"] as! Double), totalPractices: (course["totalPractices"] as! Double), isInactive: ((course["attendanceSubobjectInstance"] as! [String:Any])["isInactive"] as! String) == "1").self)
                         }
                         
                         self.updatePieChart()
@@ -454,65 +471,101 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] else { return }
+        
+        var percentage: Double
+        var details: String
+        var color: UIColor
+                
+        switch (dataSet.entryIndex(entry: entry) + 3){
+            case 3:
+                percentage = Double(attendances[currentlySelectedAttendanceIndex].attendedLectures / attendances[currentlySelectedAttendanceIndex].totalLectures) * 100.0
+                details = String(format: "(%.0f/%.0f)", arguments: [attendances[currentlySelectedAttendanceIndex].attendedLectures, attendances[currentlySelectedAttendanceIndex].totalLectures])
+                color = UIColor.green
+            case 4:
+                percentage = Double((attendances[currentlySelectedAttendanceIndex].totalLectures - attendances[currentlySelectedAttendanceIndex].attendedLectures) / attendances[currentlySelectedAttendanceIndex].totalLectures) * 100.0
+                details = String(format: "(%.0f/%.0f)", arguments: [attendances[currentlySelectedAttendanceIndex].totalLectures - attendances[currentlySelectedAttendanceIndex].attendedLectures, attendances[currentlySelectedAttendanceIndex].totalLectures])
+                color = UIColor.red
+            case 5:
+                percentage = attendances[currentlySelectedAttendanceIndex].attendedPractices / attendances[currentlySelectedAttendanceIndex].totalPractices * 100.0
+                details = String(format: "(%.0f/%.0f)", arguments: [attendances[currentlySelectedAttendanceIndex].attendedPractices, attendances[currentlySelectedAttendanceIndex].totalPractices])
+                color = UIColor.cyan
+            case 6:
+                percentage = Double((attendances[currentlySelectedAttendanceIndex].totalPractices - attendances[currentlySelectedAttendanceIndex].attendedPractices) / attendances[currentlySelectedAttendanceIndex].totalPractices) * 100.0
+                details = String(format: "(%.0f/%.0f)", arguments: [attendances[currentlySelectedAttendanceIndex].totalPractices - attendances[currentlySelectedAttendanceIndex].attendedPractices, attendances[currentlySelectedAttendanceIndex].totalPractices])
+                color = UIColor.magenta
+            default:
+                percentage = -1.0
+                details = ""
+            color = UIColor.clear
+        }
+        
+        let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.center
+        
+        attendances_pcv.centerAttributedText = NSAttributedString(string: String(format: "%.0f%%\n%@", arguments: [percentage, details]), attributes: [ .font: UIFont.boldSystemFont(ofSize: 12), .foregroundColor: color, .backgroundColor: UIColor.black, .paragraphStyle: paragraphStyle])
+    }
+    
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        attendances_pcv.centerAttributedText = nil
+    }
+    
     @objc func reloadTable(){
         self.startDataStreaming(1)
         self.startDataStreaming(2)
     }
     
     func updatePieChart(){
-        if(self.attendances_pcv.isHidden && !attendances.isEmpty){
+        if(attendances.isEmpty){
+            self.attendances_pcv.isHidden = true
+            self.attendanceLeft_btn.isHidden = true
+            self.attendanceRight_btn.isHidden = true
+            self.attendances_class_text.isHidden = true
+            self.attendances_prognosis_text.isHidden = true
+            return
+        } else if(self.attendances_pcv.isHidden) {
             self.attendances_pcv.isHidden = false
             self.attendanceLeft_btn.isHidden = false
             self.attendanceRight_btn.isHidden = false
             self.attendances_class_text.isHidden = false
             self.attendances_prognosis_text.isHidden = false
+            attendanceLeft_btn.alpha = 0
+            attendanceLeft_btn.isUserInteractionEnabled = false
+            attendanceRight_btn.alpha = attendances.count == 1 ? 0 : 1
+            attendanceRight_btn.isUserInteractionEnabled = attendances.count != 1
         }
         
-        if(attendances.isEmpty){
-            return
-        }
+        self.attendances_pcv.highlightValue(nil)
+        self.attendances_pcv.centerAttributedText = nil
         
-        if(currentAttendanceLecture == attendances.count - 1){
-            self.attendanceRight_btn.alpha = 0
-            self.attendanceRight_btn.isUserInteractionEnabled = false
-        }
+        attendendL.value = attendances[currentlySelectedAttendanceIndex].attendedLectures
+                
+        notAttendedL.value = attendances[currentlySelectedAttendanceIndex].totalLectures - attendances[currentlySelectedAttendanceIndex].attendedLectures
+                
+        attendendP.value = attendances[currentlySelectedAttendanceIndex].attendedPractices
+                
+        notAttendedP.value = attendances[currentlySelectedAttendanceIndex].totalPractices - attendances[currentlySelectedAttendanceIndex].attendedPractices
         
-        var percentage = 0.0;
-        
-        if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
-            percentage = Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! / Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! * 100.0
-        }
-        attendances_pcv.centerText = String(round(percentage)) + "% \n" + attendances[currentAttendanceLecture][3] + "/" + attendances[currentAttendanceLecture][4] + "\n" + attendances[currentAttendanceLecture][5] + "/" + attendances[currentAttendanceLecture][6]
-
-        attendances_pcv.legend.enabled = false
-        attendances_pcv.isUserInteractionEnabled = false
-        attendendL.value = Double(attendances[currentAttendanceLecture][3])!
-        attendendL.label = nil
-        
-        notAttendedL.value = Double(attendances[currentAttendanceLecture][4])! - Double(attendances[currentAttendanceLecture][3])!
-        notAttendedL.label = nil
-        
-        attendendP.value = Double(attendances[currentAttendanceLecture][5])!
-        attendendP.label = nil
-        
-        notAttendedP.value = Double(attendances[currentAttendanceLecture][6])! - Double(attendances[currentAttendanceLecture][5])!
-        notAttendedP.label = nil
         
         let chartDataSet = PieChartDataSet(entries: [attendendL,notAttendedL,attendendP,notAttendedP], label: "")
         chartDataSet.colors = [UIColor.green,UIColor.red,UIColor.cyan,UIColor.magenta]
         chartDataSet.drawValuesEnabled = false
+        chartDataSet.selectionShift = 4.0
         attendances_pcv.data = PieChartData(dataSet: chartDataSet)
         
-        attendances_class_text.text = attendances[currentAttendanceLecture][0]
-            + "\n" + attendances[currentAttendanceLecture][1]
-            + ( attendances[currentAttendanceLecture][2].isEmpty ? "" : ("\n(" + attendances[currentAttendanceLecture][2] + ")") )
+        let attendanceText = NSMutableAttributedString(string: attendances[currentlySelectedAttendanceIndex].title.capitalized
+                + "\n" + attendances[currentlySelectedAttendanceIndex].nameTeacher + ( attendances[currentlySelectedAttendanceIndex].nameAssistant.isEmpty ? "" : ("\n("
+                + attendances[currentlySelectedAttendanceIndex].nameAssistant + ")") ), attributes: nil)
+                
+        attendanceText.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15.0)], range: (attendanceText.string as NSString).range(of: attendances[currentlySelectedAttendanceIndex].title.capitalized))
         
-        if(Double(attendances[currentAttendanceLecture][3] + attendances[currentAttendanceLecture][5])! != 0 && Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])! != 0){
-            attendances_prognosis_text.text = "forecastAttendancePoints".localized() + String(Int(10.0*Double(attendances[currentAttendanceLecture][3]+attendances[currentAttendanceLecture][5])!/Double(attendances[currentAttendanceLecture][4]+attendances[currentAttendanceLecture][6])!)) + "/10"
-        } else { attendances_prognosis_text.text = "forecastAttendancePoints".localized() + "0/10" }
-        if(attendances[currentAttendanceLecture][7] == "1"){
-            attendances_prognosis_text.text = attendances_prognosis_text.text! + "\n (" + "classOver".localized() + ")"
-        }
+        attendances_class_text.attributedText = attendanceText
+        
+        let forecastAttendancePoints: String = String(format: "%.0f", arguments: [((attendances[currentlySelectedAttendanceIndex].totalLectures + attendances[currentlySelectedAttendanceIndex].totalPractices) == 0.0 || (attendances[currentlySelectedAttendanceIndex].attendedLectures + attendances[currentlySelectedAttendanceIndex].attendedPractices) == 0.0) ? 0.0 : round(Double((attendances[currentlySelectedAttendanceIndex].attendedLectures + attendances[currentlySelectedAttendanceIndex].attendedPractices) / (attendances[currentlySelectedAttendanceIndex].totalLectures + attendances[currentlySelectedAttendanceIndex].totalPractices)) * 10.0)])
+        
+        attendances_prognosis_text.text = String(format: "forecastAttendancePoints".localized(), arguments: [forecastAttendancePoints]) + (!attendances[currentlySelectedAttendanceIndex].isInactive ? "\n (" + "classOver".localized() + ")" : "")
+        attendances_prognosis_text.font = UIFont.systemFont(ofSize: 7)
     }
     
     func login(_ index: String, _ data:Data, completionHandler: @escaping (String?) -> Void) {
