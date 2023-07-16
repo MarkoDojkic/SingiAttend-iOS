@@ -158,15 +158,7 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
                         if(statusCode == 200){
                             SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle: "rememberCredentials".localized(), buttonColor: UIColor.green, otherButtonTitle:"ok".localized(), otherButtonColor:UIColor.blue) { [self] (isMainButton) -> Void in
                                 if(isMainButton) {
-                                    do {                                        
-                                        try? KeychainPasswordItem(account: String(self.indexYear) + "/" + self.indexReg_txt.text!).savePassword(self.passReg_txt.text!)
-                                    } catch {
-                                        print("Error occurred while saving credentials: \(error)")
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                            SweetAlert().showAlert("titleCredentialsNotSaved".localized(), subTitle: "messageCredentialsNotSaved".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
-                                        }
-                                    }
+                                    try? KeychainPasswordItem(account: String(self.indexYear) + "/" + self.indexReg_txt.text!).savePassword(self.passReg_txt.text!)
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                         SweetAlert().showAlert("titleCredentialsSaved".localized(), subTitle: "messageCredentialsSaved".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
@@ -191,12 +183,6 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
                     }
                 }
             })
-        } catch {
-            print("Error occurred while encoding student data: \(error)")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
-            }
         }
     }
         
