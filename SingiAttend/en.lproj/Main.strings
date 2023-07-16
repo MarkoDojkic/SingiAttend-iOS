@@ -66,6 +66,7 @@
 "messageCredentialsSaved" = "Entered login credentials have been successfully saved to \"Keychain\"";
 "saveForBiometricsAuthentication" = "Use this account for\nlogin using\nbiometrics authentication";
 "loginUsingBiometricsAuthentication" = "Login using Touch/Face ID";
+"biometricsLoginReason" = "Logging in of a student whose index number is \"%@\" using biometric authentication";
 "biometricsNoAccountMessage" = "You haven't associated any login credentials with biometric authentication";
 "biometricsKeychainReadFailed" = "Error occurred while reading keychain password";
 "biometricsAuthenticationFailed" = "Biometrics authentication failed, try again";
@@ -73,5 +74,9 @@
 "biometricsNotEnrolled" = "Biometrics authentication is not set on this device\nPlease setup either Touch ID or Face ID";
 "biometricsLockout" = "Use of Touch ID or Face ID is locked on this device";
 "biometricsGenericError" = "Unknown error with use of Touch ID or Face ID occurred\nPlease check your biometrics configuration";
-"forecastAttendancePoints" = "Forecast of possible obtained points for attending classes: ";
+"forecastAttendancePoints" = "Forecast of possible obtained points for attending classes: %@/10";
 "classOver" = "THE SCHOOL YEAR IS OVER";
+"attendL" = "Attendance at lectures";
+"notAttendedL" = "Absence from lectures";
+"attendP" = "Attendance at exercises";
+"notAttendedP" = "Absence from exercises";
