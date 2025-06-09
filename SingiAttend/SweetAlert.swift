@@ -270,6 +270,7 @@ open class SweetAlert: UIViewController {
         }
         
         self.titleLabel.text = title
+        self.titleLabel.adjustsFontSizeToFitWidth = true
         if subTitle != nil {
             self.subTitleTextView.text = subTitle
         }
@@ -277,6 +278,7 @@ open class SweetAlert: UIViewController {
         if buttonTitle.isEmpty == false {
             let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
             button.setTitle(buttonTitle, for: UIControl.State())
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.backgroundColor = buttonColor
             button.isUserInteractionEnabled = true
             button.tag = 0
@@ -286,6 +288,7 @@ open class SweetAlert: UIViewController {
         if otherButtonTitle != nil && otherButtonTitle!.isEmpty == false {
             let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
             button.setTitle(otherButtonTitle, for: UIControl.State())
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.backgroundColor = otherButtonColor
             button.addTarget(self, action: #selector(SweetAlert.pressed(_:)), for: UIControl.Event.touchUpInside)
             button.tag = 1

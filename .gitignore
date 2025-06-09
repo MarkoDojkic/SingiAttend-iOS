@@ -1,0 +1,35 @@
+Pods/
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcscmblueprint
+*.xccheckout
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/xcshareddata/WorkspaceSettings.xcsettings
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage (if used)
+Carthage/
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
+
+# SonarQube (your `.scannerwork`)
+.scannerwork/
+
+# Other
+*.log
+

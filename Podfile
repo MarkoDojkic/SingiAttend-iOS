@@ -7,7 +7,7 @@ target 'SingiAttend' do
 	
   # Pods for SingiAttend
   pod 'Alamofire'
-  pod 'Charts'
+  pod 'DGCharts'
   target 'SingiAttendTests' do
     inherit! :search_paths
     # Pods for testing

@@ -23,12 +23,14 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var facultyS_text: UILabel!
     @IBOutlet weak var copyright_text: UILabel!
     @IBOutlet weak var register_btn: UIButton!
+    @IBOutlet weak var cancel_btn: UIButton!
     @IBOutlet weak var faculties_pv: UIPickerView!
     @IBOutlet weak var courses_pv: UIPickerView!
-    @IBOutlet weak var eng_btn: UIButton!
-    @IBOutlet weak var srb_btn: UIButton!
+    @IBOutlet weak var english_img: UIImageView!
+    @IBOutlet weak var serbian_img: UIImageView!
+    @IBOutlet weak var englishGroup_sc:UISegmentedControl!
+    @IBOutlet weak var serbianGroup_sc:UISegmentedControl!
     
-    let localStorage = UserDefaults.standard
     var faculties = [""]
     var courses: Array<[String:Int]> = []
     var f_courses: [String:Int] = [:]
@@ -36,9 +38,9 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     var selectedCourse: String = ""
     var indexYear: Int = -1
     struct Student:Codable {
-        var name_surname: String
+        var nameSurname: String
         var index: String
-        var password_hash: String
+        var passwordHash: String
         var email: String
         var studyId: String
         var year: String
@@ -59,6 +61,15 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         passReg_txt.placeholder = "hint_pass".localized()
         facultyS_text.text = "course".localized()
         register_btn.setTitle("confirmreg".localized(), for: UIControl.State.normal)
+        register_btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        cancel_btn.setTitle("cancel".localized(), for: UIControl.State.normal)
+        cancel_btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        serbianGroup_sc.setTitle("bg".localized(), forSegmentAt: 0)
+        serbianGroup_sc.setTitle("ns".localized(), forSegmentAt: 1)
+        serbianGroup_sc.setTitle("nis".localized(), forSegmentAt: 2)
+        englishGroup_sc.setTitle("bg".localized(), forSegmentAt: 0)
+        englishGroup_sc.setTitle("ns".localized(), forSegmentAt: 1)
+        englishGroup_sc.setTitle("nis".localized(), forSegmentAt: 2)
         
         faculties_pv.delegate = self
         faculties_pv.dataSource = self
@@ -66,6 +77,16 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         courses_pv.dataSource = self
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
+        english_img.alpha = 0.55
+        english_img.layer.borderColor = UIColor.green.cgColor
+        serbian_img.alpha = 0.55
+        serbian_img.layer.borderColor = UIColor.green.cgColor
+        serbianGroup_sc.selectedSegmentIndex = UISegmentedControl.noSegment
+        englishGroup_sc.selectedSegmentIndex = UISegmentedControl.noSegment
+    }
+    
+    @IBAction func onCancel(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
@@ -114,6 +135,13 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
             passReg_txt.backgroundColor = UIColor.green
         }
         
+        if(CsrfTokenManager.shared.proxyIdentifier.isEmpty){
+            facultyS_text.backgroundColor = UIColor.red
+            return
+        } else {
+            facultyS_text.backgroundColor = UIColor.green
+        }
+        
         if(selectedCourse.isEmpty) {
             faculties_pv.backgroundColor = UIColor.red
             courses_pv.backgroundColor = UIColor.red
@@ -150,68 +178,101 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
         }
                 
         do {
-            let jsonData = try? jsonEncoder.encode(Student(name_surname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, password_hash: passReg_txt.text!, email: singimail_txt.text!, studyId: sCourseId, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4))))
-            register(jsonData!, completionHandler: {
-                response in
-                if let statusCode = response {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { //To fix Modifications to the layout engine must not be performed from a background thread after it has been accessed from the main thread
-                        if(statusCode == 200){
-                            SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: AlertStyle.success, buttonTitle: "rememberCredentials".localized(), buttonColor: UIColor.green, otherButtonTitle:"ok".localized(), otherButtonColor:UIColor.blue) { [self] (isMainButton) -> Void in
-                                if(isMainButton) {
-                                    try? KeychainPasswordItem(account: String(self.indexYear) + "/" + self.indexReg_txt.text!).savePassword(self.passReg_txt.text!)
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                        SweetAlert().showAlert("titleCredentialsSaved".localized(), subTitle: "messageCredentialsSaved".localized(), style: AlertStyle.success, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
-                                        
-                                        self.performSegue(withIdentifier: "toMain", sender: sender)
-                                    }
-                                } else {
-                                    self.performSegue(withIdentifier: "toMain", sender: sender)
+            if let jsonData = try? jsonEncoder.encode(Student(nameSurname: nameSurname_txt.text!, index: String(indexYear) + "/" + indexReg_txt.text!, passwordHash: passReg_txt.text!, email: singimail_txt.text!, studyId: sCourseId, year: String(Int.random(in: Int(selectedCourse) == 16 ? 1...5 : 1...4)))) {
+                register(jsonData) { response in
+                    if let statusCode = response {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            if statusCode == 200 {
+                                _ = SweetAlert().showAlert("regTitleSuccess".localized(), subTitle: "regMessageSuccess".localized(), style: .success, buttonTitle:"ok".localized(), buttonColor: UIColor.blue) { _ in
+                                    CsrfTokenManager.shared.logoutFromCsrfSession()
+                                    self.dismiss(animated: true)
                                 }
-                            }
-                        }
-                        else if(statusCode == 500){
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: AlertStyle.error, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
-                            }
-                        }
-                        else {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: AlertStyle.warning, buttonTitle:"ok".localized(), buttonColor:UIColor.blue) { (isMainButton) -> Void in }
+                            } else if statusCode == 500 {
+                                _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: .error, buttonTitle:"ok".localized(), buttonColor: UIColor.blue)
+                            } else {
+                                _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "serverMessageError".localized(), style: .warning, buttonTitle:"ok".localized(), buttonColor: UIColor.blue)
                             }
                         }
                     }
                 }
-            })
+            } else {
+                print("Failed to encode student JSON")
+                _ = SweetAlert().showAlert("regTitleFailed".localized(), subTitle: "regMessageFailed".localized(), style: .error, buttonTitle:"ok".localized(), buttonColor: UIColor.blue)
+            }
+
         }
     }
         
-    @IBAction func checkSingimail(_ sender: Any) {
+    @IBAction func checkSingimail(_ sender: UITextField) {
         do {
             let regex = try NSRegularExpression(pattern: "^[a-z]+\\.[a-z]+\\.[0-9]{2,3}@$", options: NSRegularExpression.Options.caseInsensitive)
-            if(regex.matches(singimail_txt.text!)){
-                singimail_txt.text = singimail_txt.text! + "singimail.rs"
-                singimail_txt.maxLength = singimail_txt.text!.count
+            if(regex.matches(sender.text!)){
+                sender.text = sender.text! + "singimail.rs"
+                sender.maxLength = sender.text!.count
             }
         } catch {}
     }
     
-    @IBAction func populate_engish(_ sender: Any) {
+    @IBAction func populate_english(_ sender: UISegmentedControl) {
+        serbianGroup_sc.selectedSegmentIndex = UISegmentedControl.noSegment
+        serbian_img.layer.borderWidth = 0
+        english_img.layer.borderWidth = 1
+        
         faculties = ["f_bb".localized(),"f_th".localized(),"f_ic".localized(),"f_ts".localized(),"f_su".localized()]
         courses = [["be_eng".localized():10,"ang_eng".localized():11],["theh_eng".localized():12],["it_eng".localized():13],["sde_eng".localized():14],["esd_eng".localized():15]]
-        eng_btn.layer.borderWidth = 2.0
-        eng_btn.layer.borderColor = UIColor.green.cgColor
-        srb_btn.layer.borderWidth = 0.0
+        
+        switch sender.selectedSegmentIndex {
+            case 0:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumBG"
+                break
+            case 1:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumNS"
+                faculties.remove(at: 4)
+                courses.remove(at: 4)
+                break
+            case 2:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumNIS"
+                faculties.remove(at: 4)
+                courses.remove(at: 4)
+                break
+            default:
+                CsrfTokenManager.shared.proxyIdentifier = ""
+                break
+        }
+        
         faculties_pv.reloadAllComponents()
         courses_pv.reloadAllComponents()
     }
     
-    @IBAction func populate_serbian(_ sender: Any) {
+    @IBAction func populate_serbian(_ sender: UISegmentedControl) {
+        englishGroup_sc.selectedSegmentIndex = UISegmentedControl.noSegment
+        english_img.layer.borderWidth = 0
+        serbian_img.layer.borderWidth = 1
+        
         faculties = ["f_bb".localized(),"f_th".localized(),"f_ic".localized(),"f_ts".localized(),"f_ps".localized(),"f_su".localized()]
         courses = [["be_srb".localized():1,"ang_srb".localized():2],["theh_srb".localized():3],["cs_srb".localized():4,"it_srb".localized():5],["sde_srb".localized():6],["pes_srb".localized():7,"ms_srb".localized():8],["esd_srb".localized():9, "f_srb".localized():16]]
-        srb_btn.layer.borderWidth = 2.0
-        srb_btn.layer.borderColor = UIColor.green.cgColor
-        eng_btn.layer.borderWidth = 0.0
+        
+        switch sender.selectedSegmentIndex {
+            case 0:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumBG"
+                break
+            case 1:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumNS"
+                faculties.remove(at: 4)
+                courses.remove(at: 4)
+                break
+            case 2:
+                CsrfTokenManager.shared.proxyIdentifier = "SingidunumNIS"
+                faculties.remove(at: 3)
+                faculties.remove(at: 4)
+                courses.remove(at: 3)
+                courses.remove(at: 4)
+                break
+            default:
+                CsrfTokenManager.shared.proxyIdentifier = ""
+                break
+        }
+        
         faculties_pv.reloadAllComponents()
         courses_pv.reloadAllComponents()
     }
@@ -249,10 +310,9 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        pickerLabel.font = UIFont(name: "Ropa Sans", size: 4)
+        pickerLabel.font = UIFont(name: "Ropa Sans", size: 8)
         pickerLabel.textAlignment = NSTextAlignment.center
         pickerLabel.adjustsFontSizeToFitWidth = true
-        pickerLabel.sizeToFit()
         
         if pickerView.tag == 0 {
             pickerLabel.text = faculties[row]
@@ -268,22 +328,45 @@ class ViewControllerRegistration: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func register(_ data:Data, completionHandler: @escaping (Int?) -> Void) {
-        var request = URLRequest(url: URL(string: Bundle.main.infoDictionary!["ServerURL"]! as! String + "/api/insert/student")!)
-        request.httpMethod = "POST"
-        request.httpBody = data
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Basic \(String(format: "%@:%@", Bundle.main.infoDictionary!["ServerUsername"]! as! String, Bundle.main.infoDictionary!["ServerPassword"]! as! String).data(using: String.Encoding.utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error took place while sending registration data: \(error)")
+        CsrfTokenManager.shared.fetchCsrfSession { success in
+            if success {
+                guard let serverUrl = Bundle.main.infoDictionary?["ServerURL"] as? String,
+                      let username = Bundle.main.infoDictionary?["ServerUsername"] as? String,
+                      let password = Bundle.main.infoDictionary?["ServerPassword"] as? String else {
+                    print("Missing server info from Info.plist")
+                    completionHandler(400)
+                    return
+                }
+                
+                var request = URLRequest(url: URL(string: "\(serverUrl)/api/insert/student")!)
+                request.httpMethod = "POST"
+                request.httpBody = data
+                request.setValue(CsrfTokenManager.shared.proxyIdentifier, forHTTPHeaderField: "X-Tenant-ID")
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Accept")
+                request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                request.setValue("Basic \(String(format: "%@:%@", username, password).data(using: .utf8)!.base64EncodedString())", forHTTPHeaderField: "Authorization")
+                
+                // Add CSRF headers
+                request.setValue(CsrfTokenManager.shared.sessionData.csrfTokenSecret, forHTTPHeaderField: CsrfTokenManager.shared.sessionData.csrfHeaderName)
+                let cookieValue = "JSESSIONID=\(CsrfTokenManager.shared.sessionData.jsessionId); XSRF-TOKEN=\(CsrfTokenManager.shared.sessionData.xsrfToken)"
+                request.setValue(cookieValue, forHTTPHeaderField: "Cookie")
+                
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    if let error = error {
+                        print("Error took place while sending registration data: \(error)")
+                        completionHandler(400)
+                        return
+                    }
+                    
+                    if let response = response {
+                        completionHandler((response as! HTTPURLResponse).statusCode)
+                    }
+                }.resume()
+                
+            } else {
+                print("Failed to fetch CSRF session")
                 completionHandler(400)
             }
-            
-            if let response = response {
-                completionHandler((response as! HTTPURLResponse).statusCode)
-            }
-        }.resume()
+        }
     }
 }

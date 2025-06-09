@@ -1,6 +1,0 @@
-framework module Pods_SingiAttend {
-  umbrella header "Pods-SingiAttend-umbrella.h"
-
-  export *
-  module * { export * }
-}
