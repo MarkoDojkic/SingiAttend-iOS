@@ -17,21 +17,19 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.5</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.3</string>
+	<string>2.5.0-FINAL</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
 	<key>ServerURL</key>
-	<string>https://bb95256f75d3-10717805177775569279.ngrok-free.app</string>
+	<string>https://kangaroo-discrete-viper.ngrok-free.app</string>
 	<key>ServerUsername</key>
 	<string>singiattend-admin</string>
 	<key>ServerPassword</key>
 	<string>singiattend-server2021</string>
-	<key>KeyChainServiceName</key>
-	<string>SingiAttend-Student-Credentials</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen.storyboard</string>
 	<key>UIMainStoryboardFile</key>

@@ -3,7 +3,7 @@
 "br_indexa" = "Broj indeksa:";
 "password" = "Lozinka:";
 "register" = "Registracija";
-"copyright" = "© Marko Dojkić 2020-2023";
+"copyright" = "© Marko Dojkić 2020-2025";
 "name_surname" = "Ime i prezime:";
 "singimail" = "Studentska e-mail adresa:";
 "confirmreg" = "Registruj me";
@@ -17,10 +17,10 @@
 "cancel" = "Odustani";
 "regTitleSuccess" = "Uspešna registracija";
 "regMessageSuccess" = "Uspešno ste se registrovali\nSada se možete prijaviti sa svojim akreditivima";
-"loginTitleSuccess" = "Uspešno ste se prijavili";
+"loginTitleSuccess" = "Uspešna prijava";
 "regTitleFailed" = "Neuspešna registracija";
 "regMessageFailed" = "Podaci za registraciju su nevažeći, možda korisnik već postoji\nProverite podatke i pokušajte ponovo";
-"loginTitleFailed" = "Niste se uspešno prijavili";
+"loginTitleFailed" = "Neuspešna prijava";
 "loginMessageFailed" = "Proverite Vaš broj indeksa i lozinku";
 "loginMessageUnknown" = "Ne postoji student sa unetim brojem indeksa";
 "ok" = "U redu";
@@ -59,11 +59,8 @@
 "newlyRecordedAttendance" = "Uspešno zabeleženo prisustvo";
 "recordAttendanceUnknownError" = "Dogodila se greška prilikom evidentiranja prisustva\nProverite sa profesorom/asistentom";
 "serverInactive" = "Server nije aktivan";
-"rememberCredentials" = "Sačuvaj u \"Keychain\"";
-"titleCredentialsNotSaved" = "Neuspešno čuvanje kredencijala";
-"messageCredentialsNotSaved" = "Dogodila se greška prilikom čuvanja kredencijala za prijavu studenta u \"Keychain\"";
 "titleCredentialsSaved" = "Uspešno čuvanje kredencijala";
-"messageCredentialsSaved" = "Uneti kredencijali za prijavu studenta su uspešno sačuvani u \"Keychain\"";
+"messageCredentialsSaved" = "Uneti kredencijali za prijavu studenta su uspešno sačuvani";
 "saveForBiometricsAuthentication" = "Koristite ovaj nalog za\nprijavljivanje korišćenjem\nbiometrijske autentifikacije";
 "loginUsingBiometricsAuthentication" = "Prijavi me korišćenjem Touch/Face ID-a";
 "biometricsLoginReason" = "Prijava studenta čiji je broj indeksa \"%@\" korišćenjem biometrijske autentifikacije";
@@ -80,3 +77,9 @@
 "notAttendedL" = "Odsutnost na predavanjima";
 "attendendP" = "Prisutnost na vežbama";
 "notAttendedP" = "Odsutnost na vežbama";
+"facultyPlace" = "Odaberite mesto gde studirate";
+"bg" = "Beograd";
+"ns" = "Novi Sad";
+"nis" = "Niš";
+"facultyPlaceNotSelected" = "Niste odabrali mesto gde studirate";
+"teacherIsAssistant" = "Profesor je takođe odgovoran za vežbe";

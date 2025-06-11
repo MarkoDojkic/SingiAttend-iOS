@@ -1,8 +1,17 @@
+//
+//  SecureStorage.swift
+//  SingiAttend
+//
+//  Created by Марко Дојкић on 7. 6. 2025..
+//  Copyright © 2025 Марко Дојкић. All rights reserved.
+//
+
+
 import Foundation
 import Security
 
 class SecureStorage {
-    static func save(key: String, data: Data) -> Bool {
+    static func save(key: String, data: Data) {
         let query: [String: Any] = [
             kSecClass as String:           kSecClassGenericPassword,
             kSecAttrAccount as String:     key,
@@ -10,7 +19,7 @@ class SecureStorage {
             kSecAttrAccessible as String:  kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
         ]
         SecItemDelete(query as CFDictionary) // Delete old item if it exists
-        return SecItemAdd(query as CFDictionary, nil) == errSecSuccess
+        SecItemAdd(query as CFDictionary, nil)
     }
 
     static func load(key: String) -> Data? {
