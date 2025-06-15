@@ -39,7 +39,6 @@ class CsrfTokenManager {
 
         session.dataTask(with: request) { data, response, error in
             guard
-                let httpResponse = response as? HTTPURLResponse,
                 let url = request.url,
                 let cookies = HTTPCookieStorage.shared.cookies(for: url),
                 let csrfHeaderEntry = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: String]

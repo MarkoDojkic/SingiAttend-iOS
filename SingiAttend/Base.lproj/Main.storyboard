@@ -117,7 +117,7 @@ Jasna Petrovic  (11:50 - 12:50)</string>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-lD-DEX" userLabel="attendances_v">
                                         <rect key="frame" x="158" y="0.0" width="118" height="248"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Yv-kIb" userLabel="attendances_pcv" customClass="PieChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Yv-kIb" userLabel="attendances_pcv" customClass="PieChartView" customModule="DGCharts">
                                                 <rect key="frame" x="-5" y="-5" width="165" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-cB-6Dp" userLabel="overlay_img">
