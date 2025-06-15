@@ -430,11 +430,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             else{ newCourseData.append(course["subjectEnglish"] as! String) }
                             
                             let formatter = DateFormatter()
-                            formatter.locale = Locale(identifier: "en_US_POSIX")  // Important for fixed format
+                            formatter.locale = Locale(identifier: "en_US_POSIX")
                             formatter.dateFormat = "EEE MMM dd HH:mm:ss 'GMT' yyyy"
                             formatter.timeZone = TimeZone(abbreviation: "GMT")
                             let localDateFormatter = DateFormatter()
-                            localDateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+                            localDateFormatter.dateFormat = Locale.current.language.languageCode!.identifier == "sr" ? "dd.MM.yyyy HH:mm" : "yyyy-MM-dd h:mm a"
                             localDateFormatter.timeZone = .current
                             
                             newCourseData.append(course["nameSurname"] as! String)
